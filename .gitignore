@@ -1,0 +1,12 @@
+# Secrets
+.env
+**/.env
+
+# English lesson video (Remotion)
+english/video/node_modules/
+english/video/out/
+english/video/public/audio/
+
+# OS
+.DS_Store
+Thumbs.db
