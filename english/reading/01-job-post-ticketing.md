@@ -13,8 +13,8 @@
 id: reading-01
 type: reading
 title: "Job Post: Laravel & React Developer for a Ticketing Platform"
-audio: english/audio/reading-01.mp3
-video: english/video/out/reading-01.mp4
+audio: english/audio/reading/reading-01.mp3
+video: english/video/out/reading/reading-01.mp4
 voice: auto
 speed: 0.9
 -->
@@ -77,7 +77,7 @@ We look forward to your proposal!
 
 ## 3. Luyện nghe (3 lượt)
 
-> 🎧 Audio: [`english/audio/reading-01.mp3`](../audio/reading-01.mp3) · 🎬 Video: `english/video/out/reading-01.mp4` _(đường dẫn dự kiến; tạo bằng skill `lesson-video`, chưa tạo trong bước soạn bài này)._ Khi chưa có audio, có thể đọc thành tiếng trước.
+> 🎧 Audio: [`english/audio/reading/reading-01.mp3`](../audio/reading/reading-01.mp3) · 🎬 Video: `english/video/out/reading/reading-01.mp4` _(đường dẫn dự kiến; tạo bằng skill `lesson-video`, chưa tạo trong bước soạn bài này)._ Khi chưa có audio, có thể đọc thành tiếng trước.
 
 | Lượt | Cách làm | Mục tiêu |
 |---|---|---|

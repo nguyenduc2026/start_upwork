@@ -11,8 +11,8 @@
 id: reading-11
 type: reading
 title: "Reading 11: Client Feedback"
-audio: english/audio/reading-11.mp3
-video: english/video/out/reading-11.mp4
+audio: english/audio/reading/reading-11.mp3
+video: english/video/out/reading/reading-11.mp4
 voice: auto
 speed: 0.9
 -->
@@ -48,7 +48,7 @@ For our next project, we would like to agree on the demo scenarios at the start.
 
 ## 3. Luyện nghe
 
-> 🎧 Audio: [`english/audio/reading-11.mp3`](../audio/reading-11.mp3) · 🎬 Video: `english/video/out/reading-11.mp4` _(dự kiến; tạo bằng skill `lesson-video`, chưa được tạo trong bước soạn bài)._ Khi chưa có audio, đọc thành tiếng để luyện trước.
+> 🎧 Audio: [`english/audio/reading/reading-11.mp3`](../audio/reading/reading-11.mp3) · 🎬 Video: `english/video/out/reading/reading-11.mp4` _(dự kiến; tạo bằng skill `lesson-video`, chưa được tạo trong bước soạn bài)._ Khi chưa có audio, đọc thành tiếng để luyện trước.
 
 | Lượt | Cách làm | Mục tiêu |
 |---|---|---|

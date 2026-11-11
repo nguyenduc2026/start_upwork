@@ -83,15 +83,15 @@ Bài nào cần audio (**bắt buộc** với reading; với speaking/writing kh
    id: <folder>-<NN>            # vd: reading-02
    type: reading | speaking | writing
    title: "<tiêu đề tiếng Anh>"
-   audio: english/audio/<id>.mp3
-   video: english/video/out/<id>.mp4
+   audio: english/audio/<kỹ năng>/<id>.mp3
+   video: english/video/out/<kỹ năng>/<id>.mp4
    voice: auto                  # auto (xoay vòng giọng) | male | female | <voice_id>
    speed: 0.9                   # A2: 0.85–0.9
    -->
    ```
 2. **Đoạn văn cần đọc** đặt giữa `<!-- passage:start -->` và `<!-- passage:end -->`. Đây là văn bản **sạch** (không ký hiệu trọng âm/nối âm). Markdown nhẹ (in đậm, gạch đầu dòng) được phép.
 3. **Giới hạn độ dài:** đoạn văn ≤ **1.500 ký tự** (≈ 230 từ) để tiết kiệm credits ElevenLabs (~30k credits cho cả lộ trình).
-4. Dòng tham chiếu cho người học: `> 🎧 Audio: [english/audio/<id>.mp3](...) · 🎬 Video: english/video/out/<id>.mp4 _(tạo bằng skill lesson-video)_`
+4. Dòng tham chiếu cho người học: `> 🎧 Audio: [english/audio/<kỹ năng>/<id>.mp3](...) · 🎬 Video: english/video/out/<kỹ năng>/<id>.mp4 _(tạo bằng skill lesson-video)_`
 5. Sau khi tạo bài, nhắc người học: *"Chạy skill `lesson-video` cho `<file>` để tạo audio/video."*
 
 ---

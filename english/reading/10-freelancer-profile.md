@@ -11,8 +11,8 @@
 id: reading-10
 type: reading
 title: "Reading 10: Freelancer Profile"
-audio: english/audio/reading-10.mp3
-video: english/video/out/reading-10.mp4
+audio: english/audio/reading/reading-10.mp3
+video: english/video/out/reading/reading-10.mp4
 voice: auto
 speed: 0.9
 -->
@@ -50,7 +50,7 @@ I am available for twenty hours per week. Please send a brief description of you
 
 ## 3. Luyện nghe
 
-> 🎧 Audio: [`english/audio/reading-10.mp3`](../audio/reading-10.mp3) · 🎬 Video: `english/video/out/reading-10.mp4` _(dự kiến; tạo bằng skill `lesson-video`, chưa được tạo trong bước soạn bài)._ Khi chưa có audio, đọc thành tiếng để luyện trước.
+> 🎧 Audio: [`english/audio/reading/reading-10.mp3`](../audio/reading/reading-10.mp3) · 🎬 Video: `english/video/out/reading/reading-10.mp4` _(dự kiến; tạo bằng skill `lesson-video`, chưa được tạo trong bước soạn bài)._ Khi chưa có audio, đọc thành tiếng để luyện trước.
 
 | Lượt | Cách làm | Mục tiêu |
 |---|---|---|

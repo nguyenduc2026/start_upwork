@@ -158,4 +158,4 @@ Mỗi bài đọc có audio + video do skill `lesson-video` tạo (ElevenLabs + 
 | Nghe | YouTube: Laracasts, Traversy Media (bật phụ đề, tốc độ 0.75x) |
 | Phát âm | ELSA Speak (bản miễn phí) |
 | Luyện nói (thay tutor) | Ghi âm điện thoại + so sánh bản gốc · Voice mode của app AI (bản miễn phí) · HelloTalk/Tandem (trao đổi ngôn ngữ) |
-| Audio/video bài học | ElevenLabs (tài khoản sẵn có, ~30k credits) + Remotion — skill `lesson-video`. Audio: `english/audio/`, video: `english/video/out/` |
+| Audio/video bài học | ElevenLabs (tài khoản sẵn có, ~30k credits) + Remotion — skill `lesson-video`. Audio: `english/audio/<kỹ năng>/`, video: `english/video/out/<kỹ năng>/` |
