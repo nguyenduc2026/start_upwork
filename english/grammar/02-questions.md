@@ -43,7 +43,7 @@ Câu hỏi Yes/No là câu hỏi mà câu trả lời là **Yes** hoặc **No**.
 
 ## 1.3 Ngữ điệu
 
-Câu hỏi Yes/No **lên giọng ở cuối câu** ↗: *Is the API ready?* ↗
+Câu hỏi Yes/No trung tính **thường lên giọng ở cuối câu** ↗: *Is the API ready?* ↗. Ngữ điệu thực tế còn tùy ý định và ngữ cảnh.
 
 ## 1.4 Cách dùng
 
@@ -70,6 +70,8 @@ Dùng khi bạn **ngạc nhiên** hoặc **nghĩ câu trả lời là Yes** và 
 - ***Don't** you **have** a staging server?* → (tôi nghĩ là bạn có)
 
 > Với client, hạn chế dùng câu hỏi phủ định vì có thể nghe như đang trách. Hỏi trung tính sẽ an toàn hơn: *Is the API ready?*
+
+**Dấu hiệu và biến đổi:** dùng để xác nhận Có/Không. I dùng *am/do*, he/she/it dùng *is/does*, you/we/they dùng *are/do*; modal giữ nguyên với mọi chủ ngữ. Sau does dùng V, sau be trong tiếp diễn dùng V-ing. Viết tắt: *isn't, aren't, don't, doesn't, can't*. Không có một từ thời gian nào tự quyết định loại câu hỏi.
 
 ## 1.6 Ví dụ
 
@@ -198,8 +200,8 @@ Khi **Who / What** chính là **chủ ngữ** (người/vật làm hành động
 | *Who **do** you **work** with?* → I work with **John**. | *Who **works** on the backend?* → **John** works on the backend. |
 | *What **does** the API **return**?* → It returns **JSON**. | *What **causes** this error?* → **A missing key** causes it. |
 
-- ✅ *Who **manages** the server?* — ❌ *Who **does manage** the server?*
-- ✅ *What **happens** after the user pays?* — ❌ *What **does happen**...?*
+- Câu hỏi chủ ngữ **trung tính**: *Who **manages** the server?* / *What **happens** after the user pays?*
+- *Who **does** manage the server?* có thể đúng khi cố ý nhấn mạnh hoặc đối chiếu (“vậy rốt cuộc ai quản lý?”). Bài này luyện mẫu trung tính không thêm do/does.
 
 ## 2.5 What hay Which?
 
@@ -215,7 +217,9 @@ Trong tiếng Anh giao tiếp, giới từ thường đứng **cuối** câu h�
 
 ## 2.7 Ngữ điệu
 
-Câu hỏi Wh- **xuống giọng ở cuối câu** ↘: *When do you need it?* ↘
+Câu hỏi Wh- trung tính **thường xuống giọng ở cuối câu** ↘: *When do you need it?* ↘. Khi hỏi lại vì chưa nghe rõ, người nói có thể lên giọng.
+
+**Dấu hiệu và biến đổi:** cần thông tin cụ thể nên có từ để hỏi. Trợ động từ chia theo chủ ngữ: *Where does she work?*; câu hỏi chủ ngữ hiện tại đơn thường dùng ngôi ba số ít: *Who works here?* Phủ định: *Why doesn't it work?*; giữ V sau doesn't. *What's = what is*, *where's = where is* trong các mẫu đang học.
 
 ## 2.8 Ví dụ
 
@@ -236,9 +240,9 @@ Câu hỏi Wh- **xuống giọng ở cuối câu** ↘: *When do you need it?* �
 | When **you need** it? | When **do you need** it? | Thiếu trợ động từ |
 | What **you mean**? | What **do you mean**? | Thiếu trợ động từ |
 | Where **the file is**? | Where **is the file**? | Chưa đảo *is* lên trước chủ ngữ |
-| Who **does manage** the server? | Who **manages** the server? | Câu hỏi chủ ngữ → không dùng *does* |
+| Who **does manage** the server? (muốn hỏi trung tính) | Who **manages** the server? | Mẫu trung tính không thêm does; mẫu có does dùng để nhấn mạnh |
 | How much **users** do you have? | How **many** users do you have? | *users* đếm được → *How many* |
-| What do you work **on it**? | What are you working **on**? | Không thêm *it* sau giới từ |
+| What do you work **on it**? | What do you work **on**? | Không thêm *it* sau giới từ; hỏi việc đang làm: *What are you working on?* |
 
 ## 2.10 Bài tập Phần 2
 
@@ -268,6 +272,8 @@ Câu hỏi Wh- **xuống giọng ở cuối câu** ↘: *When do you need it?* �
 2. I called **the client**. → Who ___?
 3. **A missing API key** causes the error. → What ___?
 4. The API returns **a list of orders**. → What ___?
+5. **The scheduler** runs the backup. → What ___?
+6. She uses **Docker**. → What ___?
 
 <details>
 <summary>Đáp án Phần 2</summary>
@@ -289,6 +295,8 @@ Câu hỏi Wh- **xuống giọng ở cuối câu** ↘: *When do you need it?* �
 2. Who did you call? (tân ngữ)
 3. What causes the error? (chủ ngữ)
 4. What does the API return? (tân ngữ)
+5. What runs the backup? (chủ ngữ)
+6. What does she use? (tân ngữ)
 
 </details>
 
@@ -304,7 +312,7 @@ Câu hỏi gián tiếp là câu hỏi được **lồng vào sau một cụm m�
 
 ## 3.2 Công thức
 
-**Cụm mở đầu + Từ để hỏi (hoặc if/whether) + Chủ ngữ + Động từ** → **KHÔNG đảo ngữ, KHÔNG dùng do/does**
+**Cụm mở đầu + Từ để hỏi (hoặc if/whether) + Chủ ngữ + Động từ** → **không đảo ngữ, không dùng do/does làm trợ động từ hỏi trong mệnh đề lồng**. Cụm mở đầu *Do you know...?* vẫn có do; phủ định bên trong vẫn có thể cần doesn't: *Do you know why it doesn't work?*
 
 | Cụm mở đầu | Dấu câu cuối |
 |---|---|
@@ -332,16 +340,23 @@ Câu hỏi gián tiếp là câu hỏi được **lồng vào sau một cụm m�
 
 > ⚠️ Khi bỏ *do/does*, động từ phải chia lại theo chủ ngữ: *Where does the app **run**?* → *...where the app **runs**.*
 
+**Biến đổi:** bên trong dùng *I/you/we/they + V*, *he/she/it + V-s/es*, hoặc *am/is/are* tùy thì. Không tự đổi thì khi chỉ thêm cụm lịch sự: *When do you need it? → Could you tell me when you need it?* *I'd = I would* trong *I'd like to know*. Phủ định: *I don't know whether the design is ready*. Trả lời nên cung cấp thông tin: *Could you tell me when the call starts? — At 3 PM*, thay vì chỉ nói *Yes, I could*.
+
 ## 3.3 Cách dùng
 
 **① Hỏi client mới / lần đầu liên hệ**
 - *Could you tell me a bit more about your project?*
+- *Could you let me know which features you need first?*
 
 **② Hỏi chuyện nhạy cảm**: ngân sách, deadline, thông tin đăng nhập
 - *Could you let me know what your budget is for this milestone?*
+- *I'd like to know when payment is due.*
 
 **③ Khi muốn hỏi nhẹ nhàng, không gây áp lực**
 - *I was wondering if you have time for a short call this week.*
+- *Could you let me know whether the design is ready?*
+
+**Dấu hiệu và lưu ý:** nhận ra cụm mở đầu lịch sự, sau đó tìm mệnh đề thông tin. Wh- giữ từ để hỏi; Yes/No thêm if/whether. Ngữ điệu tùy ý định và cụm mở đầu, không có một đường giọng bắt buộc cho mọi câu gián tiếp.
 
 ## 3.4 Ví dụ
 
@@ -352,6 +367,7 @@ Câu hỏi gián tiếp là câu hỏi được **lồng vào sau một cụm m�
 | *Do you know which version of Laravel you use?* | Do you know |
 | *I'd like to know how many users visit the site daily.* | I'd like to know |
 | *I was wondering if I could get access to the server.* | I was wondering |
+| *Could you let me know whether the design is ready?* | Could you let me know |
 
 ## 3.5 Lỗi thường gặp
 
@@ -365,7 +381,7 @@ Câu hỏi gián tiếp là câu hỏi được **lồng vào sau một cụm m�
 
 ## 3.6 Bài tập Phần 3
 
-### Chuyển thành câu hỏi gián tiếp (dùng cụm trong ngoặc)
+### A. Chuyển thành câu hỏi gián tiếp (dùng cụm trong ngoặc)
 
 1. When do you want to start? (Could you let me know...)
 2. What is the main goal of the project? (Could you tell me...)
@@ -374,8 +390,30 @@ Câu hỏi gián tiếp là câu hỏi được **lồng vào sau một cụm m�
 5. Where do you host the database? (Do you know...)
 6. Can I access the staging server? (I was wondering...)
 
+### B. Chọn phần hoàn chỉnh đúng
+
+1. Could you tell me (where the file is / where is the file)?
+2. Do you know (when she starts / when does she start)?
+3. I'd like to know (if the server is ready / is the server ready).
+4. Could you tell me (what the app does / what does the app do)?
+5. Could you let me know (whether you have access / do you have access)?
+6. Do you know (who manages the server / who does manage the server)? (trung tính)
+7. I was wondering (if I could join / could I join).
+8. Do you know (why it doesn't work / why doesn't it work)?
+
+### C. Sửa lỗi trong câu hỏi gián tiếp
+
+1. Could you tell me where is the server?
+2. Do you know when does she start?
+3. Could you let me know the file is ready? (muốn hỏi Có/Không)
+4. I'd like to know what does this button do.
+5. Could you tell me why doesn't it work?
+6. I was wondering can I use staging. (dùng if)
+
 <details>
 <summary>Đáp án Phần 3</summary>
+
+**A.**
 
 1. Could you let me know when you want to start?
 2. Could you tell me what the main goal of the project is?
@@ -385,6 +423,16 @@ Câu hỏi gián tiếp là câu hỏi được **lồng vào sau một cụm m�
 6. I was wondering if I could access the staging server.
 
 > Câu 4: *how many developers* là chủ ngữ → giữ nguyên *are*. Câu 6: *can* → *could* để lịch sự hơn.
+
+**B.** 1. where the file is · 2. when she starts · 3. if the server is ready · 4. what the app does · 5. whether you have access · 6. who manages the server · 7. if I could join · 8. why it doesn't work.
+
+**C.**
+1. Could you tell me where **the server is**?
+2. Do you know when **she starts**?
+3. Could you let me know **if** the file is ready?
+4. I'd like to know what **this button does**.
+5. Could you tell me why **it doesn't work**?
+6. I was wondering **if I could use staging**.
 
 </details>
 
@@ -399,8 +447,8 @@ Câu hỏi gián tiếp là câu hỏi được **lồng vào sau một cụm m�
 | **Mục đích** | Xác nhận Có/Không | Hỏi thông tin cụ thể | Hỏi lịch sự (Có/Không hoặc thông tin) |
 | **Trật tự từ** | Trợ ĐT + S + V? | Wh- + Trợ ĐT + S + V? | Cụm mở đầu + Wh-/if + **S + V** |
 | **Đảo ngữ** | Có | Có (trừ câu hỏi chủ ngữ) | **Không** |
-| **Dùng do/does** | Có (động từ thường) | Có (trừ câu hỏi chủ ngữ) | **Không** |
-| **Ngữ điệu cuối** | Lên ↗ | Xuống ↘ | Xuống ↘ |
+| **Dùng do/does** | Có (động từ thường) | Có (trừ câu hỏi chủ ngữ trung tính) | Không dùng làm trợ động từ hỏi **trong mệnh đề lồng** |
+| **Ngữ điệu cuối** | Thường lên ↗ | Thường xuống ↘ | Tùy ý định và cụm mở đầu |
 | **Mức lịch sự** | Trung tính | Trung tính | Cao |
 | **Khi dùng với client** | Chat nhanh, xác nhận | Làm rõ yêu cầu | Lần đầu liên hệ, chuyện nhạy cảm |
 
@@ -455,8 +503,21 @@ Viết **6 câu hỏi** bạn sẽ gửi client để làm rõ vấn đề:
 2. I'**m building** **the checkout page** **this week**. → Hỏi về việc đang làm: What ___?
 3. The server **restarts** **at 2 AM**. → Hỏi giờ: What time ___?
 
+### D. Chọn câu/phần câu đúng
+
+1. (Do you use / Are you use) Docker?
+2. (Does it work / Does it works)?
+3. (Are you testing / Do you testing) now?
+4. (Who manages / Who manage) the server?
+5. (How many / How much) users do you have?
+6. (How long / How often) does the import take? — Ten minutes.
+7. Could you tell me (where the file is / where is the file)?
+8. Could you let me know (if you have access / do you have access)?
+9. Do you know (what the app does / what does the app do)?
+10. Is it ready? — (Yes, it is. / Yes, it's.)
+
 <details>
-<summary>Đáp án Phần 4 (A, C)</summary>
+<summary>Đáp án và gợi ý Phần 4</summary>
 
 **A.**
 1. When **do you want** the first demo?
@@ -472,6 +533,10 @@ Viết **6 câu hỏi** bạn sẽ gửi client để làm rõ vấn đề:
 1. When does she work from home?
 2. What are you building this week?
 3. What time does the server restart?
+
+**D.** 1. Do you use · 2. Does it work · 3. Are you testing · 4. Who manages · 5. How many · 6. How long · 7. where the file is · 8. if you have access · 9. what the app does · 10. Yes, it is.
+
+**B. Gợi ý:** *Do you use Stripe? Are you seeing duplicate charges on every payment? When does the issue occur? How do you handle webhook retries? Could you tell me which payment flow the app uses? Could you let me know whether I can access the relevant logs?* Chấp nhận câu hỏi khác nếu đúng cấu trúc và giúp làm rõ lỗi.
 
 </details>
 
@@ -520,15 +585,16 @@ Viết **6 câu hỏi** bạn sẽ gửi client để làm rõ vấn đề:
 2.
 3.
 4.
+5.
+6.
 
 ### Phần 3
 
-1.
-2.
-3.
-4.
-5.
-6.
+**A.** 1. ___ · 2. ___ · 3. ___ · 4. ___ · 5. ___ · 6. ___
+
+**B.** 1. ___ · 2. ___ · 3. ___ · 4. ___ · 5. ___ · 6. ___ · 7. ___ · 8. ___
+
+**C.** 1. ___ · 2. ___ · 3. ___ · 4. ___ · 5. ___ · 6. ___
 
 ### Phần 4
 
@@ -554,6 +620,8 @@ Viết **6 câu hỏi** bạn sẽ gửi client để làm rõ vấn đề:
 1.
 2.
 3.
+
+**D.** 1. ___ · 2. ___ · 3. ___ · 4. ___ · 5. ___ · 6. ___ · 7. ___ · 8. ___ · 9. ___ · 10. ___
 
 ---
 

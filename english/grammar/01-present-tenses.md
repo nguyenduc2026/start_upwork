@@ -57,12 +57,14 @@ Thì hiện tại đơn diễn tả những điều **luôn đúng, lặp đi l�
 | **Nguyên âm + y** → giữ y, thêm **-s** | deploy → deploy**s**, play → play**s**, pay → pay**s** |
 | Bất quy tắc | have → **has**, do → **does**, be → **is** |
 
+**Ngoại lệ chính tả:** không phải mọi từ cuối -o đều thêm -es: *radio → radios*. Một số từ cuối -z gấp đôi z: *quiz → quizzes*. Từ cuối -ch đọc /k/ thường chỉ thêm -s: *stomach → stomachs*.
+
 **Cách đọc đuôi -s / -es:**
 
 | Đọc | Khi động từ tận cùng bằng âm | Ví dụ |
 |---|---|---|
-| /s/ | /p/, /t/, /k/, /f/ | stops, gets, works |
-| /ɪz/ | /s/, /z/, /ʃ/, /tʃ/, /dʒ/ | fixes, pushes, watches, uses |
+| /s/ | /p/, /t/, /k/, /f/, /θ/ | stops, gets, works |
+| /ɪz/ | /s/, /z/, /ʃ/, /ʒ/, /tʃ/, /dʒ/ | fixes, pushes, watches, uses |
 | /z/ | các âm còn lại | runs, deploys, replies, does |
 
 ## 1.4 Cách dùng
@@ -86,6 +88,7 @@ Thì hiện tại đơn diễn tả những điều **luôn đúng, lặp đi l�
 
 **⑤ Mô tả từng bước của 1 quy trình / luồng chức năng** — dev dùng rất nhiều
 - *First, the user **selects** a seat. Then the system **holds** it for 10 minutes. If the user **pays**, the system **sends** an e-ticket.*
+- *The user **logs in**, **chooses** a task, and **updates** its status.*
 
 ## 1.5 Dấu hiệu nhận biết
 
@@ -217,6 +220,8 @@ Thì hiện tại tiếp diễn diễn tả hành động **đang diễn ra** �
 | Tận cùng **w, x, y** → **không** gấp đôi | fix → fix**ing**, show → show**ing**, play → play**ing** |
 | Từ 2 âm tiết trở lên, **không** nhấn âm cuối → **không** gấp đôi | open → open**ing**, visit → visit**ing**, develop → develop**ing** |
 
+**Bổ sung:** cuối -c thường thêm k: *panic → panicking*. Một số từ cuối -l có biến thể Anh–Anh/Anh–Mỹ: *travelling/traveling, cancelling/canceling*. Một số từ giữ e để tránh đổi cách đọc hoặc nhầm từ: *dye → dyeing, singe → singeing*. Đuôi -ing đọc /ɪŋ/, không thêm một âm /g/ riêng ở cuối.
+
 ## 2.4 Cách dùng
 
 **① Hành động đang xảy ra ngay lúc nói**
@@ -237,6 +242,7 @@ Thì hiện tại tiếp diễn diễn tả hành động **đang diễn ra** �
 
 **⑤ Phàn nàn về việc lặp lại gây khó chịu** (đi với *always / constantly*)
 - *The server **is always crashing** at night!*
+- *The app **is constantly losing** my settings!*
 
 ## 2.5 Dấu hiệu nhận biết
 
@@ -246,9 +252,9 @@ Thì hiện tại tiếp diễn diễn tả hành động **đang diễn ra** �
   - *Look! The tests **are failing**.*
 - **Thời gian tương lai + kế hoạch đã chốt:** tomorrow · tonight · next Monday (cách dùng ③)
 
-## 2.6 Động từ KHÔNG chia tiếp diễn (stative verbs)
+## 2.6 Động từ thường không chia tiếp diễn (stative verbs)
 
-Các động từ chỉ **trạng thái** (không phải hành động) → dùng **hiện tại đơn** dù đang xảy ra lúc nói.
+Các động từ chỉ **trạng thái** (không phải hành động) → **thường dùng hiện tại đơn** dù trạng thái đúng lúc nói. Cần xét nghĩa cụ thể: một số từ dùng tiếp diễn được khi đổi sang nghĩa hành động hoặc nhấn tính tạm thời.
 
 | Nhóm | Động từ |
 |---|---|
@@ -359,7 +365,7 @@ Các động từ chỉ **trạng thái** (không phải hành động) → dùn
 | **Cách dùng chính** | Thói quen, sự thật, kỹ năng, lịch cố định, mô tả quy trình | Đang xảy ra, giai đoạn hiện tại, kế hoạch đã chốt, đang thay đổi |
 | **Dấu hiệu** | always, usually, often, sometimes, never, every..., on Mondays | now, right now, at the moment, currently, this week, Look!/Listen! |
 | **Tương lai** | Lịch trình cố định (*The sale **opens** at 10 AM.*) | Kế hoạch cá nhân đã sắp xếp (*I'**m meeting** him at 10.*) |
-| **Động từ trạng thái** | ✅ Dùng được | ❌ Không dùng (trừ khi mang nghĩa hành động) |
+| **Động từ trạng thái** | ✅ Thường dùng | Thường tránh ở nghĩa trạng thái; có ngoại lệ theo nghĩa/ngữ cảnh |
 
 ## 3.2 Cặp câu đối chiếu
 
@@ -373,6 +379,8 @@ Các động từ chỉ **trạng thái** (không phải hành động) → dùn
 | *What **do** you **do**?* (Bạn làm nghề gì?) | *What **are** you **doing**?* (Bạn đang làm gì?) | Nghề nghiệp ↔ việc đang làm |
 
 ## 3.3 Mẹo chọn thì nhanh
+
+Trạng từ chỉ là gợi ý, không quyết định thì một mình: *I need access this week* vẫn là hiện tại đơn; *always* có thể đi với tiếp diễn khi phàn nàn.
 
 Khi viết 1 câu, tự hỏi lần lượt:
 
@@ -426,6 +434,8 @@ Viết 1 tin nhắn **5–7 câu** gửi client của project đặt vé concert
 4. Right now I**'m fixing** the bug in the checkout page.
 5. I **need** the API key to continue.
 6. ...but this week he **is deploying** on Thursday.
+
+**C. Gợi ý:** *Hi Anna, I work with Laravel and React. I usually send progress updates in the evening. I understand the main requirements. This week, I'm building the checkout page. Right now, I'm testing the payment flow. I'm also checking the seat selection feature.* Có thể viết khác nếu đủ yêu cầu và đúng ngữ cảnh.
 
 </details>
 

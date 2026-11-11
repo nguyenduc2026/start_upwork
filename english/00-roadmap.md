@@ -48,14 +48,16 @@ Trạng thái: `chưa tạo` → `đã tạo` → `hoàn thành` (đã làm bài
 |---|---|---|---|
 | 01 | [Thì hiện tại đơn & Thì hiện tại tiếp diễn](grammar/01-present-tenses.md) | 1 | đã tạo |
 | 02 | [Câu hỏi: Yes/No, Wh-, câu hỏi lịch sự](grammar/02-questions.md) | 1 | đã tạo |
-| 03 | Thì quá khứ đơn | 2 | chưa tạo |
-| 04 | Thì hiện tại hoàn thành (+ so sánh với quá khứ đơn) | 2 | chưa tạo |
-| 05 | Thì tương lai: will / be going to (+ so sánh với hiện tại tiếp diễn) | 3 | chưa tạo |
-| 06 | Động từ khuyết thiếu: can / could / would / should | 3 | chưa tạo |
-| 07 | Câu điều kiện loại 1 | 4 | chưa tạo |
-| 08 | Mạo từ a / an / the | 4 | chưa tạo |
-| 09 | Giới từ thời gian: on / in / at / by / within / until | 4 | chưa tạo |
-| 10 | So sánh hơn & so sánh nhất | 4 | chưa tạo |
+| 03 | [Thì quá khứ đơn](grammar/03-past-simple.md) | 2 | đã tạo |
+| 04 | [Thì hiện tại hoàn thành (+ so sánh với quá khứ đơn)](grammar/04-present-perfect.md) | 2 | đã tạo |
+| 05 | [Thì tương lai: will / be going to (+ so sánh với hiện tại tiếp diễn)](grammar/05-future-forms.md) | 3 | đã tạo |
+| 06 | [Động từ khuyết thiếu: can / could / would / should](grammar/06-modal-verbs.md) | 3 | đã tạo |
+| 07 | [Câu điều kiện loại 1](grammar/07-first-conditional.md) | 4 | đã tạo |
+| 08 | [Mạo từ a / an / the](grammar/08-articles.md) | 4 | đã tạo |
+| 09 | [Giới từ thời gian: on / in / at / by / within / until](grammar/09-time-prepositions.md) | 4 | đã tạo |
+| 10 | [So sánh hơn & so sánh nhất](grammar/10-comparatives-superlatives.md) | 4 | đã tạo |
+
+> **Cách chia thời gian:** tuần trong bảng là thứ tự học dự kiến. Bộ grammar đầy đủ có nhiều bài tập; riêng tuần 3–4, thời lượng ghi trong các bài vượt mức 20 phút/ngày. Giữ tổng thời gian học khoảng 1h/ngày và chuyển phần luyện còn lại sang các buổi ôn tuần sau nếu cần, thay vì làm vội. Các bài đã được chuẩn bị sẵn theo yêu cầu; vẫn nên học và được chấm lần lượt từ bài 01. `Đã tạo` chỉ có nghĩa là đã có tài liệu, không phải đã học xong.
 
 ### Vocabulary
 
@@ -63,14 +65,16 @@ Trạng thái: `chưa tạo` → `đã tạo` → `hoàn thành` (đã làm bài
 |---|---|---|---|
 | 01 | [Kỹ thuật cơ bản](vocabulary/01-technical.md) | 1 | đã tạo |
 | 02 | [Tiến độ & thời gian](vocabulary/02-progress-time.md) | 2 | đã tạo |
-| 03 | Giao tiếp với client (clarify, feedback, revision...) | 3 | chưa tạo |
-| 04 | Hợp đồng & tiền (hourly, milestone, invoice...) | 4 | chưa tạo |
-| 05 | Đọc job post (requirements, nice-to-have...) | 5 | chưa tạo |
-| 06 | Ước lượng & phạm vi công việc | 6 | chưa tạo |
-| 07 | Quy trình làm việc (sprint, standup, handover...) | 7 | chưa tạo |
-| 08 | Xử lý sự cố (outage, hotfix, rollback...) | 8 | chưa tạo |
-| 09 | Cuộc gọi & họp | 9 | chưa tạo |
-| 10 | Trình bày / demo sản phẩm | 10 | chưa tạo |
+| 03 | [Giao tiếp với client (clarify, feedback, revision...)](vocabulary/03-client-communication.md) | 3 | đã tạo |
+| 04 | [Hợp đồng & tiền (hourly, milestone, invoice...)](vocabulary/04-contracts-payments.md) | 4 | đã tạo |
+| 05 | [Đọc job post (requirements, nice-to-have...)](vocabulary/05-job-posts.md) | 5 | đã tạo |
+| 06 | [Ước lượng & phạm vi công việc](vocabulary/06-estimation-scope.md) | 6 | đã tạo |
+| 07 | [Quy trình làm việc (sprint, standup, handover...)](vocabulary/07-workflow.md) | 7 | đã tạo |
+| 08 | [Xử lý sự cố (outage, hotfix, rollback...)](vocabulary/08-incidents.md) | 8 | đã tạo |
+| 09 | [Cuộc gọi & họp](vocabulary/09-calls-meetings.md) | 9 | đã tạo |
+| 10 | [Trình bày / demo sản phẩm](vocabulary/10-product-demos.md) | 10 | đã tạo |
+
+> **Cách học vocabulary:** các bài đã được chuẩn bị sẵn theo yêu cầu; học lần lượt và làm bài trước khi xem đáp án. Bài 01 có 25 từ chính và 2 từ mở rộng, bài 02 có 23 từ chính, bài 03–10 có 20 từ/cụm mỗi bài. Từ tuần 5, chia nội dung theo các buổi 10 phút và dành khoảng 20 phút cuối tuần cho bài viết/ôn tập; có thể giãn thêm khi cần. Khối Anki trong từng bài có nghĩa và ví dụ để nhập trực tiếp. `Đã tạo` chưa có nghĩa là đã học xong.
 
 ### Reading (cả 3 giai đoạn · 2 bài/tuần · có audio/video)
 
@@ -79,29 +83,33 @@ Mỗi bài đọc có audio + video do skill `lesson-video` tạo (ElevenLabs + 
 | # | Bài | Tuần | Trạng thái |
 |---|---|---|---|
 | 01 | [Job post: Laravel & React cho nền tảng bán vé](reading/01-job-post-ticketing.md) | 1 | đã tạo |
-| 02 | Email client giới thiệu dự án | 1 | chưa tạo |
-| 03 | README của 1 project open-source | 2 | chưa tạo |
-| 04 | Bug report trên GitHub Issues | 2 | chưa tạo |
-| 05 | Blog kỹ thuật: Vì sao cần queue | 3 | chưa tạo |
-| 06 | Đoạn chat: client hỏi tiến độ | 3 | chưa tạo |
-| 07 | Điều khoản hợp đồng Upwork: milestone & thanh toán | 4 | chưa tạo |
-| 08 | Job post: Spring Boot backend | 4 | chưa tạo |
-| 09 | Proposal mẫu đã được hire | 5 | chưa tạo |
-| 10 | Profile của 1 freelancer Top Rated | 5 | chưa tạo |
-| 11 | Feedback & review của client | 6 | chưa tạo |
-| 12 | Spec tính năng (user story) | 6 | chưa tạo |
-| 13 | Báo cáo sự cố production (incident report) | 7 | chưa tạo |
-| 14 | Blog kỹ thuật: Stripe webhooks | 7 | chưa tạo |
-| 15 | Email client phàn nàn trễ hạn | 8 | chưa tạo |
-| 16 | Code review comments | 8 | chưa tạo |
-| 17 | Biên bản cuộc gọi với client (meeting notes) | 9 | chưa tạo |
-| 18 | Blog kỹ thuật: AWS auto scaling cơ bản | 9 | chưa tạo |
-| 19 | Job post: tích hợp AI vào web app | 10 | chưa tạo |
-| 20 | Tin công nghệ | 10 | chưa tạo |
-| 21 | Release notes | 11 | chưa tạo |
-| 22 | Case study 1 project | 11 | chưa tạo |
-| 23 | Phỏng vấn 1 freelancer thành công | 12 | chưa tạo |
-| 24 | Tổng ôn: job post thật + trả lời câu hỏi sàng lọc | 12 | chưa tạo |
+| 02 | [Email client giới thiệu dự án](reading/02-client-introduction.md) | 1 | đã tạo |
+| 03 | [README của dự án mở: taskboard](reading/03-open-source-readme.md) | 2 | đã tạo |
+| 04 | [Bug report trên GitHub Issues](reading/04-github-bug-report.md) | 2 | đã tạo |
+| 05 | [Blog kỹ thuật: Vì sao cần queue](reading/05-why-queues.md) | 3 | đã tạo |
+| 06 | [Đoạn chat: client hỏi tiến độ](reading/06-client-progress-chat.md) | 3 | đã tạo |
+| 07 | [Diễn giải hướng dẫn Upwork: milestone & thanh toán](reading/07-milestones-payments.md) | 4 | đã tạo |
+| 08 | [Job post: Spring Boot backend](reading/08-spring-boot-job.md) | 4 | đã tạo |
+| 09 | [Proposal mẫu được chấp nhận — tình huống mô phỏng](reading/09-accepted-proposal.md) | 5 | đã tạo |
+| 10 | [Profile mẫu của freelancer Top Rated — mô phỏng](reading/10-freelancer-profile.md) | 5 | đã tạo |
+| 11 | [Feedback & review của client](reading/11-client-feedback.md) | 6 | đã tạo |
+| 12 | [Spec tính năng (user story)](reading/12-feature-user-story.md) | 6 | đã tạo |
+| 13 | [Báo cáo sự cố production (incident report)](reading/13-incident-report.md) | 7 | đã tạo |
+| 14 | [Blog kỹ thuật: Stripe webhooks](reading/14-stripe-webhooks.md) | 7 | đã tạo |
+| 15 | [Email client phàn nàn trễ hạn](reading/15-late-delivery-email.md) | 8 | đã tạo |
+| 16 | [Code review comments](reading/16-code-review-comments.md) | 8 | đã tạo |
+| 17 | [Biên bản cuộc gọi với client (meeting notes)](reading/17-meeting-notes.md) | 9 | đã tạo |
+| 18 | [Blog kỹ thuật: AWS auto scaling cơ bản](reading/18-aws-auto-scaling.md) | 9 | đã tạo |
+| 19 | [Job post: tích hợp AI vào web app](reading/19-ai-web-app-job.md) | 10 | đã tạo |
+| 20 | [Tin công nghệ: coding agent GitHub — tin lưu trữ](reading/20-technology-news.md) | 10 | đã tạo |
+| 21 | [Release notes](reading/21-release-notes.md) | 11 | đã tạo |
+| 22 | [Case study: cải thiện checkout](reading/22-booking-case-study.md) | 11 | đã tạo |
+| 23 | [Phỏng vấn freelancer — mô phỏng](reading/23-freelancer-interview.md) | 12 | đã tạo |
+| 24 | [Tổng ôn: job post thật + câu hỏi sàng lọc luyện tập](reading/24-real-job-screening.md) | 12 | đã tạo |
+
+> **Cách học reading:** bộ 24 bài đã có tài liệu; `đã tạo` không có nghĩa là đã học xong. Mỗi đoạn đọc dài 150–230 từ và không quá 1.500 ký tự, có 12 câu đọc hiểu, từ vựng/Anki, tìm ngữ pháp và tóm tắt. Bài 02–24 có thêm hai câu ôn từ bài trước. Mỗi bài học trong hai ngày: tuần 1–4 khoảng 20 phút/ngày, từ tuần 5 khoảng 15 phút/ngày; giãn phần viết sang buổi ôn khi cần.
+>
+> **Nguồn và media:** văn bản mô phỏng được ghi rõ, đặc biệt proposal được chấp nhận, profile Top Rated và phỏng vấn không phải thành tích/người thật đã xác minh. Bài 07 là diễn giải tài liệu hỗ trợ Upwork, không phải trích nguyên văn điều khoản. Bài 20 là tin lưu trữ; bài 24 tóm lược nội dung lập chỉ mục của job thật, chưa xác nhận còn tuyển. Lần soạn bài này **chưa tạo audio/video**: các bài đã có metadata và đoạn đọc để chạy `/lesson-video <file>`. Đường dẫn media trong bài là đường dẫn dự kiến.
 
 ### Writing (Giai đoạn 2)
 

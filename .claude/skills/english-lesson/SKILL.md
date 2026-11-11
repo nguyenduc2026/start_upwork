@@ -1,7 +1,7 @@
 ---
 name: english-lesson
-description: Tạo bài học tiếng Anh tiếp theo theo english/00-roadmap.md, nâng cấp bài cũ theo chuẩn, chấm bài đã làm, ghi tiến độ học mỗi ngày, hoặc ôn lỗi sai và tổng kết tuần. Dùng khi người dùng gõ /english-lesson, hoặc nói "bài tiếp theo", "tạo bài grammar/vocabulary/writing/speaking", "nâng cấp bài", "chấm bài", "hôm nay học...", "ghi tiến độ", "ôn tập tuần".
-argument-hint: "next [grammar|vocabulary|reading|writing|speaking] | upgrade <file> | check <file> | log <nội dung> | review"
+description: Tạo bài học tiếng Anh tiếp theo theo english/00-roadmap.md, chấm bài đã làm, ghi tiến độ học mỗi ngày, hoặc ôn lỗi sai và tổng kết tuần. Dùng khi người dùng gõ /english-lesson, hoặc nói "bài tiếp theo", "tạo bài grammar/vocabulary/writing/speaking", "chấm bài", "hôm nay học...", "ghi tiến độ", "ôn tập tuần".
+argument-hint: "next [grammar|vocabulary|reading|writing|speaking] | check <file> | log <nội dung> | review"
 ---
 
 # English Lesson
@@ -28,14 +28,7 @@ argument-hint: "next [grammar|vocabulary|reading|writing|speaking] | upgrade <fi
 4. Tên file: `english/<folder>/<NN>-<slug>.md`.
 5. Cập nhật roadmap: tên bài thành link, trạng thái → `đã tạo`.
 
-## Chế độ 2 — `upgrade <file>`
-
-Viết lại 1 bài đang ở format cũ theo **Khung bài** mới.
-- **Giữ nguyên** nội dung đã có trong mục *Bài làm của bạn*, *Nhận xét*, *Lỗi sai cần nhớ* nếu người học đã làm (đặt vào đúng mục mới; nếu số câu bài tập thay đổi thì ghi chú cho người học).
-- Cập nhật roadmap: bỏ ghi chú `(format cũ → chạy upgrade)`.
-- Mỗi lần chỉ nâng cấp 1 file.
-
-## Chế độ 3 — `check <file>`
+## Chế độ 2 — `check <file>`
 
 1. Đọc mục *Bài làm của bạn*. Trống → báo chưa làm, dừng.
 2. Chấm:
@@ -50,7 +43,7 @@ Viết lại 1 bài đang ở format cũ theo **Khung bài** mới.
 6. Ghi vào `progress.md` cột *Kết quả bài tập* của ngày hôm nay (tạo dòng mới nếu chưa có): `<tên bài>: x/y`.
 7. Trả lời ngắn trong chat: điểm, lỗi chính, bài tiếp theo nên học.
 
-## Chế độ 4 — `log <nội dung>`
+## Chế độ 3 — `log <nội dung>`
 
 Ghi nhanh việc học trong ngày vào `english/progress.md`. Người học có thể viết tự do, ví dụ: `log 1h grammar 01 phần 1, 20 từ anki`.
 1. Lấy ngày hôm nay (`date +%Y-%m-%d`). Tách ra: thời gian học, nội dung đã học, ghi chú (nếu có). Thiếu thời gian → hỏi lại 1 câu ngắn.
@@ -58,7 +51,7 @@ Ghi nhanh việc học trong ngày vào `english/progress.md`. Người học c�
 3. Cập nhật bảng **Tổng quan**: số ngày đã học, chuỗi ngày liên tiếp hiện tại, chuỗi dài nhất, tổng thời gian, số bài `hoàn thành` (đếm trong roadmap).
 4. Trả lời 1–2 câu: đã ghi, chuỗi hiện tại. Ngày nào học < 1h hoặc bỏ ngày → nhắc nhẹ, không phán xét.
 
-## Chế độ 5 — `review`
+## Chế độ 4 — `review`
 
 1. Đọc mục **Lỗi sai cần nhớ** của các bài `hoàn thành` (ưu tiên ~7 ngày gần nhất, xem `git log` nếu cần).
 2. Tạo trong chat (không tạo file) bài kiểm tra **10–15 câu** nhắm đúng các lỗi đó, đáp án trong `<details>`.
