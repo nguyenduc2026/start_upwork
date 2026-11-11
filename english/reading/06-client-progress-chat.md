@@ -13,7 +13,7 @@ type: reading
 title: "Reading 06: Client Progress Chat"
 audio: english/audio/reading-06.mp3
 video: english/video/out/reading-06.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 

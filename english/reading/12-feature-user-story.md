@@ -13,7 +13,7 @@ type: reading
 title: "Reading 12: Feature User Story"
 audio: english/audio/reading-12.mp3
 video: english/video/out/reading-12.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 

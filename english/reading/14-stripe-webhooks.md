@@ -13,7 +13,7 @@ type: reading
 title: "Reading 14: Stripe Webhooks"
 audio: english/audio/reading-14.mp3
 video: english/video/out/reading-14.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 

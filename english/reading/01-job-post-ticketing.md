@@ -15,7 +15,7 @@ type: reading
 title: "Job Post: Laravel & React Developer for a Ticketing Platform"
 audio: english/audio/reading-01.mp3
 video: english/video/out/reading-01.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 

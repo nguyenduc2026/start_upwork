@@ -13,7 +13,7 @@ type: reading
 title: "Reading 15: Late Delivery Email"
 audio: english/audio/reading-15.mp3
 video: english/video/out/reading-15.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 

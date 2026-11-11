@@ -13,7 +13,7 @@ type: reading
 title: "Reading 22: Booking Case Study"
 audio: english/audio/reading-22.mp3
 video: english/video/out/reading-22.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 

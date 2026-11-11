@@ -1,0 +1,395 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - link "Skip to content" [ref=e4] [cursor=pointer]:
+      - /url: "#start-of-content"
+    - banner [ref=e9]:
+      - heading "Navigation Menu" [level=2] [ref=e10]
+      - generic [ref=e11]:
+        - link "Homepage" [ref=e14] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e17]:
+          - navigation "Global" [ref=e18]:
+            - list [ref=e19]:
+              - listitem [ref=e20]:
+                - button "Products" [ref=e22] [cursor=pointer]
+              - listitem [ref=e25]:
+                - button "Developers" [ref=e27] [cursor=pointer]
+              - listitem [ref=e30]:
+                - button "Businesses" [ref=e32] [cursor=pointer]
+              - listitem [ref=e35]:
+                - button "Resources" [ref=e37] [cursor=pointer]
+              - listitem [ref=e40]:
+                - link "Pricing" [ref=e41] [cursor=pointer]:
+                  - /url: https://github.com/pricing
+          - generic [ref=e42]:
+            - button "Search or jump to, type / to search" [ref=e44] [cursor=pointer]:
+              - generic [ref=e47]:
+                - generic [ref=e48]: Search
+                - generic [aria-hidden] [ref=e49]: /
+            - generic [ref=e50]:
+              - link "Sign in" [ref=e52] [cursor=pointer]:
+                - /url: /login?return_to=https%3A%2F%2Fgithub.com%2Fremotion-dev%2Fskills
+              - link "Sign up" [ref=e55] [cursor=pointer]:
+                - /url: /signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E&source=header-repo&source_repo=remotion-dev%2Fskills
+              - button "Appearance settings" [ref=e58] [cursor=pointer]
+  - main [ref=e65]:
+    - generic "Global navigation menu" [ref=e68]:
+      - navigation "Breadcrumbs" [ref=e71]:
+        - list [ref=e72]:
+          - listitem [ref=e73]:
+            - link "remotion-dev" [ref=e74] [cursor=pointer]:
+              - /url: /remotion-dev
+          - listitem [ref=e76]:
+            - link "skills" [ref=e77] [cursor=pointer]:
+              - /url: /remotion-dev/skills
+      - heading "Repository navigation" [level=2] [ref=e80]
+      - navigation "Repository" [ref=e81]:
+        - list [ref=e82]:
+          - listitem [ref=e83]:
+            - link "Code" [ref=e84] [cursor=pointer]:
+              - /url: /remotion-dev/skills
+          - listitem [ref=e89]:
+            - link "Issues (13)" [ref=e90] [cursor=pointer]:
+              - /url: /remotion-dev/skills/issues
+              - generic [ref=e95]: Issues
+              - generic [ref=e96]:
+                - generic [aria-hidden] [ref=e97]: "13"
+                - generic [ref=e98]: (13)
+          - listitem [ref=e99]:
+            - link "Pull requests (10)" [ref=e100] [cursor=pointer]:
+              - /url: /remotion-dev/skills/pulls
+              - generic [ref=e104]: Pull requests
+              - generic [ref=e105]:
+                - generic [aria-hidden] [ref=e106]: "10"
+                - generic [ref=e107]: (10)
+          - listitem [ref=e108]:
+            - link "Actions" [ref=e109] [cursor=pointer]:
+              - /url: /remotion-dev/skills/actions
+          - listitem [ref=e114]:
+            - link "Security and quality" [ref=e115] [cursor=pointer]:
+              - /url: /remotion-dev/skills/security
+          - listitem [ref=e120]:
+            - link "Insights" [ref=e121] [cursor=pointer]:
+              - /url: /remotion-dev/skills/pulse
+    - generic [ref=e138]:
+      - generic [ref=e142]:
+        - generic [ref=e145]:
+          - img "remotion-dev" [ref=e146]
+          - generic "skills" [ref=e147]:
+            - strong [ref=e148]:
+              - link "skills" [ref=e149] [cursor=pointer]:
+                - /url: /remotion-dev/skills
+          - generic [ref=e150]: Public
+        - list [ref=e152]:
+          - listitem [ref=e153]:
+            - link "You must be signed in to change notification settings" [ref=e154] [cursor=pointer]:
+              - /url: /login?return_to=%2Fremotion-dev%2Fskills
+              - generic [ref=e155]: Notifications
+          - listitem [ref=e157]:
+            - link "You must be signed in to fork a repository" [ref=e158] [cursor=pointer]:
+              - /url: /login?return_to=%2Fremotion-dev%2Fskills
+              - generic [ref=e160]:
+                - text: Fork
+                - generic [aria-hidden] [ref=e161]: "737"
+                - generic [ref=e162]: (737)
+          - listitem [ref=e163]:
+            - link "Star (6.8k)" [ref=e164] [cursor=pointer]:
+              - /url: /login?return_to=%2Fremotion-dev%2Fskills
+              - generic [ref=e166]:
+                - text: Star
+                - generic [aria-hidden] [ref=e167]: 6.8k
+                - generic [ref=e168]: (6.8k)
+      - generic [ref=e169]:
+        - generic [ref=e172]:
+          - generic [ref=e173]:
+            - generic [ref=e174]:
+              - button "main branch" [ref=e176] [cursor=pointer]:
+                - generic [ref=e177]: main
+              - generic [ref=e181]:
+                - link "Branches" [ref=e182] [cursor=pointer]:
+                  - /url: /remotion-dev/skills/branches
+                - link "Tags" [ref=e185] [cursor=pointer]:
+                  - /url: /remotion-dev/skills/tags
+            - generic [ref=e188]:
+              - combobox "Go to file" [ref=e196]
+              - button "Code" [ref=e197] [cursor=pointer]
+          - generic [ref=e200]:
+            - generic [ref=e201]:
+              - generic [ref=e203]:
+                - heading "Latest commit" [level=2] [ref=e204]
+                - generic [ref=e207]:
+                  - heading "History" [level=2] [ref=e208]
+                  - link "97 Commits" [ref=e209] [cursor=pointer]:
+                    - /url: /remotion-dev/skills/commits/main/
+              - heading "Folders and files" [level=2] [ref=e212]
+              - table "Folders and files" [ref=e214]:
+                - rowgroup:
+                  - row "Name Last commit message Last commit date":
+                    - columnheader "Name"
+                    - columnheader "Last commit message"
+                    - columnheader "Last commit date"
+                - rowgroup [ref=e215]:
+                  - row [ref=e216]:
+                    - cell [ref=e217]:
+                      - link "scripts, (Directory)" [ref=e224] [cursor=pointer]:
+                        - /url: /remotion-dev/skills/tree/main/scripts
+                        - text: scripts
+                    - cell [ref=e225]
+                    - cell [ref=e227]
+                  - row [ref=e230]:
+                    - cell [ref=e231]:
+                      - link "skills, (Directory)" [ref=e238] [cursor=pointer]:
+                        - /url: /remotion-dev/skills/tree/main/skills
+                        - text: skills
+                    - cell [ref=e239]
+                    - cell [ref=e241]
+                  - row [ref=e244]:
+                    - cell [ref=e245]:
+                      - link "README.md, (File)" [ref=e252] [cursor=pointer]:
+                        - /url: /remotion-dev/skills/blob/main/README.md
+                        - text: README.md
+                    - cell [ref=e253]
+                    - cell [ref=e255]
+                  - row [ref=e258]:
+                    - cell [ref=e259]:
+                      - link "package.json, (File)" [ref=e266] [cursor=pointer]:
+                        - /url: /remotion-dev/skills/blob/main/package.json
+                        - text: package.json
+                    - cell [ref=e267]
+                    - cell [ref=e269]
+                  - row [ref=e272]:
+                    - cell [ref=e273]:
+                      - link "tsconfig.json, (File)" [ref=e280] [cursor=pointer]:
+                        - /url: /remotion-dev/skills/blob/main/tsconfig.json
+                        - text: tsconfig.json
+                    - cell [ref=e281]
+                    - cell [ref=e283]
+            - generic [ref=e287]:
+              - generic [ref=e288]:
+                - heading "Repository files navigation" [level=2] [ref=e289]
+                - navigation "Repository files" [ref=e290]:
+                  - list [ref=e291]:
+                    - listitem [ref=e292]:
+                      - link "README" [ref=e293] [cursor=pointer]:
+                        - /url: "#"
+                - button "Outline" [ref=e298] [cursor=pointer]
+              - article [ref=e302]:
+                - generic [ref=e303]:
+                  - heading "Remotion Agent Skills" [level=1] [ref=e304]
+                  - 'link "Permalink: Remotion Agent Skills" [ref=e305] [cursor=pointer]':
+                    - /url: "#remotion-agent-skills"
+                - paragraph [ref=e308]:
+                  - text: Remotion maintains a list of
+                  - link "Agent Skills" [ref=e309] [cursor=pointer]:
+                    - /url: https://agentskills.io/home
+                  - text: that define best practices for working in Remotion projects.
+                - paragraph [ref=e310]: These skills are useful for AI agents like Claude Code, Codex, Kimi Code or Cursor.
+                - paragraph [ref=e311]: "You can install them by running:"
+                - generic [ref=e312]:
+                  - generic [ref=e313]: npx skills add remotion-dev/skills
+                  - button "Copy code to clipboard" [ref=e315] [cursor=pointer]
+                - paragraph [ref=e319]: "Or install them with the GitHub CLI:"
+                - generic [ref=e320]:
+                  - generic [ref=e321]: gh skill install remotion-dev/skills
+                  - button "Copy code to clipboard" [ref=e323] [cursor=pointer]
+                - paragraph [ref=e327]: "You are also offered the option to add skills when you create a new Remotion project:"
+                - generic [ref=e328]:
+                  - generic [ref=e329]: bun create video
+                  - button "Copy code to clipboard" [ref=e331] [cursor=pointer]
+                - paragraph [ref=e335]:
+                  - text: For more information, see the
+                  - link "Remotion Agent Skills documentation" [ref=e336] [cursor=pointer]:
+                    - /url: https://www.remotion.dev/docs/ai/skills
+                  - text: .
+                - generic [ref=e337]:
+                  - heading "Available skills" [level=2] [ref=e338]
+                  - 'link "Permalink: Available skills" [ref=e339] [cursor=pointer]':
+                    - /url: "#available-skills"
+                - generic [ref=e342]:
+                  - heading [level=3] [ref=e343]:
+                    - code [ref=e344]: /remotion-best-practices
+                  - 'link "Permalink: /remotion-best-practices" [ref=e345] [cursor=pointer]':
+                    - /url: "#remotion-best-practices"
+                - paragraph [ref=e348]: This skill encompasses all other skills.
+                - paragraph [ref=e349]: Use it if you are not sure which specific skill to use.
+                - generic [ref=e350]:
+                  - heading [level=3] [ref=e351]:
+                    - code [ref=e352]: /remotion-create
+                  - 'link "Permalink: /remotion-create" [ref=e353] [cursor=pointer]':
+                    - /url: "#remotion-create"
+                - paragraph [ref=e356]: Create a new Remotion project or composition.
+                - blockquote [ref=e357]:
+                  - paragraph [ref=e358]:
+                    - text: "Example prompt:"
+                    - code [ref=e359]: /remotion-create Make a promo video for a record store
+                - generic [ref=e360]:
+                  - heading [level=3] [ref=e361]:
+                    - code [ref=e362]: /remotion-markup
+                  - 'link "Permalink: /remotion-markup" [ref=e363] [cursor=pointer]':
+                    - /url: "#remotion-markup"
+                - paragraph [ref=e366]: Best practices for writing Remotion React markup.
+                - paragraph [ref=e367]: Use this for knowledge about compositions, animations, layout, typography, media elements, effects, audio, fonts, timing.
+                - blockquote [ref=e368]:
+                  - paragraph [ref=e369]:
+                    - text: "Example prompt:"
+                    - code [ref=e370]: /remotion-markup Create an animated title card using Inter.
+                - generic [ref=e371]:
+                  - heading [level=3] [ref=e372]:
+                    - code [ref=e373]: /remotion-studio
+                  - 'link "Permalink: /remotion-studio" [ref=e374] [cursor=pointer]':
+                    - /url: "#remotion-studio"
+                - paragraph [ref=e377]: Launch the Studio to see a preview of your video.
+                - blockquote [ref=e378]:
+                  - paragraph [ref=e379]:
+                    - text: "Example prompt:"
+                    - code [ref=e380]: /remotion-studio
+                - generic [ref=e381]:
+                  - heading [level=3] [ref=e382]:
+                    - code [ref=e383]: /remotion-render
+                  - 'link "Permalink: /remotion-render" [ref=e384] [cursor=pointer]':
+                    - /url: "#remotion-render"
+                - paragraph [ref=e387]: Invoke a render into a video or a still.
+                - blockquote [ref=e388]:
+                  - paragraph [ref=e389]:
+                    - text: "Example prompt:"
+                    - code [ref=e390]: /remotion-render
+                - generic [ref=e391]:
+                  - heading [level=3] [ref=e392]:
+                    - code [ref=e393]: /remotion-maps
+                  - 'link "Permalink: /remotion-maps" [ref=e394] [cursor=pointer]':
+                    - /url: "#remotion-maps"
+                - paragraph [ref=e397]: Best practices for creating map animations in Remotion.
+                - paragraph [ref=e398]: Use this for static maps, animated routes and markers, geographic explainers, Mapbox, MapLibre, MapTiler, GeoJSON, and 3D geographic flyovers with CesiumJS.
+                - blockquote [ref=e399]:
+                  - paragraph [ref=e400]:
+                    - text: "Example prompt:"
+                    - code [ref=e401]: /remotion-maps Animate a route from Los Angeles to New York and make the camera follow it.
+                - generic [ref=e402]:
+                  - heading [level=3] [ref=e403]:
+                    - code [ref=e404]: /remotion-captions
+                  - 'link "Permalink: /remotion-captions" [ref=e405] [cursor=pointer]':
+                    - /url: "#remotion-captions"
+                - paragraph [ref=e408]: Guidance for captions and subtitles.
+                - generic [ref=e409]:
+                  - heading [level=3] [ref=e410]:
+                    - code [ref=e411]: /remotion-saas
+                  - 'link "Permalink: /remotion-saas" [ref=e412] [cursor=pointer]':
+                    - /url: "#remotion-saas"
+                - paragraph [ref=e415]: Architecture guidance for Remotion-powered apps and product integrations.
+                - blockquote [ref=e416]:
+                  - paragraph [ref=e417]:
+                    - text: "Example prompt:"
+                    - code [ref=e418]: /remotion-saas Turn my video into a SaaS.
+                - generic [ref=e419]:
+                  - heading [level=3] [ref=e420]:
+                    - code [ref=e421]: /remotion-interactivity
+                  - 'link "Permalink: /remotion-interactivity" [ref=e422] [cursor=pointer]':
+                    - /url: "#remotion-interactivity"
+                - paragraph [ref=e425]:
+                  - text: Guidance for making Remotion code
+                  - link "editable" [ref=e426] [cursor=pointer]:
+                    - /url: https://www.remotion.dev/docs/studio/interactivity
+                  - text: in Studio.
+                - paragraph [ref=e427]: Use this when elements are not selectable or editable as you would like them to be.
+                - generic [ref=e428]:
+                  - heading [level=3] [ref=e429]:
+                    - code [ref=e430]: /remotion-docs
+                  - 'link "Permalink: /remotion-docs" [ref=e431] [cursor=pointer]':
+                    - /url: "#remotion-docs"
+                - paragraph [ref=e434]: Search the Remotion documentation and fetch any page as Markdown.
+                - paragraph [ref=e435]: Use this to look up current API references, component props, and package guides before implementing.
+                - blockquote [ref=e436]:
+                  - paragraph [ref=e437]:
+                    - text: "Example prompt:"
+                    - code [ref=e438]: /remotion-docs How to set up Remotion Lambda?
+                - generic [ref=e439]:
+                  - heading [level=3] [ref=e440]:
+                    - code [ref=e441]: /remotion-license
+                  - 'link "Permalink: /remotion-license" [ref=e442] [cursor=pointer]':
+                    - /url: "#remotion-license"
+                - paragraph [ref=e445]: Find Remotion license information, FAQs, terms, and where to buy a license.
+                - generic [ref=e446]:
+                  - heading [level=3] [ref=e447]:
+                    - code [ref=e448]: /remotion-upgrade
+                  - 'link "Permalink: /remotion-upgrade" [ref=e449] [cursor=pointer]':
+                    - /url: "#remotion-upgrade"
+                - paragraph [ref=e452]: Upgrade Remotion, related packages, compatible Mediabunny packages, and installed Remotion Agent Skills.
+                - blockquote [ref=e453]:
+                  - paragraph [ref=e454]:
+                    - text: "Example prompt:"
+                    - code [ref=e455]: /remotion-upgrade
+                - generic [ref=e456]:
+                  - heading [level=3] [ref=e457]:
+                    - code [ref=e458]: /remotion-multimedia
+                  - 'link "Permalink: /remotion-multimedia" [ref=e459] [cursor=pointer]':
+                    - /url: "#remotion-multimedia"
+                - paragraph [ref=e462]: Guidance for browser-based multimedia handling with Mediabunny.
+                - paragraph [ref=e463]: Use this for advice on how to get video and audio metadata.
+        - generic [ref=e466]:
+          - generic [ref=e467]:
+            - heading "About" [level=2] [ref=e468]
+            - paragraph [ref=e469]: Agent Skills
+            - heading "Resources" [level=3] [ref=e470]
+            - link "Readme" [ref=e472] [cursor=pointer]:
+              - /url: "#readme-ov-file"
+            - generic [ref=e475]:
+              - generic [ref=e476]:
+                - link "Activity" [ref=e478] [cursor=pointer]:
+                  - /url: /remotion-dev/skills/activity
+                - link "Custom properties" [ref=e482] [cursor=pointer]:
+                  - /url: /remotion-dev/skills/custom-properties
+              - generic [ref=e485]:
+                - heading "Stars" [level=3] [ref=e486]
+                - generic [ref=e488]:
+                  - strong [ref=e491]: 6.8k
+                  - text: stars
+                - heading "Watchers" [level=3] [ref=e492]
+                - generic [ref=e494]:
+                  - strong [ref=e497]: "24"
+                  - text: watching
+                - heading "Forks" [level=3] [ref=e498]
+                - link [ref=e500] [cursor=pointer]:
+                  - /url: /remotion-dev/skills/forks
+                  - strong [ref=e504]: "737"
+                  - text: forks
+            - link "Report repository" [ref=e506] [cursor=pointer]:
+              - /url: /contact/report-content?content_url=https%3A%2F%2Fgithub.com%2Fremotion-dev%2Fskills&report=remotion-dev+%28user%29
+          - heading "Releases" [level=2] [ref=e508]
+          - heading "Packages" [level=2] [ref=e512]
+          - heading "Contributors" [level=2] [ref=e515]
+          - heading "Languages" [level=2] [ref=e518]
+  - contentinfo [ref=e521]:
+    - heading "Footer" [level=2] [ref=e522]
+    - generic [ref=e523]:
+      - generic [ref=e524]:
+        - link "GitHub Homepage" [ref=e525] [cursor=pointer]:
+          - /url: https://github.com
+        - generic [ref=e528]: © 2026 GitHub, Inc.
+      - navigation "Footer" [ref=e529]:
+        - heading "Footer navigation" [level=3] [ref=e530]
+        - list "Footer navigation" [ref=e531]:
+          - listitem [ref=e532]:
+            - link "Terms" [ref=e533] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/github-terms/github-terms-of-service
+          - listitem [ref=e534]:
+            - link "Privacy" [ref=e535] [cursor=pointer]:
+              - /url: https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
+          - listitem [ref=e536]:
+            - link "Security" [ref=e537] [cursor=pointer]:
+              - /url: https://github.com/security
+          - listitem [ref=e538]:
+            - link "Status" [ref=e539] [cursor=pointer]:
+              - /url: https://www.githubstatus.com/
+          - listitem [ref=e540]:
+            - link "Community" [ref=e541] [cursor=pointer]:
+              - /url: https://github.community/
+          - listitem [ref=e542]:
+            - link "Docs" [ref=e543] [cursor=pointer]:
+              - /url: https://docs.github.com/
+          - listitem [ref=e544]:
+            - link "Contact" [ref=e545] [cursor=pointer]:
+              - /url: https://support.github.com?tags=dotcom-footer
+          - listitem [ref=e546]:
+            - button "Manage cookies" [ref=e548] [cursor=pointer]
+          - listitem [ref=e549]:
+            - button "Do not share my personal information" [ref=e551] [cursor=pointer]

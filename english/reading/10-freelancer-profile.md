@@ -13,7 +13,7 @@ type: reading
 title: "Reading 10: Freelancer Profile"
 audio: english/audio/reading-10.mp3
 video: english/video/out/reading-10.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 

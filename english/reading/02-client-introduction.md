@@ -13,7 +13,7 @@ type: reading
 title: "Reading 02: Client Introduction"
 audio: english/audio/reading-02.mp3
 video: english/video/out/reading-02.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 

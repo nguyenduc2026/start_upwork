@@ -85,7 +85,7 @@ Bài nào cần audio (**bắt buộc** với reading; với speaking/writing kh
    title: "<tiêu đề tiếng Anh>"
    audio: english/audio/<id>.mp3
    video: english/video/out/<id>.mp4
-   voice: <female|male>, <American|British>, <calm|friendly|...>
+   voice: auto                  # auto (xoay vòng giọng) | male | female | <voice_id>
    speed: 0.9                   # A2: 0.85–0.9
    -->
    ```

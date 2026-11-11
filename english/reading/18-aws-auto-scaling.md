@@ -13,7 +13,7 @@ type: reading
 title: "Reading 18: Aws Auto Scaling"
 audio: english/audio/reading-18.mp3
 video: english/video/out/reading-18.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 

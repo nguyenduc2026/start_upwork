@@ -13,7 +13,7 @@ type: reading
 title: "Reading 09: Accepted Proposal"
 audio: english/audio/reading-09.mp3
 video: english/video/out/reading-09.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 

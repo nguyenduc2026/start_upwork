@@ -13,7 +13,7 @@ type: reading
 title: "Reading 08: Spring Boot Job"
 audio: english/audio/reading-08.mp3
 video: english/video/out/reading-08.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 

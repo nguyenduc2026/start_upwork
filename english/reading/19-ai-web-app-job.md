@@ -13,7 +13,7 @@ type: reading
 title: "Reading 19: Ai Web App Job"
 audio: english/audio/reading-19.mp3
 video: english/video/out/reading-19.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 

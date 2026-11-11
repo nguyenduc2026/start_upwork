@@ -13,7 +13,7 @@ type: reading
 title: "Reading 16: Code Review Comments"
 audio: english/audio/reading-16.mp3
 video: english/video/out/reading-16.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 

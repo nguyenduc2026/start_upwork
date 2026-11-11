@@ -13,7 +13,7 @@ type: reading
 title: "Reading 03: Open Source Readme"
 audio: english/audio/reading-03.mp3
 video: english/video/out/reading-03.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 

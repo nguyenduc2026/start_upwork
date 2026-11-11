@@ -13,7 +13,7 @@ type: reading
 title: "Reading 21: Release Notes"
 audio: english/audio/reading-21.mp3
 video: english/video/out/reading-21.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 

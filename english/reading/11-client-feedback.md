@@ -13,7 +13,7 @@ type: reading
 title: "Reading 11: Client Feedback"
 audio: english/audio/reading-11.mp3
 video: english/video/out/reading-11.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 

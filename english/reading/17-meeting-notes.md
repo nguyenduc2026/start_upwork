@@ -13,7 +13,7 @@ type: reading
 title: "Reading 17: Meeting Notes"
 audio: english/audio/reading-17.mp3
 video: english/video/out/reading-17.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 

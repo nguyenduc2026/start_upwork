@@ -13,7 +13,7 @@ type: reading
 title: "Reading 04: Github Bug Report"
 audio: english/audio/reading-04.mp3
 video: english/video/out/reading-04.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 

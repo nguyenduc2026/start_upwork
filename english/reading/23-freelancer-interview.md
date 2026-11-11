@@ -13,7 +13,7 @@ type: reading
 title: "Reading 23: Freelancer Interview"
 audio: english/audio/reading-23.mp3
 video: english/video/out/reading-23.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 

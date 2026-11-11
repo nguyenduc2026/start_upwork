@@ -13,7 +13,7 @@ type: reading
 title: "Reading 24: Real Job Screening"
 audio: english/audio/reading-24.mp3
 video: english/video/out/reading-24.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 

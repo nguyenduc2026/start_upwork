@@ -13,7 +13,7 @@ type: reading
 title: "Reading 05: Why Queues"
 audio: english/audio/reading-05.mp3
 video: english/video/out/reading-05.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 

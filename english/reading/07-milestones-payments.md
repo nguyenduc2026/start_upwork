@@ -13,7 +13,7 @@ type: reading
 title: "Reading 07: Milestones Payments"
 audio: english/audio/reading-07.mp3
 video: english/video/out/reading-07.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 

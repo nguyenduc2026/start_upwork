@@ -13,7 +13,7 @@ type: reading
 title: "Reading 20: Technology News"
 audio: english/audio/reading-20.mp3
 video: english/video/out/reading-20.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 

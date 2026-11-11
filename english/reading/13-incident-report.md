@@ -13,7 +13,7 @@ type: reading
 title: "Reading 13: Incident Report"
 audio: english/audio/reading-13.mp3
 video: english/video/out/reading-13.mp4
-voice: female, American, calm
+voice: auto
 speed: 0.9
 -->
 
