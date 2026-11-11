@@ -116,21 +116,29 @@ Mỗi bài đọc có audio + video do skill `lesson-video` tạo (ElevenLabs + 
 | # | Bài | Tuần | Trạng thái |
 |---|---|---|---|
 | 01 | [Giới thiệu bản thân & profile overview](writing/01-self-introduction.md) | 5 | đã tạo |
-| 02 | Hỏi lại để làm rõ yêu cầu | 6 | chưa tạo |
-| 03 | Đưa ra ước lượng thời gian / chi phí | 6 | chưa tạo |
-| 04 | Cấu trúc 1 proposal | 7 | chưa tạo |
-| 05 | Luyện proposal với job thật | 7 | chưa tạo |
-| 06 | Báo cáo tiến độ | 8 | chưa tạo |
-| 07 | Tình huống khó: trễ hạn, bug, đổi yêu cầu | 8 | chưa tạo |
+| 02 | [Hỏi lại để làm rõ yêu cầu](writing/02-clarifying-requirements.md) | 6 | đã tạo |
+| 03 | [Đưa ra ước lượng thời gian / chi phí](writing/03-time-cost-estimates.md) | 6 | đã tạo |
+| 04 | [Cấu trúc 1 proposal](writing/04-proposal-structure.md) | 7 | đã tạo |
+| 05 | [Luyện proposal với job thật](writing/05-real-job-proposals.md) | 7 | đã tạo |
+| 06 | [Báo cáo tiến độ](writing/06-progress-updates.md) | 8 | đã tạo |
+| 07 | [Tình huống khó: trễ hạn, bug, đổi yêu cầu](writing/07-difficult-situations.md) | 8 | đã tạo |
+
+> **Cách học writing:** bộ bài 02–07 đã được chuẩn bị sẵn theo yêu cầu; nên học và được chấm lần lượt từ bài 01. Mỗi buổi khoảng 25 phút; các bài nhiều tình huống có thể cần thêm buổi ôn. Tuần trong bảng là thứ tự dự kiến, có thể giãn để giữ tổng thời gian khoảng 1h/ngày. Mỗi bài mới có mẫu tốt/kém, mẫu câu, checklist, bài tập có gợi ý trong `<details>` và phần bài làm riêng. `Đã tạo` chỉ có nghĩa đã có tài liệu, chưa phải đã học xong.
+>
+> **Nguồn và media:** Writing 05 dùng bản lập chỉ mục công khai của một tin Upwork thật, tham khảo ngày 11/11/2026; trang trực tiếp chặn 403 nên chưa xác nhận còn tuyển. Các tình huống mở rộng được ghi rõ là mô phỏng. Writing 02–07 có metadata và đoạn mẫu sạch cho skill `lesson-video`; **chưa tạo audio/video** trong lần soạn bài này. Chạy `/lesson-video english/writing/<file>.md` cho bài muốn tạo media.
 
 ### Speaking (Giai đoạn 3)
 
 | # | Bài | Tuần | Trạng thái |
 |---|---|---|---|
 | 01 | [Phát âm cơ bản & phương pháp shadowing](speaking/01-pronunciation-shadowing.md) | 9 | đã tạo |
-| 02 | Script tự giới thiệu 2 phút | 10 | chưa tạo |
-| 03 | Demo project đặt vé concert | 11 | chưa tạo |
-| 04 | Các câu hỏi thường gặp trong cuộc gọi với client | 12 | chưa tạo |
+| 02 | [Script tự giới thiệu 2 phút](speaking/02-two-minute-introduction.md) | 10 | đã tạo |
+| 03 | [Demo project đặt vé concert](speaking/03-concert-booking-demo.md) | 11 | đã tạo |
+| 04 | [Các câu hỏi thường gặp trong cuộc gọi với client](speaking/04-client-call-questions.md) | 12 | đã tạo |
+
+> **Cách học speaking:** cả 4 bài đã có tài liệu; bài 02–04 được chuẩn bị sẵn theo yêu cầu, vẫn nên học và được chấm lần lượt từ bài 01. Bài mới chia thành 7 buổi × 20 phút để phù hợp lịch giai đoạn 3. Bài 01 ghi 30 phút/buổi; có thể chia lại phần luyện sang buổi sau để giữ tổng thời gian khoảng 1h/ngày. Bài 02 luyện giới thiệu khoảng 2 phút; bài 03 kết hợp giới thiệu và demo thành phần trình bày khoảng 5 phút; bài 04 luyện hỏi đáp và chốt bước tiếp theo. Mỗi bài mới có script đánh dấu phát âm, bản sạch, lịch luyện, bài tập, đáp án và tiêu chí tự chấm. `Đã tạo` chưa có nghĩa là đã thực hành hoặc hoàn thành.
+>
+> **Audio/video speaking:** lần bổ sung này chỉ chuẩn bị nội dung và metadata, **chưa tạo audio/video**. Đường dẫn trong bài là đường dẫn dự kiến. Chạy `/lesson-video english/speaking/<tên-file>.md` để tạo media; phần đọc của mỗi bài mới không quá 1.500 ký tự. Các script và con số là mẫu luyện, cần thay bằng kinh nghiệm và trạng thái project thật của bạn.
 
 ---
 
