@@ -1,0 +1,574 @@
+{
+  "v": 3,
+  "attachments": {},
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-10-02T09:00:00Z"
+  },
+  "title": "Ticket Hub Mockups",
+  "launch": {
+    "view": "canvas"
+  },
+  "pages": [],
+  "boards": {
+    "01-Main.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1280,
+      "h": 1900,
+      "title": "1. Trang chủ",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "02-EventList.dc.html": {
+      "x": 1360,
+      "y": 0,
+      "w": 1280,
+      "h": 1860,
+      "title": "2. Danh sách sự kiện (lọc + phân trang)",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "03-EventDetail.dc.html": {
+      "x": 2720,
+      "y": 0,
+      "w": 1280,
+      "h": 1900,
+      "title": "3. Chi tiết sự kiện",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "04-SeatSelect.dc.html": {
+      "x": 4080,
+      "y": 0,
+      "w": 1280,
+      "h": 1000,
+      "title": "4. Chọn ghế",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "05-Checkout.dc.html": {
+      "x": 5440,
+      "y": 0,
+      "w": 1280,
+      "h": 1100,
+      "title": "5. Thanh toán",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "06-Success.dc.html": {
+      "x": 6800,
+      "y": 0,
+      "w": 1280,
+      "h": 1000,
+      "title": "6. Thanh toán thành công",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "14-MyTicketsMobile.dc.html": {
+      "x": 0,
+      "y": 6400,
+      "w": 390,
+      "h": 844,
+      "title": "14. Vé của tôi (mobile)",
+      "is_interactive": true
+    },
+    "15-TicketQR.dc.html": {
+      "x": 470,
+      "y": 6400,
+      "w": 390,
+      "h": 844,
+      "title": "15. Vé QR + hoàn vé (mobile)",
+      "is_interactive": true
+    },
+    "16-Checkin.dc.html": {
+      "x": 940,
+      "y": 6400,
+      "w": 390,
+      "h": 844,
+      "title": "16. Check-in tại cổng (mobile)"
+    },
+    "17-OrgDashboard.dc.html": {
+      "x": 0,
+      "y": 8744,
+      "w": 1280,
+      "h": 1100,
+      "title": "17. Organizer — Tổng quan",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "18-OrgEvents.dc.html": {
+      "x": 1360,
+      "y": 8744,
+      "w": 1280,
+      "h": 900,
+      "title": "18. Organizer — Sự kiện (kèm doanh thu)",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "20-OrgCreateEvent.dc.html": {
+      "x": 4080,
+      "y": 8744,
+      "w": 1280,
+      "h": 1000,
+      "title": "20. Organizer — Sửa sự kiện: hạng vé",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "21-OrgOrders.dc.html": {
+      "x": 5440,
+      "y": 8744,
+      "w": 1280,
+      "h": 900,
+      "title": "21. Organizer — Đơn hàng",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "24-AdminOrganizers.dc.html": {
+      "x": 1360,
+      "y": 11744,
+      "w": 1280,
+      "h": 900,
+      "title": "24. Admin — Hồ sơ organizer",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "26-AdminVenues.dc.html": {
+      "x": 4080,
+      "y": 11744,
+      "w": 1280,
+      "h": 900,
+      "title": "26. Admin — Địa điểm",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "27-AdminSeatMap.dc.html": {
+      "x": 5440,
+      "y": 11744,
+      "w": 1280,
+      "h": 880,
+      "title": "27. Admin — Sơ đồ ghế (form khu ghế)",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "08-Auth.dc.html": {
+      "x": 0,
+      "y": 3400,
+      "w": 1280,
+      "h": 900,
+      "title": "8. Đăng nhập / Đăng ký / Quên mật khẩu",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "09-Profile.dc.html": {
+      "x": 1360,
+      "y": 3400,
+      "w": 1280,
+      "h": 1100,
+      "title": "9. Hồ sơ cá nhân · Bảo mật · Cài đặt thông báo",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "10-Notifications.dc.html": {
+      "x": 2720,
+      "y": 3400,
+      "w": 1280,
+      "h": 1300,
+      "title": "10. Thông báo (+ popover chuông)",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "11-MyBookings.dc.html": {
+      "x": 4080,
+      "y": 3400,
+      "w": 1280,
+      "h": 1100,
+      "title": "11. Đơn hàng của tôi",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "12-OrganizerApply.dc.html": {
+      "x": 5440,
+      "y": 3400,
+      "w": 1280,
+      "h": 1500,
+      "title": "12. Đăng ký làm ban tổ chức",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "07-SystemStates.dc.html": {
+      "x": 8160,
+      "y": 0,
+      "w": 1280,
+      "h": 900,
+      "title": "7. Trạng thái lỗi & ngoại lệ",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "19-OrgEventInfo.dc.html": {
+      "x": 2720,
+      "y": 8744,
+      "w": 1280,
+      "h": 1500,
+      "title": "19. Organizer — Sửa sự kiện: thông tin · mở bán",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "22-OrgSettings.dc.html": {
+      "x": 6800,
+      "y": 8744,
+      "w": 1280,
+      "h": 1000,
+      "title": "22. Organizer — Cài đặt",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "25-AdminUsers.dc.html": {
+      "x": 2720,
+      "y": 11744,
+      "w": 1280,
+      "h": 900,
+      "title": "25. Admin — Người dùng",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "28-AdminOrders.dc.html": {
+      "x": 6800,
+      "y": 11744,
+      "w": 1280,
+      "h": 960,
+      "title": "28. Admin — Đơn hàng & hoàn tiền",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "29-AdminAuditLogs.dc.html": {
+      "x": 8160,
+      "y": 11744,
+      "w": 1280,
+      "h": 960,
+      "title": "29. Admin — Audit log",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    "30-AdminEvents.dc.html": {
+      "x": 9520,
+      "y": 11744,
+      "w": 1280,
+      "h": 900,
+      "expand": "fill",
+      "is_interactive": true,
+      "title": "30. Admin — Sự kiện"
+    },
+    "23-AdminDashboard.dc.html": {
+      "x": 0,
+      "y": 11744,
+      "w": 1280,
+      "h": 1100,
+      "expand": "fill",
+      "is_interactive": true,
+      "title": "23. Admin — Tổng quan"
+    },
+    "13-MyTickets.dc.html": {
+      "x": 6800,
+      "y": 3400,
+      "w": 1280,
+      "h": 1100,
+      "title": "13. Vé của tôi (desktop)",
+      "expand": "fill",
+      "is_interactive": true
+    }
+  },
+  "order": [
+    "01-Main.dc.html",
+    "02-EventList.dc.html",
+    "03-EventDetail.dc.html",
+    "04-SeatSelect.dc.html",
+    "05-Checkout.dc.html",
+    "06-Success.dc.html",
+    "07-SystemStates.dc.html",
+    "08-Auth.dc.html",
+    "09-Profile.dc.html",
+    "10-Notifications.dc.html",
+    "11-MyBookings.dc.html",
+    "12-OrganizerApply.dc.html",
+    "13-MyTickets.dc.html",
+    "14-MyTicketsMobile.dc.html",
+    "15-TicketQR.dc.html",
+    "16-Checkin.dc.html",
+    "17-OrgDashboard.dc.html",
+    "18-OrgEvents.dc.html",
+    "19-OrgEventInfo.dc.html",
+    "20-OrgCreateEvent.dc.html",
+    "21-OrgOrders.dc.html",
+    "22-OrgSettings.dc.html",
+    "23-AdminDashboard.dc.html",
+    "24-AdminOrganizers.dc.html",
+    "25-AdminUsers.dc.html",
+    "26-AdminVenues.dc.html",
+    "27-AdminSeatMap.dc.html",
+    "28-AdminOrders.dc.html",
+    "29-AdminAuditLogs.dc.html",
+    "30-AdminEvents.dc.html"
+  ],
+  "notes": {
+    "a-Main": {
+      "x": 0,
+      "y": 1980,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Trang chủ (/)\n• Logo → Trang chủ\n• Ô tìm kiếm → Enter: Danh sách sự kiện ?q=…\n• Vé của tôi → màn 13 (desktop)\n• Chuông → popover Thông báo ngay trên trang (không chuyển trang): thông báo chưa đọc có nền xanh nhạt + chấm xanh + chữ đậm; Đánh dấu tất cả đã đọc → bỏ nền, bỏ badge đỏ; Xem tất cả thông báo → màn 10\n• Avatar → menu tài khoản (màn 9, màn 10, màn 11)\n• Danh mục → Danh sách sự kiện ?category=…\n• Banner / thẻ sự kiện → Chi tiết sự kiện\n• Xem tất cả → Danh sách sự kiện\n• Khối “Dành cho ban tổ chức” → Tạo tài khoản ban tổ chức → màn 8 (Tạo tài khoản)\nChưa đăng nhập: thay Vé của tôi + chuông + avatar bằng nút Đăng nhập → màn 8."
+    },
+    "a-EventList": {
+      "x": 1360,
+      "y": 1940,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Danh sách sự kiện (/events)\n• Bộ lọc bên trái: danh mục, thành phố (tỉnh/TP), thời gian → cập nhật URL + kết quả\n• Chip “×” → bỏ 1 bộ lọc · Xoá tất cả → bỏ hết\n• Sắp xếp → đổi thứ tự\n• Thẻ sự kiện → Chi tiết sự kiện\n• Trước / số trang / Sau → phân trang\n• Không có kết quả → trạng thái trống + gợi ý bỏ bớt bộ lọc."
+    },
+    "a-EventDetail": {
+      "x": 2720,
+      "y": 1980,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Chi tiết sự kiện (/events/:id)\n• Mua vé:\n  – chưa đăng nhập → màn 7 “Cần đăng nhập” → Auth, xong quay lại đây\n  – còn lại → Chọn ghế\n  – trước giờ mở bán: nút khoá + đếm ngược · hết vé: “Hết vé”\n• Bản đồ → Google Maps (tab mới)\n• Chia sẻ → sao chép link (Web Share API trên mobile)\n• Thêm vào lịch → tải file .ics\n• Tab Giới thiệu / Thông tin vé / Sơ đồ / BTC → cuộn tới mục\n• Liên hệ ban tổ chức → mailto email hỗ trợ của BTC."
+    },
+    "a-SeatSelect": {
+      "x": 4080,
+      "y": 1080,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Chọn ghế (/events/:id/seats)\n• Ghế trống → chọn / bỏ chọn (tối đa max_tickets_per_user, mặc định 6; vượt → toast “Max 6 tickets per order”)\n• Ghế đã bán / đang giữ → không chọn được, tooltip trạng thái\n• + / − / Vừa màn hình → phóng to, thu nhỏ sơ đồ (SVG)\n• “×” ở danh sách ghế đã chọn → bỏ ghế\n• Tiếp tục → POST /bookings (giữ ghế 10 phút) → Thanh toán\n  – 409 SEAT_UNAVAILABLE → màn 7 “Ghế vừa có người giữ”\n  – đã có đơn chờ (BR-02) → màn 7 “Đã có đơn chờ”\n• Quay lại → Chi tiết sự kiện (bỏ lựa chọn)."
+    },
+    "a-Checkout": {
+      "x": 5440,
+      "y": 1180,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Thanh toán (/checkout/:bookingId)\n• Đồng hồ đếm ngược theo expiresAt; về 0 → màn 7 “Hết giờ giữ ghế”\n• Thanh toán bằng thẻ qua Stripe Payment Element (test mode, USD)\n• Thanh toán X → tạo PaymentIntent + confirm\n  – thành công → Thanh toán thành công\n  – bị từ chối → màn 7 “Thanh toán lỗi” (ghế vẫn giữ)\n  – chờ webhook → màn 7 “Đang xác nhận”\n• Vé chỉ phát hành khi nhận webhook payment_intent.succeeded (idempotent)\n• Quay lại chọn ghế → xác nhận huỷ giữ chỗ → Chọn ghế\n• Tóm tắt đơn: Tạm tính, Tổng thanh toán và dòng “Đã bao gồm phí dịch vụ” (phí nền tảng 5%, không hoàn lại khi hoàn vé — BR-07)\n• Điều khoản / Chính sách hoàn vé → trang tĩnh."
+    },
+    "a-Success": {
+      "x": 6800,
+      "y": 1080,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Thanh toán thành công\n• Tải PDF → tải toàn bộ vé dạng PDF\n• Xem vé → Vé QR\n• Đến Vé của tôi → /me/tickets\n• Thêm vào lịch → .ics\n• Về trang chủ → Trang chủ."
+    },
+    "a-SystemStates": {
+      "x": 8160,
+      "y": 980,
+      "w": 640,
+      "maxH": 1400,
+      "text": "HÀNH ĐỘNG — Trạng thái lỗi & ngoại lệ\n• 404 → Về trang chủ / Tìm sự kiện\n• 403 → Về trang chủ / Đăng nhập tài khoản khác\n• Cần đăng nhập → Đăng nhập / Tạo tài khoản (quay lại đúng trang)\n• Hết giờ giữ ghế → Chọn lại ghế / Về sự kiện\n• Ghế đã có người giữ (409) → Chọn ghế khác\n• Đã có đơn chờ (BR-02) → Tiếp tục thanh toán / Xem đơn hàng\n• Thanh toán lỗi → Thử lại / Huỷ đơn\n• Đang xác nhận thanh toán → Làm mới / Xem đơn hàng\n• Hết vé → Xem sự kiện khác\n• 500 (kèm mã tham chiếu) → Thử lại\n• Mất mạng → banner + Thử lại ngay.\nKHI NÀO HIỆN (cho dev)\n• 404: URL sai hoặc sự kiện không còn hiển thị.\n• 403: Route bị chặn bởi beforeLoad theo role, hoặc API trả 403.\n• Cần đăng nhập: Khách chưa đăng nhập bấm Mua vé, hoặc refresh token hết hạn.\n• Hết giờ giữ ghế: Đồng hồ ở trang Thanh toán về 00:00 (booking EXPIRED).\n• Ghế đã có người giữ: POST /bookings trả 409 SEAT_UNAVAILABLE.\n• Đã có đơn chờ: Vi phạm BR-02 (1 booking PENDING_PAYMENT/user/sự kiện).\n• Thanh toán lỗi: Stripe Payment Element trả lỗi; booking vẫn PENDING_PAYMENT.\n• Đang xác nhận: Đã submit thẻ nhưng chưa nhận webhook payment_intent.succeeded.\n• Hết vé: Sự kiện ở trạng thái SOLD_OUT.\n• 500: API trả 5xx (kèm request ID).\n• Mất mạng: Trình duyệt offline."
+    },
+    "row1": {
+      "x": 0,
+      "y": -300,
+      "w": 240,
+      "text": "Khách hàng — tìm & mua vé",
+      "kind": "title1",
+      "maxW": 8000
+    },
+    "a-Auth": {
+      "x": 0,
+      "y": 4380,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Đăng nhập / Đăng ký (JWT)\nĐĂNG NHẬP\n• Đăng nhập → sai: banner lỗi; sai 5 lần → khoá 15 phút\n• Biểu tượng mắt → hiện/ẩn mật khẩu\n• Quên mật khẩu? → màn Quên mật khẩu · Đăng ký → Tạo tài khoản\nTẠO TÀI KHOẢN\n• Tạo tài khoản: chỉ bật khi đã tick điều khoản → gửi email → Xác minh email\nXÁC MINH EMAIL\n• Gửi lại email · Đã xác minh, tiếp tục → Chọn loại tài khoản · Đổi email → Tạo tài khoản\nCHỌN LOẠI TÀI KHOẢN (chỉ hỏi 1 lần sau khi tạo tài khoản)\n• Mua vé → Trang chủ\n• Tổ chức sự kiện → màn 12 Đăng ký ban tổ chức\n• Khách hàng không đăng ký làm ban tổ chức từ các màn khách hàng (header, menu tài khoản, hồ sơ)\nQUÊN / ĐẶT LẠI MẬT KHẨU\n• Gửi liên kết → “Đã gửi liên kết” (luôn báo thành công, không lộ email có tồn tại hay không)\n• Mở liên kết → Đặt mật khẩu mới → thu hồi mọi refresh token → Đăng nhập + toast."
+    },
+    "a-Profile": {
+      "x": 1360,
+      "y": 4580,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Hồ sơ cá nhân (/me/profile)\nHeader: chuông → popover thông báo; avatar → menu tài khoản.\nTHÔNG TIN\n• Tải ảnh lên / Xoá ảnh → toast\n• Lưu thay đổi → toast · Huỷ thay đổi → khôi phục\n• Role organizer: khối “Ban tổ chức · Đã duyệt” → Vào kênh BTC\nBẢO MẬT\n• Đổi mật khẩu → modal (hiện tại, mới, nhập lại)\nCÀI ĐẶT THÔNG BÁO\n• Switch từng loại email (loại bắt buộc bị khoá) · Lưu cài đặt."
+    },
+    "a-Notifications": {
+      "x": 2720,
+      "y": 4780,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Thông báo (/me/notifications) — bảng notifications của Laravel (database channel)\n• Tất cả / Chưa đọc + chip loại → lọc\n• Đánh dấu tất cả đã đọc (khoá khi không còn chưa đọc)\n• Bánh răng → Hồ sơ › Cài đặt thông báo\n• Tiêu đề thông báo → mở nội dung liên quan (Vé QR, Đơn hàng, Sự kiện, Hồ sơ BTC…) và đánh dấu đã đọc\n• ⋯ → Đánh dấu đã đọc / chưa đọc · Mở nội dung · Xoá thông báo\n• Xem thông báo cũ hơn → tải trang tiếp theo\nPOPOVER CHUÔNG (mọi trang, kể cả kênh BTC / Admin)\n• 3 thông báo mới nhất · Đánh dấu tất cả đã đọc · Xem tất cả → màn này\n• Số chưa đọc: polling 30 giây (không cần WebSocket)."
+    },
+    "a-MyBookings": {
+      "x": 4080,
+      "y": 4580,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Đơn hàng của tôi (/me/bookings)\n• Banner đơn đang giữ ghế: Tiếp tục thanh toán → Thanh toán · Huỷ giữ chỗ → modal → nhả ghế\n• Tìm + chip trạng thái → lọc · phân trang\n• Mã đơn → modal Chi tiết (vé, thanh toán, lịch sử) → Xem vé\n• ⋯ theo trạng thái:\n  – Chờ thanh toán: Tiếp tục thanh toán, Huỷ giữ chỗ\n  – Đã xác nhận: Xem chi tiết, Xem vé, Yêu cầu hoàn vé\n  – Khác: Xem chi tiết\n• Yêu cầu hoàn vé → modal (đã trả, phí nền tảng không hoàn, số tiền hoàn, lý do) — BR-07 → “Đang hoàn tiền”, Admin xử lý ở màn 28\n• Trong vòng 48h trước giờ diễn → modal “Đã quá hạn hoàn vé”."
+    },
+    "a-OrganizerApply": {
+      "x": 5440,
+      "y": 4980,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Đăng ký ban tổ chức (/organizer/apply)\nVào từ: bước “Chọn loại tài khoản” (màn 8) khi chọn Tổ chức sự kiện. Header gọn: logo, đổi giao diện, avatar (Đăng xuất); không có điều hướng khách hàng.\nQuy trình bên phải: 1 Gửi hồ sơ · 2 Admin duyệt · 3 Tạo & publish sự kiện\nFORM\n• Tên hiển thị, tên pháp lý + mã số thuế, email/điện thoại liên hệ, mô tả, chip loại sự kiện (chọn nhiều)\n• Chọn tệp / kéo thả → 1 giấy tờ (PDF/ảnh, lưu S3) · thùng rác → xoá tệp\n• Gửi hồ sơ (bật khi tick điều khoản + có tệp) → modal xác nhận → Đang chờ duyệt, Admin nhận hồ sơ ở màn 24\nĐANG CHỜ: Rút hồ sơ → modal → về form\nBỊ TỪ CHỐI: hiện lý do của Admin, mở lại form, nút “Gửi lại hồ sơ”\nĐÃ DUYỆT: Vào kênh BTC → màn 17."
+    },
+    "row1b": {
+      "x": 0,
+      "y": 3100,
+      "w": 240,
+      "text": "Tài khoản khách hàng",
+      "kind": "title1",
+      "maxW": 6720
+    },
+    "a-MyTickets": {
+      "x": 0,
+      "y": 7324,
+      "w": 390,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Vé của tôi (mobile)\n• Tab Sắp diễn ra / Đã qua / Đã hoàn → lọc\n• Ô tìm → lọc theo tên sự kiện, mã vé\n• Chạm vào vé → Vé QR\n• Trước / Sau → phân trang\n• Logo → Trang chủ."
+    },
+    "a-TicketQR": {
+      "x": 470,
+      "y": 7324,
+      "w": 390,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Vé QR (mobile)\n• Quay lại → Vé của tôi\n• QR chứa mã vé + chữ ký HMAC (không đoán/giả được)\n• Yêu cầu hoàn đơn → bottom sheet: hoàn cả đơn, trừ phí nền tảng 5% (BR-07)\n  – Hoàn đơn → mọi vé của đơn bị thu hồi (REVOKED), không huỷ được yêu cầu (BR-09)\n  – Giữ vé → đóng\n• Trong vòng 48h trước giờ diễn: nút hoàn bị khoá + giải thích (BR-07)."
+    },
+    "a-Checkin": {
+      "x": 940,
+      "y": 7324,
+      "w": 390,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Check-in tại cổng (mobile web)\nAi dùng: chủ BTC hoặc thành viên vai trò “Nhân viên check-in” được giao sự kiện (màn 22).\n• Camera quét liên tục → POST /checkin → kết quả: Hợp lệ (xanh) · Đã sử dụng (vàng, kèm giờ đã quét) · Không hợp lệ (đỏ)\n• Quét vé tiếp theo → xoá kết quả, quét tiếp\n• Quay lại → Sự kiện (màn 18)\n• 312/1.200 = đã check-in / tổng vé."
+    },
+    "row2": {
+      "x": 0,
+      "y": 6100,
+      "w": 240,
+      "text": "Mobile — vé & check-in",
+      "kind": "title1",
+      "maxW": 1330
+    },
+    "a-OrgDashboard": {
+      "x": 0,
+      "y": 9924,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Organizer · Tổng quan\n• Thẻ số liệu: doanh thu, vé đã bán, số sự kiện đang bán, đã check-in\n• Xem tất cả (đơn hàng) → Đơn hàng\n• Sidebar: Tổng quan, Sự kiện, Đơn hàng, Cài đặt (màn 22)\n• Sự kiện gần đây → Sửa sự kiện (màn 19)\n• Avatar cuối sidebar → menu: Hồ sơ, Thông báo, Về trang mua vé, Đăng xuất."
+    },
+    "a-OrgEvents": {
+      "x": 1360,
+      "y": 9724,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Organizer · Sự kiện\nCỘT CỦA BẢNG\n• Tên · Ngày diễn · Địa điểm · Trạng thái · Đã bán/Tổng (thanh tiến độ) · Doanh thu · Đã check-in\n• Trạng thái “Tạm dừng” (Admin dừng, BR-13) → badge + tooltip lý do\nTHAO TÁC\n• Tạo sự kiện → modal (tên, danh mục, địa điểm, ngày, giờ) → Tạo & tiếp tục → Sửa sự kiện (màn 19)\n• Tìm · Trạng thái · Địa điểm → lọc · Đặt lại · Xuất CSV\n• Ngày diễn (header) → đảo thứ tự · Tên sự kiện → Sửa sự kiện\n• ⋯ Chỉnh sửa · Xem đơn hàng (màn 21 lọc sẵn sự kiện) · Check-in (màn 16) · Xuất danh sách khách (CSV) · Trang công khai\n• Organizer không tạm dừng / huỷ được sự kiện; chỉ Admin (BR-08, BR-13)\n• Phân trang, số dòng mỗi trang."
+    },
+    "a-OrgEventInfo": {
+      "x": 2720,
+      "y": 10324,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Sửa sự kiện (/organizer/events/:id/edit)\nHEADER\n• Xem trước → trang sự kiện · Lưu nháp → toast\n• Publish → đủ điều kiện (checklist xanh hết): modal xác nhận; thiếu: modal “Chưa thể publish” liệt kê mục thiếu\n• Tab “Hạng vé & giá” → màn 20\nTHÔNG TIN CHUNG\n• Tải / Xoá ảnh bìa · Thẻ: Enter để thêm\n• Đổi sơ đồ → modal cảnh báo xoá gán hạng vé\nMỞ BÁN\n• Ngày/giờ mở bán, kết thúc bán · switch hiện trước giờ mở bán\n• Tối đa vé mỗi khách (max_tickets_per_user, mặc định 6, BR-02)\nSAU KHI PUBLISH: chỉ sửa tiêu đề, mô tả, ảnh bìa, danh mục (BR-14)\nCHECKLIST: link tới mục còn thiếu."
+    },
+    "a-OrgCreateEvent": {
+      "x": 4080,
+      "y": 9824,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Sửa sự kiện · Hạng vé & giá\n• Tab Thông tin chung / Mở bán → màn 19\n• Xem trước → trang sự kiện\n• Publish → đủ điều kiện: modal xác nhận; thiếu: modal “Chưa thể publish”\n• Thêm hạng vé → modal (tên, giá USD, màu, chọn khu áp dụng)\n• ⋯ Chỉnh sửa → modal · Xoá hạng vé → modal (không xoá khi đã có vé bán)\n• Checklist → link tới mục còn thiếu\n• Bấm khu trên sơ đồ → xem hạng vé đã gán."
+    },
+    "a-OrgOrders": {
+      "x": 5440,
+      "y": 9724,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Organizer · Đơn hàng\n• Xuất CSV\n• Sự kiện (chọn một) · Tìm · Trạng thái · Thời gian → lọc · Đặt lại\n• ⋯ Xem chi tiết → chi tiết đơn · Gửi lại email vé → toast\n• Không có hoàn tiền: khách tự yêu cầu, Admin hoàn (màn 28, BR-09)\n• Phân trang."
+    },
+    "a-OrgSettings": {
+      "x": 6800,
+      "y": 9824,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Organizer · Cài đặt\nHỒ SƠ CÔNG KHAI: Tải / Xoá logo · tên, đường dẫn (slug), giới thiệu, liên hệ · khung “Xem trước” · Lưu\nTHÀNH VIÊN\n• Mời thành viên → modal (email, vai trò Quản lý sự kiện / Nhân viên check-in, sự kiện được giao) → email mời\n• ⋯ Gửi lại lời mời · Đổi vai trò (modal) · Xoá khỏi tổ chức (modal) / Huỷ lời mời\n• Chủ sở hữu không có menu\n• Quyền: Quản lý sự kiện = sửa sự kiện + xem đơn; Nhân viên check-in = chỉ màn 16 cho sự kiện được giao\nTHÔNG BÁO: switch từng loại email · Lưu"
+    },
+    "row3": {
+      "x": 0,
+      "y": 8444,
+      "w": 240,
+      "text": "Organizer",
+      "kind": "title1",
+      "maxW": 8000
+    },
+    "a-AdminOrganizers": {
+      "x": 1360,
+      "y": 12724,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Admin · Hồ sơ organizer\n• Tìm · Trạng thái → lọc · Đặt lại\n• Tên tổ chức → modal Xem hồ sơ (xem/tải giấy tờ, nút Từ chối / Duyệt hồ sơ)\n• ⋯ Duyệt → modal → APPROVED, tạo tổ chức, gán role ORGANIZER, thông báo + email cho người đăng ký\n• ⋯ Từ chối → modal, lý do bắt buộc → thông báo + email (hiện ở màn 12)\n• Phân trang. Mọi thao tác ghi audit log."
+    },
+    "a-AdminUsers": {
+      "x": 2720,
+      "y": 12724,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Admin · Người dùng\n• Tìm · Vai trò · Trạng thái → lọc · Đặt lại\n• Tên → modal chi tiết (số đơn, chi tiêu, hoàn vé) → Audit log (màn 29) / Xem đơn hàng\n• ⋯ Đổi vai trò → modal (chọn ADMIN thì hiện cảnh báo)\n• ⋯ Khoá tài khoản → modal lý do, thu hồi mọi refresh token / Mở khoá → toast\n• Mọi thao tác ghi audit log."
+    },
+    "a-AdminVenues": {
+      "x": 4080,
+      "y": 12724,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Admin · Địa điểm\n• Thêm địa điểm → modal (tên, địa chỉ, Tỉnh/TP — danh sách seed sẵn, sức chứa)\n• Tìm · Tỉnh/TP → lọc · Đặt lại\n• Tên địa điểm → Sơ đồ ghế (màn 27)\n• ⋯ Sửa thông tin → modal · Quản lý sơ đồ ghế · Xoá địa điểm → modal (chặn khi có sự kiện đang dùng)\n• Phân trang."
+    },
+    "a-AdminSeatMap": {
+      "x": 5440,
+      "y": 12704,
+      "w": 640,
+      "maxH": 1100,
+      "text": "HÀNH ĐỘNG — Admin · Sơ đồ ghế (/admin/venues/:id/seat-maps/:mapId)\n• Bên trái: khung xem trước SVG (zoom − / + / Vừa khung), bấm khu → chọn khu đó trong danh sách\n• Bên phải: thông tin sơ đồ (tên, kích thước) + danh sách phần tử\n  – Khu ghế: tên, mã, số hàng, ghế mỗi hàng, X / Y → Thêm / Sửa / Xoá\n  – Sân khấu, nhãn: nhãn, rộng, cao, X / Y\n• Lưu sơ đồ → backend sinh lại toạ độ ghế (generateSeats) · Huỷ thay đổi\n• Xem như khách → tô màu theo hạng vé\nKHOÁ: sơ đồ đã dùng cho sự kiện publish → banner + Tạo bản sao để sửa (v mới, sự kiện cũ giữ bản cũ)."
+    },
+    "a-AdminOrders": {
+      "x": 6800,
+      "y": 12784,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Admin · Đơn hàng & hoàn tiền\n• Tab Tất cả đơn / Yêu cầu hoàn tiền\n• Tìm (mã đơn, email, PaymentIntent) · Trạng thái · Organizer · Đặt lại · Xuất CSV\n• Mã đơn → modal chi tiết + dòng thời gian (booking, thanh toán, vé, email)\n• ⋯ Duyệt hoàn tiền → Stripe Refund API (trừ phí 5%, BR-07) → vé REVOKED, thông báo + email cho khách\n• ⋯ Từ chối hoàn → modal lý do\n• ⋯ Gửi lại email vé · Mở trong Stripe (tab mới)\n• Mọi thao tác ghi audit log."
+    },
+    "a-AdminAuditLogs": {
+      "x": 8160,
+      "y": 12784,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Admin · Audit log (chỉ đọc)\nGhi bởi backend cho các thao tác của Admin và BTC (duyệt hồ sơ, đổi role, khoá user, hoàn tiền, tạm dừng/huỷ sự kiện, publish, sửa sơ đồ…).\n• Tìm · Hành động · Người thực hiện · Khoảng thời gian · Đặt lại · Xuất CSV\n• Xem → modal: request ID, IP/thiết bị, so sánh Trước / Sau (JSON)\n• Sao chép JSON → toast\n• Phân trang."
+    },
+    "row4": {
+      "x": 0,
+      "y": 11444,
+      "w": 240,
+      "text": "Admin",
+      "kind": "title1",
+      "maxW": 16240
+    },
+    "a-AdminEvents": {
+      "x": 9520,
+      "y": 12724,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Admin · Sự kiện (/admin/events)\n• Tìm · Trạng thái · Organizer · Ngày diễn → lọc · Đặt lại · Xuất\n• Không có kết quả → Đặt lại bộ lọc · Lỗi → Thử lại\n• Tên sự kiện → side sheet chi tiết (?event=EV-…), Esc / nút đóng trả focus\n• ⋯ Xem chi tiết · Mở trang bán · Xem đơn hàng\n• ⋯ Tạm dừng bán → modal lý do bắt buộc → SUSPENDED (BR-13)\n• ⋯ Mở bán lại → modal\n• ⋯ Huỷ sự kiện → modal lý do + gõ HUY → hoàn 100% gồm phí nền tảng qua job chạy hàng loạt, huỷ đơn chờ thanh toán (BR-08)\n• Mọi thao tác ghi audit log."
+    },
+    "a-AdminDashboard": {
+      "x": 0,
+      "y": 12924,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Admin · Tổng quan (/admin)\n• 7 ngày / 30 ngày / 3 tháng → đổi số liệu + biểu đồ\n• Thẻ số liệu (GMV, phí nền tảng thu được, vé bán, sự kiện đang bán) → màn tương ứng (màn 28, màn 30)\n• Cần xử lý: hồ sơ BTC chờ duyệt (màn 24), yêu cầu hoàn tiền (màn 28), sự kiện tạm dừng (màn 30)\n• Sắp mở bán → Sự kiện."
+    },
+    "shell-note": {
+      "x": -760,
+      "y": 11744,
+      "w": 680,
+      "maxH": 900,
+      "fill": "orange",
+      "text": "KHUNG CHUNG ADMIN / ORGANIZER (mọi màn) — dựng bằng shadcn/ui (Sidebar, DataTable, Dialog, Sheet, DropdownMenu, Sonner)\n• Breadcrumb luôn bắt đầu bằng Trang chủ › (Admin → Tổng quan, Organizer → Tổng quan)\n• Nút trăng → đổi sáng/tối · chuông → popover thông báo (màn 10) · avatar cuối sidebar → menu (Hồ sơ, Thông báo, Về trang mua vé, Đăng xuất)\n• Click ra ngoài / Esc → đóng popover, menu, dropdown, modal và side sheet\n• Màn danh sách: toolbar = [tìm + bộ lọc + Đặt lại] | [Xuất · nút Tạo]. Trạng thái: data / loading / empty / error\n• Sidebar Admin: Tổng quan, Sự kiện, Đơn hàng, Hồ sơ organizer, Người dùng, Địa điểm & sơ đồ ghế, Audit log\n• Sidebar Organizer: Tổng quan, Sự kiện, Đơn hàng, Cài đặt"
+    },
+    "a-MyTicketsDesktop": {
+      "x": 6800,
+      "y": 4580,
+      "w": 640,
+      "maxH": 1000,
+      "text": "HÀNH ĐỘNG — Vé của tôi (/me/tickets, desktop)\n• Header “Vé của tôi”, menu tài khoản, menu trái → màn này (mobile dùng màn 14)\n• Ô tìm → lọc theo tên sự kiện, mã vé · chip Sắp diễn ra / Đã qua / Đã hoàn\n• Thẻ vé hợp lệ: Xem vé → modal QR (mã vé, ghế, đơn hàng) · Tải vé PDF · Xem đơn hàng → màn 11\n• Vé đã dùng / đã hoàn: ảnh mờ, không có nút Xem vé\n• Trước / Sau → phân trang (6 vé mỗi trang)\n• Hoàn vé làm ở Đơn hàng của tôi (màn 11)."
+    }
+  },
+  "designSystems": []
+}
