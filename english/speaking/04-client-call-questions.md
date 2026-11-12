@@ -171,7 +171,7 @@ That adds a separate task. I'll check which fields you need and include it in th
 
 </details>
 
-> 🎧 Audio: [english/audio/speaking/speaking-04.mp3](../audio/speaking/speaking-04.mp3) · 🎬 Video: `english/video/out/speaking/speaking-04.mp4` _(đường dẫn dự kiến, tạo bằng skill `lesson-video`)_
+> 🎧 Audio: [english/audio/speaking/speaking-04.mp3](../audio/speaking/speaking-04.mp3) · 🎬 Video: `english/video/out/speaking/speaking-04.mp4` _(đường dẫn dự kiến, tạo bằng skill `english-generate-video`)_
 
 ### 4.3 Vì sao các lượt trả lời có ích?
 

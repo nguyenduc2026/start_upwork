@@ -1,6 +1,6 @@
 # Lesson video
 
-Tạo audio (ElevenLabs) + video chữ chạy theo giọng đọc (Remotion) cho bài học trong `english/`. Đặc tả đầy đủ: [`.claude/skills/lesson-video/SKILL.md`](../../.claude/skills/lesson-video/SKILL.md).
+Tạo audio (ElevenLabs) + video chữ chạy theo giọng đọc (Remotion) cho bài học trong `english/`. Đặc tả đầy đủ: [`.claude/skills/english-generate-video/SKILL.md`](../../.claude/skills/english-generate-video/SKILL.md).
 
 ## Dùng hằng ngày
 

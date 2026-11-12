@@ -161,7 +161,7 @@ Could you check it out tomorrow and let me know what you think? Thanks!
 
 </details>
 
-> 🎧 Audio mẫu: [`english/audio/speaking/speaking-01.mp3`](../audio/speaking/speaking-01.mp3) · 🎬 Video: `english/video/out/speaking/speaking-01.mp4` _(tạo bằng skill `lesson-video`)_
+> 🎧 Audio mẫu: [`english/audio/speaking/speaking-01.mp3`](../audio/speaking/speaking-01.mp3) · 🎬 Video: `english/video/out/speaking/speaking-01.mp4` _(tạo bằng skill `english-generate-video`)_
 
 ## 5.2 Phương pháp Shadowing (5 bước)
 

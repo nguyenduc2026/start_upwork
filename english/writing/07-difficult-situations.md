@@ -114,7 +114,7 @@ I'll send an update by 10 AM GMT+7 tomorrow with the test results and a proposed
 
 **Vì sao tốt:** báo trước hạn; nhận phần ước lượng thiếu, nêu đúng trạng thái tests. Phương án xem trước được gọi rõ là review một phần. Mốc báo tiếp chắc chắn hơn một lời hứa sửa xong chưa có căn cứ.
 
-> 🎧 Audio: [english/audio/writing/writing-07.mp3](../audio/writing/writing-07.mp3) · 🎬 Video: `english/video/out/writing/writing-07.mp4` _(dự kiến; tạo bằng skill `lesson-video`)._
+> 🎧 Audio: [english/audio/writing/writing-07.mp3](../audio/writing/writing-07.mp3) · 🎬 Video: `english/video/out/writing/writing-07.mp4` _(dự kiến; tạo bằng skill `english-generate-video`)._
 
 ### Bài tốt — bug
 

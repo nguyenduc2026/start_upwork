@@ -52,7 +52,7 @@ The follow-up call is planned for Tuesday at 10 AM GMT+7. Anna will send an invi
 
 ## 3. Luyện nghe
 
-> 🎧 Audio: [`english/audio/reading/reading-17.mp3`](../audio/reading/reading-17.mp3) · 🎬 Video: `english/video/out/reading/reading-17.mp4` _(dự kiến; tạo bằng skill `lesson-video`, chưa được tạo trong bước soạn bài)._ Khi chưa có audio, đọc thành tiếng để luyện trước.
+> 🎧 Audio: [`english/audio/reading/reading-17.mp3`](../audio/reading/reading-17.mp3) · 🎬 Video: `english/video/out/reading/reading-17.mp4` _(dự kiến; tạo bằng skill `english-generate-video`, chưa được tạo trong bước soạn bài)._ Khi chưa có audio, đọc thành tiếng để luyện trước.
 
 | Lượt | Cách làm | Mục tiêu |
 |---|---|---|

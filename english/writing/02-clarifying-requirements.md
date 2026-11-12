@@ -116,7 +116,7 @@ Once you confirm these details, I can outline the scope and prepare an estimate.
 
 **Vì sao tốt:** câu đầu nhắc đúng mục tiêu; ba câu hỏi tách riêng kênh, người nhận và hành vi. Câu cuối hẹn bước tiếp theo, chưa tự chốt chi phí hay thời hạn. Client có thể trả lời ngay theo số thứ tự.
 
-> 🎧 Audio: [english/audio/writing/writing-02.mp3](../audio/writing/writing-02.mp3) · 🎬 Video: `english/video/out/writing/writing-02.mp4` _(đường dẫn dự kiến; tạo bằng skill `lesson-video`)._
+> 🎧 Audio: [english/audio/writing/writing-02.mp3](../audio/writing/writing-02.mp3) · 🎬 Video: `english/video/out/writing/writing-02.mp4` _(đường dẫn dự kiến; tạo bằng skill `english-generate-video`)._
 
 ### Bài kém
 

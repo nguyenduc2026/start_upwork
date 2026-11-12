@@ -112,7 +112,7 @@ Once I review those details, I can suggest an investigation scope and estimate. 
 
 **Vì sao tốt:** mở đầu đúng lỗi; bằng chứng liên quan; kế hoạch có điều tra trước, sửa và kiểm thử sau. Hai câu hỏi giúp xác định môi trường và dữ kiện. Không hứa thời hạn hay nêu nguyên nhân chưa xác minh.
 
-> 🎧 Audio: [english/audio/writing/writing-04.mp3](../audio/writing/writing-04.mp3) · 🎬 Video: `english/video/out/writing/writing-04.mp4` _(dự kiến; tạo bằng skill `lesson-video`)._
+> 🎧 Audio: [english/audio/writing/writing-04.mp3](../audio/writing/writing-04.mp3) · 🎬 Video: `english/video/out/writing/writing-04.mp4` _(dự kiến; tạo bằng skill `english-generate-video`)._
 
 ### Bài kém
 

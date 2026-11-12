@@ -78,7 +78,7 @@ Trạng thái: `chưa tạo` → `đã tạo` → `hoàn thành` (đã làm bài
 
 ### Reading (cả 3 giai đoạn · 2 bài/tuần · có audio/video)
 
-Mỗi bài đọc có audio + video do skill `lesson-video` tạo (ElevenLabs + Remotion) → vừa luyện đọc vừa luyện nghe.
+Mỗi bài đọc có audio + video do skill `english-generate-video` tạo (ElevenLabs + Remotion) → vừa luyện đọc vừa luyện nghe.
 
 | # | Bài | Tuần | Trạng thái |
 |---|---|---|---|
@@ -109,7 +109,7 @@ Mỗi bài đọc có audio + video do skill `lesson-video` tạo (ElevenLabs + 
 
 > **Cách học reading:** bộ 24 bài đã có tài liệu; `đã tạo` không có nghĩa là đã học xong. Mỗi đoạn đọc dài 150–230 từ và không quá 1.500 ký tự, có 12 câu đọc hiểu, từ vựng/Anki, tìm ngữ pháp và tóm tắt. Bài 02–24 có thêm hai câu ôn từ bài trước. Mỗi bài học trong hai ngày: tuần 1–4 khoảng 20 phút/ngày, từ tuần 5 khoảng 15 phút/ngày; giãn phần viết sang buổi ôn khi cần.
 >
-> **Nguồn và media:** văn bản mô phỏng được ghi rõ, đặc biệt proposal được chấp nhận, profile Top Rated và phỏng vấn không phải thành tích/người thật đã xác minh. Bài 07 là diễn giải tài liệu hỗ trợ Upwork, không phải trích nguyên văn điều khoản. Bài 20 là tin lưu trữ; bài 24 tóm lược nội dung lập chỉ mục của job thật, chưa xác nhận còn tuyển. Lần soạn bài này **chưa tạo audio/video**: các bài đã có metadata và đoạn đọc để chạy `/lesson-video <file>`. Đường dẫn media trong bài là đường dẫn dự kiến.
+> **Nguồn và media:** văn bản mô phỏng được ghi rõ, đặc biệt proposal được chấp nhận, profile Top Rated và phỏng vấn không phải thành tích/người thật đã xác minh. Bài 07 là diễn giải tài liệu hỗ trợ Upwork, không phải trích nguyên văn điều khoản. Bài 20 là tin lưu trữ; bài 24 tóm lược nội dung lập chỉ mục của job thật, chưa xác nhận còn tuyển. Lần soạn bài này **chưa tạo audio/video**: các bài đã có metadata và đoạn đọc để chạy `/english-generate-video <file>`. Đường dẫn media trong bài là đường dẫn dự kiến.
 
 ### Writing (Giai đoạn 2)
 
@@ -125,7 +125,7 @@ Mỗi bài đọc có audio + video do skill `lesson-video` tạo (ElevenLabs + 
 
 > **Cách học writing:** bộ bài 02–07 đã được chuẩn bị sẵn theo yêu cầu; nên học và được chấm lần lượt từ bài 01. Mỗi buổi khoảng 25 phút; các bài nhiều tình huống có thể cần thêm buổi ôn. Tuần trong bảng là thứ tự dự kiến, có thể giãn để giữ tổng thời gian khoảng 1h/ngày. Mỗi bài mới có mẫu tốt/kém, mẫu câu, checklist, bài tập có gợi ý trong `<details>` và phần bài làm riêng. `Đã tạo` chỉ có nghĩa đã có tài liệu, chưa phải đã học xong.
 >
-> **Nguồn và media:** Writing 05 dùng bản lập chỉ mục công khai của một tin Upwork thật, tham khảo ngày 11/11/2026; trang trực tiếp chặn 403 nên chưa xác nhận còn tuyển. Các tình huống mở rộng được ghi rõ là mô phỏng. Writing 02–07 có metadata và đoạn mẫu sạch cho skill `lesson-video`; **chưa tạo audio/video** trong lần soạn bài này. Chạy `/lesson-video english/writing/<file>.md` cho bài muốn tạo media.
+> **Nguồn và media:** Writing 05 dùng bản lập chỉ mục công khai của một tin Upwork thật, tham khảo ngày 11/11/2026; trang trực tiếp chặn 403 nên chưa xác nhận còn tuyển. Các tình huống mở rộng được ghi rõ là mô phỏng. Writing 02–07 có metadata và đoạn mẫu sạch cho skill `english-generate-video`; **chưa tạo audio/video** trong lần soạn bài này. Chạy `/english-generate-video english/writing/<file>.md` cho bài muốn tạo media.
 
 ### Speaking (Giai đoạn 3)
 
@@ -138,7 +138,7 @@ Mỗi bài đọc có audio + video do skill `lesson-video` tạo (ElevenLabs + 
 
 > **Cách học speaking:** cả 4 bài đã có tài liệu; bài 02–04 được chuẩn bị sẵn theo yêu cầu, vẫn nên học và được chấm lần lượt từ bài 01. Bài mới chia thành 7 buổi × 20 phút để phù hợp lịch giai đoạn 3. Bài 01 ghi 30 phút/buổi; có thể chia lại phần luyện sang buổi sau để giữ tổng thời gian khoảng 1h/ngày. Bài 02 luyện giới thiệu khoảng 2 phút; bài 03 kết hợp giới thiệu và demo thành phần trình bày khoảng 5 phút; bài 04 luyện hỏi đáp và chốt bước tiếp theo. Mỗi bài mới có script đánh dấu phát âm, bản sạch, lịch luyện, bài tập, đáp án và tiêu chí tự chấm. `Đã tạo` chưa có nghĩa là đã thực hành hoặc hoàn thành.
 >
-> **Audio/video speaking:** lần bổ sung này chỉ chuẩn bị nội dung và metadata, **chưa tạo audio/video**. Đường dẫn trong bài là đường dẫn dự kiến. Chạy `/lesson-video english/speaking/<tên-file>.md` để tạo media; phần đọc của mỗi bài mới không quá 1.500 ký tự. Các script và con số là mẫu luyện, cần thay bằng kinh nghiệm và trạng thái project thật của bạn.
+> **Audio/video speaking:** lần bổ sung này chỉ chuẩn bị nội dung và metadata, **chưa tạo audio/video**. Đường dẫn trong bài là đường dẫn dự kiến. Chạy `/english-generate-video english/speaking/<tên-file>.md` để tạo media; phần đọc của mỗi bài mới không quá 1.500 ký tự. Các script và con số là mẫu luyện, cần thay bằng kinh nghiệm và trạng thái project thật của bạn.
 
 ---
 
@@ -166,4 +166,4 @@ Mỗi bài đọc có audio + video do skill `lesson-video` tạo (ElevenLabs + 
 | Nghe | YouTube: Laracasts, Traversy Media (bật phụ đề, tốc độ 0.75x) |
 | Phát âm | ELSA Speak (bản miễn phí) |
 | Luyện nói (thay tutor) | Ghi âm điện thoại + so sánh bản gốc · Voice mode của app AI (bản miễn phí) · HelloTalk/Tandem (trao đổi ngôn ngữ) |
-| Audio/video bài học | ElevenLabs (tài khoản sẵn có, ~30k credits) + Remotion — skill `lesson-video`. Audio: `english/audio/<kỹ năng>/`, video: `english/video/out/<kỹ năng>/` |
+| Audio/video bài học | ElevenLabs (tài khoản sẵn có, ~30k credits) + Remotion — skill `english-generate-video`. Audio: `english/audio/<kỹ năng>/`, video: `english/video/out/<kỹ năng>/` |

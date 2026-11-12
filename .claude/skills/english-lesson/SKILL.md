@@ -72,9 +72,9 @@ Ghi nhanh việc học trong ngày vào `english/progress.md`. Người học c�
 - **Ôn tập:** lồng 2–3 câu ôn kiến thức bài trước vào bài tập, đặc biệt lỗi trong *Lỗi sai cần nhớ* của các bài đã chấm.
 - **Kiểm tra lại** đáp án và phiên âm trước khi ghi file — không được sai.
 
-### Audio / video (liên kết với skill `lesson-video`)
+### Audio / video (liên kết với skill `english-generate-video`)
 
-Audio và video **không** do skill này tạo — skill này chỉ chuẩn bị nội dung đúng định dạng để skill `lesson-video` (`.claude/skills/lesson-video/SKILL.md`) đọc và render.
+Audio và video **không** do skill này tạo — skill này chỉ chuẩn bị nội dung đúng định dạng để skill `english-generate-video` (`.claude/skills/english-generate-video/SKILL.md`) đọc và render.
 
 Bài nào cần audio (**bắt buộc** với reading; với speaking/writing khi có script/hội thoại mẫu) phải có:
 1. **Khối metadata** (comment HTML, đặt ngay sau phần mục tiêu):
@@ -91,8 +91,8 @@ Bài nào cần audio (**bắt buộc** với reading; với speaking/writing kh
    ```
 2. **Đoạn văn cần đọc** đặt giữa `<!-- passage:start -->` và `<!-- passage:end -->`. Đây là văn bản **sạch** (không ký hiệu trọng âm/nối âm). Markdown nhẹ (in đậm, gạch đầu dòng) được phép.
 3. **Giới hạn độ dài:** đoạn văn ≤ **1.500 ký tự** (≈ 230 từ) để tiết kiệm credits ElevenLabs (~30k credits cho cả lộ trình).
-4. Dòng tham chiếu cho người học: `> 🎧 Audio: [english/audio/<kỹ năng>/<id>.mp3](...) · 🎬 Video: english/video/out/<kỹ năng>/<id>.mp4 _(tạo bằng skill lesson-video)_`
-5. Sau khi tạo bài, nhắc người học: *"Chạy skill `lesson-video` cho `<file>` để tạo audio/video."*
+4. Dòng tham chiếu cho người học: `> 🎧 Audio: [english/audio/<kỹ năng>/<id>.mp3](...) · 🎬 Video: english/video/out/<kỹ năng>/<id>.mp4 _(tạo bằng skill english-generate-video)_`
+5. Sau khi tạo bài, nhắc người học: *"Chạy skill `english-generate-video` cho `<file>` để tạo audio/video."*
 
 ---
 

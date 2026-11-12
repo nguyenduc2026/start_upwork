@@ -117,7 +117,7 @@ Please confirm whether this scope and estimate work for you.
 
 **Vì sao tốt:** 8–10 × $20 khớp $160–$200; thời hạn có điều kiện bắt đầu rõ. Phần kiểm thử và bàn giao được tính trong công việc. Phần ngoài phạm vi được nêu cụ thể; tác giả không tự coi khoảng ước lượng là quyền làm thêm tùy ý.
 
-> 🎧 Audio: [english/audio/writing/writing-03.mp3](../audio/writing/writing-03.mp3) · 🎬 Video: `english/video/out/writing/writing-03.mp4` _(dự kiến; tạo bằng skill `lesson-video`)._
+> 🎧 Audio: [english/audio/writing/writing-03.mp3](../audio/writing/writing-03.mp3) · 🎬 Video: `english/video/out/writing/writing-03.mp4` _(dự kiến; tạo bằng skill `english-generate-video`)._
 
 ### Bài kém
 

@@ -120,7 +120,7 @@ I'd like to learn more about your project. What is the main problem you want to 
 
 </details>
 
-> 🎧 Audio: [english/audio/speaking/speaking-02.mp3](../audio/speaking/speaking-02.mp3) · 🎬 Video: `english/video/out/speaking/speaking-02.mp4` _(đường dẫn dự kiến, tạo bằng skill `lesson-video`)_
+> 🎧 Audio: [english/audio/speaking/speaking-02.mp3](../audio/speaking/speaking-02.mp3) · 🎬 Video: `english/video/out/speaking/speaking-02.mp4` _(đường dẫn dự kiến, tạo bằng skill `english-generate-video`)_
 
 Bản mẫu có 169 từ. Với tốc độ luyện khoảng 85–100 từ/phút và các nhịp nghỉ, thời lượng có thể gần 2 phút; phải đo lại bản ghi. Audio ở tốc độ 0.9 không bảo đảm dài đúng 2 phút.
 

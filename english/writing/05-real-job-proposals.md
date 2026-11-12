@@ -120,7 +120,7 @@ I can share a relevant project example and explain my contribution. Once the fir
 
 **Vì sao tốt:** kết nối với hai nhu cầu thật của tin mà không nhận biết mọi công cụ. Nêu vai trò, cách bắt đầu và hai câu hỏi. Không bịa lỗi Stripe, deadline, ngân sách hoặc lời mời làm thử của client.
 
-> 🎧 Audio: [english/audio/writing/writing-05.mp3](../audio/writing/writing-05.mp3) · 🎬 Video: `english/video/out/writing/writing-05.mp4` _(dự kiến; tạo bằng skill `lesson-video`)._
+> 🎧 Audio: [english/audio/writing/writing-05.mp3](../audio/writing/writing-05.mp3) · 🎬 Video: `english/video/out/writing/writing-05.mp4` _(dự kiến; tạo bằng skill `english-generate-video`)._
 
 ### Bài kém
 

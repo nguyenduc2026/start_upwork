@@ -1,6 +1,6 @@
 ---
-name: lesson-video
-description: Tạo audio (ElevenLabs) và video có chữ chạy theo giọng đọc (Remotion) cho 1 bài học tiếng Anh trong english/ — đọc khối lesson-video và đoạn passage trong file bài. Dùng khi người dùng nói "tạo audio/video cho bài...", "làm video bài reading 01", hoặc /lesson-video <file>.
+name: english-generate-video
+description: Tạo audio (ElevenLabs) và video có chữ chạy theo giọng đọc (Remotion) cho 1 bài học tiếng Anh trong english/ — đọc khối lesson-video và đoạn passage trong file bài. Dùng khi người dùng nói "tạo audio/video cho bài...", "làm video bài reading 01", hoặc /english-generate-video <file>.
 argument-hint: "<đường dẫn file bài học> [--dry-run | --fake | --from-alignment] [--force]"
 ---
 

@@ -116,7 +116,7 @@ The export has not been deployed yet. If I receive access today, I expect to com
 
 **Vì sao tốt:** nêu đầu ra và phạm vi tests; phân biệt local với staging. Yêu cầu hai hành động cụ thể. Mốc hoàn tất có điều kiện; mốc báo tiếp vẫn rõ ngay cả khi bị chặn. Khi gửi thực tế, thay “today/tomorrow” bằng ngày cụ thể nếu có thể gây nhầm.
 
-> 🎧 Audio: [english/audio/writing/writing-06.mp3](../audio/writing/writing-06.mp3) · 🎬 Video: `english/video/out/writing/writing-06.mp4` _(dự kiến; tạo bằng skill `lesson-video`)._
+> 🎧 Audio: [english/audio/writing/writing-06.mp3](../audio/writing/writing-06.mp3) · 🎬 Video: `english/video/out/writing/writing-06.mp4` _(dự kiến; tạo bằng skill `english-generate-video`)._
 
 ### Bài kém
 

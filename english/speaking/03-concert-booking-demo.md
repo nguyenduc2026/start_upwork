@@ -144,7 +144,7 @@ That covers the main demo. Which part would you like me to explain in more detai
 
 </details>
 
-> 🎧 Audio: [english/audio/speaking/speaking-03.mp3](../audio/speaking/speaking-03.mp3) · 🎬 Video: `english/video/out/speaking/speaking-03.mp4` _(đường dẫn dự kiến, tạo bằng skill `lesson-video`)_
+> 🎧 Audio: [english/audio/speaking/speaking-03.mp3](../audio/speaking/speaking-03.mp3) · 🎬 Video: `english/video/out/speaking/speaking-03.mp4` _(đường dẫn dự kiến, tạo bằng skill `english-generate-video`)_
 
 ### 4.3 Từ bản ngắn đến phần trình bày 5 phút
 
