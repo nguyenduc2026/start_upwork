@@ -6,6 +6,8 @@
 english/video/node_modules/
 english/video/out/
 english/video/public/audio/
+english/video/.whisper/
+english/video/.env
 
 # OS
 .DS_Store

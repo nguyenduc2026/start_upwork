@@ -1,0 +1,1721 @@
+{
+  "id": "reading-01",
+  "type": "reading",
+  "title": "Job Post: Laravel & React Developer for a Ticketing Platform",
+  "hash": "be8bff1bfecaf149ad1eca1ef90bb6713f567b5f2d2e94de1ba06e0fc4ee8daa",
+  "model": "eleven_multilingual_v2",
+  "voiceId": "onwK4e9ZLuTAKqWW03F9",
+  "voiceIndex": 1,
+  "speed": 0.9,
+  "durationSeconds": 102.074,
+  "audioSrc": "audio/reading/reading-01.mp3",
+  "fake": false,
+  "blocks": [
+    {
+      "kind": "heading",
+      "text": "Laravel & React Developer Needed for an Event Ticketing Platform.",
+      "addedPeriod": true,
+      "captions": [
+        {
+          "text": "Laravel",
+          "startMs": 0,
+          "endMs": 766,
+          "timestampMs": 383,
+          "confidence": null
+        },
+        {
+          "text": " &",
+          "startMs": 894,
+          "endMs": 975,
+          "timestampMs": 934.5,
+          "confidence": null
+        },
+        {
+          "text": " React",
+          "startMs": 1068,
+          "endMs": 1451,
+          "timestampMs": 1259.5,
+          "confidence": null
+        },
+        {
+          "text": " Developer",
+          "startMs": 1533,
+          "endMs": 2148,
+          "timestampMs": 1840.5,
+          "confidence": null
+        },
+        {
+          "text": " Needed",
+          "startMs": 2450,
+          "endMs": 2810,
+          "timestampMs": 2630,
+          "confidence": null
+        },
+        {
+          "text": " for",
+          "startMs": 2879,
+          "endMs": 3007,
+          "timestampMs": 2943,
+          "confidence": null
+        },
+        {
+          "text": " an",
+          "startMs": 3042,
+          "endMs": 3088,
+          "timestampMs": 3065,
+          "confidence": null
+        },
+        {
+          "text": " Event",
+          "startMs": 3135,
+          "endMs": 3390,
+          "timestampMs": 3262.5,
+          "confidence": null
+        },
+        {
+          "text": " Ticketing",
+          "startMs": 3437,
+          "endMs": 3808,
+          "timestampMs": 3622.5,
+          "confidence": null
+        },
+        {
+          "text": " Platform.",
+          "startMs": 3889,
+          "endMs": 4702,
+          "timestampMs": 4295.5,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "kind": "text",
+      "text": "We are a small startup in Austin, Texas. We run an online platform that sells tickets for local concerts and music festivals. Right now, we are growing fast, and our current system cannot handle the traffic during big ticket sales.",
+      "addedPeriod": false,
+      "captions": [
+        {
+          "text": " We",
+          "startMs": 5375,
+          "endMs": 5526,
+          "timestampMs": 5450.5,
+          "confidence": null
+        },
+        {
+          "text": " are",
+          "startMs": 5573,
+          "endMs": 5701,
+          "timestampMs": 5637,
+          "confidence": null
+        },
+        {
+          "text": " a",
+          "startMs": 5735,
+          "endMs": 5759,
+          "timestampMs": 5747,
+          "confidence": null
+        },
+        {
+          "text": " small",
+          "startMs": 5851,
+          "endMs": 6223,
+          "timestampMs": 6037,
+          "confidence": null
+        },
+        {
+          "text": " startup",
+          "startMs": 6327,
+          "endMs": 6896,
+          "timestampMs": 6611.5,
+          "confidence": null,
+          "vocab": 0,
+          "occurrence": 0
+        },
+        {
+          "text": " in",
+          "startMs": 7059,
+          "endMs": 7210,
+          "timestampMs": 7134.5,
+          "confidence": null
+        },
+        {
+          "text": " Austin,",
+          "startMs": 7291,
+          "endMs": 7767,
+          "timestampMs": 7529,
+          "confidence": null
+        },
+        {
+          "text": " Texas.",
+          "startMs": 7814,
+          "endMs": 8615,
+          "timestampMs": 8214.5,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": " We",
+          "startMs": 8975,
+          "endMs": 9149,
+          "timestampMs": 9062,
+          "confidence": null
+        },
+        {
+          "text": " run",
+          "startMs": 9242,
+          "endMs": 9404,
+          "timestampMs": 9323,
+          "confidence": null,
+          "vocab": 1,
+          "occurrence": 1
+        },
+        {
+          "text": " an",
+          "startMs": 9439,
+          "endMs": 9509,
+          "timestampMs": 9474,
+          "confidence": null
+        },
+        {
+          "text": " online",
+          "startMs": 9601,
+          "endMs": 10159,
+          "timestampMs": 9880,
+          "confidence": null
+        },
+        {
+          "text": " platform",
+          "startMs": 10205,
+          "endMs": 10913,
+          "timestampMs": 10559,
+          "confidence": null
+        },
+        {
+          "text": " that",
+          "startMs": 11227,
+          "endMs": 11401,
+          "timestampMs": 11314,
+          "confidence": null
+        },
+        {
+          "text": " sells",
+          "startMs": 11471,
+          "endMs": 11726,
+          "timestampMs": 11598.5,
+          "confidence": null
+        },
+        {
+          "text": " tickets",
+          "startMs": 11796,
+          "endMs": 12132,
+          "timestampMs": 11964,
+          "confidence": null
+        },
+        {
+          "text": " for",
+          "startMs": 12179,
+          "endMs": 12272,
+          "timestampMs": 12225.5,
+          "confidence": null
+        },
+        {
+          "text": " local",
+          "startMs": 12341,
+          "endMs": 12608,
+          "timestampMs": 12474.5,
+          "confidence": null
+        },
+        {
+          "text": " concerts",
+          "startMs": 12678,
+          "endMs": 13305,
+          "timestampMs": 12991.5,
+          "confidence": null
+        },
+        {
+          "text": " and",
+          "startMs": 13502,
+          "endMs": 13677,
+          "timestampMs": 13589.5,
+          "confidence": null
+        },
+        {
+          "text": " music",
+          "startMs": 13746,
+          "endMs": 14106,
+          "timestampMs": 13926,
+          "confidence": null
+        },
+        {
+          "text": " festivals.",
+          "startMs": 14176,
+          "endMs": 15058,
+          "timestampMs": 14617,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": " Right",
+          "startMs": 15627,
+          "endMs": 15871,
+          "timestampMs": 15749,
+          "confidence": null
+        },
+        {
+          "text": " now,",
+          "startMs": 15941,
+          "endMs": 16509,
+          "timestampMs": 16225,
+          "confidence": null
+        },
+        {
+          "text": " we",
+          "startMs": 16695,
+          "endMs": 16834,
+          "timestampMs": 16764.5,
+          "confidence": null
+        },
+        {
+          "text": " are",
+          "startMs": 16881,
+          "endMs": 16997,
+          "timestampMs": 16939,
+          "confidence": null
+        },
+        {
+          "text": " growing",
+          "startMs": 17043,
+          "endMs": 17380,
+          "timestampMs": 17211.5,
+          "confidence": null
+        },
+        {
+          "text": " fast,",
+          "startMs": 17519,
+          "endMs": 18332,
+          "timestampMs": 17925.5,
+          "confidence": null
+        },
+        {
+          "text": " and",
+          "startMs": 18599,
+          "endMs": 18750,
+          "timestampMs": 18674.5,
+          "confidence": null
+        },
+        {
+          "text": " our",
+          "startMs": 18831,
+          "endMs": 18947,
+          "timestampMs": 18889,
+          "confidence": null
+        },
+        {
+          "text": " current",
+          "startMs": 18994,
+          "endMs": 19307,
+          "timestampMs": 19150.5,
+          "confidence": null
+        },
+        {
+          "text": " system",
+          "startMs": 19354,
+          "endMs": 19795,
+          "timestampMs": 19574.5,
+          "confidence": null
+        },
+        {
+          "text": " cannot",
+          "startMs": 20108,
+          "endMs": 20747,
+          "timestampMs": 20427.5,
+          "confidence": null
+        },
+        {
+          "text": " handle",
+          "startMs": 20828,
+          "endMs": 21176,
+          "timestampMs": 21002,
+          "confidence": null,
+          "vocab": 2,
+          "occurrence": 2
+        },
+        {
+          "text": " the",
+          "startMs": 21211,
+          "endMs": 21269,
+          "timestampMs": 21240,
+          "confidence": null
+        },
+        {
+          "text": " traffic",
+          "startMs": 21292,
+          "endMs": 21606,
+          "timestampMs": 21449,
+          "confidence": null,
+          "vocab": 3,
+          "occurrence": 3
+        },
+        {
+          "text": " during",
+          "startMs": 21664,
+          "endMs": 21931,
+          "timestampMs": 21797.5,
+          "confidence": null
+        },
+        {
+          "text": " big",
+          "startMs": 22024,
+          "endMs": 22186,
+          "timestampMs": 22105,
+          "confidence": null
+        },
+        {
+          "text": " ticket",
+          "startMs": 22244,
+          "endMs": 22511,
+          "timestampMs": 22377.5,
+          "confidence": null
+        },
+        {
+          "text": " sales.",
+          "startMs": 22581,
+          "endMs": 23173,
+          "timestampMs": 22877,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "kind": "text",
+      "text": "We are looking for an experienced full-stack developer to improve our platform. Our backend uses Laravel 11 and MySQL, and our frontend uses React. We host everything on AWS.",
+      "addedPeriod": false,
+      "captions": [
+        {
+          "text": " We",
+          "startMs": 23580,
+          "endMs": 23719,
+          "timestampMs": 23649.5,
+          "confidence": null
+        },
+        {
+          "text": " are",
+          "startMs": 23754,
+          "endMs": 23823,
+          "timestampMs": 23788.5,
+          "confidence": null
+        },
+        {
+          "text": " looking",
+          "startMs": 23847,
+          "endMs": 24067,
+          "timestampMs": 23957,
+          "confidence": null
+        },
+        {
+          "text": " for",
+          "startMs": 24125,
+          "endMs": 24230,
+          "timestampMs": 24177.5,
+          "confidence": null
+        },
+        {
+          "text": " an",
+          "startMs": 24276,
+          "endMs": 24323,
+          "timestampMs": 24299.5,
+          "confidence": null
+        },
+        {
+          "text": " experienced",
+          "startMs": 24381,
+          "endMs": 25193,
+          "timestampMs": 24787,
+          "confidence": null,
+          "vocab": 4,
+          "occurrence": 4
+        },
+        {
+          "text": " full-stack",
+          "startMs": 25379,
+          "endMs": 25948,
+          "timestampMs": 25663.5,
+          "confidence": null
+        },
+        {
+          "text": " developer",
+          "startMs": 26018,
+          "endMs": 26529,
+          "timestampMs": 26273.5,
+          "confidence": null
+        },
+        {
+          "text": " to",
+          "startMs": 26888,
+          "endMs": 27005,
+          "timestampMs": 26946.5,
+          "confidence": null
+        },
+        {
+          "text": " improve",
+          "startMs": 27086,
+          "endMs": 27585,
+          "timestampMs": 27335.5,
+          "confidence": null,
+          "vocab": 5,
+          "occurrence": 5
+        },
+        {
+          "text": " our",
+          "startMs": 27608,
+          "endMs": 27724,
+          "timestampMs": 27666,
+          "confidence": null
+        },
+        {
+          "text": " platform.",
+          "startMs": 27771,
+          "endMs": 28421,
+          "timestampMs": 28096,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": " Our",
+          "startMs": 28781,
+          "endMs": 28932,
+          "timestampMs": 28856.5,
+          "confidence": null
+        },
+        {
+          "text": " backend",
+          "startMs": 28990,
+          "endMs": 29501,
+          "timestampMs": 29245.5,
+          "confidence": null
+        },
+        {
+          "text": " uses",
+          "startMs": 29617,
+          "endMs": 29930,
+          "timestampMs": 29773.5,
+          "confidence": null
+        },
+        {
+          "text": " Laravel",
+          "startMs": 30011,
+          "endMs": 30476,
+          "timestampMs": 30243.5,
+          "confidence": null
+        },
+        {
+          "text": " 11",
+          "startMs": 30511,
+          "endMs": 30882,
+          "timestampMs": 30696.5,
+          "confidence": null
+        },
+        {
+          "text": " and",
+          "startMs": 31172,
+          "endMs": 31358,
+          "timestampMs": 31265,
+          "confidence": null
+        },
+        {
+          "text": " MySQL,",
+          "startMs": 31428,
+          "endMs": 32426.000000000004,
+          "timestampMs": 31927,
+          "confidence": null
+        },
+        {
+          "text": " and",
+          "startMs": 32682.000000000004,
+          "endMs": 32821,
+          "timestampMs": 32751.5,
+          "confidence": null
+        },
+        {
+          "text": " our",
+          "startMs": 32879,
+          "endMs": 32960,
+          "timestampMs": 32919.5,
+          "confidence": null
+        },
+        {
+          "text": " frontend",
+          "startMs": 33018,
+          "endMs": 33599,
+          "timestampMs": 33308.5,
+          "confidence": null
+        },
+        {
+          "text": " uses",
+          "startMs": 33901,
+          "endMs": 34330,
+          "timestampMs": 34115.5,
+          "confidence": null
+        },
+        {
+          "text": " React.",
+          "startMs": 34505,
+          "endMs": 35132,
+          "timestampMs": 34818.5,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": " We",
+          "startMs": 35422,
+          "endMs": 35573,
+          "timestampMs": 35497.5,
+          "confidence": null
+        },
+        {
+          "text": " host",
+          "startMs": 35631,
+          "endMs": 35874,
+          "timestampMs": 35752.5,
+          "confidence": null,
+          "vocab": 6,
+          "occurrence": 7
+        },
+        {
+          "text": " everything",
+          "startMs": 36060,
+          "endMs": 36536,
+          "timestampMs": 36298,
+          "confidence": null
+        },
+        {
+          "text": " on",
+          "startMs": 36803,
+          "endMs": 36954,
+          "timestampMs": 36878.5,
+          "confidence": null
+        },
+        {
+          "text": " AWS.",
+          "startMs": 37012,
+          "endMs": 37801,
+          "timestampMs": 37406.5,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "Your tasks:",
+      "addedPeriod": false,
+      "captions": [
+        {
+          "text": " Your",
+          "startMs": 38208,
+          "endMs": 38405,
+          "timestampMs": 38306.5,
+          "confidence": null
+        },
+        {
+          "text": " tasks:",
+          "startMs": 38463,
+          "endMs": 39102,
+          "timestampMs": 38782.5,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "kind": "bullet",
+      "text": "Fix bugs in the checkout flow. Some customers pay twice.",
+      "addedPeriod": false,
+      "captions": [
+        {
+          "text": " Fix",
+          "startMs": 39322,
+          "endMs": 39589,
+          "timestampMs": 39455.5,
+          "confidence": null
+        },
+        {
+          "text": " bugs",
+          "startMs": 39671,
+          "endMs": 40019,
+          "timestampMs": 39845,
+          "confidence": null
+        },
+        {
+          "text": " in",
+          "startMs": 40100,
+          "endMs": 40205,
+          "timestampMs": 40152.5,
+          "confidence": null
+        },
+        {
+          "text": " the",
+          "startMs": 40251,
+          "endMs": 40309,
+          "timestampMs": 40280,
+          "confidence": null
+        },
+        {
+          "text": " checkout",
+          "startMs": 40356,
+          "endMs": 40808,
+          "timestampMs": 40582,
+          "confidence": null
+        },
+        {
+          "text": " flow.",
+          "startMs": 40855,
+          "endMs": 41308,
+          "timestampMs": 41081.5,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": " Some",
+          "startMs": 41760,
+          "endMs": 42004,
+          "timestampMs": 41882,
+          "confidence": null
+        },
+        {
+          "text": " customers",
+          "startMs": 42051,
+          "endMs": 42527,
+          "timestampMs": 42289,
+          "confidence": null
+        },
+        {
+          "text": " pay",
+          "startMs": 42596,
+          "endMs": 42759,
+          "timestampMs": 42677.5,
+          "confidence": null
+        },
+        {
+          "text": " twice.",
+          "startMs": 42817,
+          "endMs": 43455,
+          "timestampMs": 43136,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "kind": "bullet",
+      "text": "Improve the performance of the seat selection page.",
+      "addedPeriod": false,
+      "captions": [
+        {
+          "text": " Improve",
+          "startMs": 43908,
+          "endMs": 44361,
+          "timestampMs": 44134.5,
+          "confidence": null,
+          "vocab": 5,
+          "occurrence": 6
+        },
+        {
+          "text": " the",
+          "startMs": 44384,
+          "endMs": 44442,
+          "timestampMs": 44413,
+          "confidence": null
+        },
+        {
+          "text": " performance",
+          "startMs": 44477,
+          "endMs": 44965,
+          "timestampMs": 44721,
+          "confidence": null
+        },
+        {
+          "text": " of",
+          "startMs": 44999,
+          "endMs": 45069,
+          "timestampMs": 45034,
+          "confidence": null
+        },
+        {
+          "text": " the",
+          "startMs": 45139,
+          "endMs": 45197,
+          "timestampMs": 45168,
+          "confidence": null
+        },
+        {
+          "text": " seat",
+          "startMs": 45243,
+          "endMs": 45464,
+          "timestampMs": 45353.5,
+          "confidence": null
+        },
+        {
+          "text": " selection",
+          "startMs": 45499,
+          "endMs": 45905,
+          "timestampMs": 45702,
+          "confidence": null
+        },
+        {
+          "text": " page.",
+          "startMs": 45986,
+          "endMs": 46532,
+          "timestampMs": 46259,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "kind": "bullet",
+      "text": "Integrate Stripe Checkout to replace our old payment system.",
+      "addedPeriod": false,
+      "captions": [
+        {
+          "text": " Integrate",
+          "startMs": 46985,
+          "endMs": 47565,
+          "timestampMs": 47275,
+          "confidence": null
+        },
+        {
+          "text": " Stripe",
+          "startMs": 47600,
+          "endMs": 47937,
+          "timestampMs": 47768.5,
+          "confidence": null
+        },
+        {
+          "text": " Checkout",
+          "startMs": 47972,
+          "endMs": 48552,
+          "timestampMs": 48262,
+          "confidence": null
+        },
+        {
+          "text": " to",
+          "startMs": 48854,
+          "endMs": 48970,
+          "timestampMs": 48912,
+          "confidence": null
+        },
+        {
+          "text": " replace",
+          "startMs": 49063,
+          "endMs": 49493,
+          "timestampMs": 49278,
+          "confidence": null,
+          "vocab": 7,
+          "occurrence": 8
+        },
+        {
+          "text": " our",
+          "startMs": 49562,
+          "endMs": 49725,
+          "timestampMs": 49643.5,
+          "confidence": null
+        },
+        {
+          "text": " old",
+          "startMs": 49794,
+          "endMs": 49945,
+          "timestampMs": 49869.5,
+          "confidence": null
+        },
+        {
+          "text": " payment",
+          "startMs": 49980,
+          "endMs": 50328,
+          "timestampMs": 50154,
+          "confidence": null
+        },
+        {
+          "text": " system.",
+          "startMs": 50375,
+          "endMs": 50967,
+          "timestampMs": 50671,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "kind": "bullet",
+      "text": "Write clear documentation for each change.",
+      "addedPeriod": false,
+      "captions": [
+        {
+          "text": " Write",
+          "startMs": 51420,
+          "endMs": 51710,
+          "timestampMs": 51565,
+          "confidence": null
+        },
+        {
+          "text": " clear",
+          "startMs": 51756,
+          "endMs": 51989,
+          "timestampMs": 51872.5,
+          "confidence": null
+        },
+        {
+          "text": " documentation",
+          "startMs": 52070,
+          "endMs": 52952,
+          "timestampMs": 52511,
+          "confidence": null
+        },
+        {
+          "text": " for",
+          "startMs": 53405,
+          "endMs": 53556,
+          "timestampMs": 53480.5,
+          "confidence": null
+        },
+        {
+          "text": " each",
+          "startMs": 53684,
+          "endMs": 53974,
+          "timestampMs": 53829,
+          "confidence": null
+        },
+        {
+          "text": " change.",
+          "startMs": 54067,
+          "endMs": 54868,
+          "timestampMs": 54467.5,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "Requirements:",
+      "addedPeriod": false,
+      "captions": [
+        {
+          "text": " Requirements:",
+          "startMs": 55600,
+          "endMs": 56470,
+          "timestampMs": 56035,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "kind": "bullet",
+      "text": "At least 3 years of experience with Laravel and React.",
+      "addedPeriod": true,
+      "captions": [
+        {
+          "text": " At",
+          "startMs": 56807,
+          "endMs": 56946,
+          "timestampMs": 56876.5,
+          "confidence": null
+        },
+        {
+          "text": " least",
+          "startMs": 57004,
+          "endMs": 57202,
+          "timestampMs": 57103,
+          "confidence": null
+        },
+        {
+          "text": " 3",
+          "startMs": 57283,
+          "endMs": 57492,
+          "timestampMs": 57387.5,
+          "confidence": null
+        },
+        {
+          "text": " years",
+          "startMs": 57562,
+          "endMs": 57771,
+          "timestampMs": 57666.5,
+          "confidence": null
+        },
+        {
+          "text": " of",
+          "startMs": 57817,
+          "endMs": 57864,
+          "timestampMs": 57840.5,
+          "confidence": null
+        },
+        {
+          "text": " experience",
+          "startMs": 57922,
+          "endMs": 58641,
+          "timestampMs": 58281.5,
+          "confidence": null
+        },
+        {
+          "text": " with",
+          "startMs": 58665,
+          "endMs": 58792,
+          "timestampMs": 58728.5,
+          "confidence": null
+        },
+        {
+          "text": " Laravel",
+          "startMs": 58850,
+          "endMs": 59408,
+          "timestampMs": 59129,
+          "confidence": null
+        },
+        {
+          "text": " and",
+          "startMs": 59605,
+          "endMs": 59768,
+          "timestampMs": 59686.5,
+          "confidence": null
+        },
+        {
+          "text": " React.",
+          "startMs": 59849,
+          "endMs": 60464,
+          "timestampMs": 60156.5,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "kind": "bullet",
+      "text": "Experience with Stripe and AWS.",
+      "addedPeriod": true,
+      "captions": [
+        {
+          "text": " Experience",
+          "startMs": 60847,
+          "endMs": 61497,
+          "timestampMs": 61172,
+          "confidence": null
+        },
+        {
+          "text": " with",
+          "startMs": 61521,
+          "endMs": 61637,
+          "timestampMs": 61579,
+          "confidence": null
+        },
+        {
+          "text": " Stripe",
+          "startMs": 61683,
+          "endMs": 62217,
+          "timestampMs": 61950,
+          "confidence": null
+        },
+        {
+          "text": " and",
+          "startMs": 62333,
+          "endMs": 62519,
+          "timestampMs": 62426,
+          "confidence": null
+        },
+        {
+          "text": " AWS.",
+          "startMs": 62600,
+          "endMs": 63634,
+          "timestampMs": 63117,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "kind": "bullet",
+      "text": "Good communication skills in English.",
+      "addedPeriod": true,
+      "captions": [
+        {
+          "text": " Good",
+          "startMs": 63959,
+          "endMs": 64156.00000000001,
+          "timestampMs": 64057.5,
+          "confidence": null
+        },
+        {
+          "text": " communication",
+          "startMs": 64226,
+          "endMs": 65027,
+          "timestampMs": 64626.5,
+          "confidence": null
+        },
+        {
+          "text": " skills",
+          "startMs": 65108.00000000001,
+          "endMs": 65596,
+          "timestampMs": 65352,
+          "confidence": null
+        },
+        {
+          "text": " in",
+          "startMs": 65677,
+          "endMs": 65816,
+          "timestampMs": 65746.5,
+          "confidence": null
+        },
+        {
+          "text": " English.",
+          "startMs": 65921,
+          "endMs": 66583,
+          "timestampMs": 66252,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "Nice to have:",
+      "addedPeriod": false,
+      "captions": [
+        {
+          "text": " Nice",
+          "startMs": 67268,
+          "endMs": 67558,
+          "timestampMs": 67413,
+          "confidence": null
+        },
+        {
+          "text": " to",
+          "startMs": 67581,
+          "endMs": 67639,
+          "timestampMs": 67610,
+          "confidence": null
+        },
+        {
+          "text": " have:",
+          "startMs": 67720,
+          "endMs": 68220,
+          "timestampMs": 67970,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "kind": "bullet",
+      "text": "Experience with Redis and queues.",
+      "addedPeriod": true,
+      "captions": [
+        {
+          "text": " Experience",
+          "startMs": 68498,
+          "endMs": 69172,
+          "timestampMs": 68835,
+          "confidence": null
+        },
+        {
+          "text": " with",
+          "startMs": 69195,
+          "endMs": 69323,
+          "timestampMs": 69259,
+          "confidence": null
+        },
+        {
+          "text": " Redis",
+          "startMs": 69381,
+          "endMs": 69752,
+          "timestampMs": 69566.5,
+          "confidence": null
+        },
+        {
+          "text": " and",
+          "startMs": 69822,
+          "endMs": 69973,
+          "timestampMs": 69897.5,
+          "confidence": null
+        },
+        {
+          "text": " queues.",
+          "startMs": 70066,
+          "endMs": 70843,
+          "timestampMs": 70454.5,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "kind": "bullet",
+      "text": "Experience with high-traffic systems.",
+      "addedPeriod": true,
+      "captions": [
+        {
+          "text": " Experience",
+          "startMs": 71157,
+          "endMs": 71842,
+          "timestampMs": 71499.5,
+          "confidence": null
+        },
+        {
+          "text": " with",
+          "startMs": 71865,
+          "endMs": 71981,
+          "timestampMs": 71923,
+          "confidence": null
+        },
+        {
+          "text": " high-traffic",
+          "startMs": 72062,
+          "endMs": 72770,
+          "timestampMs": 72416,
+          "confidence": null
+        },
+        {
+          "text": " systems.",
+          "startMs": 72829,
+          "endMs": 73606,
+          "timestampMs": 73217.5,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "kind": "text",
+      "text": "This is a fixed-price project with 3 milestones. We expect it to take about 4 weeks. Our team usually works from 9 AM to 5 PM (Central Time), and we hold a short video call every Monday.",
+      "addedPeriod": false,
+      "captions": [
+        {
+          "text": " This",
+          "startMs": 73978,
+          "endMs": 74164,
+          "timestampMs": 74071,
+          "confidence": null
+        },
+        {
+          "text": " is",
+          "startMs": 74233,
+          "endMs": 74303,
+          "timestampMs": 74268,
+          "confidence": null
+        },
+        {
+          "text": " a",
+          "startMs": 74349,
+          "endMs": 74384,
+          "timestampMs": 74366.5,
+          "confidence": null
+        },
+        {
+          "text": " fixed-price",
+          "startMs": 74454,
+          "endMs": 75058,
+          "timestampMs": 74756,
+          "confidence": null
+        },
+        {
+          "text": " project",
+          "startMs": 75104,
+          "endMs": 75557,
+          "timestampMs": 75330.5,
+          "confidence": null
+        },
+        {
+          "text": " with",
+          "startMs": 75603,
+          "endMs": 75743,
+          "timestampMs": 75673,
+          "confidence": null
+        },
+        {
+          "text": " 3",
+          "startMs": 75824,
+          "endMs": 76068,
+          "timestampMs": 75946,
+          "confidence": null
+        },
+        {
+          "text": " milestones.",
+          "startMs": 76195,
+          "endMs": 77252,
+          "timestampMs": 76723.5,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": " We",
+          "startMs": 77589,
+          "endMs": 77740,
+          "timestampMs": 77664.5,
+          "confidence": null
+        },
+        {
+          "text": " expect",
+          "startMs": 77809,
+          "endMs": 78169,
+          "timestampMs": 77989,
+          "confidence": null
+        },
+        {
+          "text": " it",
+          "startMs": 78192,
+          "endMs": 78262,
+          "timestampMs": 78227,
+          "confidence": null
+        },
+        {
+          "text": " to",
+          "startMs": 78297,
+          "endMs": 78343,
+          "timestampMs": 78320,
+          "confidence": null
+        },
+        {
+          "text": " take",
+          "startMs": 78378,
+          "endMs": 78634,
+          "timestampMs": 78506,
+          "confidence": null
+        },
+        {
+          "text": " about",
+          "startMs": 78668,
+          "endMs": 78947,
+          "timestampMs": 78807.5,
+          "confidence": null
+        },
+        {
+          "text": " 4",
+          "startMs": 79133,
+          "endMs": 79423,
+          "timestampMs": 79278,
+          "confidence": null
+        },
+        {
+          "text": " weeks.",
+          "startMs": 79504,
+          "endMs": 80120,
+          "timestampMs": 79812,
+          "confidence": null,
+          "pageBreakAfter": true
+        },
+        {
+          "text": " Our",
+          "startMs": 80572,
+          "endMs": 80723,
+          "timestampMs": 80647.5,
+          "confidence": null
+        },
+        {
+          "text": " team",
+          "startMs": 80770,
+          "endMs": 81072,
+          "timestampMs": 80921,
+          "confidence": null
+        },
+        {
+          "text": " usually",
+          "startMs": 81188,
+          "endMs": 81582,
+          "timestampMs": 81385,
+          "confidence": null
+        },
+        {
+          "text": " works",
+          "startMs": 81629,
+          "endMs": 81954,
+          "timestampMs": 81791.5,
+          "confidence": null
+        },
+        {
+          "text": " from",
+          "startMs": 82000,
+          "endMs": 82151,
+          "timestampMs": 82075.5,
+          "confidence": null
+        },
+        {
+          "text": " 9",
+          "startMs": 82279,
+          "endMs": 82569,
+          "timestampMs": 82424,
+          "confidence": null
+        },
+        {
+          "text": " AM",
+          "startMs": 82662,
+          "endMs": 83034,
+          "timestampMs": 82848,
+          "confidence": null
+        },
+        {
+          "text": " to",
+          "startMs": 83127,
+          "endMs": 83185,
+          "timestampMs": 83156,
+          "confidence": null
+        },
+        {
+          "text": " 5",
+          "startMs": 83312,
+          "endMs": 83556,
+          "timestampMs": 83434,
+          "confidence": null
+        },
+        {
+          "text": " PM",
+          "startMs": 83661,
+          "endMs": 84067,
+          "timestampMs": 83864,
+          "confidence": null
+        },
+        {
+          "text": " (Central",
+          "startMs": 84288,
+          "endMs": 84961,
+          "timestampMs": 84624.5,
+          "confidence": null
+        },
+        {
+          "text": " Time),",
+          "startMs": 85042,
+          "endMs": 85669,
+          "timestampMs": 85355.5,
+          "confidence": null
+        },
+        {
+          "text": " and",
+          "startMs": 86006,
+          "endMs": 86145,
+          "timestampMs": 86075.5,
+          "confidence": null
+        },
+        {
+          "text": " we",
+          "startMs": 86215,
+          "endMs": 86284,
+          "timestampMs": 86249.5,
+          "confidence": null
+        },
+        {
+          "text": " hold",
+          "startMs": 86343,
+          "endMs": 86563,
+          "timestampMs": 86453,
+          "confidence": null
+        },
+        {
+          "text": " a",
+          "startMs": 86610,
+          "endMs": 86633,
+          "timestampMs": 86621.5,
+          "confidence": null
+        },
+        {
+          "text": " short",
+          "startMs": 86714,
+          "endMs": 87051,
+          "timestampMs": 86882.5,
+          "confidence": null
+        },
+        {
+          "text": " video",
+          "startMs": 87120,
+          "endMs": 87480,
+          "timestampMs": 87300,
+          "confidence": null
+        },
+        {
+          "text": " call",
+          "startMs": 87573,
+          "endMs": 87887,
+          "timestampMs": 87730,
+          "confidence": null
+        },
+        {
+          "text": " every",
+          "startMs": 88293,
+          "endMs": 88618,
+          "timestampMs": 88455.5,
+          "confidence": null
+        },
+        {
+          "text": " Monday.",
+          "startMs": 88688,
+          "endMs": 89326,
+          "timestampMs": 89007,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "kind": "text",
+      "text": "To apply, please answer these questions:",
+      "addedPeriod": false,
+      "captions": [
+        {
+          "text": " To",
+          "startMs": 89733,
+          "endMs": 89872,
+          "timestampMs": 89802.5,
+          "confidence": null
+        },
+        {
+          "text": " apply,",
+          "startMs": 89953,
+          "endMs": 90627,
+          "timestampMs": 90290,
+          "confidence": null
+        },
+        {
+          "text": " please",
+          "startMs": 90708,
+          "endMs": 91114,
+          "timestampMs": 90911,
+          "confidence": null
+        },
+        {
+          "text": " answer",
+          "startMs": 91172,
+          "endMs": 91532,
+          "timestampMs": 91352,
+          "confidence": null
+        },
+        {
+          "text": " these",
+          "startMs": 91602,
+          "endMs": 91811,
+          "timestampMs": 91706.5,
+          "confidence": null
+        },
+        {
+          "text": " questions:",
+          "startMs": 91857,
+          "endMs": 92681,
+          "timestampMs": 92269,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "kind": "numbered",
+      "text": "Have you built a ticketing or booking system before?",
+      "addedPeriod": false,
+      "number": "1",
+      "captions": [
+        {
+          "text": " Have",
+          "startMs": 93018,
+          "endMs": 93169,
+          "timestampMs": 93093.5,
+          "confidence": null
+        },
+        {
+          "text": " you",
+          "startMs": 93204,
+          "endMs": 93273,
+          "timestampMs": 93238.5,
+          "confidence": null
+        },
+        {
+          "text": " built",
+          "startMs": 93355,
+          "endMs": 93540,
+          "timestampMs": 93447.5,
+          "confidence": null
+        },
+        {
+          "text": " a",
+          "startMs": 93575,
+          "endMs": 93599,
+          "timestampMs": 93587,
+          "confidence": null
+        },
+        {
+          "text": " ticketing",
+          "startMs": 93680,
+          "endMs": 94237,
+          "timestampMs": 93958.5,
+          "confidence": null
+        },
+        {
+          "text": " or",
+          "startMs": 94504,
+          "endMs": 94678,
+          "timestampMs": 94591,
+          "confidence": null
+        },
+        {
+          "text": " booking",
+          "startMs": 94760,
+          "endMs": 95119,
+          "timestampMs": 94939.5,
+          "confidence": null
+        },
+        {
+          "text": " system",
+          "startMs": 95224,
+          "endMs": 95654,
+          "timestampMs": 95439,
+          "confidence": null
+        },
+        {
+          "text": " before?",
+          "startMs": 95700,
+          "endMs": 96350,
+          "timestampMs": 96025,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "kind": "numbered",
+      "text": "How do you prevent double payments?",
+      "addedPeriod": false,
+      "number": "2",
+      "captions": [
+        {
+          "text": " How",
+          "startMs": 96838,
+          "endMs": 97012,
+          "timestampMs": 96925,
+          "confidence": null
+        },
+        {
+          "text": " do",
+          "startMs": 97058,
+          "endMs": 97116,
+          "timestampMs": 97087,
+          "confidence": null
+        },
+        {
+          "text": " you",
+          "startMs": 97186,
+          "endMs": 97256,
+          "timestampMs": 97221,
+          "confidence": null
+        },
+        {
+          "text": " prevent",
+          "startMs": 97325,
+          "endMs": 97674,
+          "timestampMs": 97499.5,
+          "confidence": null
+        },
+        {
+          "text": " double",
+          "startMs": 97767,
+          "endMs": 98092,
+          "timestampMs": 97929.5,
+          "confidence": null
+        },
+        {
+          "text": " payments?",
+          "startMs": 98126,
+          "endMs": 98928,
+          "timestampMs": 98527,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    },
+    {
+      "kind": "text",
+      "text": "We look forward to your proposal!",
+      "addedPeriod": false,
+      "captions": [
+        {
+          "text": " We",
+          "startMs": 99357,
+          "endMs": 99647,
+          "timestampMs": 99502,
+          "confidence": null
+        },
+        {
+          "text": " look",
+          "startMs": 99740,
+          "endMs": 99926,
+          "timestampMs": 99833,
+          "confidence": null
+        },
+        {
+          "text": " forward",
+          "startMs": 99996,
+          "endMs": 100414,
+          "timestampMs": 100205,
+          "confidence": null
+        },
+        {
+          "text": " to",
+          "startMs": 100495,
+          "endMs": 100623,
+          "timestampMs": 100559,
+          "confidence": null
+        },
+        {
+          "text": " your",
+          "startMs": 100704,
+          "endMs": 100866,
+          "timestampMs": 100785,
+          "confidence": null
+        },
+        {
+          "text": " proposal!",
+          "startMs": 100936,
+          "endMs": 102074,
+          "timestampMs": 101505,
+          "confidence": null,
+          "pageBreakAfter": true
+        }
+      ]
+    }
+  ],
+  "vocab": [
+    {
+      "word": "startup",
+      "ipa": "/ˈstɑːrtʌp/",
+      "meaning": "công ty khởi nghiệp"
+    },
+    {
+      "word": "run",
+      "ipa": "/rʌn/",
+      "meaning": "vận hành, điều hành"
+    },
+    {
+      "word": "handle",
+      "ipa": "/ˈhændl/",
+      "meaning": "xử lý, chịu được"
+    },
+    {
+      "word": "traffic",
+      "ipa": "/ˈtræfɪk/",
+      "meaning": "lượng truy cập"
+    },
+    {
+      "word": "experienced",
+      "ipa": "/ɪkˈspɪriənst/",
+      "meaning": "có kinh nghiệm"
+    },
+    {
+      "word": "improve",
+      "ipa": "/ɪmˈpruːv/",
+      "meaning": "cải thiện"
+    },
+    {
+      "word": "host",
+      "ipa": "/hoʊst/",
+      "meaning": "lưu trữ, chạy (server)"
+    },
+    {
+      "word": "replace",
+      "ipa": "/rɪˈpleɪs/",
+      "meaning": "thay thế"
+    }
+  ]
+}

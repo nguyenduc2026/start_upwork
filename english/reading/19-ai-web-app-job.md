@@ -11,9 +11,9 @@
 id: reading-19
 type: reading
 title: "Reading 19: Ai Web App Job"
-audio: english/audio/reading-19.mp3
-video: english/video/out/reading-19.mp4
-voice: female, American, calm
+audio: english/audio/reading/reading-19.mp3
+video: english/video/out/reading/reading-19.mp4
+voice: auto
 speed: 0.9
 -->
 
@@ -48,7 +48,7 @@ Do not promise perfect answers. In your proposal, describe a related project and
 
 ## 3. Luyện nghe
 
-> 🎧 Audio: [`english/audio/reading-19.mp3`](../audio/reading-19.mp3) · 🎬 Video: `english/video/out/reading-19.mp4` _(dự kiến; tạo bằng skill `lesson-video`, chưa được tạo trong bước soạn bài)._ Khi chưa có audio, đọc thành tiếng để luyện trước.
+> 🎧 Audio: [`english/audio/reading/reading-19.mp3`](../audio/reading/reading-19.mp3) · 🎬 Video: `english/video/out/reading/reading-19.mp4` _(dự kiến; tạo bằng skill `lesson-video`, chưa được tạo trong bước soạn bài)._ Khi chưa có audio, đọc thành tiếng để luyện trước.
 
 | Lượt | Cách làm | Mục tiêu |
 |---|---|---|

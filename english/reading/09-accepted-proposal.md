@@ -11,9 +11,9 @@
 id: reading-09
 type: reading
 title: "Reading 09: Accepted Proposal"
-audio: english/audio/reading-09.mp3
-video: english/video/out/reading-09.mp4
-voice: female, American, calm
+audio: english/audio/reading/reading-09.mp3
+video: english/video/out/reading/reading-09.mp4
+voice: auto
 speed: 0.9
 -->
 
@@ -52,7 +52,7 @@ Practice outcome: Anna accepted the investigation proposal, not a guaranteed rep
 
 ## 3. Luyện nghe
 
-> 🎧 Audio: [`english/audio/reading-09.mp3`](../audio/reading-09.mp3) · 🎬 Video: `english/video/out/reading-09.mp4` _(dự kiến; tạo bằng skill `lesson-video`, chưa được tạo trong bước soạn bài)._ Khi chưa có audio, đọc thành tiếng để luyện trước.
+> 🎧 Audio: [`english/audio/reading/reading-09.mp3`](../audio/reading/reading-09.mp3) · 🎬 Video: `english/video/out/reading/reading-09.mp4` _(dự kiến; tạo bằng skill `lesson-video`, chưa được tạo trong bước soạn bài)._ Khi chưa có audio, đọc thành tiếng để luyện trước.
 
 | Lượt | Cách làm | Mục tiêu |
 |---|---|---|

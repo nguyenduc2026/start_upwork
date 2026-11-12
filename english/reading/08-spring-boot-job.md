@@ -11,9 +11,9 @@
 id: reading-08
 type: reading
 title: "Reading 08: Spring Boot Job"
-audio: english/audio/reading-08.mp3
-video: english/video/out/reading-08.mp4
-voice: female, American, calm
+audio: english/audio/reading/reading-08.mp3
+video: english/video/out/reading/reading-08.mp4
+voice: auto
 speed: 0.9
 -->
 
@@ -48,7 +48,7 @@ Our team is available for questions until 5 PM GMT+7. We hold calls on Tuesdays.
 
 ## 3. Luyện nghe
 
-> 🎧 Audio: [`english/audio/reading-08.mp3`](../audio/reading-08.mp3) · 🎬 Video: `english/video/out/reading-08.mp4` _(dự kiến; tạo bằng skill `lesson-video`, chưa được tạo trong bước soạn bài)._ Khi chưa có audio, đọc thành tiếng để luyện trước.
+> 🎧 Audio: [`english/audio/reading/reading-08.mp3`](../audio/reading/reading-08.mp3) · 🎬 Video: `english/video/out/reading/reading-08.mp4` _(dự kiến; tạo bằng skill `lesson-video`, chưa được tạo trong bước soạn bài)._ Khi chưa có audio, đọc thành tiếng để luyện trước.
 
 | Lượt | Cách làm | Mục tiêu |
 |---|---|---|
