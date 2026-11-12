@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Bảng dự án ACME Shop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap">
+<style>
+body{margin:0}
+.a{--bg:#F3F3F1;--panel:#FFFFFF;--board:#FAFAF9;--line:#E2E1DD;--line2:#CFCDC8;--text:#1B1B19;--muted:#66655F;--phc:#8F8D87;--soft:#F1F0ED;--hover:#EAE9E6;--pri:#D9480F;--priH:#BA3D0C;--ring:rgba(217,72,15,.16);--urgent:#D23B3B;--high:#E39A12;--late:#C2361F;--err:#C2361F;font-family:'Inter',system-ui,sans-serif;font-size:14px;line-height:1.45;color:var(--text);background:var(--bg);min-height:900px;display:flex;flex-wrap:wrap;position:relative}
+.a *{box-sizing:border-box}
+.a a{color:inherit;text-decoration:none}
+.a svg{flex:none}
+.a a:focus-visible,.a button:focus-visible{outline:2px solid var(--pri);outline-offset:1px}
+.a input,.a textarea,.a button{font-family:inherit;font-size:14px;font-weight:400}
+.catch{position:absolute;inset:0;z-index:20}
+.side{flex:1 1 220px;padding:10px 8px;display:flex;flex-direction:column;gap:16px;font-size:13.5px}
+.ws{display:flex;align-items:center;gap:8px;height:36px;padding:0 8px;font-weight:600;font-size:14.5px}
+.logo{width:22px;height:22px;border-radius:6px;background:var(--pri);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center}
+.nav{display:flex;flex-direction:column;gap:1px}
+.nav a{display:flex;align-items:center;gap:9px;height:31px;padding:0 8px;border-radius:6px;color:#3A3936}
+.nav a svg{color:var(--muted)}
+.nav a:hover{background:var(--hover)}
+.nav a.on{background:#E4E3DF;color:var(--text);font-weight:600}
+.gh{font-size:12px;font-weight:600;color:var(--muted);padding:0 8px 4px}
+.sq{width:9px;height:9px;border-radius:2px;flex:none}
+.k{margin-left:auto;font-size:12px;color:var(--muted)}
+.panel{flex:999 1 560px;min-width:0;margin:8px 8px 8px 0;background:var(--panel);border:1px solid var(--line);border-radius:10px;display:flex;flex-direction:column}
+.appbar{height:52px;display:flex;align-items:center;gap:8px;padding:0 12px 0 16px;border-bottom:1px solid var(--line)}
+.search{height:36px;width:min(360px,100%);display:flex;align-items:center;gap:8px;padding:0 8px 0 12px;border:1px solid var(--line);border-radius:8px;background:var(--soft);color:var(--phc);cursor:pointer;text-align:left}
+.search .t{flex:1}
+.kbd{font-size:11px;color:var(--muted);border:1px solid var(--line2);background:#fff;border-radius:4px;padding:0 5px;line-height:17px}
+.grow{flex:1;min-width:4px}
+.ib{width:36px;height:36px;border:0;background:transparent;border-radius:8px;color:#4A4945;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;position:relative}
+.ib:hover{background:var(--soft);color:var(--text)}
+.ib.sm{width:30px;height:30px;border-radius:6px}
+.ib:disabled{opacity:.4;cursor:not-allowed}
+.badge{position:absolute;top:4px;right:4px;min-width:16px;height:16px;border-radius:8px;background:var(--pri);color:#fff;font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center;padding:0 4px}
+.user{height:38px;display:inline-flex;align-items:center;gap:8px;padding:0 8px 0 4px;border:0;border-radius:8px;background:transparent;color:var(--text);cursor:pointer}
+.user:hover{background:var(--soft)}
+.user:focus-visible{outline:2px solid var(--pri)}
+.av{width:28px;height:28px;border-radius:50%;background:#E2DCCF;color:#3B352A;font-size:11.5px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:none}
+.b{height:36px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 14px;border:1px solid var(--line);background:#fff;border-radius:8px;color:var(--text);cursor:pointer;white-space:nowrap;flex:none}
+.b:hover{background:var(--soft);border-color:var(--line2)}
+.b.p{background:var(--pri);border-color:var(--pri);color:#fff;font-weight:600}
+.b.p:hover{background:var(--priH);border-color:var(--priH)}
+.b.g{border-color:transparent;background:transparent;color:var(--muted)}
+.b.g:hover{background:var(--soft);color:var(--text)}
+.b.sm{height:32px;padding:0 10px}
+.b.act{border-color:var(--text)}
+.b.full{width:100%}
+.b:disabled{opacity:.45;cursor:not-allowed}
+.ctl{width:100%;height:36px;display:flex;align-items:center;gap:8px;padding:0 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--text);text-align:left;transition:border-color .12s,box-shadow .12s}
+.ctl:hover{border-color:var(--line2)}
+.ctl:focus,.ctl:focus-within,.ctl.open{border-color:var(--pri);box-shadow:0 0 0 3px var(--ring);outline:none}
+.ctl.bad{border-color:var(--err)}
+.ctl.bad:focus,.ctl.bad:focus-within{box-shadow:0 0 0 3px rgba(194,54,31,.14)}
+.ctl.act{border-color:var(--text)}
+.ctl:disabled{background:var(--soft);color:var(--muted);cursor:not-allowed}
+.ctl input{border:0;outline:0;background:transparent;color:var(--text);width:100%;min-width:0;height:100%;padding:0}
+.ctl::placeholder,.ctl input::placeholder,.cm::placeholder{color:var(--phc);font-weight:400;opacity:1}
+.ctl svg{color:var(--muted)}
+.ctl .ad{color:var(--muted);white-space:nowrap}
+button.ctl{cursor:pointer}
+.ctl .v{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ctl .v.vph{color:var(--phc)}
+.icb{width:28px;height:28px;margin-right:-6px;border:0;border-radius:6px;background:transparent;color:var(--muted);display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.icb:hover{background:var(--soft);color:var(--text)}
+.ddw{position:relative}
+.ddw.up{z-index:21}
+.ddl{position:absolute;top:calc(100% + 4px);left:0;min-width:100%;width:max-content;max-width:320px;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 12px 28px rgba(0,0,0,.14);padding:4px;z-index:8;max-height:260px;overflow:auto}
+.ddo{width:100%;height:34px;display:flex;align-items:center;gap:9px;padding:0 10px;border:0;border-radius:6px;background:transparent;color:var(--text);cursor:pointer;text-align:left;white-space:nowrap}
+.ddo:hover{background:var(--soft)}
+.ddo.on{font-weight:600}
+.ddo .ck{margin-left:auto;padding-left:12px;color:var(--pri);visibility:hidden;box-sizing:content-box}
+.ddo.on .ck{visibility:visible}
+.box{width:16px;height:16px;border:1.5px solid var(--line2);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;flex:none;background:#fff;color:#fff}
+.ddo.on .box{background:var(--pri);border-color:var(--pri)}
+.dotp{width:8px;height:8px;border-radius:50%;flex:none}
+.fld{display:flex;flex-direction:column;gap:6px}
+.lb{font-size:13px;font-weight:600;color:#3A3936}
+.lbrow{display:flex;align-items:center;justify-content:space-between;min-height:20px}
+.req{color:var(--err)}
+.err{font-size:13px;color:var(--err)}
+.muted{color:var(--muted);font-size:13px}
+.mutedc{color:var(--muted)}
+.cal{position:absolute;top:calc(100% + 4px);right:0;width:284px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 12px 28px rgba(0,0,0,.16);padding:10px;z-index:8}
+.calh{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;font-weight:600}
+.calg{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center;font-variant-numeric:tabular-nums}
+.calg .wd{font-size:12px;color:var(--muted);height:28px;line-height:28px}
+.day{height:34px;border:0;border-radius:6px;background:transparent;color:var(--text);cursor:pointer;font-size:13px!important}
+.day:hover{background:var(--soft)}
+.day.out{color:#B5B3AD}
+.day.today{box-shadow:inset 0 0 0 1px var(--line2);font-weight:600}
+.day.sel{background:var(--pri);color:#fff;font-weight:600}
+.calf{display:flex;justify-content:space-between;margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+.tmr{display:flex;align-items:center;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+.tmr .lb{margin-right:auto}
+.tmi{width:52px!important;text-align:center;padding:0 6px!important;font-variant-numeric:tabular-nums}
+.toast{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);background:var(--text);color:#fff;padding:10px 16px;border-radius:8px;z-index:50;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.phd{padding:16px 20px 0}
+.crumb{font-size:13px;color:var(--muted);margin-bottom:6px}
+.crumb a:hover{color:var(--text);text-decoration:underline}
+.ttl{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ttl h1{margin:0;font-size:20px;font-weight:600;line-height:1.3}
+.ttl .sq{width:12px;height:12px;border-radius:3px}
+.ttl .m{color:var(--muted)}
+.tabs{display:flex;gap:18px;margin-top:12px;border-bottom:1px solid var(--line)}
+.tab{padding:8px 0 9px;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab:hover{color:var(--text)}
+.tab.on{color:var(--text);font-weight:600;border-bottom-color:var(--text)}
+.tool{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px;padding:14px 20px}
+.tool .fld{width:190px}
+.tool .fld.srch{width:280px}
+.tool .push{margin-left:auto}
+.pr{display:inline-flex;align-items:center;gap:6px}
+
+.wrap{flex:1;overflow-x:auto;background:var(--board);border-top:1px solid var(--line);padding:12px 12px 16px;border-radius:0 0 10px 10px}
+.board{display:grid;grid-template-columns:repeat(5,minmax(230px,1fr));gap:10px;min-width:1190px}
+.col{display:flex;flex-direction:column;gap:6px;min-height:640px}
+.ch{display:flex;align-items:center;gap:8px;height:32px;padding:0 2px 0 6px;font-weight:600;font-size:13.5px}
+.ch .n{color:var(--muted);font-weight:400}
+.ch .ib{margin-left:auto}
+.st{color:var(--muted);display:inline-flex}
+.st.doing{color:var(--high)}
+.st.done{color:#4B6BB5}
+.empty{border:1px dashed var(--line2);border-radius:7px;padding:14px;text-align:center;color:var(--muted);font-size:13px}
+.card{display:flex;flex-direction:column;gap:5px;height:136px;overflow:hidden;background:#fff;border:1px solid var(--line);border-radius:7px;padding:9px 10px 10px;box-shadow:0 1px 2px rgba(0,0,0,.04);text-align:left;color:inherit;cursor:pointer;width:100%;font-size:13.5px}
+.card:hover{border-color:var(--line2);box-shadow:0 2px 6px rgba(0,0,0,.07)}
+.card.urgent{border-color:var(--urgent)}
+.card.high{border-color:var(--high)}
+.code{font-size:12px;color:var(--muted)}
+.ct{line-height:1.4;min-height:38px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card.isdone .ct{color:var(--muted)}
+.pills{display:flex;flex-wrap:wrap;align-content:flex-start;gap:4px;margin-top:3px}
+.pill{height:22px;display:inline-flex;align-items:center;gap:5px;padding:0 7px;border:1px solid var(--line);border-radius:6px;font-size:12px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.pill.late{color:var(--late);border-color:#F0C9C0}
+
+.tblw{margin:0 20px;overflow:auto;border:1px solid var(--line);border-radius:8px}
+.tbl{width:100%;min-width:1280px;border-collapse:collapse;font-size:13.5px}
+.tbl th{background:var(--board);text-align:left;font-weight:600;color:#3A3936;font-size:13px;border:1px solid var(--line);padding:0 12px;height:44px;white-space:nowrap}
+.tbl td{padding:0 12px;height:48px;border:1px solid var(--line);white-space:nowrap;font-variant-numeric:tabular-nums}
+.tbl tbody tr:hover td{background:var(--board)}
+.tbl tr > :first-child{border-left:0}
+.tbl tr > :last-child{border-right:0}
+.tbl thead tr:first-child th{border-top:0}
+.tbl tbody tr:last-child td{border-bottom:0}
+.th{border:0;background:transparent;padding:0;font-weight:600!important;font-size:13px!important;color:#3A3936;cursor:pointer;display:inline-flex;align-items:center;gap:4px;height:28px}
+.th:hover,.th.on{color:var(--pri)}
+.tt{font-weight:600;display:block;max-width:380px;overflow:hidden;text-overflow:ellipsis}
+.tt:hover{color:var(--pri)}
+.stp{height:24px;display:inline-flex;align-items:center;padding:0 9px;border-radius:6px;background:var(--soft);color:#3A3936;font-size:12.5px}
+.u{color:var(--urgent);font-weight:600}
+.h{color:#B5770A;font-weight:600}
+.lt{color:var(--late);font-weight:600}
+.acts{display:flex;align-items:center;gap:2px}
+.lempty{padding:28px;text-align:center;color:var(--muted)}
+.pg{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 20px 18px;color:var(--muted)}
+.pgl{display:flex;align-items:center;gap:12px}
+.pgr{display:flex;align-items:center;gap:6px}
+.pgb{min-width:36px;height:36px;padding:0 6px;border:1px solid var(--line);background:#fff;border-radius:8px;color:var(--text);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums}
+.pgb:hover{background:var(--soft);border-color:var(--line2)}
+.pgb.on{background:var(--pri);border-color:var(--pri);color:#fff;font-weight:600}
+.pgb:disabled{opacity:.4;cursor:not-allowed}
+.ell{min-width:20px;text-align:center}
+.sz{width:84px}
+
+.gwrap{margin:16px 20px 20px;border:1px solid var(--line);border-radius:8px;overflow:auto;position:relative}
+.gin{position:relative;min-width:2092px}
+.grow2{display:flex;border-bottom:1px solid var(--line);height:40px}
+.gname{width:300px;flex:none;position:sticky;left:0;z-index:3;background:#fff;border-right:1px solid var(--line);display:flex;align-items:center;gap:8px;padding:0 12px;min-width:0}
+.ghead .gname{background:var(--board);font-weight:600;font-size:13px;color:#3A3936}
+.ghead{background:var(--board);height:auto;flex-direction:column}
+.ghead .hr{display:flex}
+.gweeks,.gdays{display:flex;flex:1;min-width:0}
+.gw{border-left:1px solid var(--line);height:28px;padding:0 8px;display:flex;align-items:center;font-size:12px;font-weight:600;color:#3A3936;white-space:nowrap}
+.gd{flex:1;min-width:0;height:24px;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;border-left:1px solid var(--line)}
+.gd.we{background:var(--soft)}
+.gd.td{color:#fff;background:var(--pri);font-weight:600}
+.gtl{position:relative;flex:1;min-width:0}
+.gbody{position:relative}
+.govl{position:absolute;top:0;bottom:0;left:300px;right:0;pointer-events:none;z-index:1}
+.we-col{position:absolute;top:0;bottom:0;background:rgba(241,240,237,.6)}
+.today{position:absolute;top:0;bottom:0;width:2px;margin-left:-1px;background:var(--pri)}
+.gmn{display:flex;align-items:center;gap:8px;min-width:0;border:0;background:transparent;padding:0;color:var(--text);font-weight:600;cursor:pointer;text-align:left}
+.gmn .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chv{transition:transform .12s}
+.chv.shut{transform:rotate(-90deg)}
+.gcode{color:var(--muted);font-size:12px;flex:none;padding-left:22px}
+.gtt{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gtt:hover{color:var(--pri)}
+.spill{height:22px;display:inline-flex;align-items:center;padding:0 8px;border-radius:11px;font-size:12px;background:var(--soft);color:#3A3936;white-space:nowrap;margin-left:auto;flex:none}
+.spill.act{background:#FCEBDD;color:#9A3412}
+.spill.paid{background:#E6EDF8;color:#284A87}
+.bw{position:absolute;top:9px;height:22px;z-index:2}
+.bw:hover,.bw:focus-within{z-index:20}
+.bar{display:flex;align-items:center;width:100%;height:22px;border-radius:5px;padding:0 7px;font-size:12px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:var(--text)}
+.bar.t-Todo{background:#E4E3DF}
+.bar.t-Doing,.bar.t-Devdone{background:#F7DDA8}
+.bar.t-Release,.bar.t-Done{background:#C9D5EE}
+.bar.late{box-shadow:inset 0 0 0 1.5px var(--late)}
+.mw{position:absolute;top:15px;height:10px;z-index:2}
+.mw:hover{z-index:20}
+.mbar{height:10px;border-radius:5px;background:#E4E3DF;overflow:hidden}
+.mbar span{display:block;height:100%;background:#8F8D87}
+.tip{display:none;position:absolute;top:100%;left:0;margin-top:6px;z-index:30;width:250px;background:var(--text);color:#fff;border-radius:8px;padding:10px 12px;font-size:12.5px;line-height:1.5;white-space:normal;box-shadow:0 8px 24px rgba(0,0,0,.25);pointer-events:none}
+.bw:hover .tip,.bw:focus-within .tip,.mw:hover .tip{display:block}
+.tip b{display:block;font-weight:600;margin-bottom:2px}
+.tip span{display:block;color:#D8D6D0;font-variant-numeric:tabular-nums}
+.gbody{padding-bottom:90px}
+.gcount{margin-left:8px;color:var(--muted);font-weight:400;font-size:12px}
+
+button.tab{background:transparent;border:0;border-bottom:2px solid transparent;cursor:pointer;font:inherit;font-size:14px}
+button.tab.on{border-bottom-color:var(--text)}
+</style>
+</helmet>
+<div class="a">
+<sc-if value="{{ddOpen}}" hint-placeholder-val="{{false}}"><div class="catch" onClick="{{closeDd}}"></div></sc-if>
+<aside class="side">
+<div class="ws"><span class="logo">T</span>Taskboard</div>
+<nav class="nav" aria-label="Chính">
+<a href="02-hom-nay.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>Hôm nay</a>
+<a href="10-task-cua-toi.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="m8.5 12 2.5 2.5 4.5-5"></path></svg>Task của tôi</a>
+</nav>
+<div>
+<div class="gh">Làm việc</div>
+<nav class="nav" aria-label="Làm việc">
+<a href="03-pipeline.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path></svg>Pipeline job</a>
+<a href="05-khach-hang.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>Khách hàng</a>
+<a href="11-timesheet.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Timesheet</a>
+<a href="12-bao-cao.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18M18 17V9M13 17V5M8 17v-3"></path></svg>Báo cáo</a>
+</nav>
+</div>
+<div>
+<div class="gh">Dự án</div>
+<nav class="nav" aria-label="Dự án">
+<a href="07-du-an.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"></path></svg>Tất cả dự án</a>
+<a href="08-bang-du-an.dc.html" class="on"><span class="sq" style="background:#4A7BC0"></span>ACME Shop<span class="k">ACME</span></a>
+<a href="08-bang-du-an.dc.html"><span class="sq" style="background:#C08A2A"></span>Lumen CRM<span class="k">LUM</span></a>
+<a href="08-bang-du-an.dc.html"><span class="sq" style="background:#8E8577"></span>Harbor Booking<span class="k">HRB</span></a>
+</nav>
+</div>
+</aside>
+<main class="panel">
+<header class="appbar">
+<button class="search" type="button"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><span class="t">Tìm kiếm</span><span class="kbd">Ctrl K</span></button>
+<span class="grow"></span>
+<a class="ib" href="15-thong-bao.dc.html" aria-label="Thông báo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg><span class="badge">3</span></a>
+<a class="user" href="14-ho-so-cai-dat.dc.html"><span class="av">NĐ</span>Nguyễn Đức</a>
+</header>
+<div class="phd">
+<div class="crumb"><a href="#">Dự án</a> / ACME Shop</div>
+<div class="ttl"><span class="sq" style="background:#4A7BC0"></span><h1>ACME Shop</h1><span class="m">Northwind Retail · Hourly $35/h</span></div>
+<nav class="tabs" aria-label="Dự án">
+<button class="tab {{tBoard}}" type="button" onClick="{{goBoard}}">Bảng</button>
+<button class="tab {{tList}}" type="button" onClick="{{goList}}">Danh sách</button>
+<button class="tab {{tGantt}}" type="button" onClick="{{goGantt}}">Gantt</button>
+<a class="tab" href="13-cai-dat-du-an.dc.html">Cài đặt</a>
+</nav>
+</div>
+<sc-if value="{{hasTool}}" hint-placeholder-val="{{true}}"><div class="tool">
+<sc-for list="{{filterSels}}" as="sel" hint-placeholder-count="3">
+<div class="fld">
+<span class="lb" id="{{sel.id}}-l">{{sel.label}}<sc-if value="{{sel.req}}" hint-placeholder-val="{{false}}"> <span class="req">*</span></sc-if></span>
+<div class="ddw {{sel.wcls}}">
+<button class="ctl {{sel.cls}}" type="button" aria-haspopup="listbox" aria-expanded="{{sel.open}}" aria-labelledby="{{sel.id}}-l" onClick="{{sel.toggle}}"><sc-if value="{{sel.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{sel.dot}}"></span></sc-if><span class="v {{sel.vcls}}">{{sel.text}}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<sc-if value="{{sel.open}}" hint-placeholder-val="{{false}}">
+<div class="ddl" role="listbox" aria-multiselectable="{{sel.multi}}">
+<sc-for list="{{sel.opts}}" as="o" hint-placeholder-count="4">
+<button class="ddo {{o.cls}}" type="button" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}">
+<sc-if value="{{sel.multi}}" hint-placeholder-val="{{false}}"><span class="box"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span></sc-if>
+<sc-if value="{{o.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{o.dot}}"></span></sc-if>
+<span>{{o.label}}</span>
+<sc-if value="{{sel.single}}" hint-placeholder-val="{{true}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ck"><path d="m5 12 5 5 9-10"></path></svg></sc-if>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-for>
+<sc-for list="{{endDates}}" as="dt" hint-placeholder-count="3">
+<div class="fld"><span class="lb">{{dt.label}}</span>
+<div class="ddw {{dt.wcls}}">
+<div class="ctl {{dt.cls}}"><input placeholder="{{dt.ph}}" value="{{dt.value}}" onChange="{{dt.onInput}}" aria-label="{{dt.label}}"><button class="icb" type="button" aria-label="Mở lịch" onClick="{{dt.toggle}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg></button></div>
+<sc-if value="{{dt.open}}" hint-placeholder-val="{{false}}"><div class="cal" role="dialog" aria-label="Chọn ngày"><div class="calh"><button class="ib sm" type="button" aria-label="Tháng trước" onClick="{{dt.prev}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button><span>{{dt.title}}</span><button class="ib sm" type="button" aria-label="Tháng sau" onClick="{{dt.next}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button></div><div class="calg"><span class="wd">T2</span><span class="wd">T3</span><span class="wd">T4</span><span class="wd">T5</span><span class="wd">T6</span><span class="wd">T7</span><span class="wd">CN</span><sc-for list="{{dt.days}}" as="d" hint-placeholder-count="35"><button class="day {{d.cls}}" type="button" aria-label="{{d.label}}" onClick="{{d.pick}}">{{d.n}}</button></sc-for></div>
+<sc-if value="{{dt.withTime}}" hint-placeholder-val="{{false}}"><div class="tmr"><span class="lb">Giờ</span><input class="ctl tmi" inputmode="numeric" maxlength="2" aria-label="Giờ" value="{{dt.hh}}" onChange="{{dt.onHH}}"><span>:</span><input class="ctl tmi" inputmode="numeric" maxlength="2" aria-label="Phút" value="{{dt.mi}}" onChange="{{dt.onMI}}"></div></sc-if>
+<div class="calf"><button class="b g sm" type="button" onClick="{{dt.clear}}">Xoá</button><span class="grow"></span><button class="b sm" type="button" onClick="{{dt.today}}">{{dt.nowText}}</button><sc-if value="{{dt.withTime}}" hint-placeholder-val="{{false}}"><button class="b sm" type="button" style="margin-left:6px" onClick="{{dt.done}}">Xong</button></sc-if></div></div></sc-if>
+</div>
+<sc-if value="{{dt.hasErr}}" hint-placeholder-val="{{false}}"><span class="err">{{dt.errText}}</span></sc-if>
+</div>
+</sc-for>
+<div class="fld srch"><label class="lb" for="f-q">Tìm kiếm</label><label class="ctl"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input id="f-q" type="search" placeholder="Tìm theo mã, tên task" value="{{q}}" onChange="{{onQ}}"></label></div>
+<sc-if value="{{hasFilters}}" hint-placeholder-val="{{false}}"><button class="b g" type="button" onClick="{{clearFilters}}">Xoá lọc</button></sc-if>
+<a class="b p push" href="09-them-sua-task.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Tạo task</a>
+</div>
+</sc-if>
+<sc-if value="{{vBoard}}" hint-placeholder-val="{{true}}"><div class="wrap">
+<div class="board">
+<sc-for list="{{columns}}" as="col" hint-placeholder-count="5">
+<section class="col" aria-label="{{col.name}}">
+<div class="ch">
+<sc-if value="{{col.isTodo}}" hint-placeholder-val="{{false}}"><span class="st"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle></svg></span></sc-if>
+<sc-if value="{{col.isDoing}}" hint-placeholder-val="{{false}}"><span class="st doing"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 0 1 0 18Z" fill="currentColor"></path></svg></span></sc-if>
+<sc-if value="{{col.isDevdone}}" hint-placeholder-val="{{false}}"><span class="st doing"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 1 1-9 9h9Z" fill="currentColor"></path></svg></span></sc-if>
+<sc-if value="{{col.isRelease}}" hint-placeholder-val="{{false}}"><span class="st done"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 3a9 9 0 1 1-9 9 9 9 0 0 1 9-9Z" fill="currentColor" opacity=".35"></path></svg></span></sc-if>
+<sc-if value="{{col.isDone}}" hint-placeholder-val="{{false}}"><span class="st done"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor"></circle><path d="m8 12 3 3 5-6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></sc-if>
+<span>{{col.name}}</span><span class="n">{{col.count}}</span>
+<a class="ib sm" href="09-them-sua-task.dc.html" aria-label="Thêm task vào {{col.name}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg></a>
+</div>
+<sc-if value="{{col.empty}}" hint-placeholder-val="{{false}}"><div class="empty">Không có task</div></sc-if>
+<sc-for list="{{col.cards}}" as="c" hint-placeholder-count="3">
+<a class="card {{c.cls}}" href="09-them-sua-task.dc.html" aria-label="Sửa {{c.code}}">
+<span class="code">{{c.code}}</span>
+<span class="ct">{{c.title}}</span>
+<span class="pills">
+<sc-if value="{{c.hasDue}}" hint-placeholder-val="{{true}}"><span class="pill {{c.dueCls}}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg>{{c.due}}</span></sc-if>
+<sc-if value="{{c.hasTime}}" hint-placeholder-val="{{true}}"><span class="pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>{{c.time}}</span></sc-if>
+<sc-if value="{{c.hasCheck}}" hint-placeholder-val="{{false}}"><span class="pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="m8.5 12 2.5 2.5 4.5-5"></path></svg>{{c.check}}</span></sc-if>
+<sc-for list="{{c.labels}}" as="l" hint-placeholder-count="1"><span class="pill">{{l}}</span></sc-for>
+</span>
+</a>
+</sc-for>
+</section>
+</sc-for>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{vList}}" hint-placeholder-val="{{false}}"><div class="tblw">
+<table class="tbl">
+<thead><tr><sc-for list="{{tcols}}" as="h" hint-placeholder-count="11"><th scope="col"><sc-if value="{{h.sortable}}" hint-placeholder-val="{{true}}"><button class="th {{h.cls}}" type="button" onClick="{{h.sort}}">{{h.label}}<span aria-hidden="true">{{h.arrow}}</span></button></sc-if><sc-if value="{{h.plain}}" hint-placeholder-val="{{false}}">{{h.label}}</sc-if></th></sc-for></tr></thead>
+<tbody>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="10">
+<tr>
+<td class="mutedc">{{r.n}}</td>
+<td><span class="acts"><a class="ib sm" href="09-them-sua-task.dc.html" aria-label="Sửa {{r.code}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></a><button class="ib sm" type="button" aria-label="Lưu trữ {{r.code}}" onClick="{{r.archive}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="5" rx="1"></rect><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M10 12h4"></path></svg></button></span></td>
+<td class="mutedc">{{r.code}}</td>
+<td><a class="tt" href="09-them-sua-task.dc.html">{{r.title}}</a></td>
+<td><span class="stp">{{r.status}}</span></td>
+<td><span class="pr {{r.priCls}}"><span class="dotp" style="background:{{r.priDot}}"></span>{{r.pri}}</span></td>
+<td>{{r.start}}</td>
+<td><span class="{{r.dueCls}}">{{r.due}}</span></td>
+<td>{{r.ms}}</td>
+<td class="mutedc">{{r.labels}}</td>
+<td>{{r.time}}</td>
+<td class="mutedc">{{r.created}}</td>
+</tr>
+</sc-for>
+</tbody>
+</table>
+<sc-if value="{{noRows}}" hint-placeholder-val="{{false}}"><div class="lempty">Không có task</div></sc-if>
+</div>
+<div class="pg">
+<div class="pgl"><span>{{rangeText}}</span><span>Số dòng/trang</span><div class="ddw sz {{sizeSel.wcls}}"><button class="ctl {{sizeSel.cls}}" type="button" aria-haspopup="listbox" aria-expanded="{{sizeSel.open}}" aria-label="Số dòng mỗi trang" onClick="{{sizeSel.toggle}}"><span class="v">{{sizeSel.text}}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<sc-if value="{{sizeSel.open}}" hint-placeholder-val="{{false}}"><div class="ddl" role="listbox"><sc-for list="{{sizeSel.opts}}" as="o" hint-placeholder-count="3"><button class="ddo {{o.cls}}" type="button" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}"><span>{{o.label}}</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ck"><path d="m5 12 5 5 9-10"></path></svg></button></sc-for></div></sc-if></div></div>
+<div class="pgr">
+<button class="pgb" type="button" aria-label="Trang đầu" disabled="{{firstOff}}" onClick="{{goFirst}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17-5-5 5-5M18 17l-5-5 5-5"></path></svg></button>
+<button class="pgb" type="button" aria-label="Trang trước" disabled="{{firstOff}}" onClick="{{goPrev}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button>
+<sc-for list="{{pages}}" as="pn" hint-placeholder-count="7"><sc-if value="{{pn.isNum}}" hint-placeholder-val="{{true}}"><button class="pgb {{pn.cls}}" type="button" aria-label="Trang {{pn.label}}" aria-current="{{pn.cur}}" onClick="{{pn.go}}">{{pn.label}}</button></sc-if><sc-if value="{{pn.isEll}}" hint-placeholder-val="{{false}}"><span class="ell">…</span></sc-if></sc-for>
+<button class="pgb" type="button" aria-label="Trang sau" disabled="{{lastOff}}" onClick="{{goNext}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button>
+<button class="pgb" type="button" aria-label="Trang cuối" disabled="{{lastOff}}" onClick="{{goLast}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 17 5-5-5-5M6 17l5-5-5-5"></path></svg></button>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{vGantt}}" hint-placeholder-val="{{false}}"><div class="gwrap">
+<div class="gin">
+<div class="grow2 ghead">
+<div class="hr"><div class="gname">Sprint / Task</div><div class="gweeks"><sc-for list="{{weeks}}" as="w" hint-placeholder-count="6"><div class="gw" style="width:{{w.w}}%">{{w.label}}</div></sc-for></div></div>
+<div class="hr"><div class="gname" style="height:24px"></div><div class="gdays"><sc-for list="{{days}}" as="d" hint-placeholder-count="42"><div class="gd {{d.cls}}">{{d.n}}</div></sc-for></div></div>
+</div>
+<div class="gbody">
+<div class="govl"><sc-for list="{{weekends}}" as="we" hint-placeholder-count="6"><div class="we-col" style="left:{{we.left}}%;width:{{we.w}}%"></div></sc-for><div class="today" style="left:{{todayLeft}}%"></div></div>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="10">
+<div class="grow2">
+<div class="gname">
+<sc-if value="{{r.isMs}}" hint-placeholder-val="{{true}}"><button class="gmn" type="button" aria-expanded="{{r.open}}" onClick="{{r.toggle}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="chv {{r.chvCls}}"><path d="m6 9 6 6 6-6"></path></svg><span class="nm">{{r.name}}</span><span class="gcount">{{r.count}}</span></button><span class="spill {{r.stCls}}">{{r.status}}</span></sc-if>
+<sc-if value="{{r.isTask}}" hint-placeholder-val="{{false}}"><span class="gcode">{{r.code}}</span><a class="gtt" href="09-them-sua-task.dc.html" title="{{r.title}}">{{r.title}}</a></sc-if>
+</div>
+<div class="gtl">
+<sc-if value="{{r.isMs}}" hint-placeholder-val="{{true}}"><div class="mw" style="left:{{r.left}}%;width:{{r.w}}%" role="img" aria-label="{{r.name}} {{r.count}}"><div class="mbar"><span style="width:{{r.pct}}"></span></div><div class="tip"><b>{{r.name}}</b><span>{{r.status}}</span><span>Hạn {{r.due}}</span><span>Đã xong {{r.count}} task</span></div></div></sc-if>
+<sc-if value="{{r.isTask}}" hint-placeholder-val="{{false}}"><div class="bw" style="left:{{r.left}}%;width:{{r.w}}%"><a class="bar t-{{r.status}} {{r.lateCls}}" href="09-them-sua-task.dc.html" aria-label="{{r.code}} {{r.start}} – {{r.end}}">{{r.title}}</a><div class="tip"><b>{{r.code}} · {{r.title}}</b><span>{{r.status}} · {{r.priText}}</span><span>{{r.start}} → {{r.end}} ({{r.days}})</span><span>Thời gian: {{r.timeText}}</span><span>{{r.msName}}</span></div></div></sc-if>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</sc-if>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tab":{"editor":"enum","options":["board","list","gantt"],"default":"board"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+var tab = props && (props.tab === 'list' || props.tab === 'gantt') ? props.tab : 'board';
+this.state = { tab: tab, q: '', fSt: [], fPri: [], fLab: [], fEnd: '', dd: '', calView: { y: 2026, m: 10 }, toast: '', sortKey: 'created', sortDir: -1, page: 0, size: '10', shut: {} };
+}
+
+clone(x) { return JSON.parse(JSON.stringify(x)); }
+parseD(s) { var m = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(s || ''); if (!m) { return null; } var d = new Date(+m[3], +m[2] - 1, +m[1]); return d.getMonth() === +m[2] - 1 && d.getDate() === +m[1] ? d : null; }
+fmtD(d) { function p(v) { return (v < 10 ? '0' : '') + v; } return p(d.getDate()) + '/' + p(d.getMonth() + 1) + '/' + d.getFullYear(); }
+today() { return new Date(2026, 10, 12); }
+nowStr() { var n = new Date(); function p(v) { return (v < 10 ? '0' : '') + v; } return '12/11/2026 ' + p(n.getHours()) + ':' + p(n.getMinutes()) + ':' + p(n.getSeconds()); }
+flash(msg) { var self = this; this.setState({ toast: msg }); clearTimeout(this._t); this._t = setTimeout(function () { self.setState({ toast: '' }); }, 2600); }
+componentWillUnmount() { clearTimeout(this._t); }
+toggleIn(arr, v) { return arr.indexOf(v) >= 0 ? arr.filter(function (x) { return x !== v; }) : arr.concat([v]); }
+mkSel(id, label, options, cur, multi, onPick, emptyText, extra) {
+var self = this, open = this.state.dd === id;
+var labelOf = function (v) { var o = options.filter(function (x) { return x[0] === v; })[0]; return o ? o[1] : ''; };
+var text = multi ? cur.map(labelOf).join(', ') : labelOf(cur);
+var isEmpty = multi ? cur.length === 0 : !text;
+return Object.assign({
+id: id, label: label, open: open, multi: multi, single: !multi, req: false, hasDot: false, dot: '',
+text: isEmpty ? emptyText : text, vcls: isEmpty ? 'vph' : '', cls: open ? 'open' : '', wcls: open ? 'up' : '',
+toggle: function () { self.setState({ dd: self.state.dd === id ? '' : id }); },
+opts: options.map(function (o) { var on = multi ? cur.indexOf(o[0]) >= 0 : cur === o[0]; return { label: o[1], on: on, cls: on ? 'on' : '', hasDot: !!o[2], dot: o[2] || '', pick: function () { onPick(o[0]); if (!multi) { self.setState({ dd: '' }); } } }; })
+}, extra || {});
+}
+parseDT(s) { var m = /^(\d{2}\/\d{2}\/\d{4}) (\d{2}):(\d{2})$/.exec(s || ''); if (!m) { return null; } var d = this.parseD(m[1]); if (!d || +m[2] > 23 || +m[3] > 59) { return null; } d.setHours(+m[2], +m[3]); return d; }
+mkDate(id, label, value, setVal, touched, withTime, extraErr) {
+var self = this, s = this.state, open = s.dd === id, cv = s.calView || { y: 2026, m: 10 }, td = this.today();
+function p2(n) { n = +n || 0; return (n < 10 ? '0' : '') + n; }
+var datePart = withTime ? (value || '').slice(0, 10) : value, timePart = withTime ? (value || '').slice(11, 16) : '';
+var sel = this.parseD(datePart);
+var bad = withTime ? (!!value && (value.length >= 16 || touched) && !this.parseDT(value)) : (!!value && (value.length >= 10 || touched) && !sel);
+var setTime = function (h, mi) { var dp = self.parseD(datePart) ? datePart : self.fmtD(self.today()); setVal(dp + ' ' + p2(Math.min(23, h)) + ':' + p2(Math.min(59, mi))); };
+var hh = timePart.slice(0, 2), mi = timePart.slice(3, 5);
+var days = [];
+if (open) {
+var first = new Date(cv.y, cv.m, 1), off = (first.getDay() + 6) % 7;
+for (var i = 0; i < 42; i++) {
+var d = new Date(cv.y, cv.m, 1 - off + i);
+if (i >= 35 && d.getMonth() !== cv.m) { break; }
+(function (dd) { var c = []; if (dd.getMonth() !== cv.m) { c.push('out'); } if (dd.getTime() === td.getTime()) { c.push('today'); } if (sel && dd.getTime() === sel.getTime()) { c.push('sel'); } days.push({ n: dd.getDate(), label: self.fmtD(dd), cls: c.join(' '), pick: function () { if (withTime) { setVal(self.fmtD(dd) + ' ' + (timePart.length === 5 ? timePart : '09:00')); } else { setVal(self.fmtD(dd)); self.setState({ dd: '' }); } } }); })(d);
+}
+}
+var errText = bad ? (withTime ? 'Ngày giờ không hợp lệ' : 'Ngày không hợp lệ') : (extraErr || '');
+var move = function (delta) { return function () { var c2 = self.state.calView || { y: 2026, m: 10 }, nd = new Date(c2.y, c2.m + delta, 1); self.setState({ calView: { y: nd.getFullYear(), m: nd.getMonth() } }); }; };
+return {
+id: id, label: label, value: value, open: open, wcls: open ? 'up' : '', bad: bad, hasErr: !!errText, errText: errText, cls: (open ? 'open ' : '') + (errText ? 'bad' : ''),
+withTime: !!withTime, ph: withTime ? 'dd/mm/yyyy HH:mm' : 'dd/mm/yyyy', hh: hh, mi: mi,
+nowText: withTime ? 'Bây giờ' : 'Hôm nay',
+onHH: function (e) { var x = e.target.value.replace(/\D/g, '').slice(0, 2); setTime(x, mi); },
+onMI: function (e) { var x = e.target.value.replace(/\D/g, '').slice(0, 2); setTime(hh || 9, x); },
+done: function () { self.setState({ dd: '' }); },
+onInput: function (e) { setVal(e.target.value); },
+toggle: function () { if (self.state.dd === id) { self.setState({ dd: '' }); return; } var b = self.parseD(datePart) || self.today(); self.setState({ dd: id, calView: { y: b.getFullYear(), m: b.getMonth() } }); },
+title: 'Tháng ' + (cv.m + 1) + '/' + cv.y, days: days, prev: move(-1), next: move(1),
+clear: function () { setVal(''); self.setState({ dd: '' }); },
+today: function () { if (withTime) { var n = new Date(); setVal(self.fmtD(self.today()) + ' ' + p2(n.getHours()) + ':' + p2(n.getMinutes())); } else { setVal(self.fmtD(self.today())); } self.setState({ dd: '' }); }
+};
+}
+
+tasks() {
+var rows = ["ACME-21|Trang thanh toán: áp dụng mã giảm giá|Todo|HIGH|13/11|18/11|Frontend||0/3|Đợt 3 · Thanh toán|05/11", "ACME-23|Gửi email xác nhận đơn hàng qua SES|Todo|MEDIUM|16/11|18/11|Backend|||Đợt 2 · Kho hàng|08/11", "ACME-24|Xuất danh sách đơn hàng ra Excel|Todo|LOW|23/11|25/11|Backend|||Đợt 3 · Thanh toán|09/11", "ACME-25|Ảnh sản phẩm bị méo trên Safari|Todo|MEDIUM|12/11|13/11|Bug|||Đợt 3 · Thanh toán|11/11", "ACME-18|Đồng bộ tồn kho với Shopify mỗi 15 phút|Doing|URGENT|09/11|14/11|Backend|6h 40m|2/4|Đợt 2 · Kho hàng|09/11", "ACME-19|Trang quản trị: lọc đơn theo trạng thái|Doing|MEDIUM|12/11|20/11|Frontend|2h 15m||Đợt 3 · Thanh toán|07/11", "ACME-15|Đăng nhập bằng tài khoản Google|Devdone|MEDIUM|06/11|10/11|Backend|4h 05m|5/5|Đợt 3 · Thanh toán|03/11", "ACME-16|Phân trang danh sách sản phẩm|Devdone|LOW|07/11|11/11|Frontend|1h 50m||Đợt 3 · Thanh toán|04/11", "ACME-12|Giỏ hàng giữ nguyên khi đăng nhập lại|Release|HIGH|05/11|13/11|Backend|5h 30m||Đợt 2 · Kho hàng|02/11", "ACME-11|Trang chi tiết sản phẩm|Done|MEDIUM|03/11|07/11|Frontend|7h 20m||Đợt 3 · Thanh toán|01/11", "ACME-10|Thiết lập CI và deploy lên staging|Done|MEDIUM|02/11|03/11|Backend|3h 10m||Đợt 1 · Khởi tạo|01/11", "ACME-9|Thiết kế bảng dữ liệu đơn hàng|Done|MEDIUM|01/11|02/11|Backend|2h 45m||Đợt 1 · Khởi tạo|31/10"];
+return rows.map(function (r) { var a = r.split('|'); return { code: a[0], title: a[1], status: a[2], pri: a[3], start: a[4] + '/2026', end: a[5] + '/2026', labels: a[6] ? [a[6]] : [], time: a[7], check: a[8], ms: a[9], created: a[10] + '/2026' }; });
+}
+
+patch(p) { this.setState(p); }
+isLate(t) { var d = this.parseD(t.end); return !!d && d < this.today() && t.status !== 'Done'; }
+match(t) {
+var s = this.state, q = s.q.trim().toLowerCase();
+if (q && t.title.toLowerCase().indexOf(q) < 0 && t.code.toLowerCase().indexOf(q) < 0) { return false; }
+if (s.fSt.length && s.fSt.indexOf(t.status) < 0) { return false; }
+if (s.fPri.length && s.fPri.indexOf(t.pri) < 0) { return false; }
+if (s.fLab.length && !t.labels.some(function (l) { return s.fLab.indexOf(l) >= 0; })) { return false; }
+var e = this.parseD(s.fEnd);
+if (e) { var te = this.parseD(t.end); if (!te || te > e) { return false; } }
+return true;
+}
+mkFilters(withStatus) {
+var self = this, s = this.state;
+var STAT = ['Todo', 'Doing', 'Devdone', 'Release', 'Done'];
+var sels = [];
+if (withStatus) { sels.push(this.mkSel('fst', 'Trạng thái', STAT.map(function (x) { return [x, x]; }), s.fSt, true, function (x) { self.patch({ fSt: self.toggleIn(self.state.fSt, x) }); }, 'Tất cả')); }
+sels.push(this.mkSel('fpri', 'Độ ưu tiên', [['URGENT', 'Gấp', '#D23B3B'], ['HIGH', 'Cao', '#E39A12'], ['MEDIUM', 'Thường', '#4B6BB5'], ['LOW', 'Thấp', '#8F8D87']], s.fPri, true, function (x) { self.patch({ fPri: self.toggleIn(self.state.fPri, x) }); }, 'Tất cả'));
+sels.push(this.mkSel('flab', 'Phân loại', [['Backend', 'Backend'], ['Frontend', 'Frontend'], ['Bug', 'Bug']], s.fLab, true, function (x) { self.patch({ fLab: self.toggleIn(self.state.fLab, x) }); }, 'Tất cả'));
+return {
+filterSels: sels,
+endDates: [this.mkDate('fend', 'Ngày kết thúc', s.fEnd, function (x) { self.patch({ fEnd: x }); }, false)],
+hasFilters: s.fSt.length > 0 || s.fPri.length > 0 || s.fLab.length > 0 || !!s.fEnd,
+clearFilters: function () { self.patch({ fSt: [], fPri: [], fLab: [], fEnd: '', dd: '' }); },
+q: s.q, onQ: function (e) { self.patch({ q: e.target.value }); },
+ddOpen: !!s.dd, closeDd: function () { self.setState({ dd: '' }); }
+};
+}
+
+patch(p) { this.setState(Object.assign({ page: 0 }, p)); }
+setTab(t) { this.setState({ tab: t, dd: '', fSt: t === 'list' ? this.state.fSt : [] }); }
+renderBoard() {
+var self = this, s = this.state;
+var STAT = ['Todo', 'Doing', 'Devdone', 'Release', 'Done'];
+var shown = this.tasks().filter(function (t) { return self.match(t); });
+var v = this.mkFilters(false);
+v.toast = s.toast; v.hasToast = !!s.toast;
+v.columns = STAT.map(function (st) {
+var cs = shown.filter(function (t) { return t.status === st; });
+return {
+name: st, count: cs.length, empty: cs.length === 0, isTodo: st === 'Todo', isDoing: st === 'Doing', isDevdone: st === 'Devdone', isRelease: st === 'Release', isDone: st === 'Done',
+cards: cs.map(function (t) { return { code: t.code, title: t.title, labels: t.labels, due: t.end, hasDue: !!t.end && t.status !== 'Done', dueCls: self.isLate(t) ? 'late' : '', time: t.time, hasTime: !!t.time, check: t.check, hasCheck: !!t.check, cls: (t.pri === 'URGENT' ? 'urgent' : t.pri === 'HIGH' ? 'high' : '') + (t.status === 'Done' ? ' isdone' : '') }; })
+};
+});
+return v;
+}
+renderList() {
+var self = this, s = this.state;
+var PRI = [['URGENT', 'Gấp', '#D23B3B'], ['HIGH', 'Cao', '#E39A12'], ['MEDIUM', 'Thường', '#4B6BB5'], ['LOW', 'Thấp', '#8F8D87']], PRIL = { URGENT: 'Gấp', HIGH: 'Cao', MEDIUM: 'Thường', LOW: 'Thấp' }, PRID = { URGENT: '#D23B3B', HIGH: '#E39A12', MEDIUM: '#4B6BB5', LOW: '#8F8D87' }, PRIO = { URGENT: 0, HIGH: 1, MEDIUM: 2, LOW: 3 };
+var STAT = ['Todo', 'Doing', 'Devdone', 'Release', 'Done'];
+var v = this.mkFilters(true);
+var mins = function (t) { var m = /(\d+)h\s*(\d+)m/.exec(t.time || ''); return m ? (+m[1]) * 60 + (+m[2]) : -1; };
+var dt = function (k) { return function (t) { var d = self.parseD(t[k]); return d ? d.getTime() : 9e15; }; };
+var keyFn = { code: function (t) { var a = t.code.split('-'); return ('000' + a[1]).slice(-4); }, title: function (t) { return t.title.toLowerCase(); }, status: function (t) { return STAT.indexOf(t.status); }, pri: function (t) { return PRIO[t.pri]; }, start: dt('start'), end: dt('end'), ms: function (t) { return t.ms || '~'; }, time: mins, created: dt('created') };
+var kf = keyFn[s.sortKey];
+var all = this.tasks().filter(function (t) { return self.match(t); }).sort(function (a, b) { var x = kf(a), y = kf(b); return (x < y ? -1 : x > y ? 1 : 0) * s.sortDir; });
+var size = +s.size, total = all.length, pageCount = Math.max(1, Math.ceil(total / size)), page = Math.min(s.page, pageCount - 1);
+var slice = all.slice(page * size, page * size + size);
+var cols = [['', '#'], ['', 'Thao tác'], ['code', 'Mã'], ['title', 'Tên task'], ['status', 'Trạng thái'], ['pri', 'Độ ưu tiên'], ['start', 'Bắt đầu'], ['end', 'Kết thúc'], ['ms', 'Sprint'], ['', 'Phân loại'], ['time', 'Thời gian'], ['created', 'Ngày tạo']];
+v.tcols = cols.map(function (c) {
+var on = s.sortKey === c[0];
+return { label: c[1], sortable: !!c[0], plain: !c[0], cls: on ? 'on' : '', arrow: on ? (s.sortDir > 0 ? '↑' : '↓') : '', sort: function () { self.setState({ sortKey: c[0], sortDir: self.state.sortKey === c[0] ? -self.state.sortDir : 1, page: 0 }); } };
+});
+v.rows = slice.map(function (t, i) {
+return { n: page * size + i + 1, code: t.code, title: t.title, status: t.status, pri: PRIL[t.pri], priDot: PRID[t.pri], priCls: '', start: t.start, due: t.end, dueCls: self.isLate(t) ? 'lt' : '', ms: t.ms || '—', labels: t.labels.join(', '), time: t.time || '—', created: t.created,
+archive: function () { self.flash('Đã lưu trữ ' + t.code); } };
+});
+v.noRows = total === 0;
+v.rangeText = total ? 'Hiển thị ' + (page * size + 1) + '–' + Math.min(total, page * size + size) + ' trong ' + total : 'Hiển thị 0 trong 0';
+v.sizeSel = this.mkSel('size', 'Số dòng', [['5', '5'], ['10', '10'], ['20', '20']], s.size, false, function (x) { self.patch({ size: x, dd: '' }); }, '10');
+var nums = [];
+if (pageCount <= 7) { for (var i = 0; i < pageCount; i++) { nums.push(i); } }
+else if (page < 4) { nums = [0, 1, 2, 3, 4, -1, pageCount - 1]; }
+else if (page > pageCount - 5) { nums = [0, -1, pageCount - 5, pageCount - 4, pageCount - 3, pageCount - 2, pageCount - 1]; }
+else { nums = [0, -1, page - 1, page, page + 1, -2, pageCount - 1]; }
+v.pages = nums.map(function (n) { return n < 0 ? { isNum: false, isEll: true } : { isNum: true, isEll: false, label: n + 1, cls: n === page ? 'on' : '', cur: n === page ? 'page' : 'false', go: function () { self.setState({ page: n, dd: '' }); } }; });
+v.firstOff = page === 0; v.lastOff = page >= pageCount - 1;
+v.goFirst = function () { self.setState({ page: 0 }); }; v.goPrev = function () { self.setState({ page: Math.max(0, page - 1) }); };
+v.goNext = function () { self.setState({ page: Math.min(pageCount - 1, page + 1) }); }; v.goLast = function () { self.setState({ page: pageCount - 1 }); };
+v.toast = s.toast; v.hasToast = !!s.toast;
+return v;
+}
+renderGantt() {
+var self = this, s = this.state;
+var DW = 32, N = 56, day0 = new Date(2026, 9, 26), td = this.today();
+var off = function (d) { return Math.round((d - day0) / 86400000); };
+var MS = [["Đợt 1 · Khởi tạo", "03/11/2026", "PAID"], ["Đợt 2 · Kho hàng", "20/11/2026", "ACTIVE"], ["Đợt 3 · Thanh toán", "04/12/2026", "PENDING"]];
+var tasks = this.tasks();
+var days = [], weeks = [], weekends = [];
+for (var i = 0; i < N; i++) {
+var d = new Date(2026, 9, 26 + i), wd = (d.getDay() + 6) % 7;
+days.push({ n: d.getDate(), cls: d.getTime() === td.getTime() ? 'td' : (wd >= 5 ? 'we' : '') });
+if (wd === 5) { weekends.push({ left: i * 100 / N, w: 200 / N }); }
+if (wd === 0) { weeks.push({ w: 700 / N, label: self.fmtD(d).slice(0, 5) }); }
+}
+var STL = { PENDING: ['Chưa bắt đầu', ''], ACTIVE: ['Đang làm', 'act'], PAID: ['Đã thanh toán', 'paid'] };
+var rows = [];
+MS.forEach(function (m) {
+var ts = tasks.filter(function (t) { return t.ms === m[0]; });
+var starts = ts.map(function (t) { return self.parseD(t.start); }), ends = ts.map(function (t) { return self.parseD(t.end); }).concat([self.parseD(m[1])]);
+var a = new Date(Math.min.apply(null, starts)), b = new Date(Math.max.apply(null, ends));
+var done = ts.filter(function (t) { return t.status === 'Done'; }).length;
+var shut = !!s.shut[m[0]];
+rows.push({ isMs: true, isTask: false, due: m[1], name: m[0], count: done + '/' + ts.length, status: STL[m[2]][0], stCls: STL[m[2]][1], left: off(a) * 100 / N, w: (off(b) - off(a) + 1) * 100 / N, pct: (ts.length ? Math.round(done * 100 / ts.length) : 0) + '%', open: !shut, chvCls: shut ? 'shut' : '', toggle: function () { var sh = Object.assign({}, self.state.shut); sh[m[0]] = !sh[m[0]]; self.setState({ shut: sh }); } });
+if (!shut) {
+ts.sort(function (x, y) { return self.parseD(x.start) - self.parseD(y.start); }).forEach(function (t) {
+rows.push({ isMs: false, isTask: true, code: t.code, title: t.title, status: t.status, start: t.start, end: t.end, left: off(self.parseD(t.start)) * 100 / N, w: (off(self.parseD(t.end)) - off(self.parseD(t.start)) + 1) * 100 / N, lateCls: self.isLate(t) ? 'late' : '', priText: { URGENT: 'Gấp', HIGH: 'Cao', MEDIUM: 'Thường', LOW: 'Thấp' }[t.pri], days: (off(self.parseD(t.end)) - off(self.parseD(t.start)) + 1) + ' ngày', timeText: t.time || '—', msName: t.ms || '' });
+});
+}
+});
+return { ddOpen: false, closeDd: function () {}, dayW: DW, daysW: N * DW, totalW: 300 + N * DW, days: days, weeks: weeks, weekends: weekends, todayLeft: (off(td) + 0.5) * 100 / N, rows: rows };
+}
+
+renderVals() {
+var self = this, s = this.state;
+var v = s.tab === 'list' ? this.renderList() : s.tab === 'gantt' ? this.renderGantt() : this.renderBoard();
+v.vBoard = s.tab === 'board'; v.vList = s.tab === 'list'; v.vGantt = s.tab === 'gantt'; v.hasTool = s.tab !== 'gantt';
+v.tBoard = v.vBoard ? 'on' : ''; v.tList = v.vList ? 'on' : ''; v.tGantt = v.vGantt ? 'on' : '';
+v.goBoard = function () { self.setTab('board'); }; v.goList = function () { self.setTab('list'); }; v.goGantt = function () { self.setTab('gantt'); };
+v.toast = s.toast; v.hasToast = !!s.toast;
+return v;
+}
+}
+</script>
+</body>
+</html>

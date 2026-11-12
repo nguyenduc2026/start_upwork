@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Đăng nhập Taskboard</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap">
+<style>
+body{margin:0}
+.a{--bg:#F3F3F1;--panel:#FFFFFF;--board:#FAFAF9;--line:#E2E1DD;--line2:#CFCDC8;--text:#1B1B19;--muted:#66655F;--phc:#8F8D87;--soft:#F1F0ED;--hover:#EAE9E6;--pri:#D9480F;--priH:#BA3D0C;--ring:rgba(217,72,15,.16);--urgent:#D23B3B;--high:#E39A12;--late:#C2361F;--err:#C2361F;font-family:'Inter',system-ui,sans-serif;font-size:14px;line-height:1.45;color:var(--text);background:var(--bg);min-height:900px;display:flex;flex-wrap:wrap;position:relative}
+.a *{box-sizing:border-box}
+.a a{color:inherit;text-decoration:none}
+.a svg{flex:none}
+.a a:focus-visible,.a button:focus-visible{outline:2px solid var(--pri);outline-offset:1px}
+.a input,.a textarea,.a button{font-family:inherit;font-size:14px;font-weight:400}
+.catch{position:absolute;inset:0;z-index:20}
+.side{flex:1 1 220px;padding:10px 8px;display:flex;flex-direction:column;gap:16px;font-size:13.5px}
+.ws{display:flex;align-items:center;gap:8px;height:36px;padding:0 8px;font-weight:600;font-size:14.5px}
+.logo{width:22px;height:22px;border-radius:6px;background:var(--pri);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center}
+.nav{display:flex;flex-direction:column;gap:1px}
+.nav a{display:flex;align-items:center;gap:9px;height:31px;padding:0 8px;border-radius:6px;color:#3A3936}
+.nav a svg{color:var(--muted)}
+.nav a:hover{background:var(--hover)}
+.nav a.on{background:#E4E3DF;color:var(--text);font-weight:600}
+.gh{font-size:12px;font-weight:600;color:var(--muted);padding:0 8px 4px}
+.sq{width:9px;height:9px;border-radius:2px;flex:none}
+.k{margin-left:auto;font-size:12px;color:var(--muted)}
+.panel{flex:999 1 560px;min-width:0;margin:8px 8px 8px 0;background:var(--panel);border:1px solid var(--line);border-radius:10px;display:flex;flex-direction:column}
+.appbar{height:52px;display:flex;align-items:center;gap:8px;padding:0 12px 0 16px;border-bottom:1px solid var(--line)}
+.search{height:36px;width:min(360px,100%);display:flex;align-items:center;gap:8px;padding:0 8px 0 12px;border:1px solid var(--line);border-radius:8px;background:var(--soft);color:var(--phc);cursor:pointer;text-align:left}
+.search .t{flex:1}
+.kbd{font-size:11px;color:var(--muted);border:1px solid var(--line2);background:#fff;border-radius:4px;padding:0 5px;line-height:17px}
+.grow{flex:1;min-width:4px}
+.ib{width:36px;height:36px;border:0;background:transparent;border-radius:8px;color:#4A4945;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;position:relative}
+.ib:hover{background:var(--soft);color:var(--text)}
+.ib.sm{width:30px;height:30px;border-radius:6px}
+.ib:disabled{opacity:.4;cursor:not-allowed}
+.badge{position:absolute;top:4px;right:4px;min-width:16px;height:16px;border-radius:8px;background:var(--pri);color:#fff;font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center;padding:0 4px}
+.user{height:38px;display:inline-flex;align-items:center;gap:8px;padding:0 8px 0 4px;border:0;border-radius:8px;background:transparent;color:var(--text);cursor:pointer}
+.user:hover{background:var(--soft)}
+.user:focus-visible{outline:2px solid var(--pri)}
+.av{width:28px;height:28px;border-radius:50%;background:#E2DCCF;color:#3B352A;font-size:11.5px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:none}
+.b{height:36px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 14px;border:1px solid var(--line);background:#fff;border-radius:8px;color:var(--text);cursor:pointer;white-space:nowrap;flex:none}
+.b:hover{background:var(--soft);border-color:var(--line2)}
+.b.p{background:var(--pri);border-color:var(--pri);color:#fff;font-weight:600}
+.b.p:hover{background:var(--priH);border-color:var(--priH)}
+.b.g{border-color:transparent;background:transparent;color:var(--muted)}
+.b.g:hover{background:var(--soft);color:var(--text)}
+.b.sm{height:32px;padding:0 10px}
+.b.act{border-color:var(--text)}
+.b.full{width:100%}
+.b:disabled{opacity:.45;cursor:not-allowed}
+.ctl{width:100%;height:36px;display:flex;align-items:center;gap:8px;padding:0 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--text);text-align:left;transition:border-color .12s,box-shadow .12s}
+.ctl:hover{border-color:var(--line2)}
+.ctl:focus,.ctl:focus-within,.ctl.open{border-color:var(--pri);box-shadow:0 0 0 3px var(--ring);outline:none}
+.ctl.bad{border-color:var(--err)}
+.ctl.bad:focus,.ctl.bad:focus-within{box-shadow:0 0 0 3px rgba(194,54,31,.14)}
+.ctl.act{border-color:var(--text)}
+.ctl:disabled{background:var(--soft);color:var(--muted);cursor:not-allowed}
+.ctl input{border:0;outline:0;background:transparent;color:var(--text);width:100%;min-width:0;height:100%;padding:0}
+.ctl::placeholder,.ctl input::placeholder,.cm::placeholder{color:var(--phc);font-weight:400;opacity:1}
+.ctl svg{color:var(--muted)}
+.ctl .ad{color:var(--muted);white-space:nowrap}
+button.ctl{cursor:pointer}
+.ctl .v{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ctl .v.vph{color:var(--phc)}
+.icb{width:28px;height:28px;margin-right:-6px;border:0;border-radius:6px;background:transparent;color:var(--muted);display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.icb:hover{background:var(--soft);color:var(--text)}
+.ddw{position:relative}
+.ddw.up{z-index:21}
+.ddl{position:absolute;top:calc(100% + 4px);left:0;min-width:100%;width:max-content;max-width:320px;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 12px 28px rgba(0,0,0,.14);padding:4px;z-index:8;max-height:260px;overflow:auto}
+.ddo{width:100%;height:34px;display:flex;align-items:center;gap:9px;padding:0 10px;border:0;border-radius:6px;background:transparent;color:var(--text);cursor:pointer;text-align:left;white-space:nowrap}
+.ddo:hover{background:var(--soft)}
+.ddo.on{font-weight:600}
+.ddo .ck{margin-left:auto;padding-left:12px;color:var(--pri);visibility:hidden;box-sizing:content-box}
+.ddo.on .ck{visibility:visible}
+.box{width:16px;height:16px;border:1.5px solid var(--line2);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;flex:none;background:#fff;color:#fff}
+.ddo.on .box{background:var(--pri);border-color:var(--pri)}
+.dotp{width:8px;height:8px;border-radius:50%;flex:none}
+.fld{display:flex;flex-direction:column;gap:6px}
+.lb{font-size:13px;font-weight:600;color:#3A3936}
+.lbrow{display:flex;align-items:center;justify-content:space-between;min-height:20px}
+.req{color:var(--err)}
+.err{font-size:13px;color:var(--err)}
+.muted{color:var(--muted);font-size:13px}
+.mutedc{color:var(--muted)}
+.cal{position:absolute;top:calc(100% + 4px);right:0;width:284px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 12px 28px rgba(0,0,0,.16);padding:10px;z-index:8}
+.calh{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;font-weight:600}
+.calg{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center;font-variant-numeric:tabular-nums}
+.calg .wd{font-size:12px;color:var(--muted);height:28px;line-height:28px}
+.day{height:34px;border:0;border-radius:6px;background:transparent;color:var(--text);cursor:pointer;font-size:13px!important}
+.day:hover{background:var(--soft)}
+.day.out{color:#B5B3AD}
+.day.today{box-shadow:inset 0 0 0 1px var(--line2);font-weight:600}
+.day.sel{background:var(--pri);color:#fff;font-weight:600}
+.calf{display:flex;justify-content:space-between;margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+.tmr{display:flex;align-items:center;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+.tmr .lb{margin-right:auto}
+.tmi{width:52px!important;text-align:center;padding:0 6px!important;font-variant-numeric:tabular-nums}
+.toast{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);background:var(--text);color:#fff;padding:10px 16px;border-radius:8px;z-index:50;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.phd{padding:16px 20px 0}
+.crumb{font-size:13px;color:var(--muted);margin-bottom:6px}
+.crumb a:hover{color:var(--text);text-decoration:underline}
+.ttl{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ttl h1{margin:0;font-size:20px;font-weight:600;line-height:1.3}
+.ttl .sq{width:12px;height:12px;border-radius:3px}
+.ttl .m{color:var(--muted)}
+.tabs{display:flex;gap:18px;margin-top:12px;border-bottom:1px solid var(--line)}
+.tab{padding:8px 0 9px;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab:hover{color:var(--text)}
+.tab.on{color:var(--text);font-weight:600;border-bottom-color:var(--text)}
+.tool{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px;padding:14px 20px}
+.tool .fld{width:190px}
+.tool .fld.srch{width:280px}
+.tool .push{margin-left:auto}
+.pr{display:inline-flex;align-items:center;gap:6px}
+
+.a{background:var(--bg);align-items:center;justify-content:center;flex-direction:column;gap:24px;padding:40px 16px}
+.brand{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:600}
+.logo2{width:32px;height:32px;border-radius:8px;background:var(--pri);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600}
+.form{width:min(420px,100%);display:flex;flex-direction:column;gap:16px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:32px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.form h1{margin:0;font-size:22px;font-weight:600;line-height:1.3}
+.form .sub{color:var(--muted);margin-top:-8px}
+.lnk2{color:var(--pri);font-weight:600;background:transparent;border:0;padding:0;cursor:pointer}
+.lnk2:hover{text-decoration:underline}
+.frow{display:flex;justify-content:space-between;align-items:center}
+.alt{text-align:center;color:var(--muted)}
+.mail{align-self:flex-start;width:56px;height:56px;border-radius:50%;background:#FDEEE6;color:var(--pri);display:flex;align-items:center;justify-content:center}
+.ctr{align-items:flex-start}
+</style>
+</helmet>
+<div class="a"><div class="brand"><span class="logo2">T</span>Taskboard</div><sc-if value="{{v_login}}" hint-placeholder-val="{{true}}"><div class="form"><h1>Đăng nhập</h1><div class="fld"><label class="lb" for="l-mail">Email <span class="req">*</span></label><label class="ctl {{emailCls}}"><input id="l-mail" type="email" placeholder="Nhập email" value="{{f.email}}" onChange="{{onEmail}}"></label><sc-if value="{{emailBad}}" hint-placeholder-val="{{false}}"><span class="err">Nhập email hợp lệ</span></sc-if></div><div class="fld"><label class="lb" for="l-pass">Mật khẩu <span class="req">*</span></label><label class="ctl {{passCls}}"><input id="l-pass" type="password" placeholder="******" value="{{f.pass}}" onChange="{{onPass}}"></label><sc-if value="{{passBad}}" hint-placeholder-val="{{false}}"><span class="err">Nhập mật khẩu</span></sc-if></div><div class="frow"><span></span><button class="lnk2" type="button" onClick="{{toForgot}}">Quên mật khẩu?</button></div><sc-if value="{{loginOk}}" hint-placeholder-val="{{false}}"><a class="b p full" href="02-hom-nay.dc.html">Đăng nhập</a></sc-if><sc-if value="{{loginNo}}" hint-placeholder-val="{{true}}"><button class="b p full" type="button" onClick="{{touch}}">Đăng nhập</button></sc-if><div class="alt">Chưa có tài khoản? <button class="lnk2" type="button" onClick="{{toRegister}}">Đăng ký</button></div></div></sc-if>
+<sc-if value="{{v_register}}" hint-placeholder-val="{{false}}"><div class="form"><h1>Tạo tài khoản</h1><div class="fld"><label class="lb" for="r-name">Họ tên <span class="req">*</span></label><label class="ctl {{nameCls}}"><input id="r-name" type="text" placeholder="Nhập họ tên" value="{{f.name}}" onChange="{{onName}}"></label><sc-if value="{{nameBad}}" hint-placeholder-val="{{false}}"><span class="err">Nhập họ tên</span></sc-if></div><div class="fld"><label class="lb" for="r-mail">Email <span class="req">*</span></label><label class="ctl {{emailCls}}"><input id="r-mail" type="email" placeholder="Nhập email" value="{{f.email}}" onChange="{{onEmail}}"></label><sc-if value="{{emailBad}}" hint-placeholder-val="{{false}}"><span class="err">Nhập email hợp lệ</span></sc-if></div><div class="fld"><label class="lb" for="r-pass">Mật khẩu <span class="req">*</span></label><label class="ctl {{pass8Cls}}"><input id="r-pass" type="password" placeholder="******" value="{{f.pass}}" onChange="{{onPass}}"></label><sc-if value="{{pass8Bad}}" hint-placeholder-val="{{false}}"><span class="err">Mật khẩu có ít nhất 8 ký tự</span></sc-if></div><div class="fld"><label class="lb" for="r-re">Nhập lại mật khẩu <span class="req">*</span></label><label class="ctl {{reCls}}"><input id="r-re" type="password" placeholder="******" value="{{f.re}}" onChange="{{onRe}}"></label><sc-if value="{{reBad}}" hint-placeholder-val="{{false}}"><span class="err">Mật khẩu nhập lại chưa khớp</span></sc-if></div><button class="b p full" type="button" onClick="{{submitRegister}}">Tạo tài khoản</button><div class="alt">Đã có tài khoản? <button class="lnk2" type="button" onClick="{{toLogin}}">Đăng nhập</button></div></div></sc-if>
+<sc-if value="{{v_verify}}" hint-placeholder-val="{{false}}"><div class="form"><span class="mail"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></span><h1>Kiểm tra email</h1><div class="sub">Liên kết xác minh đã gửi tới <b>{{f.email}}</b></div><button class="b full" type="button" onClick="{{resend}}">Gửi lại email</button><div class="alt"><button class="lnk2" type="button" onClick="{{toLogin}}">Về đăng nhập</button></div></div></sc-if>
+<sc-if value="{{v_forgot}}" hint-placeholder-val="{{false}}"><div class="form"><h1>Quên mật khẩu</h1><div class="fld"><label class="lb" for="f-mail">Email <span class="req">*</span></label><label class="ctl {{emailCls}}"><input id="f-mail" type="email" placeholder="Nhập email" value="{{f.email}}" onChange="{{onEmail}}"></label><sc-if value="{{emailBad}}" hint-placeholder-val="{{false}}"><span class="err">Nhập email hợp lệ</span></sc-if></div><button class="b p full" type="button" onClick="{{submitForgot}}">Gửi liên kết đặt lại</button><div class="alt"><button class="lnk2" type="button" onClick="{{toLogin}}">Về đăng nhập</button></div></div></sc-if>
+<sc-if value="{{v_fsent}}" hint-placeholder-val="{{false}}"><div class="form"><span class="mail"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg></span><h1>Kiểm tra email</h1><div class="sub">Liên kết đặt lại mật khẩu đã gửi tới <b>{{f.email}}</b></div><button class="b full" type="button" onClick="{{resend}}">Gửi lại email</button><div class="alt"><button class="lnk2" type="button" onClick="{{toLogin}}">Về đăng nhập</button></div></div></sc-if>
+<sc-if value="{{v_reset}}" hint-placeholder-val="{{false}}"><div class="form"><h1>Đặt lại mật khẩu</h1><div class="fld"><label class="lb" for="x-new">Mật khẩu mới <span class="req">*</span></label><label class="ctl {{pass8Cls}}"><input id="x-new" type="password" placeholder="******" value="{{f.pass}}" onChange="{{onPass}}"></label><sc-if value="{{pass8Bad}}" hint-placeholder-val="{{false}}"><span class="err">Mật khẩu có ít nhất 8 ký tự</span></sc-if></div><div class="fld"><label class="lb" for="x-re">Nhập lại mật khẩu mới <span class="req">*</span></label><label class="ctl {{reCls}}"><input id="x-re" type="password" placeholder="******" value="{{f.re}}" onChange="{{onRe}}"></label><sc-if value="{{reBad}}" hint-placeholder-val="{{false}}"><span class="err">Mật khẩu nhập lại chưa khớp</span></sc-if></div><button class="b p full" type="button" onClick="{{submitReset}}">Đặt lại mật khẩu</button></div></sc-if>
+<sc-if value="{{v_rdone}}" hint-placeholder-val="{{false}}"><div class="form"><span class="mail"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span><h1>Đã đặt lại mật khẩu</h1><button class="b p full" type="button" onClick="{{toLogin}}">Đăng nhập</button></div></sc-if>
+<sc-if value="{{hasToast}}" hint-placeholder-val="{{false}}"><div class="toast" role="status">{{toast}}</div></sc-if></div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"view":{"editor":"enum","options":["login","register","verify","forgot","fsent","reset","rdone"],"default":"login"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+this.state = { view: (props && props.view) || 'login', f: { name: '', email: '', pass: '', re: '' }, touched: false, toast: '' };
+}
+
+flash(msg) { var self = this; this.setState({ toast: msg }); clearTimeout(this._t); this._t = setTimeout(function () { self.setState({ toast: '' }); }, 2600); }
+componentWillUnmount() { clearTimeout(this._t); }
+go(v) { this.setState({ view: v, touched: false }); }
+up(p) { this.setState(function (s) { return { f: Object.assign({}, s.f, p) }; }); }
+renderVals() {
+var self = this, s = this.state, f = s.f, t = s.touched;
+var mailOk = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email);
+var v = { f: f, toast: s.toast, hasToast: !!s.toast,
+v_login: s.view === 'login', v_register: s.view === 'register', v_verify: s.view === 'verify', v_forgot: s.view === 'forgot', v_fsent: s.view === 'fsent', v_reset: s.view === 'reset', v_rdone: s.view === 'rdone',
+emailBad: t && !mailOk, emailCls: t && !mailOk ? 'bad' : '', passBad: t && !f.pass, passCls: t && !f.pass ? 'bad' : '', nameBad: t && !f.name.trim(), nameCls: t && !f.name.trim() ? 'bad' : '',
+pass8Bad: t && f.pass.length < 8, pass8Cls: t && f.pass.length < 8 ? 'bad' : '', reBad: t && f.re !== f.pass, reCls: t && f.re !== f.pass ? 'bad' : '',
+onEmail: function (e) { self.up({ email: e.target.value }); }, onPass: function (e) { self.up({ pass: e.target.value }); }, onName: function (e) { self.up({ name: e.target.value }); }, onRe: function (e) { self.up({ re: e.target.value }); },
+loginOk: mailOk && !!f.pass, loginNo: !(mailOk && !!f.pass), touch: function () { self.setState({ touched: true }); },
+toForgot: function () { self.go('forgot'); }, toRegister: function () { self.go('register'); }, toLogin: function () { self.go('login'); },
+submitRegister: function () { var x = self.state.f; if (!x.name.trim() || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(x.email) || x.pass.length < 8 || x.re !== x.pass) { self.setState({ touched: true }); return; } self.go('verify'); },
+submitForgot: function () { if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(self.state.f.email)) { self.setState({ touched: true }); return; } self.go('fsent'); },
+submitReset: function () { var x = self.state.f; if (x.pass.length < 8 || x.re !== x.pass) { self.setState({ touched: true }); return; } self.go('rdone'); },
+resend: function () { self.flash('Đã gửi lại email'); }
+};
+return v;
+}
+}
+</script>
+</body>
+</html>

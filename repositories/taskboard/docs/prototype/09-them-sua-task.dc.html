@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Thêm / sửa task</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap">
+<style>
+body{margin:0}
+.a{--bg:#F3F3F1;--panel:#FFFFFF;--board:#FAFAF9;--line:#E2E1DD;--line2:#CFCDC8;--text:#1B1B19;--muted:#66655F;--phc:#8F8D87;--soft:#F1F0ED;--hover:#EAE9E6;--pri:#D9480F;--priH:#BA3D0C;--ring:rgba(217,72,15,.16);--urgent:#D23B3B;--high:#E39A12;--late:#C2361F;--err:#C2361F;font-family:'Inter',system-ui,sans-serif;font-size:14px;line-height:1.45;color:var(--text);background:var(--bg);min-height:900px;display:flex;flex-wrap:wrap;position:relative}
+.a *{box-sizing:border-box}
+.a a{color:inherit;text-decoration:none}
+.a svg{flex:none}
+.a a:focus-visible,.a button:focus-visible{outline:2px solid var(--pri);outline-offset:1px}
+.a input,.a textarea,.a button{font-family:inherit;font-size:14px;font-weight:400}
+.catch{position:absolute;inset:0;z-index:20}
+.side{flex:1 1 220px;padding:10px 8px;display:flex;flex-direction:column;gap:16px;font-size:13.5px}
+.ws{display:flex;align-items:center;gap:8px;height:36px;padding:0 8px;font-weight:600;font-size:14.5px}
+.logo{width:22px;height:22px;border-radius:6px;background:var(--pri);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center}
+.nav{display:flex;flex-direction:column;gap:1px}
+.nav a{display:flex;align-items:center;gap:9px;height:31px;padding:0 8px;border-radius:6px;color:#3A3936}
+.nav a svg{color:var(--muted)}
+.nav a:hover{background:var(--hover)}
+.nav a.on{background:#E4E3DF;color:var(--text);font-weight:600}
+.gh{font-size:12px;font-weight:600;color:var(--muted);padding:0 8px 4px}
+.sq{width:9px;height:9px;border-radius:2px;flex:none}
+.k{margin-left:auto;font-size:12px;color:var(--muted)}
+.panel{flex:999 1 560px;min-width:0;margin:8px 8px 8px 0;background:var(--panel);border:1px solid var(--line);border-radius:10px;display:flex;flex-direction:column}
+.appbar{height:52px;display:flex;align-items:center;gap:8px;padding:0 12px 0 16px;border-bottom:1px solid var(--line)}
+.search{height:36px;width:min(360px,100%);display:flex;align-items:center;gap:8px;padding:0 8px 0 12px;border:1px solid var(--line);border-radius:8px;background:var(--soft);color:var(--phc);cursor:pointer;text-align:left}
+.search .t{flex:1}
+.kbd{font-size:11px;color:var(--muted);border:1px solid var(--line2);background:#fff;border-radius:4px;padding:0 5px;line-height:17px}
+.grow{flex:1;min-width:4px}
+.ib{width:36px;height:36px;border:0;background:transparent;border-radius:8px;color:#4A4945;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;position:relative}
+.ib:hover{background:var(--soft);color:var(--text)}
+.ib.sm{width:30px;height:30px;border-radius:6px}
+.ib:disabled{opacity:.4;cursor:not-allowed}
+.badge{position:absolute;top:4px;right:4px;min-width:16px;height:16px;border-radius:8px;background:var(--pri);color:#fff;font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center;padding:0 4px}
+.user{height:38px;display:inline-flex;align-items:center;gap:8px;padding:0 8px 0 4px;border:0;border-radius:8px;background:transparent;color:var(--text);cursor:pointer}
+.user:hover{background:var(--soft)}
+.user:focus-visible{outline:2px solid var(--pri)}
+.av{width:28px;height:28px;border-radius:50%;background:#E2DCCF;color:#3B352A;font-size:11.5px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:none}
+.b{height:36px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 14px;border:1px solid var(--line);background:#fff;border-radius:8px;color:var(--text);cursor:pointer;white-space:nowrap;flex:none}
+.b:hover{background:var(--soft);border-color:var(--line2)}
+.b.p{background:var(--pri);border-color:var(--pri);color:#fff;font-weight:600}
+.b.p:hover{background:var(--priH);border-color:var(--priH)}
+.b.g{border-color:transparent;background:transparent;color:var(--muted)}
+.b.g:hover{background:var(--soft);color:var(--text)}
+.b.sm{height:32px;padding:0 10px}
+.b.act{border-color:var(--text)}
+.b.full{width:100%}
+.b:disabled{opacity:.45;cursor:not-allowed}
+.ctl{width:100%;height:36px;display:flex;align-items:center;gap:8px;padding:0 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--text);text-align:left;transition:border-color .12s,box-shadow .12s}
+.ctl:hover{border-color:var(--line2)}
+.ctl:focus,.ctl:focus-within,.ctl.open{border-color:var(--pri);box-shadow:0 0 0 3px var(--ring);outline:none}
+.ctl.bad{border-color:var(--err)}
+.ctl.bad:focus,.ctl.bad:focus-within{box-shadow:0 0 0 3px rgba(194,54,31,.14)}
+.ctl.act{border-color:var(--text)}
+.ctl:disabled{background:var(--soft);color:var(--muted);cursor:not-allowed}
+.ctl input{border:0;outline:0;background:transparent;color:var(--text);width:100%;min-width:0;height:100%;padding:0}
+.ctl::placeholder,.ctl input::placeholder,.cm::placeholder{color:var(--phc);font-weight:400;opacity:1}
+.ctl svg{color:var(--muted)}
+.ctl .ad{color:var(--muted);white-space:nowrap}
+button.ctl{cursor:pointer}
+.ctl .v{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ctl .v.vph{color:var(--phc)}
+.icb{width:28px;height:28px;margin-right:-6px;border:0;border-radius:6px;background:transparent;color:var(--muted);display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.icb:hover{background:var(--soft);color:var(--text)}
+.ddw{position:relative}
+.ddw.up{z-index:21}
+.ddl{position:absolute;top:calc(100% + 4px);left:0;min-width:100%;width:max-content;max-width:320px;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 12px 28px rgba(0,0,0,.14);padding:4px;z-index:8;max-height:260px;overflow:auto}
+.ddo{width:100%;height:34px;display:flex;align-items:center;gap:9px;padding:0 10px;border:0;border-radius:6px;background:transparent;color:var(--text);cursor:pointer;text-align:left;white-space:nowrap}
+.ddo:hover{background:var(--soft)}
+.ddo.on{font-weight:600}
+.ddo .ck{margin-left:auto;padding-left:12px;color:var(--pri);visibility:hidden;box-sizing:content-box}
+.ddo.on .ck{visibility:visible}
+.box{width:16px;height:16px;border:1.5px solid var(--line2);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;flex:none;background:#fff;color:#fff}
+.ddo.on .box{background:var(--pri);border-color:var(--pri)}
+.dotp{width:8px;height:8px;border-radius:50%;flex:none}
+.fld{display:flex;flex-direction:column;gap:6px}
+.lb{font-size:13px;font-weight:600;color:#3A3936}
+.lbrow{display:flex;align-items:center;justify-content:space-between;min-height:20px}
+.req{color:var(--err)}
+.err{font-size:13px;color:var(--err)}
+.muted{color:var(--muted);font-size:13px}
+.mutedc{color:var(--muted)}
+.cal{position:absolute;top:calc(100% + 4px);right:0;width:284px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 12px 28px rgba(0,0,0,.16);padding:10px;z-index:8}
+.calh{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;font-weight:600}
+.calg{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center;font-variant-numeric:tabular-nums}
+.calg .wd{font-size:12px;color:var(--muted);height:28px;line-height:28px}
+.day{height:34px;border:0;border-radius:6px;background:transparent;color:var(--text);cursor:pointer;font-size:13px!important}
+.day:hover{background:var(--soft)}
+.day.out{color:#B5B3AD}
+.day.today{box-shadow:inset 0 0 0 1px var(--line2);font-weight:600}
+.day.sel{background:var(--pri);color:#fff;font-weight:600}
+.calf{display:flex;justify-content:space-between;margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+.tmr{display:flex;align-items:center;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+.tmr .lb{margin-right:auto}
+.tmi{width:52px!important;text-align:center;padding:0 6px!important;font-variant-numeric:tabular-nums}
+.toast{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);background:var(--text);color:#fff;padding:10px 16px;border-radius:8px;z-index:50;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.phd{padding:16px 20px 0}
+.crumb{font-size:13px;color:var(--muted);margin-bottom:6px}
+.crumb a:hover{color:var(--text);text-decoration:underline}
+.ttl{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ttl h1{margin:0;font-size:20px;font-weight:600;line-height:1.3}
+.ttl .sq{width:12px;height:12px;border-radius:3px}
+.ttl .m{color:var(--muted)}
+.tabs{display:flex;gap:18px;margin-top:12px;border-bottom:1px solid var(--line)}
+.tab{padding:8px 0 9px;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab:hover{color:var(--text)}
+.tab.on{color:var(--text);font-weight:600;border-bottom-color:var(--text)}
+.tool{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px;padding:14px 20px}
+.tool .fld{width:190px}
+.tool .fld.srch{width:280px}
+.tool .push{margin-left:auto}
+.pr{display:inline-flex;align-items:center;gap:6px}
+
+.scrim{position:absolute;inset:0;background:rgba(20,20,18,.42);z-index:40}
+.modal{position:absolute;top:32px;left:50%;transform:translateX(-50%);width:min(1020px,calc(100% - 32px));height:min(836px,calc(100% - 64px));background:#fff;border-radius:12px;box-shadow:0 24px 64px rgba(0,0,0,.28);z-index:41;display:flex;flex-direction:column}
+.mcatch{position:absolute;inset:0;z-index:5;border-radius:12px}
+.mh{height:56px;display:flex;align-items:center;gap:6px;padding:0 10px 0 24px;border-bottom:1px solid var(--line);flex:none}
+.mt{font-size:15px;font-weight:600}
+.mb{flex:1;display:flex;min-height:0}
+.mm{flex:1;min-width:0;padding:20px 24px 28px;display:flex;flex-direction:column;gap:18px;overflow-y:auto}
+.ms{width:320px;flex:none;padding:16px;background:var(--board);border-left:1px solid var(--line);display:flex;flex-direction:column;gap:12px;overflow-y:auto;border-radius:0 0 12px 0}
+.blk{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:12px}
+.ed{border:1px solid var(--line);border-radius:8px;background:#fff;transition:border-color .12s,box-shadow .12s}
+.ed:hover{border-color:var(--line2)}
+.ed:focus-within{border-color:var(--pri);box-shadow:0 0 0 3px var(--ring)}
+.edt{display:flex;align-items:center;gap:2px;padding:4px 6px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.tbb{width:30px;height:30px;border:0;border-radius:6px;background:transparent;color:#4A4945;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.tbb:hover{background:var(--soft);color:var(--text)}
+.tbb.t{font-size:12px!important;font-weight:600!important}
+.tbs{width:1px;height:18px;background:var(--line);margin:0 4px}
+.edc{min-height:190px;max-height:320px;overflow:auto;padding:10px 14px;line-height:1.6;outline:none}
+.edc:empty::before{content:attr(data-ph);color:var(--phc)}
+.edc p{margin:0 0 8px}
+.edc ul,.edc ol{margin:0 0 8px;padding-left:22px}
+.edc h2{margin:4px 0 6px;font-size:16px;font-weight:600}
+.edc h3{margin:4px 0 6px;font-size:15px;font-weight:600}
+.edc blockquote{margin:0 0 8px;padding-left:12px;border-left:2px solid var(--line2);color:var(--muted)}
+.edc code{background:var(--soft);border-radius:4px;padding:1px 5px;font-size:13px}
+.rimg{margin:6px 0 8px;display:inline-flex;flex-direction:column;gap:4px;max-width:100%}
+.rimg .pic{width:320px;max-width:100%;height:150px;border-radius:6px;background:#EDECE8;display:flex;align-items:center;justify-content:center;color:#A3A19B;border:1px solid var(--line)}
+.rimg .cap{font-size:12px;color:var(--muted)}
+.files{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.file{display:flex;align-items:center;gap:10px;height:40px;padding:0 4px 0 12px;border:1px solid var(--line);border-radius:8px}
+.file .n{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.prog{height:4px;border-radius:2px;background:var(--soft);overflow:hidden}
+.prog span{display:block;height:100%;background:var(--pri)}
+.cl{display:flex;flex-direction:column;gap:2px}
+.cli{display:flex;align-items:center;gap:8px;padding:2px 2px 2px 8px;border-radius:8px}
+.cli:hover{background:var(--soft)}
+.cli input[type=checkbox]{margin:0;width:16px;height:16px;accent-color:var(--pri);flex:none}
+.clt{flex:1;min-width:0;height:32px;border:1px solid transparent;border-radius:6px;padding:0 8px;color:var(--text);background:transparent}
+.clt:hover{border-color:var(--line)}
+.clt:focus{border-color:var(--pri);box-shadow:0 0 0 3px var(--ring);background:#fff;outline:none}
+.clt.d{color:var(--muted);text-decoration:line-through}
+.row2{display:flex;gap:8px;align-items:center}
+.emp{border:1px dashed var(--line2);border-radius:8px;padding:16px;text-align:center;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:6px}
+.ttabs{display:flex;gap:18px;border-bottom:1px solid var(--line)}
+.tt{padding:6px 0 8px;border:0;background:transparent;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tt:hover{color:var(--text)}
+.tt.on{color:var(--text);font-weight:600;border-bottom-color:var(--text)}
+.cbox{display:flex;gap:10px;align-items:flex-start;margin-top:8px}
+.cbox .cin{flex:1;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.cm{width:100%;min-height:72px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;color:var(--text);resize:vertical;line-height:1.5;transition:border-color .12s,box-shadow .12s}
+.cm:hover{border-color:var(--line2)}
+.cm:focus{border-color:var(--pri);box-shadow:0 0 0 3px var(--ring);outline:none}
+.cmt{display:flex;gap:10px;padding:12px 0;border-top:1px solid var(--line)}
+.cmt .bd{flex:1;min-width:0}
+.cmt .hd{display:flex;align-items:center;gap:8px;font-size:13px}
+.cmt .hd b{font-weight:600}
+.w{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.cmt .tx{margin-top:2px;white-space:pre-wrap}
+.cmt .ib{margin-left:auto}
+.hi2{display:flex;align-items:center;gap:10px;padding:6px 0}
+.hp{flex:1;display:flex;align-items:center;gap:8px;min-height:36px;padding:0 12px;border-radius:8px;background:var(--board);border:1px solid var(--line)}
+.hp .w{margin-left:auto}
+.reopen{flex:1;display:flex;align-items:center;justify-content:center;padding:80px 0}
+
+.seg{display:inline-flex;padding:3px;border-radius:9px;background:#fff;gap:2px;box-shadow:0 0 0 1px var(--line2)}
+.segb{height:30px;padding:0 14px;border:0;border-radius:7px;background:transparent;color:var(--muted);cursor:pointer}
+.segb.on{background:var(--text);color:#fff;font-weight:600}
+.modesw{position:absolute;left:16px;bottom:16px;z-index:60}
+</style>
+</helmet>
+<div class="a">
+<aside class="side">
+<div class="ws"><span class="logo">T</span>Taskboard</div>
+<nav class="nav" aria-label="Chính">
+<a href="02-hom-nay.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>Hôm nay</a>
+<a href="10-task-cua-toi.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="m8.5 12 2.5 2.5 4.5-5"></path></svg>Task của tôi</a>
+</nav>
+<div>
+<div class="gh">Làm việc</div>
+<nav class="nav" aria-label="Làm việc">
+<a href="03-pipeline.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path></svg>Pipeline job</a>
+<a href="05-khach-hang.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>Khách hàng</a>
+<a href="11-timesheet.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Timesheet</a>
+<a href="12-bao-cao.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18M18 17V9M13 17V5M8 17v-3"></path></svg>Báo cáo</a>
+</nav>
+</div>
+<div>
+<div class="gh">Dự án</div>
+<nav class="nav" aria-label="Dự án">
+<a href="07-du-an.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"></path></svg>Tất cả dự án</a>
+<a href="08-bang-du-an.dc.html" class="on"><span class="sq" style="background:#4A7BC0"></span>ACME Shop<span class="k">ACME</span></a>
+<a href="08-bang-du-an.dc.html"><span class="sq" style="background:#C08A2A"></span>Lumen CRM<span class="k">LUM</span></a>
+<a href="08-bang-du-an.dc.html"><span class="sq" style="background:#8E8577"></span>Harbor Booking<span class="k">HRB</span></a>
+</nav>
+</div>
+</aside>
+<main class="panel">
+<header class="appbar">
+<button class="search" type="button"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><span class="t">Tìm kiếm</span><span class="kbd">Ctrl K</span></button>
+<span class="grow"></span>
+<a class="ib" href="15-thong-bao.dc.html" aria-label="Thông báo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg><span class="badge">3</span></a>
+<a class="user" href="14-ho-so-cai-dat.dc.html"><span class="av">NĐ</span>Nguyễn Đức</a>
+</header>
+<div class="phd">
+<div class="crumb"><a href="#">Dự án</a> / ACME Shop</div>
+<div class="ttl"><span class="sq" style="background:#4A7BC0"></span><h1>ACME Shop</h1><span class="m">Northwind Retail · Hourly $35/h</span></div>
+<nav class="tabs" aria-label="Dự án">
+<a class="tab" href="08-bang-du-an.dc.html">Bảng</a>
+<a class="tab on" href="08-bang-du-an.dc.html">Danh sách</a>
+<a class="tab" href="08-bang-du-an.dc.html">Gantt</a>
+<a class="tab" href="13-cai-dat-du-an.dc.html">Cài đặt</a>
+</nav>
+</div>
+</main>
+<div class="scrim"></div>
+<sc-if value="{{isEdit}}" hint-placeholder-val="{{true}}">
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title" onKeyDown="{{modalKey}}">
+<sc-if value="{{ddOpen}}" hint-placeholder-val="{{false}}"><div class="mcatch" onClick="{{closeDd}}"></div></sc-if>
+<div class="mh"><span id="m-title" class="mt">{{mTitle}}</span><button class="ib sm" type="button" aria-label="Sao chép link task" onClick="{{copyLink}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"></path><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"></path></svg></button><span class="grow"></span><a class="ib" href="08-bang-du-an.dc.html" aria-label="Đóng"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></a></div>
+<div class="mb">
+<div class="mm">
+<div class="fld">
+<label class="lb" for="f-title">Tên task <span class="req">*</span></label>
+<input id="f-title" class="ctl {{titleCls}}" placeholder="Nhập tên task" value="{{form.title}}" onChange="{{onTitle}}" aria-invalid="{{titleBad}}">
+<sc-if value="{{titleBad}}" hint-placeholder-val="{{false}}"><span class="err">Nhập tên task</span></sc-if>
+</div>
+<div class="fld"><label class="lb" for="f-proj">Dự án</label><input id="f-proj" class="ctl" value="ACME - ACME Shop" disabled="{{true}}"></div>
+<div class="fld">
+<span class="lb" id="f-desc-l">Nội dung</span>
+<div class="ed">
+<div class="edt" role="toolbar" aria-label="Định dạng nội dung"><button class="tbb" type="button" aria-label="Chữ đậm" title="Chữ đậm" onMouseDown="{{fBold}}"><b>B</b></button><button class="tbb" type="button" aria-label="Chữ nghiêng" title="Chữ nghiêng" onMouseDown="{{fItalic}}"><i style="font-family:Georgia,serif">I</i></button><button class="tbb" type="button" aria-label="Gạch ngang" title="Gạch ngang" onMouseDown="{{fStrike}}"><s>S</s></button><span class="tbs"></span><button class="tbb t" type="button" aria-label="Tiêu đề lớn" title="Tiêu đề lớn" onMouseDown="{{fH2}}">H2</button><button class="tbb t" type="button" aria-label="Tiêu đề nhỏ" title="Tiêu đề nhỏ" onMouseDown="{{fH3}}">H3</button><span class="tbs"></span><button class="tbb" type="button" aria-label="Danh sách chấm" title="Danh sách chấm" onMouseDown="{{fBullet}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h12M9 12h12M9 18h12"></path><circle cx="4" cy="6" r="1" fill="currentColor"></circle><circle cx="4" cy="12" r="1" fill="currentColor"></circle><circle cx="4" cy="18" r="1" fill="currentColor"></circle></svg></button><button class="tbb" type="button" aria-label="Danh sách số" title="Danh sách số" onMouseDown="{{fNumber}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 6h11M10 12h11M10 18h11M4 4h1v5M4 9h2M6 19H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg></button><button class="tbb" type="button" aria-label="Trích dẫn" title="Trích dẫn" onMouseDown="{{fQuote}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6v12M9 8h11M9 12h11M9 16h7"></path></svg></button><span class="tbs"></span><button class="tbb" type="button" aria-label="Chèn liên kết" title="Chèn liên kết" onMouseDown="{{fLink}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"></path><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"></path></svg></button><button class="tbb" type="button" aria-label="Chèn ảnh" title="Chèn ảnh" onMouseDown="{{fImage}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-5-5L5 21"></path></svg></button><span class="tbs"></span><button class="tbb" type="button" aria-label="Hoàn tác" title="Hoàn tác" onMouseDown="{{fUndo}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7v6h6"></path><path d="M21 17a9 9 0 0 0-15-6.7L3 13"></path></svg></button><button class="tbb" type="button" aria-label="Làm lại" title="Làm lại" onMouseDown="{{fRedo}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 7v6h-6"></path><path d="M3 17a9 9 0 0 1 15-6.7L21 13"></path></svg></button></div>
+<div class="edc" contenteditable="true" role="textbox" aria-multiline="true" aria-labelledby="f-desc-l" onInput="{{onDescInput}}">
+<sc-for list="{{descBlocks}}" as="bk" hint-placeholder-count="3">
+<sc-if value="{{bk.isP}}" hint-placeholder-val="{{true}}"><p>{{bk.text}}</p></sc-if>
+<sc-if value="{{bk.isUl}}" hint-placeholder-val="{{false}}"><ul><sc-for list="{{bk.items}}" as="li" hint-placeholder-count="3"><li>{{li}}</li></sc-for></ul></sc-if>
+<sc-if value="{{bk.isImg}}" hint-placeholder-val="{{false}}"><div class="rimg" contenteditable="false"><div class="pic"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-5-5L5 21"></path></svg></div><span class="cap">{{bk.text}}</span></div></sc-if>
+</sc-for>
+</div>
+</div>
+</div>
+<div class="fld">
+<span class="lb">Tệp đính kèm</span>
+<div><button class="b" type="button" onClick="{{addFile}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 12-9 9a6 6 0 0 1-8.5-8.5L13 3a4 4 0 0 1 5.7 5.7l-9.4 9.4a2 2 0 0 1-2.8-2.8L15 8"></path></svg>Chọn tệp</button></div>
+<div class="files">
+<sc-for list="{{files}}" as="f" hint-placeholder-count="1">
+<div class="file"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"></path><path d="M14 3v6h6"></path></svg><a href="#" class="n">{{f.name}}</a>
+<button class="ib sm" type="button" aria-label="Xem {{f.name}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"></path><circle cx="12" cy="12" r="3"></circle></svg></button>
+<button class="ib sm" type="button" aria-label="Tải {{f.name}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"></path></svg></button>
+<button class="ib sm" type="button" aria-label="Xoá {{f.name}}" onClick="{{f.remove}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></button></div>
+</sc-for>
+</div>
+</div>
+<div class="fld">
+<div class="lbrow"><span class="lb">Checklist <span class="muted">{{checkText}}</span></span></div>
+<sc-if value="{{hasItems}}" hint-placeholder-val="{{true}}"><div class="prog"><span style="width:{{checkPct}}"></span></div></sc-if>
+<sc-if value="{{noItems}}" hint-placeholder-val="{{false}}"><div class="emp">Chưa có mục nào</div></sc-if>
+<div class="cl">
+<sc-for list="{{items}}" as="it" hint-placeholder-count="4">
+<div class="cli"><input type="checkbox" checked="{{it.done}}" onChange="{{it.toggle}}" aria-label="Hoàn thành: {{it.t}}"><input class="clt {{it.cls}}" value="{{it.t}}" onChange="{{it.edit}}" aria-label="Nội dung mục"><button class="ib sm" type="button" aria-label="Xoá mục {{it.t}}" onClick="{{it.remove}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></button></div>
+</sc-for>
+</div>
+<div class="row2"><input class="ctl" placeholder="Nhập mục mới" aria-label="Mục checklist mới" value="{{newItem}}" onChange="{{onNewItem}}" onKeyDown="{{newItemKey}}"><button class="b" type="button" onClick="{{addItem}}" disabled="{{addItemOff}}">Thêm</button></div>
+</div>
+<div class="fld">
+<div class="ttabs" role="tablist">
+<button class="tt {{tabCmtCls}}" type="button" role="tab" aria-selected="{{tabCmt}}" onClick="{{showCmt}}">Bình luận {{cmtCount}}</button>
+<button class="tt {{tabHistCls}}" type="button" role="tab" aria-selected="{{tabHist}}" onClick="{{showHist}}">Lịch sử</button>
+</div>
+<sc-if value="{{tabCmt}}" hint-placeholder-val="{{true}}">
+<div class="cbox"><span class="av">NĐ</span><div class="cin"><textarea class="cm" placeholder="Viết bình luận" aria-label="Bình luận mới" value="{{newCmt}}" onChange="{{onNewCmt}}"></textarea><button class="b sm" type="button" onClick="{{addCmt}}" disabled="{{addCmtOff}}">Gửi bình luận</button></div></div>
+<sc-for list="{{comments}}" as="cm" hint-placeholder-count="2">
+<div class="cmt"><span class="av">NĐ</span><div class="bd"><div class="hd"><b>Nguyễn Đức</b><span class="w">{{cm.when}}</span><button class="ib sm" type="button" aria-label="Xoá bình luận" onClick="{{cm.remove}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"></path></svg></button></div><div class="tx">{{cm.text}}</div></div></div>
+</sc-for>
+</sc-if>
+<sc-if value="{{tabHist}}" hint-placeholder-val="{{false}}">
+<sc-for list="{{history}}" as="h" hint-placeholder-count="3"><div class="hi2"><span class="av">NĐ</span><div class="hp"><span>{{h.text}}</span><span class="w">{{h.when}}</span></div></div></sc-for>
+</sc-if>
+</div>
+</div>
+<div class="ms">
+<div class="blk">
+<sc-for list="{{modalSels}}" as="sel" hint-placeholder-count="3">
+<div class="fld">
+<span class="lb" id="{{sel.id}}-l">{{sel.label}}<sc-if value="{{sel.req}}" hint-placeholder-val="{{false}}"> <span class="req">*</span></sc-if></span>
+<div class="ddw {{sel.wcls}}">
+<button class="ctl {{sel.cls}}" type="button" aria-haspopup="listbox" aria-expanded="{{sel.open}}" aria-labelledby="{{sel.id}}-l" onClick="{{sel.toggle}}"><sc-if value="{{sel.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{sel.dot}}"></span></sc-if><span class="v {{sel.vcls}}">{{sel.text}}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<sc-if value="{{sel.open}}" hint-placeholder-val="{{false}}">
+<div class="ddl" role="listbox" aria-multiselectable="{{sel.multi}}">
+<sc-for list="{{sel.opts}}" as="o" hint-placeholder-count="4">
+<button class="ddo {{o.cls}}" type="button" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}">
+<sc-if value="{{sel.multi}}" hint-placeholder-val="{{false}}"><span class="box"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span></sc-if>
+<sc-if value="{{o.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{o.dot}}"></span></sc-if>
+<span>{{o.label}}</span>
+<sc-if value="{{sel.single}}" hint-placeholder-val="{{true}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ck"><path d="m5 12 5 5 9-10"></path></svg></sc-if>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-for>
+</div>
+<div class="blk">
+<sc-for list="{{modalDates}}" as="dt" hint-placeholder-count="3">
+<div class="fld"><span class="lb">{{dt.label}}</span>
+<div class="ddw {{dt.wcls}}">
+<div class="ctl {{dt.cls}}"><input placeholder="{{dt.ph}}" value="{{dt.value}}" onChange="{{dt.onInput}}" aria-label="{{dt.label}}"><button class="icb" type="button" aria-label="Mở lịch" onClick="{{dt.toggle}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg></button></div>
+<sc-if value="{{dt.open}}" hint-placeholder-val="{{false}}"><div class="cal" role="dialog" aria-label="Chọn ngày"><div class="calh"><button class="ib sm" type="button" aria-label="Tháng trước" onClick="{{dt.prev}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button><span>{{dt.title}}</span><button class="ib sm" type="button" aria-label="Tháng sau" onClick="{{dt.next}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button></div><div class="calg"><span class="wd">T2</span><span class="wd">T3</span><span class="wd">T4</span><span class="wd">T5</span><span class="wd">T6</span><span class="wd">T7</span><span class="wd">CN</span><sc-for list="{{dt.days}}" as="d" hint-placeholder-count="35"><button class="day {{d.cls}}" type="button" aria-label="{{d.label}}" onClick="{{d.pick}}">{{d.n}}</button></sc-for></div>
+<sc-if value="{{dt.withTime}}" hint-placeholder-val="{{false}}"><div class="tmr"><span class="lb">Giờ</span><input class="ctl tmi" inputmode="numeric" maxlength="2" aria-label="Giờ" value="{{dt.hh}}" onChange="{{dt.onHH}}"><span>:</span><input class="ctl tmi" inputmode="numeric" maxlength="2" aria-label="Phút" value="{{dt.mi}}" onChange="{{dt.onMI}}"></div></sc-if>
+<div class="calf"><button class="b g sm" type="button" onClick="{{dt.clear}}">Xoá</button><span class="grow"></span><button class="b sm" type="button" onClick="{{dt.today}}">{{dt.nowText}}</button><sc-if value="{{dt.withTime}}" hint-placeholder-val="{{false}}"><button class="b sm" type="button" style="margin-left:6px" onClick="{{dt.done}}">Xong</button></sc-if></div></div></sc-if>
+</div>
+<sc-if value="{{dt.hasErr}}" hint-placeholder-val="{{false}}"><span class="err">{{dt.errText}}</span></sc-if>
+</div>
+</sc-for>
+</div>
+<div class="blk">
+<button class="b p full" type="button" onClick="{{save}}" disabled="{{saveOff}}">{{saveText}}</button>
+<button class="b full" type="button" onClick="{{archive}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="5" rx="1"></rect><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M10 12h4"></path></svg>Lưu trữ</button>
+<a class="b full" href="08-bang-du-an.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg>Đóng</a>
+</div>
+</div>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{isCreate}}" hint-placeholder-val="{{false}}">
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title" onKeyDown="{{modalKey}}">
+<sc-if value="{{ddOpen}}" hint-placeholder-val="{{false}}"><div class="mcatch" onClick="{{closeDd}}"></div></sc-if>
+<div class="mh"><span id="m-title" class="mt">{{mTitle}}</span><span class="grow"></span><a class="ib" href="08-bang-du-an.dc.html" aria-label="Đóng"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></a></div>
+<div class="mb">
+<div class="mm">
+<div class="fld">
+<label class="lb" for="f-title">Tên task <span class="req">*</span></label>
+<input id="f-title" class="ctl {{titleCls}}" placeholder="Nhập tên task" value="{{form.title}}" onChange="{{onTitle}}" aria-invalid="{{titleBad}}">
+<sc-if value="{{titleBad}}" hint-placeholder-val="{{false}}"><span class="err">Nhập tên task</span></sc-if>
+</div>
+<sc-for list="{{projSels}}" as="sel" hint-placeholder-count="3">
+<div class="fld">
+<span class="lb" id="{{sel.id}}-l">{{sel.label}}<sc-if value="{{sel.req}}" hint-placeholder-val="{{false}}"> <span class="req">*</span></sc-if></span>
+<div class="ddw {{sel.wcls}}">
+<button class="ctl {{sel.cls}}" type="button" aria-haspopup="listbox" aria-expanded="{{sel.open}}" aria-labelledby="{{sel.id}}-l" onClick="{{sel.toggle}}"><sc-if value="{{sel.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{sel.dot}}"></span></sc-if><span class="v {{sel.vcls}}">{{sel.text}}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<sc-if value="{{sel.open}}" hint-placeholder-val="{{false}}">
+<div class="ddl" role="listbox" aria-multiselectable="{{sel.multi}}">
+<sc-for list="{{sel.opts}}" as="o" hint-placeholder-count="4">
+<button class="ddo {{o.cls}}" type="button" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}">
+<sc-if value="{{sel.multi}}" hint-placeholder-val="{{false}}"><span class="box"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span></sc-if>
+<sc-if value="{{o.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{o.dot}}"></span></sc-if>
+<span>{{o.label}}</span>
+<sc-if value="{{sel.single}}" hint-placeholder-val="{{true}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ck"><path d="m5 12 5 5 9-10"></path></svg></sc-if>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-for>
+<div class="fld">
+<span class="lb" id="f-desc-l">Nội dung</span>
+<div class="ed">
+<div class="edt" role="toolbar" aria-label="Định dạng nội dung"><button class="tbb" type="button" aria-label="Chữ đậm" title="Chữ đậm" onMouseDown="{{fBold}}"><b>B</b></button><button class="tbb" type="button" aria-label="Chữ nghiêng" title="Chữ nghiêng" onMouseDown="{{fItalic}}"><i style="font-family:Georgia,serif">I</i></button><button class="tbb" type="button" aria-label="Gạch ngang" title="Gạch ngang" onMouseDown="{{fStrike}}"><s>S</s></button><span class="tbs"></span><button class="tbb t" type="button" aria-label="Tiêu đề lớn" title="Tiêu đề lớn" onMouseDown="{{fH2}}">H2</button><button class="tbb t" type="button" aria-label="Tiêu đề nhỏ" title="Tiêu đề nhỏ" onMouseDown="{{fH3}}">H3</button><span class="tbs"></span><button class="tbb" type="button" aria-label="Danh sách chấm" title="Danh sách chấm" onMouseDown="{{fBullet}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6h12M9 12h12M9 18h12"></path><circle cx="4" cy="6" r="1" fill="currentColor"></circle><circle cx="4" cy="12" r="1" fill="currentColor"></circle><circle cx="4" cy="18" r="1" fill="currentColor"></circle></svg></button><button class="tbb" type="button" aria-label="Danh sách số" title="Danh sách số" onMouseDown="{{fNumber}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 6h11M10 12h11M10 18h11M4 4h1v5M4 9h2M6 19H4c0-1 2-2 2-3s-1-1.5-2-1"></path></svg></button><button class="tbb" type="button" aria-label="Trích dẫn" title="Trích dẫn" onMouseDown="{{fQuote}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6v12M9 8h11M9 12h11M9 16h7"></path></svg></button><span class="tbs"></span><button class="tbb" type="button" aria-label="Chèn liên kết" title="Chèn liên kết" onMouseDown="{{fLink}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"></path><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"></path></svg></button><button class="tbb" type="button" aria-label="Chèn ảnh" title="Chèn ảnh" onMouseDown="{{fImage}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-5-5L5 21"></path></svg></button><span class="tbs"></span><button class="tbb" type="button" aria-label="Hoàn tác" title="Hoàn tác" onMouseDown="{{fUndo}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7v6h6"></path><path d="M21 17a9 9 0 0 0-15-6.7L3 13"></path></svg></button><button class="tbb" type="button" aria-label="Làm lại" title="Làm lại" onMouseDown="{{fRedo}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 7v6h-6"></path><path d="M3 17a9 9 0 0 1 15-6.7L21 13"></path></svg></button></div>
+<div class="edc" contenteditable="true" role="textbox" aria-multiline="true" aria-labelledby="f-desc-l" data-ph="Nhập nội dung" onInput="{{onDescInput}}"></div>
+</div>
+</div>
+<div class="fld">
+<span class="lb">Tệp đính kèm</span>
+<div><button class="b" type="button" onClick="{{addFile}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 12-9 9a6 6 0 0 1-8.5-8.5L13 3a4 4 0 0 1 5.7 5.7l-9.4 9.4a2 2 0 0 1-2.8-2.8L15 8"></path></svg>Chọn tệp</button></div>
+<div class="files">
+<sc-for list="{{files}}" as="f" hint-placeholder-count="1">
+<div class="file"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"></path><path d="M14 3v6h6"></path></svg><a href="#" class="n">{{f.name}}</a>
+<button class="ib sm" type="button" aria-label="Xem {{f.name}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"></path><circle cx="12" cy="12" r="3"></circle></svg></button>
+<button class="ib sm" type="button" aria-label="Tải {{f.name}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"></path></svg></button>
+<button class="ib sm" type="button" aria-label="Xoá {{f.name}}" onClick="{{f.remove}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></button></div>
+</sc-for>
+</div>
+</div>
+</div>
+<div class="ms">
+<div class="blk">
+<sc-for list="{{modalSels}}" as="sel" hint-placeholder-count="3">
+<div class="fld">
+<span class="lb" id="{{sel.id}}-l">{{sel.label}}<sc-if value="{{sel.req}}" hint-placeholder-val="{{false}}"> <span class="req">*</span></sc-if></span>
+<div class="ddw {{sel.wcls}}">
+<button class="ctl {{sel.cls}}" type="button" aria-haspopup="listbox" aria-expanded="{{sel.open}}" aria-labelledby="{{sel.id}}-l" onClick="{{sel.toggle}}"><sc-if value="{{sel.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{sel.dot}}"></span></sc-if><span class="v {{sel.vcls}}">{{sel.text}}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<sc-if value="{{sel.open}}" hint-placeholder-val="{{false}}">
+<div class="ddl" role="listbox" aria-multiselectable="{{sel.multi}}">
+<sc-for list="{{sel.opts}}" as="o" hint-placeholder-count="4">
+<button class="ddo {{o.cls}}" type="button" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}">
+<sc-if value="{{sel.multi}}" hint-placeholder-val="{{false}}"><span class="box"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span></sc-if>
+<sc-if value="{{o.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{o.dot}}"></span></sc-if>
+<span>{{o.label}}</span>
+<sc-if value="{{sel.single}}" hint-placeholder-val="{{true}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ck"><path d="m5 12 5 5 9-10"></path></svg></sc-if>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-for>
+</div>
+<div class="blk">
+<sc-for list="{{modalDates}}" as="dt" hint-placeholder-count="3">
+<div class="fld"><span class="lb">{{dt.label}}</span>
+<div class="ddw {{dt.wcls}}">
+<div class="ctl {{dt.cls}}"><input placeholder="{{dt.ph}}" value="{{dt.value}}" onChange="{{dt.onInput}}" aria-label="{{dt.label}}"><button class="icb" type="button" aria-label="Mở lịch" onClick="{{dt.toggle}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg></button></div>
+<sc-if value="{{dt.open}}" hint-placeholder-val="{{false}}"><div class="cal" role="dialog" aria-label="Chọn ngày"><div class="calh"><button class="ib sm" type="button" aria-label="Tháng trước" onClick="{{dt.prev}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button><span>{{dt.title}}</span><button class="ib sm" type="button" aria-label="Tháng sau" onClick="{{dt.next}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button></div><div class="calg"><span class="wd">T2</span><span class="wd">T3</span><span class="wd">T4</span><span class="wd">T5</span><span class="wd">T6</span><span class="wd">T7</span><span class="wd">CN</span><sc-for list="{{dt.days}}" as="d" hint-placeholder-count="35"><button class="day {{d.cls}}" type="button" aria-label="{{d.label}}" onClick="{{d.pick}}">{{d.n}}</button></sc-for></div>
+<sc-if value="{{dt.withTime}}" hint-placeholder-val="{{false}}"><div class="tmr"><span class="lb">Giờ</span><input class="ctl tmi" inputmode="numeric" maxlength="2" aria-label="Giờ" value="{{dt.hh}}" onChange="{{dt.onHH}}"><span>:</span><input class="ctl tmi" inputmode="numeric" maxlength="2" aria-label="Phút" value="{{dt.mi}}" onChange="{{dt.onMI}}"></div></sc-if>
+<div class="calf"><button class="b g sm" type="button" onClick="{{dt.clear}}">Xoá</button><span class="grow"></span><button class="b sm" type="button" onClick="{{dt.today}}">{{dt.nowText}}</button><sc-if value="{{dt.withTime}}" hint-placeholder-val="{{false}}"><button class="b sm" type="button" style="margin-left:6px" onClick="{{dt.done}}">Xong</button></sc-if></div></div></sc-if>
+</div>
+<sc-if value="{{dt.hasErr}}" hint-placeholder-val="{{false}}"><span class="err">{{dt.errText}}</span></sc-if>
+</div>
+</sc-for>
+</div>
+<div class="blk">
+<button class="b p full" type="button" onClick="{{save}}" disabled="{{saveOff}}">{{saveText}}</button>
+<a class="b full" href="08-bang-du-an.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg>Đóng</a>
+</div>
+</div>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{hasToast}}" hint-placeholder-val="{{false}}"><div class="toast" role="status">{{toast}}</div></sc-if>
+<div class="modesw" role="radiogroup" aria-label="Chế độ"><div class="seg"><button class="segb {{segE}}" type="button" role="radio" aria-checked="{{isEdit}}" onClick="{{setEdit}}">Sửa task</button><button class="segb {{segC}}" type="button" role="radio" aria-checked="{{isCreate}}" onClick="{{setCreate}}">Thêm task</button></div></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mode":{"editor":"enum","options":["edit","create"],"default":"edit"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+var mode = (props && props.mode) === 'create' ? 'create' : 'edit';
+var fe = this.seedEdit(), fc = { title: '', project: 'ACME', status: 'Todo', pri: 'MEDIUM', ms: '', labels: [], started: '', ended: '', files: [] };
+var se = { form: fe, snap: JSON.stringify(fe), descDirty: false, touched: false, newItem: '', newCmt: '', tab: 'cmt' }, sc = { form: fc, snap: JSON.stringify(fc), descDirty: false, touched: false, newItem: '', newCmt: '', tab: 'cmt' };
+this.state = Object.assign({ mode: mode, stash: mode === 'edit' ? sc : se, dd: '', calView: { y: 2026, m: 10 }, toast: '', nextN: 26 }, mode === 'edit' ? se : sc);
+}
+setMode(m) { var s = this.state; if (s.mode === m) { return; } var cur = {}; ['form', 'snap', 'descDirty', 'touched', 'newItem', 'newCmt', 'tab'].forEach(function (k) { cur[k] = s[k]; }); this.setState(Object.assign({ mode: m, stash: cur, dd: '' }, s.stash)); }
+clone(x) { return JSON.parse(JSON.stringify(x)); }
+parseD(s) { var m = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(s || ''); if (!m) { return null; } var d = new Date(+m[3], +m[2] - 1, +m[1]); return d.getMonth() === +m[2] - 1 && d.getDate() === +m[1] ? d : null; }
+fmtD(d) { function p(v) { return (v < 10 ? '0' : '') + v; } return p(d.getDate()) + '/' + p(d.getMonth() + 1) + '/' + d.getFullYear(); }
+today() { return new Date(2026, 10, 12); }
+nowStr() { var n = new Date(); function p(v) { return (v < 10 ? '0' : '') + v; } return '12/11/2026 ' + p(n.getHours()) + ':' + p(n.getMinutes()) + ':' + p(n.getSeconds()); }
+flash(msg) { var self = this; this.setState({ toast: msg }); clearTimeout(this._t); this._t = setTimeout(function () { self.setState({ toast: '' }); }, 2600); }
+componentWillUnmount() { clearTimeout(this._t); }
+toggleIn(arr, v) { return arr.indexOf(v) >= 0 ? arr.filter(function (x) { return x !== v; }) : arr.concat([v]); }
+mkSel(id, label, options, cur, multi, onPick, emptyText, extra) {
+var self = this, open = this.state.dd === id;
+var labelOf = function (v) { var o = options.filter(function (x) { return x[0] === v; })[0]; return o ? o[1] : ''; };
+var text = multi ? cur.map(labelOf).join(', ') : labelOf(cur);
+var isEmpty = multi ? cur.length === 0 : !text;
+return Object.assign({
+id: id, label: label, open: open, multi: multi, single: !multi, req: false, hasDot: false, dot: '',
+text: isEmpty ? emptyText : text, vcls: isEmpty ? 'vph' : '', cls: open ? 'open' : '', wcls: open ? 'up' : '',
+toggle: function () { self.setState({ dd: self.state.dd === id ? '' : id }); },
+opts: options.map(function (o) { var on = multi ? cur.indexOf(o[0]) >= 0 : cur === o[0]; return { label: o[1], on: on, cls: on ? 'on' : '', hasDot: !!o[2], dot: o[2] || '', pick: function () { onPick(o[0]); if (!multi) { self.setState({ dd: '' }); } } }; })
+}, extra || {});
+}
+parseDT(s) { var m = /^(\d{2}\/\d{2}\/\d{4}) (\d{2}):(\d{2})$/.exec(s || ''); if (!m) { return null; } var d = this.parseD(m[1]); if (!d || +m[2] > 23 || +m[3] > 59) { return null; } d.setHours(+m[2], +m[3]); return d; }
+mkDate(id, label, value, setVal, touched, withTime, extraErr) {
+var self = this, s = this.state, open = s.dd === id, cv = s.calView || { y: 2026, m: 10 }, td = this.today();
+function p2(n) { n = +n || 0; return (n < 10 ? '0' : '') + n; }
+var datePart = withTime ? (value || '').slice(0, 10) : value, timePart = withTime ? (value || '').slice(11, 16) : '';
+var sel = this.parseD(datePart);
+var bad = withTime ? (!!value && (value.length >= 16 || touched) && !this.parseDT(value)) : (!!value && (value.length >= 10 || touched) && !sel);
+var setTime = function (h, mi) { var dp = self.parseD(datePart) ? datePart : self.fmtD(self.today()); setVal(dp + ' ' + p2(Math.min(23, h)) + ':' + p2(Math.min(59, mi))); };
+var hh = timePart.slice(0, 2), mi = timePart.slice(3, 5);
+var days = [];
+if (open) {
+var first = new Date(cv.y, cv.m, 1), off = (first.getDay() + 6) % 7;
+for (var i = 0; i < 42; i++) {
+var d = new Date(cv.y, cv.m, 1 - off + i);
+if (i >= 35 && d.getMonth() !== cv.m) { break; }
+(function (dd) { var c = []; if (dd.getMonth() !== cv.m) { c.push('out'); } if (dd.getTime() === td.getTime()) { c.push('today'); } if (sel && dd.getTime() === sel.getTime()) { c.push('sel'); } days.push({ n: dd.getDate(), label: self.fmtD(dd), cls: c.join(' '), pick: function () { if (withTime) { setVal(self.fmtD(dd) + ' ' + (timePart.length === 5 ? timePart : '09:00')); } else { setVal(self.fmtD(dd)); self.setState({ dd: '' }); } } }); })(d);
+}
+}
+var errText = bad ? (withTime ? 'Ngày giờ không hợp lệ' : 'Ngày không hợp lệ') : (extraErr || '');
+var move = function (delta) { return function () { var c2 = self.state.calView || { y: 2026, m: 10 }, nd = new Date(c2.y, c2.m + delta, 1); self.setState({ calView: { y: nd.getFullYear(), m: nd.getMonth() } }); }; };
+return {
+id: id, label: label, value: value, open: open, wcls: open ? 'up' : '', bad: bad, hasErr: !!errText, errText: errText, cls: (open ? 'open ' : '') + (errText ? 'bad' : ''),
+withTime: !!withTime, ph: withTime ? 'dd/mm/yyyy HH:mm' : 'dd/mm/yyyy', hh: hh, mi: mi,
+nowText: withTime ? 'Bây giờ' : 'Hôm nay',
+onHH: function (e) { var x = e.target.value.replace(/\D/g, '').slice(0, 2); setTime(x, mi); },
+onMI: function (e) { var x = e.target.value.replace(/\D/g, '').slice(0, 2); setTime(hh || 9, x); },
+done: function () { self.setState({ dd: '' }); },
+onInput: function (e) { setVal(e.target.value); },
+toggle: function () { if (self.state.dd === id) { self.setState({ dd: '' }); return; } var b = self.parseD(datePart) || self.today(); self.setState({ dd: id, calView: { y: b.getFullYear(), m: b.getMonth() } }); },
+title: 'Tháng ' + (cv.m + 1) + '/' + cv.y, days: days, prev: move(-1), next: move(1),
+clear: function () { setVal(''); self.setState({ dd: '' }); },
+today: function () { if (withTime) { var n = new Date(); setVal(self.fmtD(self.today()) + ' ' + p2(n.getHours()) + ':' + p2(n.getMinutes())); } else { setVal(self.fmtD(self.today())); } self.setState({ dd: '' }); }
+};
+}
+
+seedEdit() {
+return {
+title: 'Đồng bộ tồn kho với Shopify mỗi 15 phút', project: 'ACME', status: 'Doing', pri: 'URGENT', ms: 'Đợt 2 · Kho hàng', labels: ['Backend'],
+started: '09/11/2026 09:00', ended: '14/11/2026 17:00',
+checklist: [{ t: 'Lấy access token từ cài đặt shop', done: true }, { t: 'Map SKU với product_id', done: true }, { t: 'Giới hạn 2 request mỗi giây', done: false }, { t: 'Chạy thử với 3.000 SKU', done: false }],
+files: [{ name: 'shopify-inventory-api.pdf' }],
+comments: [{ when: '12/11/2026 09:42:10', text: 'Khách xác nhận chỉ đồng bộ kho chính, bỏ kho phụ ở Đà Nẵng.' }, { when: '11/11/2026 16:05:33', text: 'Shopify trả 429 khi gọi song song. Chuyển sang gọi tuần tự theo trang 250 SKU.' }]
+};
+}
+
+rangeErr(f) { var a = this.parseDT(f.started), b = this.parseDT(f.ended); return a && b && b <= a ? 'Kết thúc phải sau bắt đầu' : ''; }
+updForm(fn) { this.setState(function (s) { return { form: Object.assign({}, s.form, fn(s.form)) }; }); }
+save() {
+var s = this.state, f = s.form;
+if (!f.title.trim() || (f.started && !this.parseDT(f.started)) || (f.ended && !this.parseDT(f.ended)) || this.rangeErr(f)) { this.setState({ touched: true }); return; }
+if (s.mode === 'edit') { this.setState({ snap: JSON.stringify(f), descDirty: false, dd: '' }); this.flash('Đã lưu ACME-18'); return; }
+var code = f.project + '-' + s.nextN;
+var blank = { title: '', project: f.project, status: 'Todo', pri: 'MEDIUM', ms: '', labels: [], started: '', ended: '', files: [] };
+this.setState({ form: blank, snap: JSON.stringify(blank), descDirty: false, touched: false, nextN: s.nextN + 1, dd: '' });
+this.flash('Đã tạo ' + code);
+}
+renderVals() {
+var self = this, s = this.state, f = s.form;
+var PRI = [['URGENT', 'Gấp', '#D23B3B'], ['HIGH', 'Cao', '#E39A12'], ['MEDIUM', 'Thường', '#4B6BB5'], ['LOW', 'Thấp', '#8F8D87']];
+var STAT = ['Todo', 'Doing', 'Devdone', 'Release', 'Done'];
+var MSP = { ACME: ['Đợt 1 · Khởi tạo', 'Đợt 2 · Kho hàng', 'Đợt 3 · Thanh toán'], LUM: ['MVP', 'Báo cáo'], HRB: ['Đặt phòng', 'Thanh toán'] };
+var MS_O = [['', 'Không có']].concat((MSP[f.project] || []).map(function (n) { return [n, n]; }));
+var titleBad = s.touched && !f.title.trim();
+var priDot = { URGENT: '#D23B3B', HIGH: '#E39A12', MEDIUM: '#4B6BB5', LOW: '#8F8D87' }[f.pri] || '';
+var exec = function (cmd, arg) { return function (e) { e.preventDefault(); try { document.execCommand(cmd, false, arg); } catch (err) {} self.setState({ descDirty: true }); }; };
+var v = {
+form: f, titleBad: titleBad, titleCls: titleBad ? 'bad' : '',
+onTitle: function (e) { var val = e.target.value; self.updForm(function () { return { title: val }; }); },
+ddOpen: !!s.dd, closeDd: function () { self.setState({ dd: '' }); },
+modalKey: function (e) { if (e.key === 'Escape' && self.state.dd) { self.setState({ dd: '' }); } },
+toast: s.toast, hasToast: !!s.toast,
+modalSels: [
+this.mkSel('mst', 'Trạng thái', STAT.map(function (x) { return [x, x]; }), f.status, false, function (val) { self.updForm(function () { return { status: val }; }); }, '', { req: true }),
+this.mkSel('mpri', 'Độ ưu tiên', PRI, f.pri, false, function (val) { self.updForm(function () { return { pri: val }; }); }, '', { req: true, hasDot: !!priDot, dot: priDot }),
+this.mkSel('mms', 'Sprint', MS_O, f.ms, false, function (val) { self.updForm(function () { return { ms: val }; }); }, 'Không có'),
+this.mkSel('mlab', 'Phân loại', [['Backend', 'Backend'], ['Frontend', 'Frontend'], ['Bug', 'Bug']], f.labels, true, function (val) { self.updForm(function (ff) { return { labels: self.toggleIn(ff.labels, val) }; }); }, 'Chọn phân loại')
+],
+modalDates: [
+this.mkDate('mstart', 'Ngày bắt đầu', f.started, function (x) { self.updForm(function () { return { started: x }; }); }, s.touched, true),
+this.mkDate('mend', 'Ngày kết thúc', f.ended, function (x) { self.updForm(function () { return { ended: x }; }); }, s.touched, true, this.rangeErr(f))
+],
+projSels: [this.mkSel('mproj', 'Dự án', [['ACME', 'ACME - ACME Shop'], ['LUM', 'LUM - Lumen CRM'], ['HRB', 'HRB - Harbor Booking']], f.project, false, function (val) { self.updForm(function () { return { project: val, ms: '' }; }); }, 'Chọn dự án', { req: true })],
+onDescInput: function () { if (!self.state.descDirty) { self.setState({ descDirty: true }); } },
+fBold: exec('bold'), fItalic: exec('italic'), fStrike: exec('strikeThrough'), fH2: exec('formatBlock', 'h2'), fH3: exec('formatBlock', 'h3'),
+fBullet: exec('insertUnorderedList'), fNumber: exec('insertOrderedList'), fQuote: exec('formatBlock', 'blockquote'), fLink: exec('createLink', 'https://example.com'),
+fUndo: exec('undo'), fRedo: exec('redo'),
+fImage: function (e) { e.preventDefault(); try { document.execCommand('insertHTML', false, '<div class="rimg" contenteditable="false"><div class="pic"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-5-5L5 21"></path></svg></div><span class="cap">anh-chup-man-hinh.png</span></div><p><br></p>'); } catch (err) {} self.setState({ descDirty: true }); },
+files: f.files.map(function (fl, i) { return { name: fl.name, remove: function () { self.updForm(function (ff) { return { files: ff.files.filter(function (x, j) { return j !== i; }) }; }); } }; }),
+addFile: function () { self.updForm(function (ff) { return { files: ff.files.concat([{ name: 'tai-lieu-' + (ff.files.length + 1) + '.pdf' }]) }; }); }
+};
+v.isEdit = s.mode === 'edit'; v.isCreate = s.mode === 'create'; v.segE = v.isEdit ? 'on' : ''; v.segC = v.isCreate ? 'on' : ''; v.setEdit = function () { self.setMode('edit'); }; v.setCreate = function () { self.setMode('create'); };
+if (s.mode === 'edit') {
+var dirty = JSON.stringify(f) !== s.snap || s.descDirty;
+var doneN = f.checklist.filter(function (c) { return c.done; }).length;
+Object.assign(v, {
+mTitle: 'ACME-18', saveOff: !dirty, saveText: 'Lưu thay đổi',
+descBlocks: [{ p: 'Gọi Admin API lấy tồn kho theo SKU, cập nhật cột stock của bảng products. Chỉ đồng bộ kho chính.' }, { ul: ['Chạy bằng @Scheduled, 15 phút một lần', 'Ghi log số SKU thay đổi', 'Lỗi 429 thì chờ rồi chạy lại, tối đa 3 lần'] }, { img: 'so-do-dong-bo-ton-kho.png' }].map(function (b) { return { isP: !!b.p, isUl: !!b.ul, isImg: !!b.img, text: b.p || b.img || '', items: b.ul || [] }; }),
+checkText: f.checklist.length ? doneN + '/' + f.checklist.length : '', hasItems: f.checklist.length > 0, noItems: f.checklist.length === 0,
+checkPct: (f.checklist.length ? Math.round(doneN * 100 / f.checklist.length) : 0) + '%',
+items: f.checklist.map(function (c, i) { return {
+t: c.t, done: c.done, cls: c.done ? 'd' : '',
+toggle: function (e) { var on = e.target.checked; self.updForm(function (ff) { return { checklist: ff.checklist.map(function (x, j) { return j === i ? { t: x.t, done: on } : x; }) }; }); },
+edit: function (e) { var val = e.target.value; self.updForm(function (ff) { return { checklist: ff.checklist.map(function (x, j) { return j === i ? { t: val, done: x.done } : x; }) }; }); },
+remove: function () { self.updForm(function (ff) { return { checklist: ff.checklist.filter(function (x, j) { return j !== i; }) }; }); }
+}; }),
+newItem: s.newItem, addItemOff: !s.newItem.trim(),
+onNewItem: function (e) { self.setState({ newItem: e.target.value }); },
+addItem: function () { var t = self.state.newItem.trim(); if (!t) { return; } self.setState({ newItem: '' }); self.updForm(function (ff) { return { checklist: ff.checklist.concat([{ t: t, done: false }]) }; }); },
+newItemKey: function (e) { if (e.key === 'Enter') { e.preventDefault(); v.addItem(); } },
+tabCmt: s.tab === 'cmt', tabHist: s.tab === 'history', tabCmtCls: s.tab === 'cmt' ? 'on' : '', tabHistCls: s.tab === 'history' ? 'on' : '',
+cmtCount: f.comments.length ? '(' + f.comments.length + ')' : '',
+showCmt: function () { self.setState({ tab: 'cmt' }); }, showHist: function () { self.setState({ tab: 'history' }); },
+history: [{ when: '12/11/2026 08:30:12', text: 'Todo → Doing' }, { when: '11/11/2026 17:25:02', text: 'Doing → Todo' }, { when: '11/11/2026 16:20:05', text: 'Đính kèm shopify-inventory-api.pdf' }, { when: '11/11/2026 13:10:40', text: 'Todo → Doing' }, { when: '09/11/2026 10:14:55', text: 'Tạo task' }],
+newCmt: s.newCmt, addCmtOff: !s.newCmt.trim(),
+onNewCmt: function (e) { self.setState({ newCmt: e.target.value }); },
+addCmt: function () { var t = self.state.newCmt.trim(); if (!t) { return; } var when = self.nowStr(); self.setState({ newCmt: '' }); self.updForm(function (ff) { return { comments: [{ when: when, text: t }].concat(ff.comments) }; }); },
+comments: f.comments.map(function (c, i) { return { when: c.when, text: c.text, remove: function () { self.updForm(function (ff) { return { comments: ff.comments.filter(function (x, j) { return j !== i; }) }; }); } }; }),
+copyLink: function () { self.flash('Đã sao chép link ACME-18'); },
+archive: function () { self.flash('Đã lưu trữ ACME-18'); },
+save: function () { self.save(); }
+});
+} else {
+Object.assign(v, { mTitle: 'Task mới', saveOff: !f.title.trim(), saveText: 'Tạo task', save: function () { self.save(); } });
+}
+return v;
+}
+}
+</script>
+</body>
+</html>

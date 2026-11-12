@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Hồ sơ & cài đặt</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap">
+<style>
+body{margin:0}
+.a{--bg:#F3F3F1;--panel:#FFFFFF;--board:#FAFAF9;--line:#E2E1DD;--line2:#CFCDC8;--text:#1B1B19;--muted:#66655F;--phc:#8F8D87;--soft:#F1F0ED;--hover:#EAE9E6;--pri:#D9480F;--priH:#BA3D0C;--ring:rgba(217,72,15,.16);--urgent:#D23B3B;--high:#E39A12;--late:#C2361F;--err:#C2361F;font-family:'Inter',system-ui,sans-serif;font-size:14px;line-height:1.45;color:var(--text);background:var(--bg);min-height:900px;display:flex;flex-wrap:wrap;position:relative}
+.a *{box-sizing:border-box}
+.a a{color:inherit;text-decoration:none}
+.a svg{flex:none}
+.a a:focus-visible,.a button:focus-visible{outline:2px solid var(--pri);outline-offset:1px}
+.a input,.a textarea,.a button{font-family:inherit;font-size:14px;font-weight:400}
+.catch{position:absolute;inset:0;z-index:20}
+.side{flex:1 1 220px;padding:10px 8px;display:flex;flex-direction:column;gap:16px;font-size:13.5px}
+.ws{display:flex;align-items:center;gap:8px;height:36px;padding:0 8px;font-weight:600;font-size:14.5px}
+.logo{width:22px;height:22px;border-radius:6px;background:var(--pri);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center}
+.nav{display:flex;flex-direction:column;gap:1px}
+.nav a{display:flex;align-items:center;gap:9px;height:31px;padding:0 8px;border-radius:6px;color:#3A3936}
+.nav a svg{color:var(--muted)}
+.nav a:hover{background:var(--hover)}
+.nav a.on{background:#E4E3DF;color:var(--text);font-weight:600}
+.gh{font-size:12px;font-weight:600;color:var(--muted);padding:0 8px 4px}
+.sq{width:9px;height:9px;border-radius:2px;flex:none}
+.k{margin-left:auto;font-size:12px;color:var(--muted)}
+.panel{flex:999 1 560px;min-width:0;margin:8px 8px 8px 0;background:var(--panel);border:1px solid var(--line);border-radius:10px;display:flex;flex-direction:column}
+.appbar{height:52px;display:flex;align-items:center;gap:8px;padding:0 12px 0 16px;border-bottom:1px solid var(--line)}
+.search{height:36px;width:min(360px,100%);display:flex;align-items:center;gap:8px;padding:0 8px 0 12px;border:1px solid var(--line);border-radius:8px;background:var(--soft);color:var(--phc);cursor:pointer;text-align:left}
+.search .t{flex:1}
+.kbd{font-size:11px;color:var(--muted);border:1px solid var(--line2);background:#fff;border-radius:4px;padding:0 5px;line-height:17px}
+.grow{flex:1;min-width:4px}
+.ib{width:36px;height:36px;border:0;background:transparent;border-radius:8px;color:#4A4945;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;position:relative}
+.ib:hover{background:var(--soft);color:var(--text)}
+.ib.sm{width:30px;height:30px;border-radius:6px}
+.ib:disabled{opacity:.4;cursor:not-allowed}
+.badge{position:absolute;top:4px;right:4px;min-width:16px;height:16px;border-radius:8px;background:var(--pri);color:#fff;font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center;padding:0 4px}
+.user{height:38px;display:inline-flex;align-items:center;gap:8px;padding:0 8px 0 4px;border:0;border-radius:8px;background:transparent;color:var(--text);cursor:pointer}
+.user:hover{background:var(--soft)}
+.user:focus-visible{outline:2px solid var(--pri)}
+.av{width:28px;height:28px;border-radius:50%;background:#E2DCCF;color:#3B352A;font-size:11.5px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:none}
+.b{height:36px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 14px;border:1px solid var(--line);background:#fff;border-radius:8px;color:var(--text);cursor:pointer;white-space:nowrap;flex:none}
+.b:hover{background:var(--soft);border-color:var(--line2)}
+.b.p{background:var(--pri);border-color:var(--pri);color:#fff;font-weight:600}
+.b.p:hover{background:var(--priH);border-color:var(--priH)}
+.b.g{border-color:transparent;background:transparent;color:var(--muted)}
+.b.g:hover{background:var(--soft);color:var(--text)}
+.b.sm{height:32px;padding:0 10px}
+.b.act{border-color:var(--text)}
+.b.full{width:100%}
+.b:disabled{opacity:.45;cursor:not-allowed}
+.ctl{width:100%;height:36px;display:flex;align-items:center;gap:8px;padding:0 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--text);text-align:left;transition:border-color .12s,box-shadow .12s}
+.ctl:hover{border-color:var(--line2)}
+.ctl:focus,.ctl:focus-within,.ctl.open{border-color:var(--pri);box-shadow:0 0 0 3px var(--ring);outline:none}
+.ctl.bad{border-color:var(--err)}
+.ctl.bad:focus,.ctl.bad:focus-within{box-shadow:0 0 0 3px rgba(194,54,31,.14)}
+.ctl.act{border-color:var(--text)}
+.ctl:disabled{background:var(--soft);color:var(--muted);cursor:not-allowed}
+.ctl input{border:0;outline:0;background:transparent;color:var(--text);width:100%;min-width:0;height:100%;padding:0}
+.ctl::placeholder,.ctl input::placeholder,.cm::placeholder{color:var(--phc);font-weight:400;opacity:1}
+.ctl svg{color:var(--muted)}
+.ctl .ad{color:var(--muted);white-space:nowrap}
+button.ctl{cursor:pointer}
+.ctl .v{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ctl .v.vph{color:var(--phc)}
+.icb{width:28px;height:28px;margin-right:-6px;border:0;border-radius:6px;background:transparent;color:var(--muted);display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.icb:hover{background:var(--soft);color:var(--text)}
+.ddw{position:relative}
+.ddw.up{z-index:21}
+.ddl{position:absolute;top:calc(100% + 4px);left:0;min-width:100%;width:max-content;max-width:320px;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 12px 28px rgba(0,0,0,.14);padding:4px;z-index:8;max-height:260px;overflow:auto}
+.ddo{width:100%;height:34px;display:flex;align-items:center;gap:9px;padding:0 10px;border:0;border-radius:6px;background:transparent;color:var(--text);cursor:pointer;text-align:left;white-space:nowrap}
+.ddo:hover{background:var(--soft)}
+.ddo.on{font-weight:600}
+.ddo .ck{margin-left:auto;padding-left:12px;color:var(--pri);visibility:hidden;box-sizing:content-box}
+.ddo.on .ck{visibility:visible}
+.box{width:16px;height:16px;border:1.5px solid var(--line2);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;flex:none;background:#fff;color:#fff}
+.ddo.on .box{background:var(--pri);border-color:var(--pri)}
+.dotp{width:8px;height:8px;border-radius:50%;flex:none}
+.fld{display:flex;flex-direction:column;gap:6px}
+.lb{font-size:13px;font-weight:600;color:#3A3936}
+.lbrow{display:flex;align-items:center;justify-content:space-between;min-height:20px}
+.req{color:var(--err)}
+.err{font-size:13px;color:var(--err)}
+.muted{color:var(--muted);font-size:13px}
+.mutedc{color:var(--muted)}
+.cal{position:absolute;top:calc(100% + 4px);right:0;width:284px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 12px 28px rgba(0,0,0,.16);padding:10px;z-index:8}
+.calh{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;font-weight:600}
+.calg{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center;font-variant-numeric:tabular-nums}
+.calg .wd{font-size:12px;color:var(--muted);height:28px;line-height:28px}
+.day{height:34px;border:0;border-radius:6px;background:transparent;color:var(--text);cursor:pointer;font-size:13px!important}
+.day:hover{background:var(--soft)}
+.day.out{color:#B5B3AD}
+.day.today{box-shadow:inset 0 0 0 1px var(--line2);font-weight:600}
+.day.sel{background:var(--pri);color:#fff;font-weight:600}
+.calf{display:flex;justify-content:space-between;margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+.tmr{display:flex;align-items:center;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+.tmr .lb{margin-right:auto}
+.tmi{width:52px!important;text-align:center;padding:0 6px!important;font-variant-numeric:tabular-nums}
+.toast{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);background:var(--text);color:#fff;padding:10px 16px;border-radius:8px;z-index:50;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.phd{padding:16px 20px 0}
+.crumb{font-size:13px;color:var(--muted);margin-bottom:6px}
+.crumb a:hover{color:var(--text);text-decoration:underline}
+.ttl{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ttl h1{margin:0;font-size:20px;font-weight:600;line-height:1.3}
+.ttl .sq{width:12px;height:12px;border-radius:3px}
+.ttl .m{color:var(--muted)}
+.tabs{display:flex;gap:18px;margin-top:12px;border-bottom:1px solid var(--line)}
+.tab{padding:8px 0 9px;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab:hover{color:var(--text)}
+.tab.on{color:var(--text);font-weight:600;border-bottom-color:var(--text)}
+.tool{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px;padding:14px 20px}
+.tool .fld{width:190px}
+.tool .fld.srch{width:280px}
+.tool .push{margin-left:auto}
+.pr{display:inline-flex;align-items:center;gap:6px}
+
+.phd2{display:flex;align-items:center;gap:12px;padding:16px 20px 0;flex-wrap:wrap}
+.phd2 h1{margin:0;font-size:20px;font-weight:600;line-height:1.3}
+.pbody{padding:0 20px 20px;display:flex;flex-direction:column;gap:16px}
+.tblw{margin:0 20px;overflow:auto;border:1px solid var(--line);border-radius:8px}
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.tbl th{background:var(--board);text-align:left;font-weight:600;color:#3A3936;font-size:13px;border:1px solid var(--line);padding:0 12px;height:44px;white-space:nowrap}
+.tbl td{padding:0 12px;height:48px;border:1px solid var(--line);white-space:nowrap;font-variant-numeric:tabular-nums}
+.tbl tbody tr:hover td{background:var(--board)}
+.tbl tr > :first-child{border-left:0}
+.tbl tr > :last-child{border-right:0}
+.tbl thead tr:first-child th{border-top:0}
+.tbl tbody tr:last-child td{border-bottom:0}
+.tbl tfoot td{background:var(--board);font-weight:600;border-bottom:0}
+.th{border:0;background:transparent;padding:0;font-weight:600!important;font-size:13px!important;color:#3A3936;cursor:pointer;display:inline-flex;align-items:center;gap:4px;height:28px}
+.th:hover,.th.on{color:var(--pri)}
+.tt{font-weight:600;display:block;max-width:380px;overflow:hidden;text-overflow:ellipsis}
+.tt:hover{color:var(--pri)}
+.stp{height:24px;display:inline-flex;align-items:center;padding:0 9px;border-radius:6px;background:var(--soft);color:#3A3936;font-size:12.5px}
+.stp.ok{background:#E6EDF8;color:#284A87}
+.stp.warn{background:#FCEBDD;color:#9A3412}
+.stp.bad{background:#FBE5E1;color:#9B2C1B}
+.stp.mute{background:var(--soft);color:var(--muted)}
+.lt{color:var(--late);font-weight:600}
+.r{text-align:right}
+.acts{display:flex;align-items:center;gap:2px}
+.lempty{padding:28px;text-align:center;color:var(--muted)}
+.pg{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 20px 18px;color:var(--muted)}
+.pgl{display:flex;align-items:center;gap:12px}
+.pgr{display:flex;align-items:center;gap:6px}
+.pgb{min-width:36px;height:36px;padding:0 6px;border:1px solid var(--line);background:#fff;border-radius:8px;color:var(--text);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums}
+.pgb:hover{background:var(--soft);border-color:var(--line2)}
+.pgb.on{background:var(--pri);border-color:var(--pri);color:#fff;font-weight:600}
+.pgb:disabled{opacity:.4;cursor:not-allowed}
+.ell{min-width:20px;text-align:center}
+.sz{width:84px}
+.tile{flex:1 1 200px;border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;background:#fff}
+.tile .k2{color:var(--muted);font-size:13px}
+.tile .v2{font-size:22px;font-weight:600;line-height:1.3;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}
+.card2{border:1px solid var(--line);border-radius:10px;background:#fff}
+.card2 h3{margin:0;padding:14px 18px;font-size:15px;font-weight:600;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
+.card2 h3 .grow{flex:1}
+.seg{display:inline-flex;padding:3px;border-radius:9px;background:var(--soft);gap:2px}
+.segb{height:30px;padding:0 14px;border:0;border-radius:7px;background:transparent;color:var(--muted);cursor:pointer}
+.segb.on{background:#fff;color:var(--text);font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.hbars{display:flex;flex-direction:column;gap:10px;padding:16px 18px}
+.hb{display:grid;grid-template-columns:160px 1fr 90px;align-items:center;gap:12px}
+.hb .n{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hb .t{height:10px;border-radius:5px;background:var(--soft);overflow:hidden}
+.hb .t span{display:block;height:100%;background:var(--pri);border-radius:5px}
+.hb .m{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+.grid2c{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.grid3c{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.formg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 20px;padding:18px}
+.full{grid-column:1/-1}
+.cm{width:100%;min-height:96px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;color:var(--text);resize:vertical;line-height:1.5;font-family:inherit}
+.cm:hover{border-color:var(--line2)}
+.cm:focus{border-color:var(--pri);box-shadow:0 0 0 3px var(--ring);outline:none}
+.scrim{position:absolute;inset:0;background:rgba(20,20,18,.42);z-index:40}
+.dlg{position:absolute;top:80px;left:50%;transform:translateX(-50%);width:min(560px,calc(100% - 32px));max-height:calc(100% - 120px);background:#fff;border-radius:12px;box-shadow:0 24px 64px rgba(0,0,0,.28);z-index:41;display:flex;flex-direction:column}
+.dlg .mh{height:56px;display:flex;align-items:center;gap:6px;padding:0 10px 0 24px;border-bottom:1px solid var(--line);flex:none}
+.dlg .mt{font-size:15px;font-weight:600}
+.dlg .db{padding:20px 24px;display:flex;flex-direction:column;gap:16px;overflow:auto}
+.dlg .df{display:flex;justify-content:flex-end;gap:8px;padding:14px 24px;border-top:1px solid var(--line)}
+.mcatch{position:absolute;inset:0;z-index:5;border-radius:12px}
+.row2{display:flex;gap:8px;align-items:center}
+.sw2{display:flex;align-items:center;gap:10px}
+.sw2 .nm2{flex:1}
+.tg{width:40px;height:22px;border-radius:11px;background:var(--line2);border:0;position:relative;cursor:pointer;flex:none}
+.tg::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:left .12s}
+.tg.on{background:var(--pri)}
+.tg.on::after{left:21px}
+
+.side2{width:200px;flex:none;display:flex;flex-direction:column;gap:2px}
+.side2 button{height:36px;border:0;background:transparent;border-radius:8px;text-align:left;padding:0 12px;color:#3A3936;cursor:pointer}
+.side2 button:hover{background:var(--soft)}
+.side2 button.on{background:#E4E3DF;color:var(--text);font-weight:600}
+.setrow{display:flex;gap:24px;align-items:flex-start}
+.setmain{flex:1;min-width:0;display:flex;flex-direction:column;gap:16px}
+.avrow{display:flex;align-items:center;gap:16px;padding:18px 18px 0}
+.avbig{width:64px;height:64px;border-radius:50%;background:#E2DCCF;color:#3B352A;font-size:22px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.foot{display:flex;justify-content:flex-end;gap:8px;padding:0 18px 18px}
+.nt{width:100%;border-collapse:collapse}
+.nt th{text-align:left;font-size:13px;font-weight:600;color:#3A3936;padding:12px 18px;border-bottom:1px solid var(--line);background:var(--board)}
+.nt td{padding:0 18px;height:52px;border-bottom:1px solid var(--line)}
+.nt tr:last-child td{border-bottom:0}
+.nt .c{width:140px;text-align:center}
+.nt th.c{text-align:center}
+.nt .tg{display:inline-block;vertical-align:middle}
+</style>
+</helmet>
+<div class="a">
+<sc-if value="{{ddOpen}}" hint-placeholder-val="{{false}}"><div class="catch" onClick="{{closeDd}}"></div></sc-if>
+<aside class="side">
+<div class="ws"><span class="logo">T</span>Taskboard</div>
+<nav class="nav" aria-label="Chính">
+<a href="02-hom-nay.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>Hôm nay</a>
+<a href="10-task-cua-toi.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="m8.5 12 2.5 2.5 4.5-5"></path></svg>Task của tôi</a>
+</nav>
+<div>
+<div class="gh">Làm việc</div>
+<nav class="nav" aria-label="Làm việc">
+<a href="03-pipeline.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path></svg>Pipeline job</a>
+<a href="05-khach-hang.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>Khách hàng</a>
+<a href="11-timesheet.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Timesheet</a>
+<a href="12-bao-cao.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18M18 17V9M13 17V5M8 17v-3"></path></svg>Báo cáo</a>
+</nav>
+</div>
+<div>
+<div class="gh">Dự án</div>
+<nav class="nav" aria-label="Dự án">
+<a href="07-du-an.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"></path></svg>Tất cả dự án</a>
+<a href="08-bang-du-an.dc.html"><span class="sq" style="background:#4A7BC0"></span>ACME Shop<span class="k">ACME</span></a>
+<a href="08-bang-du-an.dc.html"><span class="sq" style="background:#C08A2A"></span>Lumen CRM<span class="k">LUM</span></a>
+<a href="08-bang-du-an.dc.html"><span class="sq" style="background:#8E8577"></span>Harbor Booking<span class="k">HRB</span></a>
+</nav>
+</div>
+</aside>
+<main class="panel">
+<header class="appbar">
+<button class="search" type="button"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><span class="t">Tìm kiếm</span><span class="kbd">Ctrl K</span></button>
+<span class="grow"></span>
+<a class="ib" href="15-thong-bao.dc.html" aria-label="Thông báo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg><span class="badge">3</span></a>
+<a class="user" href="14-ho-so-cai-dat.dc.html"><span class="av">NĐ</span>Nguyễn Đức</a>
+</header>
+<div class="phd2"><h1>Hồ sơ &amp; cài đặt</h1><span class="grow"></span></div>
+<div class="pbody" style="padding-top:14px"><div class="setrow"><nav class="side2" aria-label="Cài đặt"><sc-for list="{{tabs}}" as="t" hint-placeholder-count="4"><button class="{{t.cls}}" type="button" onClick="{{t.go}}">{{t.label}}</button></sc-for></nav><div class="setmain"><sc-if value="{{tProfile}}" hint-placeholder-val="{{true}}"><section class="card2"><h3>Hồ sơ</h3><div class="avrow"><span class="avbig">NĐ</span><button class="b" type="button" onClick="{{noop}}">Đổi ảnh</button><button class="b g" type="button" onClick="{{noop}}">Xoá ảnh</button></div><div class="formg"><div class="fld"><label class="lb" for="u-name">Họ tên <span class="req">*</span></label><label class="ctl {{nameCls}}"><input id="u-name" type="text" placeholder="Nhập họ tên" value="{{pf.name}}" onChange="{{onName}}"></label><sc-if value="{{nameBad}}" hint-placeholder-val="{{false}}"><span class="err">Nhập họ tên</span></sc-if></div><div class="fld"><label class="lb" for="u-mail">Email</label><label class="ctl"><input id="u-mail" type="text" placeholder="" value="{{pf.email}}" onChange="{{noop}}" disabled="{{true}}"></label></div><sc-for list="{{profSels}}" as="sel" hint-placeholder-count="3">
+<div class="fld">
+<span class="lb" id="{{sel.id}}-l">{{sel.label}}<sc-if value="{{sel.req}}" hint-placeholder-val="{{false}}"> <span class="req">*</span></sc-if></span>
+<div class="ddw {{sel.wcls}}">
+<button class="ctl {{sel.cls}}" type="button" aria-haspopup="listbox" aria-expanded="{{sel.open}}" aria-labelledby="{{sel.id}}-l" onClick="{{sel.toggle}}"><sc-if value="{{sel.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{sel.dot}}"></span></sc-if><span class="v {{sel.vcls}}">{{sel.text}}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<sc-if value="{{sel.open}}" hint-placeholder-val="{{false}}">
+<div class="ddl" role="listbox" aria-multiselectable="{{sel.multi}}">
+<sc-for list="{{sel.opts}}" as="o" hint-placeholder-count="4">
+<button class="ddo {{o.cls}}" type="button" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}">
+<sc-if value="{{sel.multi}}" hint-placeholder-val="{{false}}"><span class="box"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span></sc-if>
+<sc-if value="{{o.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{o.dot}}"></span></sc-if>
+<span>{{o.label}}</span>
+<sc-if value="{{sel.single}}" hint-placeholder-val="{{true}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ck"><path d="m5 12 5 5 9-10"></path></svg></sc-if>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-for>
+</div><div class="foot"><button class="b" type="button" onClick="{{resetP}}" disabled="{{pClean}}">Huỷ thay đổi</button><button class="b p" type="button" onClick="{{saveP}}" disabled="{{pClean}}">Lưu thay đổi</button></div></section></sc-if><sc-if value="{{tPass}}" hint-placeholder-val="{{false}}"><section class="card2"><h3>Mật khẩu</h3><div class="formg"><div class="fld full"><label class="lb" for="w-old">Mật khẩu hiện tại <span class="req">*</span></label><label class="ctl {{oldCls}}"><input id="w-old" type="password" placeholder="******" value="{{pw.old}}" onChange="{{onOld}}"></label><sc-if value="{{oldBad}}" hint-placeholder-val="{{false}}"><span class="err">Nhập mật khẩu hiện tại</span></sc-if></div><div class="fld"><label class="lb" for="w-new">Mật khẩu mới <span class="req">*</span></label><label class="ctl {{newCls}}"><input id="w-new" type="password" placeholder="******" value="{{pw.nw}}" onChange="{{onNew}}"></label><sc-if value="{{newBad}}" hint-placeholder-val="{{false}}"><span class="err">Mật khẩu có ít nhất 8 ký tự</span></sc-if></div><div class="fld"><label class="lb" for="w-re">Nhập lại mật khẩu mới <span class="req">*</span></label><label class="ctl {{reCls}}"><input id="w-re" type="password" placeholder="******" value="{{pw.re}}" onChange="{{onRe}}"></label><sc-if value="{{reBad}}" hint-placeholder-val="{{false}}"><span class="err">Mật khẩu nhập lại chưa khớp</span></sc-if></div></div><div class="foot"><button class="b p" type="button" onClick="{{savePw}}">Đổi mật khẩu</button></div></section></sc-if><sc-if value="{{tUp}}" hint-placeholder-val="{{false}}"><section class="card2"><h3>Mặc định Upwork</h3><div class="formg"><div class="fld"><label class="lb" for="d-rate">Rate gợi ý mỗi giờ</label><label class="ctl"><span class="ad">$</span><input id="d-rate" type="text" placeholder="Nhập rate" value="{{up.rate}}" onChange="{{onRate}}"><span class="ad">/ giờ</span></label></div><div class="fld"><label class="lb" for="d-fee">Phí Upwork <span class="req">*</span></label><label class="ctl"><input id="d-fee" type="text" placeholder="Nhập phí" value="{{up.fee}}" onChange="{{onFee}}"><span class="ad">%</span></label></div><div class="fld"><label class="lb" for="d-conn">Giá mỗi connect <span class="req">*</span></label><label class="ctl"><span class="ad">$</span><input id="d-conn" type="text" placeholder="Nhập giá" value="{{up.conn}}" onChange="{{onConn}}"></label></div><div class="fld"><label class="lb" for="d-goal">Mục tiêu giờ mỗi tuần</label><label class="ctl"><input id="d-goal" type="text" placeholder="Nhập số giờ" value="{{up.goal}}" onChange="{{onGoal}}"><span class="ad">giờ</span></label></div><sc-for list="{{upSels}}" as="sel" hint-placeholder-count="3">
+<div class="fld">
+<span class="lb" id="{{sel.id}}-l">{{sel.label}}<sc-if value="{{sel.req}}" hint-placeholder-val="{{false}}"> <span class="req">*</span></sc-if></span>
+<div class="ddw {{sel.wcls}}">
+<button class="ctl {{sel.cls}}" type="button" aria-haspopup="listbox" aria-expanded="{{sel.open}}" aria-labelledby="{{sel.id}}-l" onClick="{{sel.toggle}}"><sc-if value="{{sel.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{sel.dot}}"></span></sc-if><span class="v {{sel.vcls}}">{{sel.text}}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<sc-if value="{{sel.open}}" hint-placeholder-val="{{false}}">
+<div class="ddl" role="listbox" aria-multiselectable="{{sel.multi}}">
+<sc-for list="{{sel.opts}}" as="o" hint-placeholder-count="4">
+<button class="ddo {{o.cls}}" type="button" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}">
+<sc-if value="{{sel.multi}}" hint-placeholder-val="{{false}}"><span class="box"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span></sc-if>
+<sc-if value="{{o.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{o.dot}}"></span></sc-if>
+<span>{{o.label}}</span>
+<sc-if value="{{sel.single}}" hint-placeholder-val="{{true}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ck"><path d="m5 12 5 5 9-10"></path></svg></sc-if>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-for>
+</div><div class="foot"><button class="b" type="button" onClick="{{resetU}}" disabled="{{uClean}}">Huỷ thay đổi</button><button class="b p" type="button" onClick="{{saveU}}" disabled="{{uClean}}">Lưu thay đổi</button></div></section></sc-if><sc-if value="{{tNoti}}" hint-placeholder-val="{{false}}"><section class="card2"><h3>Thông báo</h3><table class="nt"><thead><tr><th>Loại thông báo</th><th class="c">Trong ứng dụng</th><th class="c">Email</th></tr></thead><tbody><sc-for list="{{nt}}" as="n" hint-placeholder-count="4"><tr><td>{{n.label}}</td><td class="c"><button class="tg {{n.inCls}}" type="button" role="switch" aria-checked="{{n.inOn}}" aria-label="{{n.label}} trong ứng dụng" onClick="{{n.togIn}}"></button></td><td class="c"><button class="tg {{n.emCls}}" type="button" role="switch" aria-checked="{{n.emOn}}" aria-label="{{n.label}} qua email" onClick="{{n.togEm}}"></button></td></tr></sc-for></tbody></table></section></sc-if></div></div></div></main>
+<sc-if value="{{hasToast}}" hint-placeholder-val="{{false}}"><div class="toast" role="status">{{toast}}</div></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tab":{"editor":"enum","options":["profile","pass","up","noti"],"default":"profile"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+var pf = { name: 'Nguyễn Đức', email: 'nguyenduc@example.com', tz: 'Asia/Ho_Chi_Minh', lang: 'vi' }, up = { rate: '35', fee: '10', conn: '0.15', goal: '30', hour: '8' };
+this.state = { tab: (props && props.tab) || 'profile', pf: pf, pfs: JSON.stringify(pf), up: up, ups: JSON.stringify(up), pw: { old: '', nw: '', re: '' }, pwTouched: false, touched: false, nt: { TASK_DUE_SOON: [1, 1], JOB_FOLLOW_UP: [1, 1], TASK_LONG: [1, 0], WEEKLY_SUMMARY: [1, 1] }, dd: '', calView: { y: 2026, m: 10 }, toast: '' };
+}
+
+clone(x) { return JSON.parse(JSON.stringify(x)); }
+parseD(s) { var m = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(s || ''); if (!m) { return null; } var d = new Date(+m[3], +m[2] - 1, +m[1]); return d.getMonth() === +m[2] - 1 && d.getDate() === +m[1] ? d : null; }
+fmtD(d) { function p(v) { return (v < 10 ? '0' : '') + v; } return p(d.getDate()) + '/' + p(d.getMonth() + 1) + '/' + d.getFullYear(); }
+today() { return new Date(2026, 10, 12); }
+nowStr() { var n = new Date(); function p(v) { return (v < 10 ? '0' : '') + v; } return '12/11/2026 ' + p(n.getHours()) + ':' + p(n.getMinutes()) + ':' + p(n.getSeconds()); }
+flash(msg) { var self = this; this.setState({ toast: msg }); clearTimeout(this._t); this._t = setTimeout(function () { self.setState({ toast: '' }); }, 2600); }
+componentWillUnmount() { clearTimeout(this._t); }
+toggleIn(arr, v) { return arr.indexOf(v) >= 0 ? arr.filter(function (x) { return x !== v; }) : arr.concat([v]); }
+mkSel(id, label, options, cur, multi, onPick, emptyText, extra) {
+var self = this, open = this.state.dd === id;
+var labelOf = function (v) { var o = options.filter(function (x) { return x[0] === v; })[0]; return o ? o[1] : ''; };
+var text = multi ? cur.map(labelOf).join(', ') : labelOf(cur);
+var isEmpty = multi ? cur.length === 0 : !text;
+return Object.assign({
+id: id, label: label, open: open, multi: multi, single: !multi, req: false, hasDot: false, dot: '',
+text: isEmpty ? emptyText : text, vcls: isEmpty ? 'vph' : '', cls: open ? 'open' : '', wcls: open ? 'up' : '',
+toggle: function () { self.setState({ dd: self.state.dd === id ? '' : id }); },
+opts: options.map(function (o) { var on = multi ? cur.indexOf(o[0]) >= 0 : cur === o[0]; return { label: o[1], on: on, cls: on ? 'on' : '', hasDot: !!o[2], dot: o[2] || '', pick: function () { onPick(o[0]); if (!multi) { self.setState({ dd: '' }); } } }; })
+}, extra || {});
+}
+parseDT(s) { var m = /^(\d{2}\/\d{2}\/\d{4}) (\d{2}):(\d{2})$/.exec(s || ''); if (!m) { return null; } var d = this.parseD(m[1]); if (!d || +m[2] > 23 || +m[3] > 59) { return null; } d.setHours(+m[2], +m[3]); return d; }
+mkDate(id, label, value, setVal, touched, withTime, extraErr) {
+var self = this, s = this.state, open = s.dd === id, cv = s.calView || { y: 2026, m: 10 }, td = this.today();
+function p2(n) { n = +n || 0; return (n < 10 ? '0' : '') + n; }
+var datePart = withTime ? (value || '').slice(0, 10) : value, timePart = withTime ? (value || '').slice(11, 16) : '';
+var sel = this.parseD(datePart);
+var bad = withTime ? (!!value && (value.length >= 16 || touched) && !this.parseDT(value)) : (!!value && (value.length >= 10 || touched) && !sel);
+var setTime = function (h, mi) { var dp = self.parseD(datePart) ? datePart : self.fmtD(self.today()); setVal(dp + ' ' + p2(Math.min(23, h)) + ':' + p2(Math.min(59, mi))); };
+var hh = timePart.slice(0, 2), mi = timePart.slice(3, 5);
+var days = [];
+if (open) {
+var first = new Date(cv.y, cv.m, 1), off = (first.getDay() + 6) % 7;
+for (var i = 0; i < 42; i++) {
+var d = new Date(cv.y, cv.m, 1 - off + i);
+if (i >= 35 && d.getMonth() !== cv.m) { break; }
+(function (dd) { var c = []; if (dd.getMonth() !== cv.m) { c.push('out'); } if (dd.getTime() === td.getTime()) { c.push('today'); } if (sel && dd.getTime() === sel.getTime()) { c.push('sel'); } days.push({ n: dd.getDate(), label: self.fmtD(dd), cls: c.join(' '), pick: function () { if (withTime) { setVal(self.fmtD(dd) + ' ' + (timePart.length === 5 ? timePart : '09:00')); } else { setVal(self.fmtD(dd)); self.setState({ dd: '' }); } } }); })(d);
+}
+}
+var errText = bad ? (withTime ? 'Ngày giờ không hợp lệ' : 'Ngày không hợp lệ') : (extraErr || '');
+var move = function (delta) { return function () { var c2 = self.state.calView || { y: 2026, m: 10 }, nd = new Date(c2.y, c2.m + delta, 1); self.setState({ calView: { y: nd.getFullYear(), m: nd.getMonth() } }); }; };
+return {
+id: id, label: label, value: value, open: open, wcls: open ? 'up' : '', bad: bad, hasErr: !!errText, errText: errText, cls: (open ? 'open ' : '') + (errText ? 'bad' : ''),
+withTime: !!withTime, ph: withTime ? 'dd/mm/yyyy HH:mm' : 'dd/mm/yyyy', hh: hh, mi: mi,
+nowText: withTime ? 'Bây giờ' : 'Hôm nay',
+onHH: function (e) { var x = e.target.value.replace(/\D/g, '').slice(0, 2); setTime(x, mi); },
+onMI: function (e) { var x = e.target.value.replace(/\D/g, '').slice(0, 2); setTime(hh || 9, x); },
+done: function () { self.setState({ dd: '' }); },
+onInput: function (e) { setVal(e.target.value); },
+toggle: function () { if (self.state.dd === id) { self.setState({ dd: '' }); return; } var b = self.parseD(datePart) || self.today(); self.setState({ dd: id, calView: { y: b.getFullYear(), m: b.getMonth() } }); },
+title: 'Tháng ' + (cv.m + 1) + '/' + cv.y, days: days, prev: move(-1), next: move(1),
+clear: function () { setVal(''); self.setState({ dd: '' }); },
+today: function () { if (withTime) { var n = new Date(); setVal(self.fmtD(self.today()) + ' ' + p2(n.getHours()) + ':' + p2(n.getMinutes())); } else { setVal(self.fmtD(self.today())); } self.setState({ dd: '' }); }
+};
+}
+
+renderVals() {
+var self = this, s = this.state, pf = s.pf, up = s.up, pw = s.pw, t = s.touched, pt = s.pwTouched;
+var TABS = [['profile', 'Hồ sơ'], ['pass', 'Mật khẩu'], ['up', 'Mặc định Upwork'], ['noti', 'Thông báo']];
+var upP = function (x) { self.setState(function (st) { return { pf: Object.assign({}, st.pf, x) }; }); }, upU = function (x) { self.setState(function (st) { return { up: Object.assign({}, st.up, x) }; }); }, upW = function (x) { self.setState(function (st) { return { pw: Object.assign({}, st.pw, x) }; }); };
+var num = function (e) { return e.target.value.replace(/[^\d.]/g, ''); };
+var hours = []; for (var h = 0; h < 24; h++) { hours.push([String(h), (h < 10 ? '0' : '') + h + ':00']); }
+var v = {
+ddOpen: !!s.dd, closeDd: function () { self.setState({ dd: '' }); }, toast: s.toast, hasToast: !!s.toast, noop: function () {},
+tabs: TABS.map(function (x) { return { label: x[1], cls: s.tab === x[0] ? 'on' : '', go: function () { self.setState({ tab: x[0], dd: '' }); } }; }),
+tProfile: s.tab === 'profile', tPass: s.tab === 'pass', tUp: s.tab === 'up', tNoti: s.tab === 'noti',
+pf: pf, nameBad: t && !pf.name.trim(), nameCls: t && !pf.name.trim() ? 'bad' : '', onName: function (e) { upP({ name: e.target.value }); },
+profSels: [this.mkSel('ptz', 'Múi giờ', [['Asia/Ho_Chi_Minh', 'Asia/Ho_Chi_Minh'], ['Asia/Bangkok', 'Asia/Bangkok'], ['Asia/Singapore', 'Asia/Singapore'], ['America/New_York', 'America/New_York'], ['Europe/London', 'Europe/London']], pf.tz, false, function (x) { upP({ tz: x }); }, 'Chọn múi giờ', { req: true }), this.mkSel('plg', 'Ngôn ngữ', [['vi', 'Tiếng Việt'], ['en', 'English']], pf.lang, false, function (x) { upP({ lang: x }); }, 'Chọn ngôn ngữ', { req: true })],
+pClean: JSON.stringify(pf) === s.pfs,
+resetP: function () { self.setState({ pf: JSON.parse(self.state.pfs), touched: false, dd: '' }); },
+saveP: function () { if (!self.state.pf.name.trim()) { self.setState({ touched: true }); return; } self.setState({ pfs: JSON.stringify(self.state.pf), touched: false, dd: '' }); self.flash('Đã lưu hồ sơ'); },
+pw: pw, oldBad: pt && !pw.old, oldCls: pt && !pw.old ? 'bad' : '', newBad: pt && pw.nw.length < 8, newCls: pt && pw.nw.length < 8 ? 'bad' : '', reBad: pt && pw.re !== pw.nw, reCls: pt && pw.re !== pw.nw ? 'bad' : '',
+onOld: function (e) { upW({ old: e.target.value }); }, onNew: function (e) { upW({ nw: e.target.value }); }, onRe: function (e) { upW({ re: e.target.value }); },
+savePw: function () { var p = self.state.pw; if (!p.old || p.nw.length < 8 || p.re !== p.nw) { self.setState({ pwTouched: true }); return; } self.setState({ pw: { old: '', nw: '', re: '' }, pwTouched: false }); self.flash('Đã đổi mật khẩu'); },
+up: up, onRate: function (e) { upU({ rate: num(e) }); }, onFee: function (e) { upU({ fee: num(e) }); }, onConn: function (e) { upU({ conn: num(e) }); }, onGoal: function (e) { upU({ goal: num(e) }); },
+upSels: [this.mkSel('uhr', 'Giờ gửi nhắc việc', hours, up.hour, false, function (x) { upU({ hour: x }); }, 'Chọn giờ', { req: true })],
+uClean: JSON.stringify(up) === s.ups, resetU: function () { self.setState({ up: JSON.parse(self.state.ups), dd: '' }); },
+saveU: function () { self.setState({ ups: JSON.stringify(self.state.up), dd: '' }); self.flash('Đã lưu mặc định Upwork'); },
+nt: [["Task sắp tới hạn", "TASK_DUE_SOON"], ["Job tới ngày follow-up", "JOB_FOLLOW_UP"], ["Task ở Doing quá 8 giờ", "TASK_LONG"], ["Tổng kết tuần", "WEEKLY_SUMMARY"]].map(function (n) { var cur = s.nt[n[1]]; var tog = function (i) { return function () { self.setState(function (st) { var o = Object.assign({}, st.nt), a = o[n[1]].slice(); a[i] = a[i] ? 0 : 1; o[n[1]] = a; return { nt: o }; }); }; };
+return { label: n[0], inOn: !!cur[0], emOn: !!cur[1], inCls: cur[0] ? 'on' : '', emCls: cur[1] ? 'on' : '', togIn: tog(0), togEm: tog(1) }; })
+};
+return v;
+}
+}
+</script>
+</body>
+</html>

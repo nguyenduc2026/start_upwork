@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Cài đặt dự án ACME Shop</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap">
+<style>
+body{margin:0}
+.a{--bg:#F3F3F1;--panel:#FFFFFF;--board:#FAFAF9;--line:#E2E1DD;--line2:#CFCDC8;--text:#1B1B19;--muted:#66655F;--phc:#8F8D87;--soft:#F1F0ED;--hover:#EAE9E6;--pri:#D9480F;--priH:#BA3D0C;--ring:rgba(217,72,15,.16);--urgent:#D23B3B;--high:#E39A12;--late:#C2361F;--err:#C2361F;font-family:'Inter',system-ui,sans-serif;font-size:14px;line-height:1.45;color:var(--text);background:var(--bg);min-height:900px;display:flex;flex-wrap:wrap;position:relative}
+.a *{box-sizing:border-box}
+.a a{color:inherit;text-decoration:none}
+.a svg{flex:none}
+.a a:focus-visible,.a button:focus-visible{outline:2px solid var(--pri);outline-offset:1px}
+.a input,.a textarea,.a button{font-family:inherit;font-size:14px;font-weight:400}
+.catch{position:absolute;inset:0;z-index:20}
+.side{flex:1 1 220px;padding:10px 8px;display:flex;flex-direction:column;gap:16px;font-size:13.5px}
+.ws{display:flex;align-items:center;gap:8px;height:36px;padding:0 8px;font-weight:600;font-size:14.5px}
+.logo{width:22px;height:22px;border-radius:6px;background:var(--pri);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center}
+.nav{display:flex;flex-direction:column;gap:1px}
+.nav a{display:flex;align-items:center;gap:9px;height:31px;padding:0 8px;border-radius:6px;color:#3A3936}
+.nav a svg{color:var(--muted)}
+.nav a:hover{background:var(--hover)}
+.nav a.on{background:#E4E3DF;color:var(--text);font-weight:600}
+.gh{font-size:12px;font-weight:600;color:var(--muted);padding:0 8px 4px}
+.sq{width:9px;height:9px;border-radius:2px;flex:none}
+.k{margin-left:auto;font-size:12px;color:var(--muted)}
+.panel{flex:999 1 560px;min-width:0;margin:8px 8px 8px 0;background:var(--panel);border:1px solid var(--line);border-radius:10px;display:flex;flex-direction:column}
+.appbar{height:52px;display:flex;align-items:center;gap:8px;padding:0 12px 0 16px;border-bottom:1px solid var(--line)}
+.search{height:36px;width:min(360px,100%);display:flex;align-items:center;gap:8px;padding:0 8px 0 12px;border:1px solid var(--line);border-radius:8px;background:var(--soft);color:var(--phc);cursor:pointer;text-align:left}
+.search .t{flex:1}
+.kbd{font-size:11px;color:var(--muted);border:1px solid var(--line2);background:#fff;border-radius:4px;padding:0 5px;line-height:17px}
+.grow{flex:1;min-width:4px}
+.ib{width:36px;height:36px;border:0;background:transparent;border-radius:8px;color:#4A4945;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;position:relative}
+.ib:hover{background:var(--soft);color:var(--text)}
+.ib.sm{width:30px;height:30px;border-radius:6px}
+.ib:disabled{opacity:.4;cursor:not-allowed}
+.badge{position:absolute;top:4px;right:4px;min-width:16px;height:16px;border-radius:8px;background:var(--pri);color:#fff;font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center;padding:0 4px}
+.user{height:38px;display:inline-flex;align-items:center;gap:8px;padding:0 8px 0 4px;border:0;border-radius:8px;background:transparent;color:var(--text);cursor:pointer}
+.user:hover{background:var(--soft)}
+.user:focus-visible{outline:2px solid var(--pri)}
+.av{width:28px;height:28px;border-radius:50%;background:#E2DCCF;color:#3B352A;font-size:11.5px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:none}
+.b{height:36px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 14px;border:1px solid var(--line);background:#fff;border-radius:8px;color:var(--text);cursor:pointer;white-space:nowrap;flex:none}
+.b:hover{background:var(--soft);border-color:var(--line2)}
+.b.p{background:var(--pri);border-color:var(--pri);color:#fff;font-weight:600}
+.b.p:hover{background:var(--priH);border-color:var(--priH)}
+.b.g{border-color:transparent;background:transparent;color:var(--muted)}
+.b.g:hover{background:var(--soft);color:var(--text)}
+.b.sm{height:32px;padding:0 10px}
+.b.act{border-color:var(--text)}
+.b.full{width:100%}
+.b:disabled{opacity:.45;cursor:not-allowed}
+.ctl{width:100%;height:36px;display:flex;align-items:center;gap:8px;padding:0 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--text);text-align:left;transition:border-color .12s,box-shadow .12s}
+.ctl:hover{border-color:var(--line2)}
+.ctl:focus,.ctl:focus-within,.ctl.open{border-color:var(--pri);box-shadow:0 0 0 3px var(--ring);outline:none}
+.ctl.bad{border-color:var(--err)}
+.ctl.bad:focus,.ctl.bad:focus-within{box-shadow:0 0 0 3px rgba(194,54,31,.14)}
+.ctl.act{border-color:var(--text)}
+.ctl:disabled{background:var(--soft);color:var(--muted);cursor:not-allowed}
+.ctl input{border:0;outline:0;background:transparent;color:var(--text);width:100%;min-width:0;height:100%;padding:0}
+.ctl::placeholder,.ctl input::placeholder,.cm::placeholder{color:var(--phc);font-weight:400;opacity:1}
+.ctl svg{color:var(--muted)}
+.ctl .ad{color:var(--muted);white-space:nowrap}
+button.ctl{cursor:pointer}
+.ctl .v{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ctl .v.vph{color:var(--phc)}
+.icb{width:28px;height:28px;margin-right:-6px;border:0;border-radius:6px;background:transparent;color:var(--muted);display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.icb:hover{background:var(--soft);color:var(--text)}
+.ddw{position:relative}
+.ddw.up{z-index:21}
+.ddl{position:absolute;top:calc(100% + 4px);left:0;min-width:100%;width:max-content;max-width:320px;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 12px 28px rgba(0,0,0,.14);padding:4px;z-index:8;max-height:260px;overflow:auto}
+.ddo{width:100%;height:34px;display:flex;align-items:center;gap:9px;padding:0 10px;border:0;border-radius:6px;background:transparent;color:var(--text);cursor:pointer;text-align:left;white-space:nowrap}
+.ddo:hover{background:var(--soft)}
+.ddo.on{font-weight:600}
+.ddo .ck{margin-left:auto;padding-left:12px;color:var(--pri);visibility:hidden;box-sizing:content-box}
+.ddo.on .ck{visibility:visible}
+.box{width:16px;height:16px;border:1.5px solid var(--line2);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;flex:none;background:#fff;color:#fff}
+.ddo.on .box{background:var(--pri);border-color:var(--pri)}
+.dotp{width:8px;height:8px;border-radius:50%;flex:none}
+.fld{display:flex;flex-direction:column;gap:6px}
+.lb{font-size:13px;font-weight:600;color:#3A3936}
+.lbrow{display:flex;align-items:center;justify-content:space-between;min-height:20px}
+.req{color:var(--err)}
+.err{font-size:13px;color:var(--err)}
+.muted{color:var(--muted);font-size:13px}
+.mutedc{color:var(--muted)}
+.cal{position:absolute;top:calc(100% + 4px);right:0;width:284px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 12px 28px rgba(0,0,0,.16);padding:10px;z-index:8}
+.calh{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;font-weight:600}
+.calg{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center;font-variant-numeric:tabular-nums}
+.calg .wd{font-size:12px;color:var(--muted);height:28px;line-height:28px}
+.day{height:34px;border:0;border-radius:6px;background:transparent;color:var(--text);cursor:pointer;font-size:13px!important}
+.day:hover{background:var(--soft)}
+.day.out{color:#B5B3AD}
+.day.today{box-shadow:inset 0 0 0 1px var(--line2);font-weight:600}
+.day.sel{background:var(--pri);color:#fff;font-weight:600}
+.calf{display:flex;justify-content:space-between;margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+.tmr{display:flex;align-items:center;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+.tmr .lb{margin-right:auto}
+.tmi{width:52px!important;text-align:center;padding:0 6px!important;font-variant-numeric:tabular-nums}
+.toast{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);background:var(--text);color:#fff;padding:10px 16px;border-radius:8px;z-index:50;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.phd{padding:16px 20px 0}
+.crumb{font-size:13px;color:var(--muted);margin-bottom:6px}
+.crumb a:hover{color:var(--text);text-decoration:underline}
+.ttl{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ttl h1{margin:0;font-size:20px;font-weight:600;line-height:1.3}
+.ttl .sq{width:12px;height:12px;border-radius:3px}
+.ttl .m{color:var(--muted)}
+.tabs{display:flex;gap:18px;margin-top:12px;border-bottom:1px solid var(--line)}
+.tab{padding:8px 0 9px;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab:hover{color:var(--text)}
+.tab.on{color:var(--text);font-weight:600;border-bottom-color:var(--text)}
+.tool{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px;padding:14px 20px}
+.tool .fld{width:190px}
+.tool .fld.srch{width:280px}
+.tool .push{margin-left:auto}
+.pr{display:inline-flex;align-items:center;gap:6px}
+
+.setw{padding:20px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:16px}
+.card2{border:1px solid var(--line);border-radius:10px}
+.card2 h3{margin:0;padding:14px 18px;font-size:15px;font-weight:600;border-bottom:1px solid var(--line);display:flex;align-items:center}
+.card2 h3 .b{margin-left:auto}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 20px;padding:18px}
+.full{grid-column:1/-1}
+.cm{width:100%;min-height:72px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;color:var(--text);resize:vertical;line-height:1.5}
+.cm:hover{border-color:var(--line2)}
+.cm:focus{border-color:var(--pri);box-shadow:0 0 0 3px var(--ring);outline:none}
+.sw{display:flex;gap:8px}
+.swb{width:28px;height:28px;border-radius:7px;border:2px solid #fff;box-shadow:0 0 0 1px var(--line2);cursor:pointer}
+.swb.on{box-shadow:0 0 0 2px var(--text)}
+.seg{display:inline-flex;padding:3px;border-radius:9px;background:var(--soft);gap:2px}
+.segb{height:30px;padding:0 14px;border:0;border-radius:7px;background:transparent;color:var(--muted);cursor:pointer}
+.segb.on{background:#fff;color:var(--text);font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.lblist{display:flex;flex-wrap:wrap;gap:6px;padding:18px 18px 0}
+.lchip{height:32px;display:inline-flex;align-items:center;gap:4px;padding:0 4px 0 12px;border:1px solid var(--line);border-radius:8px}
+.lchip .x{width:24px;height:24px;border:0;background:transparent;border-radius:5px;color:var(--muted);display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.lchip .x:hover{background:var(--soft);color:var(--text)}
+.row2{display:flex;gap:8px;align-items:center}
+.mrow{display:flex;align-items:center;gap:16px;padding:12px 18px;border-top:1px solid var(--line);flex-wrap:wrap}
+.mrow:first-of-type{border-top:0}
+.mrow .nm{font-weight:600;min-width:190px}
+.mrow .mt2{color:var(--muted);font-size:13px;font-variant-numeric:tabular-nums;min-width:110px}
+.spill{height:24px;display:inline-flex;align-items:center;padding:0 9px;border-radius:12px;font-size:12.5px;background:var(--soft);color:#3A3936;white-space:nowrap}
+.spill.act{background:#FCEBDD;color:#9A3412}
+.spill.paid{background:#E6EDF8;color:#284A87}
+.bar{width:140px;height:6px;border-radius:3px;background:var(--soft);overflow:hidden}
+.bar span{display:block;height:100%;background:var(--pri)}
+.mform{display:flex;gap:10px;align-items:flex-end;padding:14px 18px;border-top:1px solid var(--line);flex-wrap:wrap}
+.setf{display:flex;justify-content:flex-end;gap:8px;padding:4px 0 24px}
+</style>
+</helmet>
+<div class="a">
+<sc-if value="{{ddOpen}}" hint-placeholder-val="{{false}}"><div class="catch" onClick="{{closeDd}}"></div></sc-if>
+<aside class="side">
+<div class="ws"><span class="logo">T</span>Taskboard</div>
+<nav class="nav" aria-label="Chính">
+<a href="02-hom-nay.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>Hôm nay</a>
+<a href="10-task-cua-toi.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="m8.5 12 2.5 2.5 4.5-5"></path></svg>Task của tôi</a>
+</nav>
+<div>
+<div class="gh">Làm việc</div>
+<nav class="nav" aria-label="Làm việc">
+<a href="03-pipeline.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path></svg>Pipeline job</a>
+<a href="05-khach-hang.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>Khách hàng</a>
+<a href="11-timesheet.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Timesheet</a>
+<a href="12-bao-cao.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18M18 17V9M13 17V5M8 17v-3"></path></svg>Báo cáo</a>
+</nav>
+</div>
+<div>
+<div class="gh">Dự án</div>
+<nav class="nav" aria-label="Dự án">
+<a href="07-du-an.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"></path></svg>Tất cả dự án</a>
+<a href="08-bang-du-an.dc.html" class="on"><span class="sq" style="background:#4A7BC0"></span>ACME Shop<span class="k">ACME</span></a>
+<a href="08-bang-du-an.dc.html"><span class="sq" style="background:#C08A2A"></span>Lumen CRM<span class="k">LUM</span></a>
+<a href="08-bang-du-an.dc.html"><span class="sq" style="background:#8E8577"></span>Harbor Booking<span class="k">HRB</span></a>
+</nav>
+</div>
+</aside>
+<main class="panel">
+<header class="appbar">
+<button class="search" type="button"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><span class="t">Tìm kiếm</span><span class="kbd">Ctrl K</span></button>
+<span class="grow"></span>
+<a class="ib" href="15-thong-bao.dc.html" aria-label="Thông báo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg><span class="badge">3</span></a>
+<a class="user" href="14-ho-so-cai-dat.dc.html"><span class="av">NĐ</span>Nguyễn Đức</a>
+</header>
+<div class="phd">
+<div class="crumb"><a href="#">Dự án</a> / ACME Shop</div>
+<div class="ttl"><span class="sq" style="background:#4A7BC0"></span><h1>ACME Shop</h1><span class="m">Northwind Retail · Hourly $35/h</span></div>
+<nav class="tabs" aria-label="Dự án">
+<a class="tab" href="08-bang-du-an.dc.html">Bảng</a>
+<a class="tab" href="08-bang-du-an.dc.html">Danh sách</a>
+<a class="tab" href="08-bang-du-an.dc.html">Gantt</a>
+<a class="tab on" href="13-cai-dat-du-an.dc.html">Cài đặt</a>
+</nav>
+</div>
+<div class="setw">
+<section class="card2"><h3>Thông tin</h3>
+<div class="grid2">
+<div class="fld"><label class="lb" for="p-name">Tên dự án <span class="req">*</span></label><input id="p-name" class="ctl {{pNameCls}}" placeholder="Nhập tên dự án" value="{{pf.name}}" onChange="{{onPName}}"><sc-if value="{{pNameBad}}" hint-placeholder-val="{{false}}"><span class="err">Nhập tên dự án</span></sc-if></div>
+<div class="fld"><label class="lb" for="p-key">Key</label><input id="p-key" class="ctl" value="ACME" disabled="{{true}}"></div>
+<sc-for list="{{setSelsA}}" as="sel" hint-placeholder-count="3">
+<div class="fld">
+<span class="lb" id="{{sel.id}}-l">{{sel.label}}<sc-if value="{{sel.req}}" hint-placeholder-val="{{false}}"> <span class="req">*</span></sc-if></span>
+<div class="ddw {{sel.wcls}}">
+<button class="ctl {{sel.cls}}" type="button" aria-haspopup="listbox" aria-expanded="{{sel.open}}" aria-labelledby="{{sel.id}}-l" onClick="{{sel.toggle}}"><sc-if value="{{sel.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{sel.dot}}"></span></sc-if><span class="v {{sel.vcls}}">{{sel.text}}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<sc-if value="{{sel.open}}" hint-placeholder-val="{{false}}">
+<div class="ddl" role="listbox" aria-multiselectable="{{sel.multi}}">
+<sc-for list="{{sel.opts}}" as="o" hint-placeholder-count="4">
+<button class="ddo {{o.cls}}" type="button" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}">
+<sc-if value="{{sel.multi}}" hint-placeholder-val="{{false}}"><span class="box"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span></sc-if>
+<sc-if value="{{o.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{o.dot}}"></span></sc-if>
+<span>{{o.label}}</span>
+<sc-if value="{{sel.single}}" hint-placeholder-val="{{true}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ck"><path d="m5 12 5 5 9-10"></path></svg></sc-if>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-for>
+<div class="fld"><span class="lb">Màu</span><div class="sw" role="radiogroup" aria-label="Màu dự án"><sc-for list="{{swatches}}" as="sw" hint-placeholder-count="6"><button class="swb {{sw.cls}}" type="button" role="radio" aria-checked="{{sw.on}}" aria-label="Màu {{sw.c}}" style="background:{{sw.c}}" onClick="{{sw.pick}}"></button></sc-for></div></div>
+<div class="fld full"><label class="lb" for="p-desc">Mô tả</label><textarea id="p-desc" class="cm" placeholder="Nhập mô tả" value="{{pf.desc}}" onChange="{{onPDesc}}"></textarea></div>
+</div>
+</section>
+<section class="card2"><h3>Hợp đồng</h3>
+<div class="grid2">
+<div class="fld full"><span class="lb">Loại hợp đồng <span class="req">*</span></span><div class="seg" role="radiogroup" aria-label="Loại hợp đồng"><button class="segb {{segH}}" type="button" role="radio" aria-checked="{{isHourly}}" onClick="{{setHourly}}">Hourly</button><button class="segb {{segF}}" type="button" role="radio" aria-checked="{{isFixed}}" onClick="{{setFixed}}">Fixed</button></div></div>
+<sc-if value="{{isHourly}}" hint-placeholder-val="{{true}}"><div class="fld"><label class="lb" for="p-rate">Rate <span class="req">*</span></label><label class="ctl {{pRateCls}}"><span class="ad">$</span><input id="p-rate" inputmode="decimal" placeholder="Nhập rate" value="{{pf.rate}}" onChange="{{onPRate}}"><span class="ad">/ giờ</span></label><sc-if value="{{pRateBad}}" hint-placeholder-val="{{false}}"><span class="err">Nhập rate</span></sc-if></div>
+<div class="fld"><label class="lb" for="p-limit">Giới hạn giờ / tuần</label><label class="ctl"><input id="p-limit" inputmode="numeric" placeholder="Không giới hạn" value="{{pf.limit}}" onChange="{{onPLimit}}"><span class="ad">giờ</span></label></div></sc-if>
+<sc-if value="{{isFixed}}" hint-placeholder-val="{{false}}"><div class="fld"><label class="lb" for="p-price">Giá cố định <span class="req">*</span></label><label class="ctl {{pRateCls}}"><span class="ad">$</span><input id="p-price" inputmode="decimal" placeholder="Nhập giá" value="{{pf.price}}" onChange="{{onPPrice}}"></label><sc-if value="{{pRateBad}}" hint-placeholder-val="{{false}}"><span class="err">Nhập giá</span></sc-if></div><div></div></sc-if>
+<div class="fld"><label class="lb" for="p-fee">Phí Upwork <span class="req">*</span></label><label class="ctl"><input id="p-fee" inputmode="decimal" placeholder="Nhập phí" value="{{pf.fee}}" onChange="{{onPFee}}"><span class="ad">%</span></label></div>
+<sc-for list="{{setSelsB}}" as="sel" hint-placeholder-count="3">
+<div class="fld">
+<span class="lb" id="{{sel.id}}-l">{{sel.label}}<sc-if value="{{sel.req}}" hint-placeholder-val="{{false}}"> <span class="req">*</span></sc-if></span>
+<div class="ddw {{sel.wcls}}">
+<button class="ctl {{sel.cls}}" type="button" aria-haspopup="listbox" aria-expanded="{{sel.open}}" aria-labelledby="{{sel.id}}-l" onClick="{{sel.toggle}}"><sc-if value="{{sel.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{sel.dot}}"></span></sc-if><span class="v {{sel.vcls}}">{{sel.text}}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<sc-if value="{{sel.open}}" hint-placeholder-val="{{false}}">
+<div class="ddl" role="listbox" aria-multiselectable="{{sel.multi}}">
+<sc-for list="{{sel.opts}}" as="o" hint-placeholder-count="4">
+<button class="ddo {{o.cls}}" type="button" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}">
+<sc-if value="{{sel.multi}}" hint-placeholder-val="{{false}}"><span class="box"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span></sc-if>
+<sc-if value="{{o.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{o.dot}}"></span></sc-if>
+<span>{{o.label}}</span>
+<sc-if value="{{sel.single}}" hint-placeholder-val="{{true}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ck"><path d="m5 12 5 5 9-10"></path></svg></sc-if>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-for>
+<sc-for list="{{setDates}}" as="dt" hint-placeholder-count="3">
+<div class="fld"><span class="lb">{{dt.label}}</span>
+<div class="ddw {{dt.wcls}}">
+<div class="ctl {{dt.cls}}"><input placeholder="{{dt.ph}}" value="{{dt.value}}" onChange="{{dt.onInput}}" aria-label="{{dt.label}}"><button class="icb" type="button" aria-label="Mở lịch" onClick="{{dt.toggle}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg></button></div>
+<sc-if value="{{dt.open}}" hint-placeholder-val="{{false}}"><div class="cal" role="dialog" aria-label="Chọn ngày"><div class="calh"><button class="ib sm" type="button" aria-label="Tháng trước" onClick="{{dt.prev}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button><span>{{dt.title}}</span><button class="ib sm" type="button" aria-label="Tháng sau" onClick="{{dt.next}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button></div><div class="calg"><span class="wd">T2</span><span class="wd">T3</span><span class="wd">T4</span><span class="wd">T5</span><span class="wd">T6</span><span class="wd">T7</span><span class="wd">CN</span><sc-for list="{{dt.days}}" as="d" hint-placeholder-count="35"><button class="day {{d.cls}}" type="button" aria-label="{{d.label}}" onClick="{{d.pick}}">{{d.n}}</button></sc-for></div>
+<sc-if value="{{dt.withTime}}" hint-placeholder-val="{{false}}"><div class="tmr"><span class="lb">Giờ</span><input class="ctl tmi" inputmode="numeric" maxlength="2" aria-label="Giờ" value="{{dt.hh}}" onChange="{{dt.onHH}}"><span>:</span><input class="ctl tmi" inputmode="numeric" maxlength="2" aria-label="Phút" value="{{dt.mi}}" onChange="{{dt.onMI}}"></div></sc-if>
+<div class="calf"><button class="b g sm" type="button" onClick="{{dt.clear}}">Xoá</button><span class="grow"></span><button class="b sm" type="button" onClick="{{dt.today}}">{{dt.nowText}}</button><sc-if value="{{dt.withTime}}" hint-placeholder-val="{{false}}"><button class="b sm" type="button" style="margin-left:6px" onClick="{{dt.done}}">Xong</button></sc-if></div></div></sc-if>
+</div>
+<sc-if value="{{dt.hasErr}}" hint-placeholder-val="{{false}}"><span class="err">{{dt.errText}}</span></sc-if>
+</div>
+</sc-for>
+</div>
+</section>
+<section class="card2"><h3>Sprint<button class="b sm" type="button" onClick="{{msNew}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>Tạo sprint</button></h3>
+<sc-for list="{{msList}}" as="mr" hint-placeholder-count="3">
+<div class="mrow"><span class="nm">{{mr.name}}</span><span class="spill {{mr.stCls}}">{{mr.status}}</span><span class="mt2">{{mr.dueText}}</span><span class="grow"></span><span class="bar" role="img" aria-label="{{mr.progText}}"><span style="width:{{mr.pct}}"></span></span><span class="mt2" style="min-width:48px">{{mr.progText}}</span></div>
+</sc-for>
+<sc-if value="{{msFormOpen}}" hint-placeholder-val="{{false}}">
+<div class="mform">
+<div class="fld" style="flex:1;min-width:240px"><label class="lb" for="ms-name">Tên sprint <span class="req">*</span></label><input id="ms-name" class="ctl {{msNameCls}}" placeholder="Nhập tên sprint" value="{{msName}}" onChange="{{onMsName}}"><sc-if value="{{msNameBad}}" hint-placeholder-val="{{false}}"><span class="err">Nhập tên sprint</span></sc-if></div>
+<div style="width:200px"><sc-for list="{{msDates}}" as="dt" hint-placeholder-count="3">
+<div class="fld"><span class="lb">{{dt.label}}</span>
+<div class="ddw {{dt.wcls}}">
+<div class="ctl {{dt.cls}}"><input placeholder="{{dt.ph}}" value="{{dt.value}}" onChange="{{dt.onInput}}" aria-label="{{dt.label}}"><button class="icb" type="button" aria-label="Mở lịch" onClick="{{dt.toggle}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg></button></div>
+<sc-if value="{{dt.open}}" hint-placeholder-val="{{false}}"><div class="cal" role="dialog" aria-label="Chọn ngày"><div class="calh"><button class="ib sm" type="button" aria-label="Tháng trước" onClick="{{dt.prev}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button><span>{{dt.title}}</span><button class="ib sm" type="button" aria-label="Tháng sau" onClick="{{dt.next}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button></div><div class="calg"><span class="wd">T2</span><span class="wd">T3</span><span class="wd">T4</span><span class="wd">T5</span><span class="wd">T6</span><span class="wd">T7</span><span class="wd">CN</span><sc-for list="{{dt.days}}" as="d" hint-placeholder-count="35"><button class="day {{d.cls}}" type="button" aria-label="{{d.label}}" onClick="{{d.pick}}">{{d.n}}</button></sc-for></div>
+<sc-if value="{{dt.withTime}}" hint-placeholder-val="{{false}}"><div class="tmr"><span class="lb">Giờ</span><input class="ctl tmi" inputmode="numeric" maxlength="2" aria-label="Giờ" value="{{dt.hh}}" onChange="{{dt.onHH}}"><span>:</span><input class="ctl tmi" inputmode="numeric" maxlength="2" aria-label="Phút" value="{{dt.mi}}" onChange="{{dt.onMI}}"></div></sc-if>
+<div class="calf"><button class="b g sm" type="button" onClick="{{dt.clear}}">Xoá</button><span class="grow"></span><button class="b sm" type="button" onClick="{{dt.today}}">{{dt.nowText}}</button><sc-if value="{{dt.withTime}}" hint-placeholder-val="{{false}}"><button class="b sm" type="button" style="margin-left:6px" onClick="{{dt.done}}">Xong</button></sc-if></div></div></sc-if>
+</div>
+<sc-if value="{{dt.hasErr}}" hint-placeholder-val="{{false}}"><span class="err">{{dt.errText}}</span></sc-if>
+</div>
+</sc-for>
+</div>
+<button class="b" type="button" onClick="{{msCancel}}">Huỷ</button><button class="b p" type="button" onClick="{{msSave}}">Lưu</button>
+</div>
+</sc-if>
+</section>
+<section class="card2"><h3>Phân loại</h3>
+<div class="lblist"><sc-for list="{{pLabels}}" as="pl" hint-placeholder-count="3"><span class="lchip">{{pl.name}}<button class="x" type="button" aria-label="Xoá phân loại {{pl.name}}" onClick="{{pl.remove}}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></button></span></sc-for></div>
+<div class="row2" style="padding:12px 18px 18px;max-width:440px"><input class="ctl" placeholder="Nhập tên phân loại" aria-label="Phân loại mới" value="{{newLabel}}" onChange="{{onNewLabel}}" onKeyDown="{{newLabelKey}}"><button class="b" type="button" onClick="{{addLabel}}" disabled="{{addLabelOff}}">Thêm</button></div>
+</section>
+<div class="setf"><button class="b" type="button" onClick="{{resetProj}}" disabled="{{projClean}}">Huỷ thay đổi</button><button class="b p" type="button" onClick="{{saveProj}}" disabled="{{projClean}}">Lưu thay đổi</button></div>
+</div>
+</main>
+<sc-if value="{{hasToast}}" hint-placeholder-val="{{false}}"><div class="toast" role="status">{{toast}}</div></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+var proj = { name: 'ACME Shop', client: 'Northwind Retail', color: '#4A7BC0', desc: 'Cửa hàng online đồ gia dụng, đồng bộ kho với Shopify.', type: 'HOURLY', rate: '35', price: '', limit: '30', fee: '10', start: '01/11/2026', end: '', status: 'ACTIVE', labels: ['Backend', 'Frontend', 'Bug'] };
+this.state = { proj: proj, pf: this.clone(proj), pTouched: false, newLabel: '', dd: '', calView: { y: 2026, m: 10 }, toast: '', sprints: [{ name: 'Đợt 1 · Khởi tạo', due: '03/11/2026', status: 'PAID', done: 2, total: 2 }, { name: 'Đợt 2 · Kho hàng', due: '20/11/2026', status: 'ACTIVE', done: 0, total: 3 }, { name: 'Đợt 3 · Thanh toán', due: '04/12/2026', status: 'PENDING', done: 2, total: 6 }], msForm: null };
+}
+
+clone(x) { return JSON.parse(JSON.stringify(x)); }
+parseD(s) { var m = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(s || ''); if (!m) { return null; } var d = new Date(+m[3], +m[2] - 1, +m[1]); return d.getMonth() === +m[2] - 1 && d.getDate() === +m[1] ? d : null; }
+fmtD(d) { function p(v) { return (v < 10 ? '0' : '') + v; } return p(d.getDate()) + '/' + p(d.getMonth() + 1) + '/' + d.getFullYear(); }
+today() { return new Date(2026, 10, 12); }
+nowStr() { var n = new Date(); function p(v) { return (v < 10 ? '0' : '') + v; } return '12/11/2026 ' + p(n.getHours()) + ':' + p(n.getMinutes()) + ':' + p(n.getSeconds()); }
+flash(msg) { var self = this; this.setState({ toast: msg }); clearTimeout(this._t); this._t = setTimeout(function () { self.setState({ toast: '' }); }, 2600); }
+componentWillUnmount() { clearTimeout(this._t); }
+toggleIn(arr, v) { return arr.indexOf(v) >= 0 ? arr.filter(function (x) { return x !== v; }) : arr.concat([v]); }
+mkSel(id, label, options, cur, multi, onPick, emptyText, extra) {
+var self = this, open = this.state.dd === id;
+var labelOf = function (v) { var o = options.filter(function (x) { return x[0] === v; })[0]; return o ? o[1] : ''; };
+var text = multi ? cur.map(labelOf).join(', ') : labelOf(cur);
+var isEmpty = multi ? cur.length === 0 : !text;
+return Object.assign({
+id: id, label: label, open: open, multi: multi, single: !multi, req: false, hasDot: false, dot: '',
+text: isEmpty ? emptyText : text, vcls: isEmpty ? 'vph' : '', cls: open ? 'open' : '', wcls: open ? 'up' : '',
+toggle: function () { self.setState({ dd: self.state.dd === id ? '' : id }); },
+opts: options.map(function (o) { var on = multi ? cur.indexOf(o[0]) >= 0 : cur === o[0]; return { label: o[1], on: on, cls: on ? 'on' : '', hasDot: !!o[2], dot: o[2] || '', pick: function () { onPick(o[0]); if (!multi) { self.setState({ dd: '' }); } } }; })
+}, extra || {});
+}
+parseDT(s) { var m = /^(\d{2}\/\d{2}\/\d{4}) (\d{2}):(\d{2})$/.exec(s || ''); if (!m) { return null; } var d = this.parseD(m[1]); if (!d || +m[2] > 23 || +m[3] > 59) { return null; } d.setHours(+m[2], +m[3]); return d; }
+mkDate(id, label, value, setVal, touched, withTime, extraErr) {
+var self = this, s = this.state, open = s.dd === id, cv = s.calView || { y: 2026, m: 10 }, td = this.today();
+function p2(n) { n = +n || 0; return (n < 10 ? '0' : '') + n; }
+var datePart = withTime ? (value || '').slice(0, 10) : value, timePart = withTime ? (value || '').slice(11, 16) : '';
+var sel = this.parseD(datePart);
+var bad = withTime ? (!!value && (value.length >= 16 || touched) && !this.parseDT(value)) : (!!value && (value.length >= 10 || touched) && !sel);
+var setTime = function (h, mi) { var dp = self.parseD(datePart) ? datePart : self.fmtD(self.today()); setVal(dp + ' ' + p2(Math.min(23, h)) + ':' + p2(Math.min(59, mi))); };
+var hh = timePart.slice(0, 2), mi = timePart.slice(3, 5);
+var days = [];
+if (open) {
+var first = new Date(cv.y, cv.m, 1), off = (first.getDay() + 6) % 7;
+for (var i = 0; i < 42; i++) {
+var d = new Date(cv.y, cv.m, 1 - off + i);
+if (i >= 35 && d.getMonth() !== cv.m) { break; }
+(function (dd) { var c = []; if (dd.getMonth() !== cv.m) { c.push('out'); } if (dd.getTime() === td.getTime()) { c.push('today'); } if (sel && dd.getTime() === sel.getTime()) { c.push('sel'); } days.push({ n: dd.getDate(), label: self.fmtD(dd), cls: c.join(' '), pick: function () { if (withTime) { setVal(self.fmtD(dd) + ' ' + (timePart.length === 5 ? timePart : '09:00')); } else { setVal(self.fmtD(dd)); self.setState({ dd: '' }); } } }); })(d);
+}
+}
+var errText = bad ? (withTime ? 'Ngày giờ không hợp lệ' : 'Ngày không hợp lệ') : (extraErr || '');
+var move = function (delta) { return function () { var c2 = self.state.calView || { y: 2026, m: 10 }, nd = new Date(c2.y, c2.m + delta, 1); self.setState({ calView: { y: nd.getFullYear(), m: nd.getMonth() } }); }; };
+return {
+id: id, label: label, value: value, open: open, wcls: open ? 'up' : '', bad: bad, hasErr: !!errText, errText: errText, cls: (open ? 'open ' : '') + (errText ? 'bad' : ''),
+withTime: !!withTime, ph: withTime ? 'dd/mm/yyyy HH:mm' : 'dd/mm/yyyy', hh: hh, mi: mi,
+nowText: withTime ? 'Bây giờ' : 'Hôm nay',
+onHH: function (e) { var x = e.target.value.replace(/\D/g, '').slice(0, 2); setTime(x, mi); },
+onMI: function (e) { var x = e.target.value.replace(/\D/g, '').slice(0, 2); setTime(hh || 9, x); },
+done: function () { self.setState({ dd: '' }); },
+onInput: function (e) { setVal(e.target.value); },
+toggle: function () { if (self.state.dd === id) { self.setState({ dd: '' }); return; } var b = self.parseD(datePart) || self.today(); self.setState({ dd: id, calView: { y: b.getFullYear(), m: b.getMonth() } }); },
+title: 'Tháng ' + (cv.m + 1) + '/' + cv.y, days: days, prev: move(-1), next: move(1),
+clear: function () { setVal(''); self.setState({ dd: '' }); },
+today: function () { if (withTime) { var n = new Date(); setVal(self.fmtD(self.today()) + ' ' + p2(n.getHours()) + ':' + p2(n.getMinutes())); } else { setVal(self.fmtD(self.today())); } self.setState({ dd: '' }); }
+};
+}
+
+setPf(patch) { this.setState(function (s) { return { pf: Object.assign({}, s.pf, patch) }; }); }
+renderVals() {
+var self = this, s = this.state, pf = s.pf, pt = s.pTouched;
+var v = { ddOpen: !!s.dd, closeDd: function () { self.setState({ dd: '' }); }, toast: s.toast, hasToast: !!s.toast, pf: pf };
+v.pNameBad = pt && !pf.name.trim(); v.pNameCls = v.pNameBad ? 'bad' : '';
+var priceVal = pf.type === 'HOURLY' ? pf.rate : pf.price;
+v.pRateBad = pt && !String(priceVal).trim(); v.pRateCls = v.pRateBad ? 'bad' : '';
+v.onPName = function (e) { self.setPf({ name: e.target.value }); };
+v.onPDesc = function (e) { self.setPf({ desc: e.target.value }); };
+v.onPRate = function (e) { self.setPf({ rate: e.target.value.replace(/[^\d.]/g, '') }); };
+v.onPPrice = function (e) { self.setPf({ price: e.target.value.replace(/[^\d.]/g, '') }); };
+v.onPLimit = function (e) { self.setPf({ limit: e.target.value.replace(/\D/g, '') }); };
+v.onPFee = function (e) { self.setPf({ fee: e.target.value.replace(/[^\d.]/g, '') }); };
+v.isHourly = pf.type === 'HOURLY'; v.isFixed = pf.type === 'FIXED';
+v.segH = v.isHourly ? 'on' : ''; v.segF = v.isFixed ? 'on' : '';
+v.setHourly = function () { self.setPf({ type: 'HOURLY' }); }; v.setFixed = function () { self.setPf({ type: 'FIXED' }); };
+v.setSelsA = [this.mkSel('pclient', 'Khách hàng', [['Northwind Retail', 'Northwind Retail'], ['Lumen Labs', 'Lumen Labs'], ['Harbor Group', 'Harbor Group']], pf.client, false, function (x) { self.setPf({ client: x }); }, 'Chọn khách hàng', { req: true })];
+v.setSelsB = [this.mkSel('pstatus', 'Trạng thái dự án', [['ACTIVE', 'Đang chạy'], ['PAUSED', 'Tạm dừng'], ['COMPLETED', 'Hoàn thành'], ['ARCHIVED', 'Lưu trữ']], pf.status, false, function (x) { self.setPf({ status: x }); }, 'Chọn trạng thái', { req: true })];
+v.setDates = [this.mkDate('pstart', 'Ngày bắt đầu', pf.start, function (x) { self.setPf({ start: x }); }, pt), this.mkDate('pend', 'Ngày kết thúc', pf.end, function (x) { self.setPf({ end: x }); }, pt)];
+v.swatches = ['#4A7BC0', '#C08A2A', '#8E8577', '#B5487A', '#3E8E8A', '#6B5BB0'].map(function (c) { var on = pf.color === c; return { c: c, on: on, cls: on ? 'on' : '', pick: function () { self.setPf({ color: c }); } }; });
+v.pLabels = pf.labels.map(function (l) { return { name: l, remove: function () { self.setPf({ labels: self.state.pf.labels.filter(function (x) { return x !== l; }) }); } }; });
+v.newLabel = s.newLabel; v.addLabelOff = !s.newLabel.trim();
+v.onNewLabel = function (e) { self.setState({ newLabel: e.target.value }); };
+v.addLabel = function () { var n = self.state.newLabel.trim(); if (!n || self.state.pf.labels.indexOf(n) >= 0) { return; } self.setState(function (st) { return { newLabel: '', pf: Object.assign({}, st.pf, { labels: st.pf.labels.concat([n]) }) }; }); };
+v.newLabelKey = function (e) { if (e.key === 'Enter') { e.preventDefault(); v.addLabel(); } };
+v.projClean = JSON.stringify(pf) === JSON.stringify(s.proj);
+v.resetProj = function () { self.setState({ pf: self.clone(self.state.proj), pTouched: false, dd: '' }); };
+v.saveProj = function () {
+var f3 = self.state.pf, pv = f3.type === 'HOURLY' ? f3.rate : f3.price;
+if (!f3.name.trim() || !String(pv).trim() || (f3.start && !self.parseD(f3.start)) || (f3.end && !self.parseD(f3.end))) { self.setState({ pTouched: true }); return; }
+self.setState({ proj: self.clone(f3), pTouched: false, dd: '' });
+self.flash('Đã lưu cài đặt dự án');
+};
+var MST = { PENDING: ['Chưa bắt đầu', ''], ACTIVE: ['Đang làm', 'act'], SUBMITTED: ['Đã nộp', ''], PAID: ['Đã thanh toán', 'paid'] };
+v.msList = s.sprints.map(function (m) { return { name: m.name, status: MST[m.status][0], stCls: MST[m.status][1], dueText: m.due ? m.due : '—', pct: (m.total ? Math.round(m.done * 100 / m.total) : 0) + '%', progText: m.done + '/' + m.total }; });
+var mf = s.msForm;
+v.msFormOpen = !!mf;
+v.msNew = function () { self.setState({ msForm: { name: '', due: '', touched: false } }); };
+v.msCancel = function () { self.setState({ msForm: null, dd: '' }); };
+if (mf) {
+var setMf = function (patch) { self.setState(function (st) { return { msForm: Object.assign({}, st.msForm, patch) }; }); };
+v.msName = mf.name; v.msNameBad = mf.touched && !mf.name.trim(); v.msNameCls = v.msNameBad ? 'bad' : '';
+v.onMsName = function (e) { setMf({ name: e.target.value }); };
+v.msDates = [this.mkDate('msdue', 'Hạn chót', mf.due, function (x) { setMf({ due: x }); }, mf.touched)];
+v.msSave = function () {
+var f2 = self.state.msForm;
+if (!f2.name.trim() || (f2.due && !self.parseD(f2.due))) { setMf({ touched: true }); return; }
+self.setState({ sprints: self.state.sprints.concat([{ name: f2.name.trim(), due: f2.due, status: 'PENDING', done: 0, total: 0 }]), msForm: null, dd: '' });
+self.flash('Đã tạo sprint');
+};
+} else { v.msDates = []; v.msName = ''; v.msNameBad = false; v.msNameCls = ''; v.onMsName = function () {}; v.msSave = function () {}; }
+return v;
+}
+}
+</script>
+</body>
+</html>

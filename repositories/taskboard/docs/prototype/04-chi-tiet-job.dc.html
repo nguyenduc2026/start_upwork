@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Chi tiết job</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap">
+<style>
+body{margin:0}
+.a{--bg:#F3F3F1;--panel:#FFFFFF;--board:#FAFAF9;--line:#E2E1DD;--line2:#CFCDC8;--text:#1B1B19;--muted:#66655F;--phc:#8F8D87;--soft:#F1F0ED;--hover:#EAE9E6;--pri:#D9480F;--priH:#BA3D0C;--ring:rgba(217,72,15,.16);--urgent:#D23B3B;--high:#E39A12;--late:#C2361F;--err:#C2361F;font-family:'Inter',system-ui,sans-serif;font-size:14px;line-height:1.45;color:var(--text);background:var(--bg);min-height:900px;display:flex;flex-wrap:wrap;position:relative}
+.a *{box-sizing:border-box}
+.a a{color:inherit;text-decoration:none}
+.a svg{flex:none}
+.a a:focus-visible,.a button:focus-visible{outline:2px solid var(--pri);outline-offset:1px}
+.a input,.a textarea,.a button{font-family:inherit;font-size:14px;font-weight:400}
+.catch{position:absolute;inset:0;z-index:20}
+.side{flex:1 1 220px;padding:10px 8px;display:flex;flex-direction:column;gap:16px;font-size:13.5px}
+.ws{display:flex;align-items:center;gap:8px;height:36px;padding:0 8px;font-weight:600;font-size:14.5px}
+.logo{width:22px;height:22px;border-radius:6px;background:var(--pri);color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center}
+.nav{display:flex;flex-direction:column;gap:1px}
+.nav a{display:flex;align-items:center;gap:9px;height:31px;padding:0 8px;border-radius:6px;color:#3A3936}
+.nav a svg{color:var(--muted)}
+.nav a:hover{background:var(--hover)}
+.nav a.on{background:#E4E3DF;color:var(--text);font-weight:600}
+.gh{font-size:12px;font-weight:600;color:var(--muted);padding:0 8px 4px}
+.sq{width:9px;height:9px;border-radius:2px;flex:none}
+.k{margin-left:auto;font-size:12px;color:var(--muted)}
+.panel{flex:999 1 560px;min-width:0;margin:8px 8px 8px 0;background:var(--panel);border:1px solid var(--line);border-radius:10px;display:flex;flex-direction:column}
+.appbar{height:52px;display:flex;align-items:center;gap:8px;padding:0 12px 0 16px;border-bottom:1px solid var(--line)}
+.search{height:36px;width:min(360px,100%);display:flex;align-items:center;gap:8px;padding:0 8px 0 12px;border:1px solid var(--line);border-radius:8px;background:var(--soft);color:var(--phc);cursor:pointer;text-align:left}
+.search .t{flex:1}
+.kbd{font-size:11px;color:var(--muted);border:1px solid var(--line2);background:#fff;border-radius:4px;padding:0 5px;line-height:17px}
+.grow{flex:1;min-width:4px}
+.ib{width:36px;height:36px;border:0;background:transparent;border-radius:8px;color:#4A4945;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;position:relative}
+.ib:hover{background:var(--soft);color:var(--text)}
+.ib.sm{width:30px;height:30px;border-radius:6px}
+.ib:disabled{opacity:.4;cursor:not-allowed}
+.badge{position:absolute;top:4px;right:4px;min-width:16px;height:16px;border-radius:8px;background:var(--pri);color:#fff;font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center;padding:0 4px}
+.user{height:38px;display:inline-flex;align-items:center;gap:8px;padding:0 8px 0 4px;border:0;border-radius:8px;background:transparent;color:var(--text);cursor:pointer}
+.user:hover{background:var(--soft)}
+.user:focus-visible{outline:2px solid var(--pri)}
+.av{width:28px;height:28px;border-radius:50%;background:#E2DCCF;color:#3B352A;font-size:11.5px;font-weight:600;display:flex;align-items:center;justify-content:center;flex:none}
+.b{height:36px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 14px;border:1px solid var(--line);background:#fff;border-radius:8px;color:var(--text);cursor:pointer;white-space:nowrap;flex:none}
+.b:hover{background:var(--soft);border-color:var(--line2)}
+.b.p{background:var(--pri);border-color:var(--pri);color:#fff;font-weight:600}
+.b.p:hover{background:var(--priH);border-color:var(--priH)}
+.b.g{border-color:transparent;background:transparent;color:var(--muted)}
+.b.g:hover{background:var(--soft);color:var(--text)}
+.b.sm{height:32px;padding:0 10px}
+.b.act{border-color:var(--text)}
+.b.full{width:100%}
+.b:disabled{opacity:.45;cursor:not-allowed}
+.ctl{width:100%;height:36px;display:flex;align-items:center;gap:8px;padding:0 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--text);text-align:left;transition:border-color .12s,box-shadow .12s}
+.ctl:hover{border-color:var(--line2)}
+.ctl:focus,.ctl:focus-within,.ctl.open{border-color:var(--pri);box-shadow:0 0 0 3px var(--ring);outline:none}
+.ctl.bad{border-color:var(--err)}
+.ctl.bad:focus,.ctl.bad:focus-within{box-shadow:0 0 0 3px rgba(194,54,31,.14)}
+.ctl.act{border-color:var(--text)}
+.ctl:disabled{background:var(--soft);color:var(--muted);cursor:not-allowed}
+.ctl input{border:0;outline:0;background:transparent;color:var(--text);width:100%;min-width:0;height:100%;padding:0}
+.ctl::placeholder,.ctl input::placeholder,.cm::placeholder{color:var(--phc);font-weight:400;opacity:1}
+.ctl svg{color:var(--muted)}
+.ctl .ad{color:var(--muted);white-space:nowrap}
+button.ctl{cursor:pointer}
+.ctl .v{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ctl .v.vph{color:var(--phc)}
+.icb{width:28px;height:28px;margin-right:-6px;border:0;border-radius:6px;background:transparent;color:var(--muted);display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.icb:hover{background:var(--soft);color:var(--text)}
+.ddw{position:relative}
+.ddw.up{z-index:21}
+.ddl{position:absolute;top:calc(100% + 4px);left:0;min-width:100%;width:max-content;max-width:320px;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 12px 28px rgba(0,0,0,.14);padding:4px;z-index:8;max-height:260px;overflow:auto}
+.ddo{width:100%;height:34px;display:flex;align-items:center;gap:9px;padding:0 10px;border:0;border-radius:6px;background:transparent;color:var(--text);cursor:pointer;text-align:left;white-space:nowrap}
+.ddo:hover{background:var(--soft)}
+.ddo.on{font-weight:600}
+.ddo .ck{margin-left:auto;padding-left:12px;color:var(--pri);visibility:hidden;box-sizing:content-box}
+.ddo.on .ck{visibility:visible}
+.box{width:16px;height:16px;border:1.5px solid var(--line2);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;flex:none;background:#fff;color:#fff}
+.ddo.on .box{background:var(--pri);border-color:var(--pri)}
+.dotp{width:8px;height:8px;border-radius:50%;flex:none}
+.fld{display:flex;flex-direction:column;gap:6px}
+.lb{font-size:13px;font-weight:600;color:#3A3936}
+.lbrow{display:flex;align-items:center;justify-content:space-between;min-height:20px}
+.req{color:var(--err)}
+.err{font-size:13px;color:var(--err)}
+.muted{color:var(--muted);font-size:13px}
+.mutedc{color:var(--muted)}
+.cal{position:absolute;top:calc(100% + 4px);right:0;width:284px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 12px 28px rgba(0,0,0,.16);padding:10px;z-index:8}
+.calh{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;font-weight:600}
+.calg{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center;font-variant-numeric:tabular-nums}
+.calg .wd{font-size:12px;color:var(--muted);height:28px;line-height:28px}
+.day{height:34px;border:0;border-radius:6px;background:transparent;color:var(--text);cursor:pointer;font-size:13px!important}
+.day:hover{background:var(--soft)}
+.day.out{color:#B5B3AD}
+.day.today{box-shadow:inset 0 0 0 1px var(--line2);font-weight:600}
+.day.sel{background:var(--pri);color:#fff;font-weight:600}
+.calf{display:flex;justify-content:space-between;margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+.tmr{display:flex;align-items:center;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+.tmr .lb{margin-right:auto}
+.tmi{width:52px!important;text-align:center;padding:0 6px!important;font-variant-numeric:tabular-nums}
+.toast{position:absolute;left:50%;bottom:24px;transform:translateX(-50%);background:var(--text);color:#fff;padding:10px 16px;border-radius:8px;z-index:50;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.phd{padding:16px 20px 0}
+.crumb{font-size:13px;color:var(--muted);margin-bottom:6px}
+.crumb a:hover{color:var(--text);text-decoration:underline}
+.ttl{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ttl h1{margin:0;font-size:20px;font-weight:600;line-height:1.3}
+.ttl .sq{width:12px;height:12px;border-radius:3px}
+.ttl .m{color:var(--muted)}
+.tabs{display:flex;gap:18px;margin-top:12px;border-bottom:1px solid var(--line)}
+.tab{padding:8px 0 9px;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab:hover{color:var(--text)}
+.tab.on{color:var(--text);font-weight:600;border-bottom-color:var(--text)}
+.tool{display:flex;flex-wrap:wrap;align-items:flex-end;gap:12px;padding:14px 20px}
+.tool .fld{width:190px}
+.tool .fld.srch{width:280px}
+.tool .push{margin-left:auto}
+.pr{display:inline-flex;align-items:center;gap:6px}
+
+.phd2{display:flex;align-items:center;gap:12px;padding:16px 20px 0;flex-wrap:wrap}
+.phd2 h1{margin:0;font-size:20px;font-weight:600;line-height:1.3}
+.pbody{padding:0 20px 20px;display:flex;flex-direction:column;gap:16px}
+.tblw{margin:0 20px;overflow:auto;border:1px solid var(--line);border-radius:8px}
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.tbl th{background:var(--board);text-align:left;font-weight:600;color:#3A3936;font-size:13px;border:1px solid var(--line);padding:0 12px;height:44px;white-space:nowrap}
+.tbl td{padding:0 12px;height:48px;border:1px solid var(--line);white-space:nowrap;font-variant-numeric:tabular-nums}
+.tbl tbody tr:hover td{background:var(--board)}
+.tbl tr > :first-child{border-left:0}
+.tbl tr > :last-child{border-right:0}
+.tbl thead tr:first-child th{border-top:0}
+.tbl tbody tr:last-child td{border-bottom:0}
+.tbl tfoot td{background:var(--board);font-weight:600;border-bottom:0}
+.th{border:0;background:transparent;padding:0;font-weight:600!important;font-size:13px!important;color:#3A3936;cursor:pointer;display:inline-flex;align-items:center;gap:4px;height:28px}
+.th:hover,.th.on{color:var(--pri)}
+.tt{font-weight:600;display:block;max-width:380px;overflow:hidden;text-overflow:ellipsis}
+.tt:hover{color:var(--pri)}
+.stp{height:24px;display:inline-flex;align-items:center;padding:0 9px;border-radius:6px;background:var(--soft);color:#3A3936;font-size:12.5px}
+.stp.ok{background:#E6EDF8;color:#284A87}
+.stp.warn{background:#FCEBDD;color:#9A3412}
+.stp.bad{background:#FBE5E1;color:#9B2C1B}
+.stp.mute{background:var(--soft);color:var(--muted)}
+.lt{color:var(--late);font-weight:600}
+.r{text-align:right}
+.acts{display:flex;align-items:center;gap:2px}
+.lempty{padding:28px;text-align:center;color:var(--muted)}
+.pg{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 20px 18px;color:var(--muted)}
+.pgl{display:flex;align-items:center;gap:12px}
+.pgr{display:flex;align-items:center;gap:6px}
+.pgb{min-width:36px;height:36px;padding:0 6px;border:1px solid var(--line);background:#fff;border-radius:8px;color:var(--text);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums}
+.pgb:hover{background:var(--soft);border-color:var(--line2)}
+.pgb.on{background:var(--pri);border-color:var(--pri);color:#fff;font-weight:600}
+.pgb:disabled{opacity:.4;cursor:not-allowed}
+.ell{min-width:20px;text-align:center}
+.sz{width:84px}
+.tile{flex:1 1 200px;border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:4px;background:#fff}
+.tile .k2{color:var(--muted);font-size:13px}
+.tile .v2{font-size:22px;font-weight:600;line-height:1.3;font-variant-numeric:tabular-nums}
+.tiles{display:flex;gap:12px;flex-wrap:wrap}
+.card2{border:1px solid var(--line);border-radius:10px;background:#fff}
+.card2 h3{margin:0;padding:14px 18px;font-size:15px;font-weight:600;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
+.card2 h3 .grow{flex:1}
+.seg{display:inline-flex;padding:3px;border-radius:9px;background:var(--soft);gap:2px}
+.segb{height:30px;padding:0 14px;border:0;border-radius:7px;background:transparent;color:var(--muted);cursor:pointer}
+.segb.on{background:#fff;color:var(--text);font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.hbars{display:flex;flex-direction:column;gap:10px;padding:16px 18px}
+.hb{display:grid;grid-template-columns:160px 1fr 90px;align-items:center;gap:12px}
+.hb .n{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hb .t{height:10px;border-radius:5px;background:var(--soft);overflow:hidden}
+.hb .t span{display:block;height:100%;background:var(--pri);border-radius:5px}
+.hb .m{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+.grid2c{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.grid3c{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.formg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 20px;padding:18px}
+.full{grid-column:1/-1}
+.cm{width:100%;min-height:96px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;color:var(--text);resize:vertical;line-height:1.5;font-family:inherit}
+.cm:hover{border-color:var(--line2)}
+.cm:focus{border-color:var(--pri);box-shadow:0 0 0 3px var(--ring);outline:none}
+.scrim{position:absolute;inset:0;background:rgba(20,20,18,.42);z-index:40}
+.dlg{position:absolute;top:80px;left:50%;transform:translateX(-50%);width:min(560px,calc(100% - 32px));max-height:calc(100% - 120px);background:#fff;border-radius:12px;box-shadow:0 24px 64px rgba(0,0,0,.28);z-index:41;display:flex;flex-direction:column}
+.dlg .mh{height:56px;display:flex;align-items:center;gap:6px;padding:0 10px 0 24px;border-bottom:1px solid var(--line);flex:none}
+.dlg .mt{font-size:15px;font-weight:600}
+.dlg .db{padding:20px 24px;display:flex;flex-direction:column;gap:16px;overflow:auto}
+.dlg .df{display:flex;justify-content:flex-end;gap:8px;padding:14px 24px;border-top:1px solid var(--line)}
+.mcatch{position:absolute;inset:0;z-index:5;border-radius:12px}
+.row2{display:flex;gap:8px;align-items:center}
+.sw2{display:flex;align-items:center;gap:10px}
+.sw2 .nm2{flex:1}
+.tg{width:40px;height:22px;border-radius:11px;background:var(--line2);border:0;position:relative;cursor:pointer;flex:none}
+.tg::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:left .12s}
+.tg.on{background:var(--pri)}
+.tg.on::after{left:21px}
+
+.scrim{position:absolute;inset:0;background:rgba(20,20,18,.42);z-index:40}
+.modal{position:absolute;top:32px;left:50%;transform:translateX(-50%);width:min(1020px,calc(100% - 32px));height:min(836px,calc(100% - 64px));background:#fff;border-radius:12px;box-shadow:0 24px 64px rgba(0,0,0,.28);z-index:41;display:flex;flex-direction:column}
+.mcatch{position:absolute;inset:0;z-index:5;border-radius:12px}
+.mh{height:56px;display:flex;align-items:center;gap:6px;padding:0 10px 0 24px;border-bottom:1px solid var(--line);flex:none}
+.mt{font-size:15px;font-weight:600}
+.mb{flex:1;display:flex;min-height:0}
+.mm{flex:1;min-width:0;padding:20px 24px 28px;display:flex;flex-direction:column;gap:18px;overflow-y:auto}
+.ms{width:320px;flex:none;padding:16px;background:var(--board);border-left:1px solid var(--line);display:flex;flex-direction:column;gap:12px;overflow-y:auto;border-radius:0 0 12px 0}
+.blk{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:12px}
+.ed{border:1px solid var(--line);border-radius:8px;background:#fff;transition:border-color .12s,box-shadow .12s}
+.ed:hover{border-color:var(--line2)}
+.ed:focus-within{border-color:var(--pri);box-shadow:0 0 0 3px var(--ring)}
+.edt{display:flex;align-items:center;gap:2px;padding:4px 6px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.tbb{width:30px;height:30px;border:0;border-radius:6px;background:transparent;color:#4A4945;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.tbb:hover{background:var(--soft);color:var(--text)}
+.tbb.t{font-size:12px!important;font-weight:600!important}
+.tbs{width:1px;height:18px;background:var(--line);margin:0 4px}
+.edc{min-height:190px;max-height:320px;overflow:auto;padding:10px 14px;line-height:1.6;outline:none}
+.edc:empty::before{content:attr(data-ph);color:var(--phc)}
+.edc p{margin:0 0 8px}
+.edc ul,.edc ol{margin:0 0 8px;padding-left:22px}
+.edc h2{margin:4px 0 6px;font-size:16px;font-weight:600}
+.edc h3{margin:4px 0 6px;font-size:15px;font-weight:600}
+.edc blockquote{margin:0 0 8px;padding-left:12px;border-left:2px solid var(--line2);color:var(--muted)}
+.edc code{background:var(--soft);border-radius:4px;padding:1px 5px;font-size:13px}
+.rimg{margin:6px 0 8px;display:inline-flex;flex-direction:column;gap:4px;max-width:100%}
+.rimg .pic{width:320px;max-width:100%;height:150px;border-radius:6px;background:#EDECE8;display:flex;align-items:center;justify-content:center;color:#A3A19B;border:1px solid var(--line)}
+.rimg .cap{font-size:12px;color:var(--muted)}
+.files{display:flex;flex-direction:column;gap:6px;margin-top:6px}
+.file{display:flex;align-items:center;gap:10px;height:40px;padding:0 4px 0 12px;border:1px solid var(--line);border-radius:8px}
+.file .n{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.prog{height:4px;border-radius:2px;background:var(--soft);overflow:hidden}
+.prog span{display:block;height:100%;background:var(--pri)}
+.cl{display:flex;flex-direction:column;gap:2px}
+.cli{display:flex;align-items:center;gap:8px;padding:2px 2px 2px 8px;border-radius:8px}
+.cli:hover{background:var(--soft)}
+.cli input[type=checkbox]{margin:0;width:16px;height:16px;accent-color:var(--pri);flex:none}
+.clt{flex:1;min-width:0;height:32px;border:1px solid transparent;border-radius:6px;padding:0 8px;color:var(--text);background:transparent}
+.clt:hover{border-color:var(--line)}
+.clt:focus{border-color:var(--pri);box-shadow:0 0 0 3px var(--ring);background:#fff;outline:none}
+.clt.d{color:var(--muted);text-decoration:line-through}
+.row2{display:flex;gap:8px;align-items:center}
+.emp{border:1px dashed var(--line2);border-radius:8px;padding:16px;text-align:center;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:6px}
+.ttabs{display:flex;gap:18px;border-bottom:1px solid var(--line)}
+.tt{padding:6px 0 8px;border:0;background:transparent;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tt:hover{color:var(--text)}
+.tt.on{color:var(--text);font-weight:600;border-bottom-color:var(--text)}
+.cbox{display:flex;gap:10px;align-items:flex-start;margin-top:8px}
+.cbox .cin{flex:1;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.cm{width:100%;min-height:72px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;color:var(--text);resize:vertical;line-height:1.5;transition:border-color .12s,box-shadow .12s}
+.cm:hover{border-color:var(--line2)}
+.cm:focus{border-color:var(--pri);box-shadow:0 0 0 3px var(--ring);outline:none}
+.cmt{display:flex;gap:10px;padding:12px 0;border-top:1px solid var(--line)}
+.cmt .bd{flex:1;min-width:0}
+.cmt .hd{display:flex;align-items:center;gap:8px;font-size:13px}
+.cmt .hd b{font-weight:600}
+.w{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.cmt .tx{margin-top:2px;white-space:pre-wrap}
+.cmt .ib{margin-left:auto}
+.hi2{display:flex;align-items:center;gap:10px;padding:6px 0}
+.hp{flex:1;display:flex;align-items:center;gap:8px;min-height:36px;padding:0 12px;border-radius:8px;background:var(--board);border:1px solid var(--line)}
+.hp .w{margin-left:auto}
+.reopen{flex:1;display:flex;align-items:center;justify-content:center;padding:80px 0}
+
+.scrim.s2{z-index:50}
+.dlg{z-index:51}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.lbl2{font-size:13px;font-weight:600;color:#3A3936}
+</style>
+</helmet>
+<div class="a">
+<sc-if value="{{ddOpen}}" hint-placeholder-val="{{false}}"><div class="catch" onClick="{{closeDd}}"></div></sc-if>
+<aside class="side">
+<div class="ws"><span class="logo">T</span>Taskboard</div>
+<nav class="nav" aria-label="Chính">
+<a href="02-hom-nay.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>Hôm nay</a>
+<a href="10-task-cua-toi.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="m8.5 12 2.5 2.5 4.5-5"></path></svg>Task của tôi</a>
+</nav>
+<div>
+<div class="gh">Làm việc</div>
+<nav class="nav" aria-label="Làm việc">
+<a href="03-pipeline.dc.html" class="on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path></svg>Pipeline job</a>
+<a href="05-khach-hang.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>Khách hàng</a>
+<a href="11-timesheet.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Timesheet</a>
+<a href="12-bao-cao.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18M18 17V9M13 17V5M8 17v-3"></path></svg>Báo cáo</a>
+</nav>
+</div>
+<div>
+<div class="gh">Dự án</div>
+<nav class="nav" aria-label="Dự án">
+<a href="07-du-an.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"></path></svg>Tất cả dự án</a>
+<a href="08-bang-du-an.dc.html"><span class="sq" style="background:#4A7BC0"></span>ACME Shop<span class="k">ACME</span></a>
+<a href="08-bang-du-an.dc.html"><span class="sq" style="background:#C08A2A"></span>Lumen CRM<span class="k">LUM</span></a>
+<a href="08-bang-du-an.dc.html"><span class="sq" style="background:#8E8577"></span>Harbor Booking<span class="k">HRB</span></a>
+</nav>
+</div>
+</aside>
+<main class="panel">
+<header class="appbar">
+<button class="search" type="button"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><span class="t">Tìm kiếm</span><span class="kbd">Ctrl K</span></button>
+<span class="grow"></span>
+<a class="ib" href="15-thong-bao.dc.html" aria-label="Thông báo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg><span class="badge">3</span></a>
+<a class="user" href="14-ho-so-cai-dat.dc.html"><span class="av">NĐ</span>Nguyễn Đức</a>
+</header>
+<div class="phd2"><h1>Pipeline job</h1><span class="grow"></span></div>
+<div class="scrim"></div><div class="modal" role="dialog" aria-modal="true" aria-label="Chi tiết job" onKeyDown="{{modalKey}}"><sc-if value="{{ddOpen}}" hint-placeholder-val="{{false}}"><div class="mcatch" onClick="{{closeDd}}"></div></sc-if><div class="mh"><span class="mt">{{form.title}}</span><span class="grow"></span><a class="ib" href="03-pipeline.dc.html" aria-label="Đóng"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></a></div><div class="mb"><div class="mm"><div class="fld"><label class="lb" for="j-title">Tên job <span class="req">*</span></label><input id="j-title" class="ctl {{titleCls}}" placeholder="Nhập tên job" value="{{form.title}}" onChange="{{onTitle}}"><sc-if value="{{titleBad}}" hint-placeholder-val="{{false}}"><span class="err">Nhập tên job</span></sc-if></div><div class="fld"><label class="lb" for="j-url">Link job</label><label class="ctl"><input id="j-url" type="text" placeholder="Dán link job trên Upwork" value="{{form.url}}" onChange="{{onUrl}}"></label></div><div class="fld"><label class="lb" for="j-desc">Mô tả job</label><textarea id="j-desc" class="cm" placeholder="Dán mô tả job" style="min-height:168px" value="{{form.desc}}" onChange="{{onDesc}}"></textarea></div><div class="fld"><label class="lb" for="j-cover">Thư chào giá</label><textarea id="j-cover" class="cm" placeholder="Dán nội dung đã gửi" style="min-height:168px" value="{{form.cover}}" onChange="{{onCover}}"></textarea></div><div class="fld"><span class="lb">Lịch sử trạng thái</span><sc-for list="{{history}}" as="h" hint-placeholder-count="3"><div class="hi2"><span class="av">NĐ</span><div class="hp"><span>{{h.text}}</span><span class="w">{{h.when}}</span></div></div></sc-for></div></div><div class="ms"><div class="blk"><sc-for list="{{statusSels}}" as="sel" hint-placeholder-count="3">
+<div class="fld">
+<span class="lb" id="{{sel.id}}-l">{{sel.label}}<sc-if value="{{sel.req}}" hint-placeholder-val="{{false}}"> <span class="req">*</span></sc-if></span>
+<div class="ddw {{sel.wcls}}">
+<button class="ctl {{sel.cls}}" type="button" aria-haspopup="listbox" aria-expanded="{{sel.open}}" aria-labelledby="{{sel.id}}-l" onClick="{{sel.toggle}}"><sc-if value="{{sel.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{sel.dot}}"></span></sc-if><span class="v {{sel.vcls}}">{{sel.text}}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<sc-if value="{{sel.open}}" hint-placeholder-val="{{false}}">
+<div class="ddl" role="listbox" aria-multiselectable="{{sel.multi}}">
+<sc-for list="{{sel.opts}}" as="o" hint-placeholder-count="4">
+<button class="ddo {{o.cls}}" type="button" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}">
+<sc-if value="{{sel.multi}}" hint-placeholder-val="{{false}}"><span class="box"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span></sc-if>
+<sc-if value="{{o.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{o.dot}}"></span></sc-if>
+<span>{{o.label}}</span>
+<sc-if value="{{sel.single}}" hint-placeholder-val="{{true}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ck"><path d="m5 12 5 5 9-10"></path></svg></sc-if>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-for>
+<sc-for list="{{lostSels}}" as="sel" hint-placeholder-count="3">
+<div class="fld">
+<span class="lb" id="{{sel.id}}-l">{{sel.label}}<sc-if value="{{sel.req}}" hint-placeholder-val="{{false}}"> <span class="req">*</span></sc-if></span>
+<div class="ddw {{sel.wcls}}">
+<button class="ctl {{sel.cls}}" type="button" aria-haspopup="listbox" aria-expanded="{{sel.open}}" aria-labelledby="{{sel.id}}-l" onClick="{{sel.toggle}}"><sc-if value="{{sel.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{sel.dot}}"></span></sc-if><span class="v {{sel.vcls}}">{{sel.text}}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<sc-if value="{{sel.open}}" hint-placeholder-val="{{false}}">
+<div class="ddl" role="listbox" aria-multiselectable="{{sel.multi}}">
+<sc-for list="{{sel.opts}}" as="o" hint-placeholder-count="4">
+<button class="ddo {{o.cls}}" type="button" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}">
+<sc-if value="{{sel.multi}}" hint-placeholder-val="{{false}}"><span class="box"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span></sc-if>
+<sc-if value="{{o.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{o.dot}}"></span></sc-if>
+<span>{{o.label}}</span>
+<sc-if value="{{sel.single}}" hint-placeholder-val="{{true}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ck"><path d="m5 12 5 5 9-10"></path></svg></sc-if>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-for>
+<sc-for list="{{metaSels}}" as="sel" hint-placeholder-count="3">
+<div class="fld">
+<span class="lb" id="{{sel.id}}-l">{{sel.label}}<sc-if value="{{sel.req}}" hint-placeholder-val="{{false}}"> <span class="req">*</span></sc-if></span>
+<div class="ddw {{sel.wcls}}">
+<button class="ctl {{sel.cls}}" type="button" aria-haspopup="listbox" aria-expanded="{{sel.open}}" aria-labelledby="{{sel.id}}-l" onClick="{{sel.toggle}}"><sc-if value="{{sel.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{sel.dot}}"></span></sc-if><span class="v {{sel.vcls}}">{{sel.text}}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<sc-if value="{{sel.open}}" hint-placeholder-val="{{false}}">
+<div class="ddl" role="listbox" aria-multiselectable="{{sel.multi}}">
+<sc-for list="{{sel.opts}}" as="o" hint-placeholder-count="4">
+<button class="ddo {{o.cls}}" type="button" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}">
+<sc-if value="{{sel.multi}}" hint-placeholder-val="{{false}}"><span class="box"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span></sc-if>
+<sc-if value="{{o.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{o.dot}}"></span></sc-if>
+<span>{{o.label}}</span>
+<sc-if value="{{sel.single}}" hint-placeholder-val="{{true}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ck"><path d="m5 12 5 5 9-10"></path></svg></sc-if>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-for>
+</div><div class="blk"><div class="fld"><span class="lb">Loại ngân sách</span><div class="seg" role="radiogroup" aria-label="Loại ngân sách"><button class="segb {{segH}}" type="button" role="radio" aria-checked="{{isHourly}}" onClick="{{setHourly}}">Hourly</button><button class="segb {{segF}}" type="button" role="radio" aria-checked="{{isFixed}}" onClick="{{setFixed}}">Fixed</button></div></div><div class="fld"><span class="lb">Ngân sách của khách</span><div class="pair"><label class="ctl"><span class="ad">$</span><input inputmode="decimal" placeholder="Từ" aria-label="Ngân sách từ" value="{{form.bmin}}" onChange="{{onBmin}}"></label><label class="ctl"><span class="ad">$</span><input inputmode="decimal" placeholder="Đến" aria-label="Ngân sách đến" value="{{form.bmax}}" onChange="{{onBmax}}"></label></div></div><div class="fld"><label class="lb" for="j-bid">Giá chào</label><label class="ctl"><span class="ad">$</span><input id="j-bid" type="text" placeholder="Nhập giá chào" value="{{form.bid}}" onChange="{{onBid}}"></label></div><div class="fld"><label class="lb" for="j-conn">Connects đã dùng</label><label class="ctl"><input id="j-conn" type="text" placeholder="Nhập số connects" value="{{form.connects}}" onChange="{{onConn}}"></label></div></div><div class="blk"><sc-for list="{{skillSels}}" as="sel" hint-placeholder-count="3">
+<div class="fld">
+<span class="lb" id="{{sel.id}}-l">{{sel.label}}<sc-if value="{{sel.req}}" hint-placeholder-val="{{false}}"> <span class="req">*</span></sc-if></span>
+<div class="ddw {{sel.wcls}}">
+<button class="ctl {{sel.cls}}" type="button" aria-haspopup="listbox" aria-expanded="{{sel.open}}" aria-labelledby="{{sel.id}}-l" onClick="{{sel.toggle}}"><sc-if value="{{sel.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{sel.dot}}"></span></sc-if><span class="v {{sel.vcls}}">{{sel.text}}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<sc-if value="{{sel.open}}" hint-placeholder-val="{{false}}">
+<div class="ddl" role="listbox" aria-multiselectable="{{sel.multi}}">
+<sc-for list="{{sel.opts}}" as="o" hint-placeholder-count="4">
+<button class="ddo {{o.cls}}" type="button" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}">
+<sc-if value="{{sel.multi}}" hint-placeholder-val="{{false}}"><span class="box"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span></sc-if>
+<sc-if value="{{o.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{o.dot}}"></span></sc-if>
+<span>{{o.label}}</span>
+<sc-if value="{{sel.single}}" hint-placeholder-val="{{true}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ck"><path d="m5 12 5 5 9-10"></path></svg></sc-if>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-for>
+<sc-for list="{{followDates}}" as="dt" hint-placeholder-count="3">
+<div class="fld"><span class="lb">{{dt.label}}</span>
+<div class="ddw {{dt.wcls}}">
+<div class="ctl {{dt.cls}}"><input placeholder="{{dt.ph}}" value="{{dt.value}}" onChange="{{dt.onInput}}" aria-label="{{dt.label}}"><button class="icb" type="button" aria-label="Mở lịch" onClick="{{dt.toggle}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M16 3v4M8 3v4M3 10h18"></path></svg></button></div>
+<sc-if value="{{dt.open}}" hint-placeholder-val="{{false}}"><div class="cal" role="dialog" aria-label="Chọn ngày"><div class="calh"><button class="ib sm" type="button" aria-label="Tháng trước" onClick="{{dt.prev}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button><span>{{dt.title}}</span><button class="ib sm" type="button" aria-label="Tháng sau" onClick="{{dt.next}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button></div><div class="calg"><span class="wd">T2</span><span class="wd">T3</span><span class="wd">T4</span><span class="wd">T5</span><span class="wd">T6</span><span class="wd">T7</span><span class="wd">CN</span><sc-for list="{{dt.days}}" as="d" hint-placeholder-count="35"><button class="day {{d.cls}}" type="button" aria-label="{{d.label}}" onClick="{{d.pick}}">{{d.n}}</button></sc-for></div>
+<sc-if value="{{dt.withTime}}" hint-placeholder-val="{{false}}"><div class="tmr"><span class="lb">Giờ</span><input class="ctl tmi" inputmode="numeric" maxlength="2" aria-label="Giờ" value="{{dt.hh}}" onChange="{{dt.onHH}}"><span>:</span><input class="ctl tmi" inputmode="numeric" maxlength="2" aria-label="Phút" value="{{dt.mi}}" onChange="{{dt.onMI}}"></div></sc-if>
+<div class="calf"><button class="b g sm" type="button" onClick="{{dt.clear}}">Xoá</button><span class="grow"></span><button class="b sm" type="button" onClick="{{dt.today}}">{{dt.nowText}}</button><sc-if value="{{dt.withTime}}" hint-placeholder-val="{{false}}"><button class="b sm" type="button" style="margin-left:6px" onClick="{{dt.done}}">Xong</button></sc-if></div></div></sc-if>
+</div>
+<sc-if value="{{dt.hasErr}}" hint-placeholder-val="{{false}}"><span class="err">{{dt.errText}}</span></sc-if>
+</div>
+</sc-for>
+</div><div class="blk"><button class="b p full" type="button" onClick="{{save}}" disabled="{{saveOff}}">Lưu thay đổi</button><sc-if value="{{canConvert}}" hint-placeholder-val="{{true}}"><button class="b full" type="button" onClick="{{openConvert}}">Chuyển thành dự án</button></sc-if><sc-if value="{{converted}}" hint-placeholder-val="{{false}}"><a class="b full" href="08-bang-du-an.dc.html">Mở dự án {{projKey}}</a></sc-if><button class="b full" type="button" onClick="{{archive}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="5" rx="1"></rect><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M10 12h4"></path></svg>Lưu trữ</button><a class="b full" href="03-pipeline.dc.html"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg>Đóng</a></div></div></div></div>
+<sc-if value="{{cvOpen}}" hint-placeholder-val="{{false}}"><div class="scrim s2" onClick="{{closeConvert}}"></div><div class="dlg" role="dialog" aria-modal="true" aria-label="Chuyển thành dự án"><sc-if value="{{ddOpen}}" hint-placeholder-val="{{false}}"><div class="mcatch" onClick="{{closeDd}}"></div></sc-if><div class="mh"><span class="mt">Chuyển thành dự án</span><span class="grow"></span><button class="ib" type="button" aria-label="Đóng" onClick="{{closeConvert}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"></path></svg></button></div><div class="db"><div class="formg" style="padding:0"><div class="fld full"><label class="lb" for="cv-name">Tên dự án <span class="req">*</span></label><label class="ctl {{cvNameCls}}"><input id="cv-name" type="text" placeholder="Nhập tên dự án" value="{{cv.name}}" onChange="{{onCvName}}"></label><sc-if value="{{cvNameBad}}" hint-placeholder-val="{{false}}"><span class="err">Nhập tên dự án</span></sc-if></div><div class="fld"><label class="lb" for="cv-key">Mã dự án <span class="req">*</span></label><label class="ctl {{cvKeyCls}}"><input id="cv-key" type="text" placeholder="Nhập mã, ví dụ ACME" value="{{cv.key}}" onChange="{{onCvKey}}"></label><sc-if value="{{cvKeyBad}}" hint-placeholder-val="{{false}}"><span class="err">Mã gồm 2–6 ký tự in hoa hoặc số, bắt đầu bằng chữ</span></sc-if></div><sc-for list="{{cvSels}}" as="sel" hint-placeholder-count="3">
+<div class="fld">
+<span class="lb" id="{{sel.id}}-l">{{sel.label}}<sc-if value="{{sel.req}}" hint-placeholder-val="{{false}}"> <span class="req">*</span></sc-if></span>
+<div class="ddw {{sel.wcls}}">
+<button class="ctl {{sel.cls}}" type="button" aria-haspopup="listbox" aria-expanded="{{sel.open}}" aria-labelledby="{{sel.id}}-l" onClick="{{sel.toggle}}"><sc-if value="{{sel.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{sel.dot}}"></span></sc-if><span class="v {{sel.vcls}}">{{sel.text}}</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<sc-if value="{{sel.open}}" hint-placeholder-val="{{false}}">
+<div class="ddl" role="listbox" aria-multiselectable="{{sel.multi}}">
+<sc-for list="{{sel.opts}}" as="o" hint-placeholder-count="4">
+<button class="ddo {{o.cls}}" type="button" role="option" aria-selected="{{o.on}}" onClick="{{o.pick}}">
+<sc-if value="{{sel.multi}}" hint-placeholder-val="{{false}}"><span class="box"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"></path></svg></span></sc-if>
+<sc-if value="{{o.hasDot}}" hint-placeholder-val="{{false}}"><span class="dotp" style="background:{{o.dot}}"></span></sc-if>
+<span>{{o.label}}</span>
+<sc-if value="{{sel.single}}" hint-placeholder-val="{{true}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="ck"><path d="m5 12 5 5 9-10"></path></svg></sc-if>
+</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</div>
+</sc-for>
+<div class="fld"><span class="lb">Loại hợp đồng</span><div class="seg"><button class="segb {{cvH}}" type="button" onClick="{{cvSetH}}">Hourly</button><button class="segb {{cvF}}" type="button" onClick="{{cvSetF}}">Fixed</button></div></div><div class="fld"><label class="lb" for="cv-price">{{cvPriceLabel}} <span class="req">*</span></label><label class="ctl {{cvPriceCls}}"><span class="ad">$</span><input id="cv-price" type="text" placeholder="Nhập số tiền" value="{{cv.price}}" onChange="{{onCvPrice}}"></label><sc-if value="{{cvPriceBad}}" hint-placeholder-val="{{false}}"><span class="err">Nhập số tiền</span></sc-if></div></div></div><div class="df"><button class="b" type="button" onClick="{{closeConvert}}">Đóng</button><button class="b p" type="button" onClick="{{saveConvert}}">Tạo dự án</button></div></div></sc-if>
+</main>
+<sc-if value="{{hasToast}}" hint-placeholder-val="{{false}}"><div class="toast" role="status">{{toast}}</div></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+constructor(props) {
+super(props);
+var f = { title: 'Shopify inventory sync', url: 'https://www.upwork.com/jobs/~01a2b3c4d5e6', desc: 'Cần developer Java đồng bộ tồn kho giữa Shopify và hệ thống kho nội bộ, chạy định kỳ và có log đối soát.', cover: 'Chào anh, em đã làm 3 dự án đồng bộ tồn kho với Shopify Admin API. Em đề xuất chạy 15 phút một lần, có retry khi gặp giới hạn request.', status: 'Đã apply', lost: '', client: 'Northwind Retail', source: 'Upwork', type: 'Hourly', bmin: '30', bmax: '40', bid: '35', connects: '14', skills: ['Shopify', 'Java'], follow: '12/11/2026' };
+this.state = { form: f, snap: JSON.stringify(f), touched: false, dd: '', calView: { y: 2026, m: 10 }, toast: '', converted: false, projKey: '', hist: [{"when": "09/11/2026 10:12:44", "text": "Đã lưu → Đã apply"}, {"when": "07/11/2026 16:30:05", "text": "Tạo job"}], cvOpen: false, cv: { name: '', key: '', client: '', type: 'Hourly', price: '' }, cvTouched: false };
+}
+
+clone(x) { return JSON.parse(JSON.stringify(x)); }
+parseD(s) { var m = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(s || ''); if (!m) { return null; } var d = new Date(+m[3], +m[2] - 1, +m[1]); return d.getMonth() === +m[2] - 1 && d.getDate() === +m[1] ? d : null; }
+fmtD(d) { function p(v) { return (v < 10 ? '0' : '') + v; } return p(d.getDate()) + '/' + p(d.getMonth() + 1) + '/' + d.getFullYear(); }
+today() { return new Date(2026, 10, 12); }
+nowStr() { var n = new Date(); function p(v) { return (v < 10 ? '0' : '') + v; } return '12/11/2026 ' + p(n.getHours()) + ':' + p(n.getMinutes()) + ':' + p(n.getSeconds()); }
+flash(msg) { var self = this; this.setState({ toast: msg }); clearTimeout(this._t); this._t = setTimeout(function () { self.setState({ toast: '' }); }, 2600); }
+componentWillUnmount() { clearTimeout(this._t); }
+toggleIn(arr, v) { return arr.indexOf(v) >= 0 ? arr.filter(function (x) { return x !== v; }) : arr.concat([v]); }
+mkSel(id, label, options, cur, multi, onPick, emptyText, extra) {
+var self = this, open = this.state.dd === id;
+var labelOf = function (v) { var o = options.filter(function (x) { return x[0] === v; })[0]; return o ? o[1] : ''; };
+var text = multi ? cur.map(labelOf).join(', ') : labelOf(cur);
+var isEmpty = multi ? cur.length === 0 : !text;
+return Object.assign({
+id: id, label: label, open: open, multi: multi, single: !multi, req: false, hasDot: false, dot: '',
+text: isEmpty ? emptyText : text, vcls: isEmpty ? 'vph' : '', cls: open ? 'open' : '', wcls: open ? 'up' : '',
+toggle: function () { self.setState({ dd: self.state.dd === id ? '' : id }); },
+opts: options.map(function (o) { var on = multi ? cur.indexOf(o[0]) >= 0 : cur === o[0]; return { label: o[1], on: on, cls: on ? 'on' : '', hasDot: !!o[2], dot: o[2] || '', pick: function () { onPick(o[0]); if (!multi) { self.setState({ dd: '' }); } } }; })
+}, extra || {});
+}
+parseDT(s) { var m = /^(\d{2}\/\d{2}\/\d{4}) (\d{2}):(\d{2})$/.exec(s || ''); if (!m) { return null; } var d = this.parseD(m[1]); if (!d || +m[2] > 23 || +m[3] > 59) { return null; } d.setHours(+m[2], +m[3]); return d; }
+mkDate(id, label, value, setVal, touched, withTime, extraErr) {
+var self = this, s = this.state, open = s.dd === id, cv = s.calView || { y: 2026, m: 10 }, td = this.today();
+function p2(n) { n = +n || 0; return (n < 10 ? '0' : '') + n; }
+var datePart = withTime ? (value || '').slice(0, 10) : value, timePart = withTime ? (value || '').slice(11, 16) : '';
+var sel = this.parseD(datePart);
+var bad = withTime ? (!!value && (value.length >= 16 || touched) && !this.parseDT(value)) : (!!value && (value.length >= 10 || touched) && !sel);
+var setTime = function (h, mi) { var dp = self.parseD(datePart) ? datePart : self.fmtD(self.today()); setVal(dp + ' ' + p2(Math.min(23, h)) + ':' + p2(Math.min(59, mi))); };
+var hh = timePart.slice(0, 2), mi = timePart.slice(3, 5);
+var days = [];
+if (open) {
+var first = new Date(cv.y, cv.m, 1), off = (first.getDay() + 6) % 7;
+for (var i = 0; i < 42; i++) {
+var d = new Date(cv.y, cv.m, 1 - off + i);
+if (i >= 35 && d.getMonth() !== cv.m) { break; }
+(function (dd) { var c = []; if (dd.getMonth() !== cv.m) { c.push('out'); } if (dd.getTime() === td.getTime()) { c.push('today'); } if (sel && dd.getTime() === sel.getTime()) { c.push('sel'); } days.push({ n: dd.getDate(), label: self.fmtD(dd), cls: c.join(' '), pick: function () { if (withTime) { setVal(self.fmtD(dd) + ' ' + (timePart.length === 5 ? timePart : '09:00')); } else { setVal(self.fmtD(dd)); self.setState({ dd: '' }); } } }); })(d);
+}
+}
+var errText = bad ? (withTime ? 'Ngày giờ không hợp lệ' : 'Ngày không hợp lệ') : (extraErr || '');
+var move = function (delta) { return function () { var c2 = self.state.calView || { y: 2026, m: 10 }, nd = new Date(c2.y, c2.m + delta, 1); self.setState({ calView: { y: nd.getFullYear(), m: nd.getMonth() } }); }; };
+return {
+id: id, label: label, value: value, open: open, wcls: open ? 'up' : '', bad: bad, hasErr: !!errText, errText: errText, cls: (open ? 'open ' : '') + (errText ? 'bad' : ''),
+withTime: !!withTime, ph: withTime ? 'dd/mm/yyyy HH:mm' : 'dd/mm/yyyy', hh: hh, mi: mi,
+nowText: withTime ? 'Bây giờ' : 'Hôm nay',
+onHH: function (e) { var x = e.target.value.replace(/\D/g, '').slice(0, 2); setTime(x, mi); },
+onMI: function (e) { var x = e.target.value.replace(/\D/g, '').slice(0, 2); setTime(hh || 9, x); },
+done: function () { self.setState({ dd: '' }); },
+onInput: function (e) { setVal(e.target.value); },
+toggle: function () { if (self.state.dd === id) { self.setState({ dd: '' }); return; } var b = self.parseD(datePart) || self.today(); self.setState({ dd: id, calView: { y: b.getFullYear(), m: b.getMonth() } }); },
+title: 'Tháng ' + (cv.m + 1) + '/' + cv.y, days: days, prev: move(-1), next: move(1),
+clear: function () { setVal(''); self.setState({ dd: '' }); },
+today: function () { if (withTime) { var n = new Date(); setVal(self.fmtD(self.today()) + ' ' + p2(n.getHours()) + ':' + p2(n.getMinutes())); } else { setVal(self.fmtD(self.today())); } self.setState({ dd: '' }); }
+};
+}
+
+upd(p) { this.setState(function (s) { return { form: Object.assign({}, s.form, p) }; }); }
+updCv(p) { this.setState(function (s) { return { cv: Object.assign({}, s.cv, p) }; }); }
+renderVals() {
+var self = this, s = this.state, f = s.form, cv = s.cv;
+var STAT = ['Đã lưu', 'Đã apply', 'Phỏng vấn', 'Được thuê', 'Trượt'];
+var LOST = ['Không phản hồi', 'Khách thuê người khác', 'Ngân sách không phù hợp', 'Tôi từ chối', 'Job đã đóng', 'Khác'];
+var CL = ["Northwind Retail", "Lumen Labs", "Harbor Group", "Birch & Co", "Kestrel Logistics", "Orchid Pay"].map(function (x) { return [x, x]; });
+var titleBad = s.touched && !f.title.trim(), lostBad = s.touched && f.status === 'Trượt' && !f.lost;
+var v = {
+form: f, titleBad: titleBad, titleCls: titleBad ? 'bad' : '', ddOpen: !!s.dd, closeDd: function () { self.setState({ dd: '' }); },
+modalKey: function (e) { if (e.key === 'Escape' && self.state.dd) { self.setState({ dd: '' }); } },
+toast: s.toast, hasToast: !!s.toast,
+onTitle: function (e) { self.upd({ title: e.target.value }); }, onUrl: function (e) { self.upd({ url: e.target.value }); }, onDesc: function (e) { self.upd({ desc: e.target.value }); }, onCover: function (e) { self.upd({ cover: e.target.value }); },
+onBmin: function (e) { self.upd({ bmin: e.target.value.replace(/[^\d.]/g, '') }); }, onBmax: function (e) { self.upd({ bmax: e.target.value.replace(/[^\d.]/g, '') }); },
+onBid: function (e) { self.upd({ bid: e.target.value.replace(/[^\d.]/g, '') }); }, onConn: function (e) { self.upd({ connects: e.target.value.replace(/\D/g, '') }); },
+isHourly: f.type === 'Hourly', isFixed: f.type === 'Fixed', segH: f.type === 'Hourly' ? 'on' : '', segF: f.type === 'Fixed' ? 'on' : '',
+setHourly: function () { self.upd({ type: 'Hourly' }); }, setFixed: function () { self.upd({ type: 'Fixed' }); },
+statusSels: [this.mkSel('jst', 'Trạng thái', STAT.map(function (x) { return [x, x]; }), f.status, false, function (x) { self.upd({ status: x, lost: x === 'Trượt' ? f.lost : '' }); }, '', { req: true })],
+lostSels: f.status === 'Trượt' ? [this.mkSel('jlost', 'Lý do trượt', LOST.map(function (x) { return [x, x]; }), f.lost, false, function (x) { self.upd({ lost: x }); }, 'Chọn lý do', { req: true, cls: lostBad ? 'bad' : '' })] : [],
+metaSels: [this.mkSel('jcl', 'Khách hàng', CL, f.client, false, function (x) { self.upd({ client: x }); }, 'Chọn khách hàng'), this.mkSel('jsrc', 'Nguồn', [['Upwork', 'Upwork'], ['Giới thiệu', 'Giới thiệu'], ['Trực tiếp', 'Trực tiếp'], ['Khác', 'Khác']], f.source, false, function (x) { self.upd({ source: x }); }, 'Chọn nguồn')],
+skillSels: [this.mkSel('jsk', 'Kỹ năng', ["Java", "Spring", "React", "TypeScript", "Node.js", "PostgreSQL", "Shopify", "Stripe", "REST", "SQL"].map(function (x) { return [x, x]; }), f.skills, true, function (x) { self.upd({ skills: self.toggleIn(self.state.form.skills, x) }); }, 'Chọn kỹ năng')],
+followDates: [this.mkDate('jfu', 'Ngày follow-up', f.follow, function (x) { self.upd({ follow: x }); }, s.touched)],
+history: s.hist, saveOff: JSON.stringify(f) === s.snap,
+canConvert: !s.converted && ['Đã apply', 'Phỏng vấn', 'Được thuê'].indexOf(f.status) >= 0, converted: s.converted, projKey: s.projKey,
+archive: function () { self.flash('Đã lưu trữ job'); },
+save: function () {
+var st = self.state, ff = st.form;
+if (!ff.title.trim() || (ff.status === 'Trượt' && !ff.lost)) { self.setState({ touched: true }); return; }
+var snapF = JSON.parse(st.snap), hist = st.hist;
+if (snapF.status !== ff.status) { hist = [{ when: self.nowStr(), text: snapF.status + ' → ' + ff.status }].concat(hist); }
+self.setState({ snap: JSON.stringify(ff), hist: hist, touched: false, dd: '' }); self.flash('Đã lưu job');
+},
+openConvert: function () { var w = f.title.split(' ').filter(function (x) { return x; }); var key = w.map(function (x) { return x[0]; }).join('').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 4); self.setState({ cvOpen: true, cv: { name: f.title, key: key, client: f.client, type: f.type, price: f.bid }, cvTouched: false, dd: '' }); },
+closeConvert: function () { self.setState({ cvOpen: false, dd: '' }); },
+cvOpen: s.cvOpen, cv: cv,
+cvNameBad: s.cvTouched && !cv.name.trim(), cvNameCls: s.cvTouched && !cv.name.trim() ? 'bad' : '',
+cvKeyBad: s.cvTouched && !/^[A-Z][A-Z0-9]{1,5}$/.test(cv.key), cvKeyCls: s.cvTouched && !/^[A-Z][A-Z0-9]{1,5}$/.test(cv.key) ? 'bad' : '',
+cvPriceBad: s.cvTouched && !String(cv.price).trim(), cvPriceCls: s.cvTouched && !String(cv.price).trim() ? 'bad' : '',
+onCvName: function (e) { self.updCv({ name: e.target.value }); }, onCvKey: function (e) { self.updCv({ key: e.target.value.toUpperCase() }); }, onCvPrice: function (e) { self.updCv({ price: e.target.value.replace(/[^\d.]/g, '') }); },
+cvH: cv.type === 'Hourly' ? 'on' : '', cvF: cv.type === 'Fixed' ? 'on' : '', cvSetH: function () { self.updCv({ type: 'Hourly' }); }, cvSetF: function () { self.updCv({ type: 'Fixed' }); },
+cvPriceLabel: cv.type === 'Hourly' ? 'Rate mỗi giờ' : 'Giá cố định',
+cvSels: [this.mkSel('cvcl', 'Khách hàng', CL, cv.client, false, function (x) { self.updCv({ client: x }); }, 'Chọn khách hàng', { req: true, cls: s.cvTouched && !cv.client ? 'bad' : '' })],
+saveConvert: function () {
+var c2 = self.state.cv;
+if (!c2.name.trim() || !/^[A-Z][A-Z0-9]{1,5}$/.test(c2.key) || !String(c2.price).trim() || !c2.client) { self.setState({ cvTouched: true }); return; }
+var ff = Object.assign({}, self.state.form, { status: 'Được thuê', client: c2.client });
+var hist = self.state.hist; if (self.state.form.status !== 'Được thuê') { hist = [{ when: self.nowStr(), text: self.state.form.status + ' → Được thuê' }].concat(hist); }
+self.setState({ form: ff, snap: JSON.stringify(ff), hist: hist, converted: true, projKey: c2.key, cvOpen: false, dd: '' });
+self.flash('Đã tạo dự án ' + c2.key);
+}
+};
+return v;
+}
+}
+</script>
+</body>
+</html>
